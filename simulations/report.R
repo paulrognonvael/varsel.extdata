@@ -1,0 +1,246 @@
+summarize.sim <- function(scenario,path){
+  require(tidyverse)
+  
+  setwd(paste0(path,'/scenario',scenario))
+  
+  res.varn <- data.frame()
+  time.varn <- data.frame()
+  
+  nb.active<- function(n){
+    return(3*log(n))
+  }
+  
+  nb.inactive<- function(n,scenario){
+    if(scenario==1)  return(1.5*n)
+    if(scenario==3)  return(n)
+    if(scenario==4)  return(n)
+    if(scenario==5)  return(n/2)
+  }
+  
+  
+  for (n  in c(#20,40,
+               60,80,seq(100,700,100))){
+    temp<-read.csv(paste0('sim.result.scenario',scenario,'.n',n,".csv"))
+    summary.sim.result <- temp %>% group_by(method) %>% 
+      mutate(FP=nb.tI.b0+nb.tI.b1, TP = round(nb.active(n))-(nb.tII.b0+nb.tII.b1), 
+             FDR = FP/(FP+TP), power = TP/round(nb.active(n))) %>% 
+      summarise(prob.recovery = mean(recovery),
+                mean.size.sel =mean(est.size), 
+                mean.FDR = mean(FDR),
+                mean.power = mean(power),
+                mean.mse = mean(est.mse))
+    summary.sim.result$n <- rep(n, nrow(summary.sim.result))
+    res.varn<- rbind(res.varn,summary.sim.result)
+    
+    summary.sim.time <- temp %>% summarise(median.time = mean(time.l0))
+    summary.sim.time$n <- rep(n, nrow(summary.sim.time))
+    summary.sim.time$p <- rep(nb.inactive(n,scenario)+nb.active(n), nrow(summary.sim.time))
+    
+    time.varn <- rbind(time.varn,summary.sim.time)
+  }
+  
+  res.varn$method <- factor(res.varn$method, levels = c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv","kappa.o"))
+  
+  
+  #### Prob recovery ####
+  
+  res.varn %>% 
+    filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv")) %>%
+    ggplot() + 
+    geom_line(aes(x=n, y=prob.recovery, col=method, linetype=method), size=0.5) + 
+    # coord_cartesian(ylim=c(0,1)) +
+    theme_light(base_size = 9)+
+    scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+                          labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    ylab('Prob. recovery') +
+    scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.margin=margin(0,0,0,0), 
+          legend.box.margin=margin(-5,-10,-5,-30),
+          legend.position="bottom",
+          legend.title = element_blank(),
+          legend.key.spacing.x = unit(0, 'pt'),
+          legend.key.spacing.y = unit(0, 'pt'),
+          legend.key.width = unit(20, 'pt'),
+          legend.text=element_text(size=9),
+          ) +
+    guides(color=guide_legend(nrow=2,byrow=TRUE))
+  
+  ggsave(paste0('p.probrecov.ex',scenario,'.pdf'),width = 75, height = 90, units='mm')
+  
+  
+  
+  # res.varn %>% 
+  #   filter(method%in%c('baseline1','method1.1', 'EBIC')) %>%
+  #   ggplot() + 
+  #   geom_line(aes(x=n, y=prob.recovery, col=method, linetype=method), size=0.7) + 
+  #   coord_cartesian(ylim=c(0,1)) +
+  #   theme_light(base_size = 12)+
+  #   scale_color_manual(values=c('black','grey','grey'),
+  #                      labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'EB'),'EBIC'))+
+  #   scale_linetype_manual(values=c(1,4,5), 
+  #                         labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'EB'),'EBIC'))+
+  #   ylab('Prob. recovery') +
+  #   theme(panel.grid.minor.x = element_blank(),
+  #         panel.grid.minor.y = element_blank(),
+  #         legend.margin=margin(0,0,0,0), 
+  #         legend.box.margin=margin(-5,-10,-5,-30),
+  #         legend.position="bottom",
+  #         legend.title = element_blank(),
+  #         legend.key.spacing.x = unit(0, 'pt'),
+  #         legend.key.spacing.y = unit(0, 'pt'),
+  #         legend.key.width = unit(10, 'pt'),
+  #         legend.text=element_text(size=12)
+  #   ) +
+  #   guides(color=guide_legend(nrow=1,byrow=TRUE))
+  # 
+  # ggsave(paste0('p.probrecov.ex1.slogn.posterA1.pdf'),width = 110, height = 100, units='mm')
+  # 
+  # 
+  # res.varn %>% 
+  #   filter(method%in%c('baseline1','method1.1', 'EBIC')) %>%
+  #   ggplot() + 
+  #   geom_line(aes(x=n, y=prob.recovery, col=method, linetype=method), size=0.7) + 
+  #   coord_cartesian(ylim=c(0,1)) +
+  #   theme_light(base_size = 12)+
+  #   scale_color_manual(values=c('black','grey','grey'),
+  #                      labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'EB'),'EBIC'))+
+  #   scale_linetype_manual(values=c(1,4,5), 
+  #                         labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'EB'),'EBIC'))+
+  #   ylab('Prob. recovery') +
+  #   theme(panel.grid.minor.x = element_blank(),
+  #         panel.grid.minor.y = element_blank(),
+  #         legend.margin=margin(0,0,0,0), 
+  #         legend.box.margin=margin(-5,-10,-5,-30),
+  #         legend.position="bottom",
+  #         legend.title = element_blank(),
+  #         legend.key.spacing.x = unit(0, 'pt'),
+  #         legend.key.spacing.y = unit(0, 'pt'),
+  #         legend.key.width = unit(10, 'pt'),
+  #         legend.text=element_text(size=12)
+  #   ) +
+  #   guides(color=guide_legend(nrow=1,byrow=TRUE))
+  # 
+  # ggsave(paste0('p.probrecov.ex1.slogn.posterA0.pdf'),width = 150, height = 120, units='mm')
+  
+  
+  
+  #### FDR ####
+  
+  res.varn %>% 
+    filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv")) %>%
+    ggplot() + 
+    geom_line(aes(x=n, y=mean.FDR, col=method, linetype=method), size=0.5) + 
+    # coord_cartesian(ylim=c(0,1)) +
+    theme_light(base_size = 9)+
+    scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+                          labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    ylab('FDR') +
+    scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.margin=margin(0,0,0,0), 
+          legend.box.margin=margin(-5,-10,-5,-30),
+          legend.position="bottom",
+          legend.title = element_blank(),
+          legend.key.spacing.x = unit(0, 'pt'),
+          legend.key.spacing.y = unit(0, 'pt'),
+          legend.key.width = unit(20, 'pt'),
+          legend.text=element_text(size=9),
+    ) +
+    guides(color=guide_legend(nrow=2,byrow=TRUE))
+  
+  ggsave(paste0('p.FDR.ex',scenario,'.pdf'),width = 75, height = 90, units='mm')
+  
+  
+  #### Power ####
+  
+  res.varn %>% 
+    filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv")) %>%
+    ggplot() + 
+    geom_line(aes(x=n, y=mean.power, col=method, linetype=method), size=0.5) + 
+    # coord_cartesian(ylim=c(0,1)) +
+    theme_light(base_size = 9)+
+    scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+                          labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    ylab('Power') +
+    scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.margin=margin(0,0,0,0), 
+          legend.box.margin=margin(-5,-10,-5,-30),
+          legend.position="bottom",
+          legend.title = element_blank(),
+          legend.key.spacing.x = unit(0, 'pt'),
+          legend.key.spacing.y = unit(0, 'pt'),
+          legend.key.width = unit(20, 'pt'),
+          legend.text=element_text(size=9),
+    ) +
+    guides(color=guide_legend(nrow=2,byrow=TRUE))
+  
+  ggsave(paste0('p.power.ex',scenario,'.pdf'),width = 75, height = 90, units='mm')
+  
+  #### Estimation mse ####
+  
+  res.varn %>% 
+    filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv"), n>=100) %>%
+    ggplot() + 
+    geom_line(aes(x=n, y=mean.mse, col=method, linetype=method), size=0.5) + 
+    # coord_cartesian(xlim=c(60,700)) +
+    theme_light(base_size = 9)+
+    scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+                          labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    ylab('MSE') +
+    scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          legend.margin=margin(0,0,0,0), 
+          legend.box.margin=margin(-5,-10,-5,-30),
+          legend.position="bottom",
+          legend.title = element_blank(),
+          legend.key.spacing.x = unit(0, 'pt'),
+          legend.key.spacing.y = unit(0, 'pt'),
+          legend.key.width = unit(20, 'pt'),
+          legend.text=element_text(size=9),
+    ) +
+    guides(color=guide_legend(nrow=2,byrow=TRUE))
+  
+  ggsave(paste0('p.est.mse.ex',scenario,'.pdf'),width = 75, height = 90, units='mm')
+  
+  
+  #### L0 sol computation time ####
+  
+  #if(sceario==1){y.lab <- paste0('p  (=',bquote(frac( .(3), .(2)) ),'(n+ln(n)))')  }
+  
+  time.varn %>% 
+    ggplot() + 
+    geom_line(aes(x=n, y=median.time), size=0.5) + 
+    # coord_cartesian(ylim=c(0,1)) +
+    theme_light(base_size = 9)+
+    scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
+    ylab(expression(paste('Computation time for informed \u2113'[0], ' in secs') )) +
+    theme(panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank())
+  
+  ggsave(paste0('p.time.ex',scenario,'.pdf'),width = 75, height = 90, units='mm')
+}
+
+library(tidyverse)
+
+path = "C:/Users/Usuario/Downloads/PhD-20250908T152636Z-1-001/PhD/Limits on consistent variable selection and external information/Numerical illustrations/LinearRegression_slogn"
+summarize.sim(1,path)
+summarize.sim(3,path)
+summarize.sim(4,path)
+summarize.sim(5,path)
+
+
+
