@@ -49,11 +49,14 @@ summarize.sim <- function(scenario,path){
     ggplot() + 
     geom_line(aes(x=n, y=prob.recovery, col=method, linetype=method), size=0.5) + 
     # coord_cartesian(ylim=c(0,1)) +
+    geom_point(aes(x=n,y=prob.recovery,shape=method)) +
     theme_light(base_size = 9)+
     scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
                        labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
-    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+    scale_linetype_manual(values=c(1,4,1,4,3,5,5), 
                           labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_shape_manual(values=c(NA,NA,NA,NA,NA,3,4), 
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
     ylab('Prob. recovery') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
     theme(panel.grid.minor.x = element_blank(),
@@ -134,12 +137,15 @@ summarize.sim <- function(scenario,path){
     filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv")) %>%
     ggplot() + 
     geom_line(aes(x=n, y=mean.FDR, col=method, linetype=method), size=0.5) + 
+    geom_point(aes(x=n,y=mean.FDR,shape=method)) +
     # coord_cartesian(ylim=c(0,1)) +
     theme_light(base_size = 9)+
     scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
                        labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
-    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+    scale_linetype_manual(values=c(1,4,1,4,3,5,5), 
                           labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_shape_manual(values=c(NA,NA,NA,NA,NA,3,4), 
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
     ylab('FDR') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
     theme(panel.grid.minor.x = element_blank(),
@@ -164,12 +170,15 @@ summarize.sim <- function(scenario,path){
     filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv")) %>%
     ggplot() + 
     geom_line(aes(x=n, y=mean.power, col=method, linetype=method), size=0.5) + 
+    geom_point(aes(x=n,y=mean.power,shape=method)) +
     # coord_cartesian(ylim=c(0,1)) +
     theme_light(base_size = 9)+
     scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
                        labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
-    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+    scale_linetype_manual(values=c(1,4,1,4,3,5,5), 
                           labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_shape_manual(values=c(NA,NA,NA,NA,NA,3,4), 
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
     ylab('Power') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
     theme(panel.grid.minor.x = element_blank(),
@@ -193,12 +202,16 @@ summarize.sim <- function(scenario,path){
     filter(method%in%c("S.EB.b", "S.A.b", "S.EB", "S.A",'EBIC',"lasso.cv", "scad.cv"), n>=100) %>%
     ggplot() + 
     geom_line(aes(x=n, y=mean.mse, col=method, linetype=method), size=0.5) + 
+    geom_point(aes(x=n,y=mean.mse,shape=method)) +
     # coord_cartesian(xlim=c(60,700)) +
     theme_light(base_size = 9)+
+    scale_y_log10() +
     scale_color_manual(values=c('blue','blue','red','red','red','darkgreen','darkgreen'),
                        labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
-    scale_linetype_manual(values=c(1,4,1,4,3,5,6), 
+    scale_linetype_manual(values=c(1,4,1,4,3,5,5), 
                           labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
+    scale_shape_manual(values=c(NA,NA,NA,NA,NA,3,4), 
+                       labels=c(bquote(hat(S)^'EB,b'),bquote(hat(S)^'A,b'),bquote(hat(S)^'EB'),bquote(hat(S)^'A'),'EBIC','LASSO', 'SCAD'))+
     ylab('MSE') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
     theme(panel.grid.minor.x = element_blank(),
@@ -236,7 +249,7 @@ summarize.sim <- function(scenario,path){
 
 library(tidyverse)
 
-path = "C:/Users/Usuario/Downloads/PhD-20250908T152636Z-1-001/PhD/Limits on consistent variable selection and external information/Numerical illustrations/LinearRegression_slogn"
+path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations"
 summarize.sim(1,path)
 summarize.sim(3,path)
 summarize.sim(4,path)
