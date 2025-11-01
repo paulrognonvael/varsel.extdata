@@ -305,9 +305,9 @@ We start by describing the notations for the linear model of interest, that is, 
 and $\bbeta^*$ denotes their true values. The set of variable indices is $V=\{1,\ldots,p\}$. For any $A\subseteq V$ and any vector $\bx\in \R^p$, $\bx_A$ denotes the subvector of $\bx$ with entries corresponding to indices in $A$. For any matrix $\bX \in \R^{n\times p}$, $\bX_A$ denotes the submatrix of $\bX$ obtained by selecting the \emph{columns} with indices in $A$. $S=\left\{i\in V:\,\,  \beta^*_i \neq 0 \right\}$ denotes the true support of $\bbeta^*$, its size is $s=|S|$, and hence $p-s$ is the number of truly inactive parameters. The set of candidate models is denoted by $\M$ and is given by subsets $M\subseteq V$. Denote by $\beta_{\min}^*=\min_{i \in S}|\beta^*_i|$ the smallest true signal. The set $V$ is partitioned into blocks, their number is fixed and noted $b$. The blocks are disjoint and noted $B_j \subseteq V$ for $j=1,\ldots,b$. $S_j=\left\{i\in B_j:\,\,  \beta^*_i \neq 0\right\}$ denotes the set of active parameters in block $B_j$, $s_j=|S_j|$ its size, $p_j-s_j$ the number of inactive parameters in the block,
 and $\beta_{\min,j}^*=\min_{i \in S_j}|\beta^*_i|$.
 
-When we discuss a transfer learning setting, the source datasets, when available, are denoted $\mathcal{D}^{(k)}=\{y^{(k)},X^{(k)}\}$ for $k=1,\ldots,K$ where $K$ is the number of source datasets. For $k=1,\ldots,K$, $S^{(k)}$ denotes the set of variables truly associated to source outcome $y^{(k)}$.
+When we discuss a transfer learning setting, $\mathcal{D}=\{\by,\bX\}$ denotes the target dataset, $V$ the set of variables in $\mathcal{D}$, and $S$ the subset of $V$ of variables truly associated to target outcome $\by$. The source datasets are denoted $\mathcal{D}^{(k)}=\{\by^{(k)},\bX^{(k)}\}$ for $k=1,\ldots,K$ where $K$ is the number of source datasets. For $k=1,\ldots,K$, $S^{(k)}$ denotes the set of variables truly associated to source outcome $\by^{(k)}$.
 
-Given sequences $f(n) > 0$ and $g(n) >0$, $f(n)=O(g(n))$ means that there exists a constant $c<\infty$ such that $f(n) \leq c g(n)$ for all $n \geq n_0$ and some fixed $n_0$, $f(n)=o(g(n))$ means that $\lim_{n\to\infty}f(n)/g(n)=0$, and $f(n)=\Theta(g(n))$ means that $f(n) = O(g(n))$ and $g(n) = O(f(n))$. For any set $A$, $A^C$ denotes the complement of $A$.
+Given sequences $f(n) > 0$ and $g(n) >0$, $f(n)=O(g(n))$ means that there exists a constant $c<\infty$ such that $f(n) \leq c g(n)$ for all $n \geq n_0$ and some fixed $n_0$, $f(n)=o(g(n))$ means that $\lim_{n\to\infty}f(n)/g(n)=0$, $f(n)=\Theta(g(n))$ means that $f(n) = O(g(n))$ and $g(n) = O(f(n))$ and $f(n)\sim g(n)$ means that $\lim_{n\to\infty}f(n)/g(n)=1$. For any set $A$, $A^C$ denotes the complement of $A$.
 
 \section{Variable selection via externally-informed penalization and transfer learning}\label{sec:intro_blockpen} 
 
@@ -321,7 +321,7 @@ $$
 $$
 A standard $\ell_0$ selection procedure with penalty $\eta(M)$ that depends on $M$ linearly through its cardinality, $\eta(M)=\kappa |M|$ for some $\kappa>0$ selects the model
 \begin{equation}\label{eq:stdl0}
-\hat{S}= \arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M}\ell(\by; \bbeta)\;-\;\kappa |M|\right\},
+\hat{S}^{sd}= \arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M}\ell(\by; \bbeta)\;-\;\kappa |M|\right\},
 \end{equation}
 where $\ell(\by; \bbeta)$ is the log-likelihood function. 
 
@@ -346,7 +346,7 @@ Posterior model probabilities are $p(M \mid \by, \theta) \propto p(\by \mid M) p
 \end{equation}
 where $\tilde{\bbeta}^{(M)}$ is the maximum likelihood estimator (MLE) under model $M$, and $c_M$ a constant that may depend on $M$.
 In particular, when $p(\bbeta \mid M)$ is the Zellner's unit information prior \citep{zellner1986assessing}, then $c_M$ does not depend on $M$ and the approximation is exact by replacing $\tilde{\bbeta}^{(M)}= (\bX_M^\top \bX_M + n^{-1} I)^{-1} \bX_M^\top \by$.
-Neglecting the constant $c_M$, simple algebra shows that $\ell_0$ selector in \ref{eq:stdl0} with $\kappa = \frac12 \ln(n) + \ln(1/\theta − 1)$ approximately maximizes $p(M \mid \by, \theta)$. It follows then a one-to-one correspondence between a choice of prior inclusion probability in our Bayesian spike-and-slab regression and a choice of $\ell_0$ penalty in $\hat{S}$.
+Neglecting the constant $c_M$, simple algebra shows that $\ell_0$ selector in \ref{eq:stdl0} with $\kappa = \frac12 \ln(n) + \ln(1/\theta − 1)$ approximately maximizes $p(M \mid \by, \theta)$. It follows then a one-to-one correspondence between a choice of prior inclusion probability in our Bayesian spike-and-slab regression and a choice of $\ell_0$ penalty in $\hat{S}^{sd}$.
 
 Now, assume one has external information $\bZ$ on the likelihood of variables to be truly associated with $\by$. In Bayesian spike-and-slab regression, this prior information would naturally be reflected in prior inclusion probabilities, and one would set
 \begin{equation}\label{eq:avfob}
@@ -369,18 +369,18 @@ In this work, we study the $\ell_0$ selector analog to maximizing $p(M \mid \by,
 \begin{equation}\label{eq:Mhat}
   \hat S^{ei}\;\in\;\arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M}\ell(\by; \bbeta)-\sum_{j=1}^b\kappa_j |M_j| \right\},
 \end{equation}
-where $\kappa_1>0,\ldots,\kappa_b>0$. Under the BIC approximation in \eqref{eq:block_modelprob}, $\hat S^{ei}$ corresponds to the posterior mode with block prior inclusion probabilities $\theta_j=(e^{\kappa_j-\ln(n)/2}+1)^{-1}$. In the case that $b=1$, $\hat S^{ei}$ recovers $\hat S$.
+where $\kappa_1>0,\ldots,\kappa_b>0$. Under the BIC approximation in \eqref{eq:block_modelprob}, $\hat S^{ei}$ corresponds to the posterior mode with block prior inclusion probabilities $\theta_j=(e^{\kappa_j-\ln(n)/2}+1)^{-1}$. In the case that $b=1$, $\hat S^{ei}$ recovers $\hat{S}^{sd}^{sd}$.
 
 \subsection{An algorithm for the transfer of selected variables}\label{ssec:intro_tl}
 
 Consider now a transfer learning setting where in each source dataset $k=1,\ldots,K$ the set of variables $\hat{S}^{(k)}$ was selected and one wants to leverage these selected sets to improve selection in the target dataset. The simplistic approach of forcing the inclusion in the target model of the variables selected in the sources datasets is very prone to negative transfers as sets of variables associated to target and source outcomes may be similar but not identical. Given the connection between $\ell_0$ penalties and prior inclusion probabilities $\eqref{eq:block_modelprob}$, one may instead let a $\ell_0$ penalty differ between variables that were selected in the source datasets and those that were not.
 
-More formally, in our framework, one can form a vector of external information on the variables in the target linear model $\bz$ such that, for each $i=1,\ldots,p$, $z_i=1$ if $i\in \Cup_{k=1}^K\hat{S}^{(k)}$ and $z_i=0$ otherwise. The external information $\bz$ then naturally induces a partition in two blocks, a first block that gathering variables that were selected at least once in the source datasets, and a second block gathering the rest of the variables. Given said partition, the externally-informed $\hat{S}^{ei}$ may be used to perform selection in the target.
+More formally, in our framework, one can form a vector of external information on the variables in the target linear model $\bz$ such that, for each $i=1,\ldots,p$, $z_i=1$ if $i\in \cup_{k=1}^K\hat{S}^{sd}^{(k)}$ and $z_i=0$ otherwise. The external information $\bz$ then naturally induces a partition in two blocks, a first block that gathering variables that were selected at least once in the source datasets, and a second block gathering the rest of the variables. Given said partition, the externally-informed $\hat{S}^{ei}$ may be used to perform selection in the target.
 
 \textbf{\hypertarget{lab:AlgoTL}{Algorithm 1}}
 \begin{enumerate}[label=(\roman*)]
     \item Obtain $\hat{S}^{(k)}$ for $k=1,\ldots,K$.
-    \item Obtain $\hat{S}^{ei}$ by solving \eqref{eq:Mhat} with $B_1=\{i:i\in \Cup_{k=1}^K\hat{S}^{(k)}\}$ and $B_2=V\setminus B_1$.
+    \item Obtain $\hat{S}^{ei}$ by solving \eqref{eq:Mhat} with $B_1=\{i:i\in \cup_{k=1}^K\hat{S}^{sd}^{(k)}\}$ and $B_2=V\setminus B_1$.
 \end{enumerate}
 
 \hyperlink{lab:AlgoTL}{Algorithm 1} offers a principled frequentist procedure to transfer selected variables from source to target datasets. In Section~\ref{XXX} we discuss how to choose block penalties in $\hat{S}^{ei}$ in practice to mitigate negative transfer. We observe that our algorithm does not require access to the source datasets but only sets of selected variables, ensuring wider applicability and higher levels of privacy and communication efficiency. The construction of blocks in \hyperlink{lab:AlgoTL}{Algorithm 1} also allows the domains to differ between the target and source datasets, and between source datasets.
@@ -398,9 +398,9 @@ Assumption~\hyperlink{lab:A3}{A3} can be slightly relaxed in our results to allo
 
 % Finally, the selector $\hat S^{ei}$ in \ref{eq:Mhat} assumes an externally-informed $\ell_0$ penalty that grows linearly in the model size. This linearity assumption not only allows connections to Bayesian variable selection but also with frequentist selection with $\ell_1$ penalties under orthogonal design. While nonlinear, standard, $\ell_0$ penalties have been shown to be optimal for estimation and prediction \citep{Wu2013, Bunea2007}, standard linear $\ell_0$ penalties were shown to be optimal for variable selection \cite{Bryon}. We also show that our results, when applied to standard $\ell_0$ penalties, improve known limits on variable selection \citep{butucea2018,infotheowainwright, bryon}.
 
-\section{Properties of externally-informed penalization}
+\section{Properties of externally-informed penalization}\label{sec:properties_legression}
 
-In this section we discuss the properties of the externally-informed model selector $\hat S^{ei}$ \eqref{eq:Mhat} in the linear model \eqref{eq:linearmodel}. Throughout the section our goal will be to show that $\hat S^{ei}$ is equal to the data-generating truth $S$ with probability 1, as $n$ grows, and that this occurs under milder conditions or at a faster rate than when using a model selector $\hat{S}$ that penalizes equally across all blocks. In Section~\ref{sec:properties_legression}, we discuss the properties of $\hat S^{ei}$ and compare them to those of $\hat{S}$ for, in both cases, penalties set by an oracle that knows the true pattern of sparsity and signal strength. We discuss the benefits of $\hat S^{ei}$ over $\hat S$ in relation to the relevance of the external information for variable selection, that is to what extent the partition it induces discriminates between truly active and inactive signals. In Section~\ref{}, we propose data-based methods to set block penalties in $\hat S^{ei}$ that do not require an oracle. 
+In this section we discuss the properties of the externally-informed model selector $\hat S^{ei}$ \eqref{eq:Mhat} in the linear model \eqref{eq:linearmodel}. Throughout the section our goal will be to show that $\hat S^{ei}$ is equal to the data-generating truth $S$ with probability 1, as $n$ grows, and that this occurs under milder conditions or at a faster rate than when using a model selector $\hat{S}^{sd}$ that penalizes equally across all blocks. In Section~\ref{sec:properties_legression}, we discuss the properties of $\hat S^{ei}$ and compare them to those of $\hat{S}^{sd}$ for, in both cases, penalties set by an oracle that knows the true pattern of sparsity and signal strength. We discuss the benefits of $\hat S^{ei}$ over $\hat{S}^{sd}^{sd}$ in relation to the relevance of the external information for variable selection, that is to what extent the partition it induces discriminates between truly active and inactive signals. In Section~\ref{}, we propose data-based methods to set block penalties in $\hat S^{ei}$ that do not require an oracle. 
 
 \subsection{Oracle properties of externally-informed penalization}\label{sec:properties_legression}
 % Section~\ref{ssec:regression_proof_strategy} reviews this connection and the proof strategy. The technical nature of the proof precludes a detailed exposition, we instead only present the most important ideas.
@@ -484,7 +484,7 @@ Then Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold. Moreove
 % In the orthonormal setting, using the equivalence $\tau_j=\sqrt{2 \kappa_j/n}$, the bounds in \eqref{eq:rateconvreg} and \eqref{eq:oraclepenreg} nearly recover the tight bounds in \eqref{eq:rateconvgsm} and \eqref{eq:optimtauj} for the sequence model. 
 In \eqref{eq:rateconvreg} the first term of each summand decreases exponentially in $\kappa_j$, while the second term decreases exponentially in $(\sqrt{\frac{(1-\gamma) n\rho(\bX)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j})^2$. The choice $\kappa_j=\kappa^*_j$ ensures that both terms are equal and hence approximates the values minimizing \eqref{eq:rateconvreg}. We refer to these ideal $\kappa^*_j$ as {\it oracle penalties} because they depend on quantities $s_j$ and $\beta_{\min,j}$ that are unknown in practice. XXX {eq:oraclerateconvreg} is an upper bound on the convergence rate xxxx for oracle choice, that eases interpretation and is tight under the slightly stricter betamin condition ... XXX.  
 
-The results of Theorem~\ref{prop:fullrecovreg} are tight: when applied to non-informed $\ell_0$ selector $\hat S$, they nearly match the minimax results available in the literature for the orthonormal case where $\rho(\bX)=1$. In \cite{butucea2018}, it is shown that, in this case, the choice $\sqrt{\tilde{\kappa}}=(1/2)\sqr{n/2}\beta_{\min}^*+(1/2)\sqrt{2/n}\ln(p/s-1)/\beta_{\min}^*$ is exactly minimax for the Hamming loss and asymptotically minimax for the probability of incorrect recovery, when all signals are parameters all positive or null. The minimax rate for the Hamming loss is then shown to have one term decreasing exponentially in $\tilde{\kappa}-\ln(p-s)$ and one term decreasing exponentially in $(\sqrt{n/2}\beta_{\min}^*-\sqrt{\tilde{\kappa}})^2-\ln(s)$, similarly to our rate in \eqref{eq:rateconvreg}. In Supplement XXX, we discuss sharp minimax results for $\hat S^{ei}$ in the orthonormal case. 
+The results of Theorem~\ref{prop:fullrecovreg} are tight: when applied to non-informed $\ell_0$ selector $\hat{S}^{sd}^{sd}$, they nearly match the minimax results available in the literature for the orthonormal case where $\rho(\bX)=1$. In \cite{butucea2018}, it is shown that, in this case, the choice $\sqrt{\tilde{\kappa}}=(1/2)\sqr{n/2}\beta_{\min}^*+(1/2)\sqrt{2/n}\ln(p/s-1)/\beta_{\min}^*$ is exactly minimax for the Hamming loss and asymptotically minimax for the probability of incorrect recovery, when all signals are parameters all positive or null. The minimax rate for the Hamming loss is then shown to have one term decreasing exponentially in $\tilde{\kappa}-\ln(p-s)$ and one term decreasing exponentially in $(\sqrt{n/2}\beta_{\min}^*-\sqrt{\tilde{\kappa}})^2-\ln(s)$, similarly to our rate in \eqref{eq:rateconvreg}. In Supplement XXX, we discuss sharp minimax results for $\hat S^{ei}$ in the orthonormal case. 
 
 We now contrast our sufficient Assumptions~\hyperlink{lab:A4}{A4} and~\hyperlink{lab:A5}{A5} to assumptions on $\kappa_j$ and $\beta_{\min,j}$ that are necessary for consistent variable selection with $\hat{S}^{ei}$. For every $j=1,\ldots,b$, tight necessary assumptions follow from considering subsets of models close to $S$,
 \begin{align}
@@ -505,7 +505,7 @@ where, for any $M_k\in \M$, $Z_{M^k}^2=\|\bX_{M^k}\tilde{\bbeta}^{(M^k)}\|^2-\|\
 \begin{prop}\label{prop:nectypeItypeII}
  \begin{enumerate}[label=(\roman*)]
     \item If for some $j=1,\ldots,b$,  $\lim_{n\to\infty}\kappa_j/(\underline{\lambda}_j^2\ln(p_j-s_j)) <1$, then 
-     $\lim_{n \to \infty} P\Big(\max_{M\in \O_j}\frac{NC(M)}{NC(S)}<1\Big)= 0 \quad\text{and}\quad \lim_{n \to \infty} P(\hat{S}^b=S)= 0$.
+     $\lim_{n \to \infty} P\Big(\max_{M\in \O_j}\frac{NC(M)}{NC(S)}<1\Big)= 0 \quad\text{and}\quad \lim_{n \to \infty} P(\hat{S}^{sd}^b=S)= 0$.
     \item Assume \hyperlink{lab:A1}{A1}. If for some $j=1,\ldots,b$, $\kappa_j\to\infty$  and
       $\lim_{n\to \infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\kappa_j} < \infty$ then $\lim_{n \to \infty} P\big(\max_{M\in \U_j}\frac{NC(M)}{NC(S)}<1\big)< 1 \text{ and } \lim_{n \to \infty} P(\hat{S}^{ei} = S) < 1$.
     \item If for some $j\in\{1,\ldots,b\}$, $\underline{\lambda}^2_j\ln(p_j-s_j)\to\infty$ and   
@@ -514,7 +514,7 @@ where, for any $M_k\in \M$, $Z_{M^k}^2=\|\bX_{M^k}\tilde{\bbeta}^{(M^k)}\|^2-\|\
 \end{prop}
 
 % Proposition~\ref{prop:nectypeIreg} below describes how $\underline{\lambda}_j$ relates to a necessary assumption for consistency.
-% In Section~\ref{ssec:regression_gains} we discuss how $\underline{\lambda}$ describes settings where $\hat S$ is not consistent but $\hat{S}^{ei}$ is.
+% In Section~\ref{ssec:regression_gains} we discuss how $\underline{\lambda}$ describes settings where $\hat{S}^{sd}^{sd}$ is not consistent but $\hat{S}^{ei}$ is.
 
 Proposition~\ref{prop:nectypeItypeII} (i) shows that the block penalties cannot be too small compared to the logarithm of the number of inactive parameters in the blocks.
 % \begin{equation}\label{cond:necIallblockpen}
@@ -524,7 +524,7 @@ Proposition~\ref{prop:nectypeItypeII} (ii) further shows that the signals cannot
 \begin{equation}\label{eq:betaminnecreg}
 \lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\underline{\lambda}_j\sqrt{2\ln(p_j-s_j)} = \infty\qquad\mbox{for all }j=1,\ldots,b.
 \end{equation}
-It also follows that Assumption~\hyperlink{lab:A4}{A4} and ~\hyperlink{lab:A5}{A5} are tight. Indeed, it holds that $\underline{\lambda}_j \in [0,1]$ and $\underline{\lambda}_j=1$ corresponds to the worst case. Then, in that worst case, necessary assumption~\eqref{cond:necIallblockpen} matches sufficient assumption~\hyperlink{lab:A4}{A4}. Necessary assumption~\eqref{eq:betaminnecreg} ressembles assumption~\hyperlink{lab:A5}{A5} where $\rho(\bX)$ is replaced by $\bar{\lambda}$ and up to a constant factor, a factor logarithmic in $s_j$ and factor $1-\gamma$ which is bounded $(0,1/2)$ if one sets $f_j$ such that $ln(p_j- s_j) = O(f_j)$. That is, assumption~\hyperlink{lab:A5}{A5} and assumption~\eqref{eq:betaminnecreg} imply the same scaling of $(n,p_j,s_j,\beta_{\min,j}^*)$ up to a factor logarithmic in $s_j$. In Supplement XXX, we discuss how our sufficient and necessary assumptions, when applied to non-informed $\ell_0$ selector $\hat S$, improve on the known limits on variable selection in linear regression \cite{infotheowainwright,XXX}.
+It also follows that Assumption~\hyperlink{lab:A4}{A4} and ~\hyperlink{lab:A5}{A5} are tight. Indeed, it holds that $\underline{\lambda}_j \in [0,1]$ and $\underline{\lambda}_j=1$ corresponds to the worst case. Then, in that worst case, necessary assumption~\eqref{cond:necIallblockpen} matches sufficient assumption~\hyperlink{lab:A4}{A4}. Necessary assumption~\eqref{eq:betaminnecreg} ressembles assumption~\hyperlink{lab:A5}{A5} where $\rho(\bX)$ is replaced by $\bar{\lambda}$ and up to a constant factor, a factor logarithmic in $s_j$ and factor $1-\gamma$ which is bounded $(0,1/2)$ if one sets $f_j$ such that $ln(p_j- s_j) = O(f_j)$. That is, assumption~\hyperlink{lab:A5}{A5} and assumption~\eqref{eq:betaminnecreg} imply the same scaling of $(n,p_j,s_j,\beta_{\min,j}^*)$ up to a factor logarithmic in $s_j$. In Supplement XXX, we discuss how our sufficient and necessary assumptions, when applied to non-informed $\ell_0$ selector $\hat{S}^{sd}^{sd}$, improve on the known limits on variable selection in linear regression \cite{infotheowainwright,XXX}.
 
 
 % Proposition~\ref{prop:nectypeItypeII} 
@@ -599,7 +599,7 @@ It also follows that Assumption~\hyperlink{lab:A4}{A4} and ~\hyperlink{lab:A5}{A
 
 This section examines the benefits of externally-informed selector $\hat S^{ei}$ in relation to the relevance of the external information. We compare, for oracle-set penalties, the properties of $\hat S^{ei}$ to those of the standard $\ell_0$ selector $S$, the best-known selector in absence of external information \cite{}. We first discuss two types of benefits, softening the conditions for model selection consistency and improving the associated convergence rates. We then proceed with examples contemplating different scenarios of sparsity regime and informativeness of the blocks.
 
-\noindent Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} give ranges of penalties that are sufficient (but not necessary) for asymptotic support recovery. For simplicity, the discussion is restricted to choices of penalty $\kappa_j$ such that, in Assumption~\hyperlink{lab:A4}{A4}, $\ln(p_j-s_j)=O(f_j)$ for all $j$, so that $\gamma$ is bounded in $(0,1/2)$. For the standard selector $\hat{S}$, the single penalty $\kappa$ is essentially required to satisfy, for some sequences $f,g$ growing at arbitrarily slow rates, and up to constants
+\noindent Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} give ranges of penalties that are sufficient (but not necessary) for asymptotic support recovery. For simplicity, the discussion is restricted to choices of penalty $\kappa_j$ such that, in Assumption~\hyperlink{lab:A4}{A4}, $\ln(p_j-s_j)=O(f_j)$ for all $j$, so that $\gamma$ is bounded in $(0,1/2)$. For the standard selector $\hat{S}^{sd}$, the single penalty $\kappa$ is essentially required to satisfy, for some sequences $f,g$ growing at arbitrarily slow rates, and up to constants
 \begin{equation}\label{eq:rangepenex}
   \sqrt{\ln(p-s)}+ f\;\;\leq\;\;\sqrt{\kappa}\;\;\leq\;\;\sqrt{n\rho(\bX)}\beta^*_{\min}+\sqrt{\ln(s)} + g.	
 \end{equation}
@@ -607,16 +607,16 @@ For a block selector $\hat{S}^{ei}$, the ranges for the $\kappa_j$'s essentially
     \begin{eqnarray}\label{eq:rangeblockpenex}
       \sqrt{\ln(p_j-s_j)}+f_j\;\;&\leq\;\;\sqrt{\kappa_j}\;\;\leq&\;\;\sqrt{n\rho(\bX)}\beta^*_{\min,j}-\sqrt{\ln(s_j)} + g_j.   
     \end{eqnarray}
-The ranges in \eqref{eq:rangeblockpenex} imply that $\hat{S}^{i}$ requires milder conditions for selection consistency than $\hat{S}$. Intuitively, if there exist two blocks such that the ranges in \eqref{eq:rangeblockpenex} do not overlap, then a global penalty $\kappa$ cannot possibly satisfy \eqref{eq:rangeblockpenex} for all $j$ and consistent selection is essentially not possible. For example, this occurs if the global smallest active signal $\beta_{\min}^*$ is in block $b$ and satisfies  $\beta_{\min}^* - \sqrt{(n\rho(\bX))^{-1} \ln(s_b)} < \sqrt{\ln(p_1-s_1)}$.
+The ranges in \eqref{eq:rangeblockpenex} imply that $\hat{S}^{sd}^{i}$ requires milder conditions for selection consistency than $\hat{S}^{sd}$. Intuitively, if there exist two blocks such that the ranges in \eqref{eq:rangeblockpenex} do not overlap, then a global penalty $\kappa$ cannot possibly satisfy \eqref{eq:rangeblockpenex} for all $j$ and consistent selection is essentially not possible. For example, this occurs if the global smallest active signal $\beta_{\min}^*$ is in block $b$ and satisfies  $\beta_{\min}^* - \sqrt{(n\rho(\bX))^{-1} \ln(s_b)} < \sqrt{\ln(p_1-s_1)}$.
 % Akin to the sequence model, if there exist two blocks such that the ranges in \eqref{eq:rangeblockpenex} do not overlap, then a constant $\kappa$ cannot satisfy \eqref{eq:rangeblockpenex} for both blocks and consistent selection may not be possible.
-%by definition, the ranges for $\hat{S}^{ei}$ are wider than that for $\hat S$. 
+%by definition, the ranges for $\hat{S}^{ei}$ are wider than that for $\hat{S}^{sd}^{sd}$. 
 % That is, sufficient assumptions for variable selection consistency are milder with block penalties. 
-Although not discussed here for brevity, block penalties also lead to similar improvements on the necessary assumptions, relative to those for standard $\ell_0$ penalties. Corollary~\ref{cor:selconstimpossiblereg} gives conditions under which consistent selection is possible with $\hat{S}^{ei}$ but not with $\hat S$.
+Although not discussed here for brevity, block penalties also lead to similar improvements on the necessary assumptions, relative to those for standard $\ell_0$ penalties. Corollary~\ref{cor:selconstimpossiblereg} gives conditions under which consistent selection is possible with $\hat{S}^{ei}$ but not with $\hat{S}^{sd}^{sd}$.
 \begin{cor}\label{cor:selconstimpossiblereg}
 Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A2}{A2}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A4}{A4}, \hyperlink{lab:A5}{A5} and $\underline{\lambda}^2\ln(p-s)\to\infty$. If
 $\lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min}^*-\underline{\lambda}\sqrt{\ln(p-s)}< \infty$
 then 
-$P(\hat{S} = S)\not \to 1$ and $P(\hat{S}^{ei} = S)\to 1$.
+$P(\hat{S}^{sd} = S)\not \to 1$ and $P(\hat{S}^{ei} = S)\to 1$.
 \end{cor}
 
 We now discuss differences in the probability of correct selection, when consistent selection is possible for both procedures. Assume that block penalties are set to their oracle values $\kappa_j^*$ in \eqref{eq:oraclepenreg} and similarly that the single penalty takes its oracle value $\kappa^*$ defined in an analogous way. Let ${OR}^{ei}$ be the oracle convergence rate for $\kappa_j^*$ in \eqref{eq:optimrateconvreg} and ${OR}_{orth}$ that for $\tau^*$.
@@ -636,7 +636,7 @@ the oracle sets $\kappa^*_j < \kappa^*$, so that smaller signals are detected. I
 % Observe that \eqref{eq:rangepenex} and \eqref{eq:rangeblockpenex} are analogous to \eqref{eq:rangethreshex} and \eqref{eq:rangeblockthreshex} for the sequence model, up to rescaling by $\sqrt{2/n}$, the factor $\rho(\bX)$ and sequences $(f_j,g_j)$ growing arbitrarily slowly. The gains in terms of valid thresholds for consistency discussed in the example of Section \ref{sec:examples} Section~\ref{sec:prosconsblock} remain applicable
 % to linear regression. 
 
-% Let $\underline{\beta}^{*,b}_{\min,reg}$ and $\underline{\beta}^{*}_{\min,reg}$ be the smallest signal recoverable by $\hat{S}^{ei}$ and $\hat{S}$ respectively.
+% Let $\underline{\beta}^{*,b}_{\min,reg}$ and $\underline{\beta}^{*}_{\min,reg}$ be the smallest signal recoverable by $\hat{S}^{ei}$ and $\hat{S}^{sd}$ respectively.
 % Assuming $\beta_{min}^*$ is in block $b$, Assumptions~\hyperlink{lab:A4}{A4}-\hyperlink{lab:A5}{A5} essentially require that $\underline{\beta}^{*,b}_{\min,reg}$ and $\underline{\beta}^{*}_{\min,reg}$ satisfy for some sequences $g,h\to\infty$ and up to constants
 % \begin{eqnarray*}
 %     \underline{\beta}^{*,b}_{\min,reg}&\geq& \sqrt{\frac{\ln(p_b-s_b)}{ n\rho(\bX)}} + \sqrt{\frac{\ln(s_b)}{ n\rho(\bX)}} + g,\quad\text{and}  \\
@@ -644,7 +644,7 @@ the oracle sets $\kappa^*_j < \kappa^*$, so that smaller signals are detected. I
 % \end{eqnarray*}
 % These lower bounds are the same as \eqref{eq:betaminbardef} for the sequence model, up to rescaling by $\sqrt{2}$, a factor $\rho(\bX)$ and $g$ and $h$ which can grow arbitrarily slowly with $n$. Hence, the discussion and examples of the benefits in the smallest recoverable signals in Section~\ref{sec:examples} Section~\ref{sec:prosconsblock} also extend to linear regression.
 
-% Let ${OR}^b_{reg}$ be the oracle convergence rate for $\hat{S}^{ei}$ in Theorem~\ref{prop:fullrecovreg}, and ${OR}_{reg}$ that for $\hat{S}$. Then it holds that
+% Let ${OR}^b_{reg}$ be the oracle convergence rate for $\hat{S}^{ei}$ in Theorem~\ref{prop:fullrecovreg}, and ${OR}_{reg}$ that for $\hat{S}^{sd}$. Then it holds that
 % \begin{equation*}
 %     \frac{{OR}^b_{reg}}{{OR}_{reg}}=(2^{2b-1}-b)\sum_{j=1}^be^{-\frac{\delta}{2}\left[\frac{ n\rho(\bX)}{24}\left((1-\gamma){\beta^*_{\min,j}}^2-(1-\gamma'){\beta_{\min}^*}^2\right)+\ln \max\{p-s,s\}-\ln \max\{p_j-s_j,s_j\}\right]},
 % \end{equation*}
@@ -674,8 +674,8 @@ $4$    & $n$ & $n/2$ & $n/2$  & $3\ln(n)/2$  & $3\ln(n)/2$\\
 
 In Examples 1 to 3, external information is discriminative as it singles out a block $B_1$ that is sparser than block $B_2$. In Example 1 the blocks are moderately discriminative, in that $(p_1-s_1)/(p_2-s_2)$ is a power of $n$. In Example 2 they are highly discriminative, since $(p_1-s_1)/(p_2-s_2)$ is exponential in $n$ and in Example 3 they are highly discriminative in that $\bbeta^*$ is sparse overall, but it is non-sparse within block 2 ($s_2 > p_2 - s_2)$. Example 4 is a non-discriminative random guess where each block has half of the inactive parameters. 
 
-Figures~\ref{fig:boundthresh} and~\ref{fig:boundthresh2} plot the ranges of penalty values $\kappa$ and $(\kappa_1,\kappa_2)$ ensuring selection consistency with $\hat{S}$ and $\hat{S}^{b}$ given in \eqref{eq:rangethreshex} and \eqref{eq:rangeblockthreshex} in the four examples, assuming $\beta^*_{\min,1}=2/3$, $\beta^*_{\min,2}=\beta^*_{\min}=1/10$, $f=g=\ln(ln(n))$ and $f_j=g_j=\ln(ln(n))$ for all $j$. In Example 2, asymptotic recovery with $\hat{S}$ is not possible in the range of values of $n$ considered while it is with $\hat{S}^{b}$.
-In the other examples, asymptotic recovery with $\hat{S}$ is possible, but it requires larger $n$ than with $\hat{S}^b$. Example 1 shows that the gain can be large even when blocks are moderately discriminative, and Example 3 when some blocks are non-sparse.
+Figures~\ref{fig:boundthresh} and~\ref{fig:boundthresh2} plot the ranges of penalty values $\kappa$ and $(\kappa_1,\kappa_2)$ ensuring selection consistency with $\hat{S}^{sd}$ and $\hat{S}^{sd}^{b}$ given in \eqref{eq:rangethreshex} and \eqref{eq:rangeblockthreshex} in the four examples, assuming $\beta^*_{\min,1}=2/3$, $\beta^*_{\min,2}=\beta^*_{\min}=1/10$, $f=g=\ln(ln(n))$ and $f_j=g_j=\ln(ln(n))$ for all $j$. In Example 2, asymptotic recovery with $\hat{S}^{sd}$ is not possible in the range of values of $n$ considered while it is with $\hat{S}^{sd}^{b}$.
+In the other examples, asymptotic recovery with $\hat{S}^{sd}$ is possible, but it requires larger $n$ than with $\hat{S}^{sd}^b$. Example 1 shows that the gain can be large even when blocks are moderately discriminative, and Example 3 when some blocks are non-sparse.
 The gain in terms of the value of $n$ making recovery possible  is close to null in Example 4 when external information is non-discriminative. 
 
 % \begin{figure}[ht]
@@ -719,7 +719,7 @@ The gain in terms of the value of $n$ making recovery possible  is close to null
 %  \label{fig:boundthresh2}
 % \end{figure}
 
-Figure~\ref{fig:ratios} plots the ratio ${OR}^{ei}/OR$ in \eqref{eq:goodoregratio} for Examples 1 to 3 where blocks are discriminative with $\gamma$ set to $3/4$ for simplicity. The smallest signals in each block are such that $\beta_{\min }^*=\beta_{\min,2}^*=1/5$ and $\beta_{\min,1}^*=1.3\beta_{\min }^*$ to guarantee the recovery is possible with both $\hat S$ and $\hat S^b$. Figure~\ref{fig:ratios} shows that in the three examples, the convergence is much faster with $\hat S^b$. The more discriminative the blocks are, the larger the gain.
+Figure~\ref{fig:ratios} plots the ratio ${OR}^{ei}/OR$ in \eqref{eq:goodoregratio} for Examples 1 to 3 where blocks are discriminative with $\gamma$ set to $3/4$ for simplicity. The smallest signals in each block are such that $\beta_{\min }^*=\beta_{\min,2}^*=1/5$ and $\beta_{\min,1}^*=1.3\beta_{\min }^*$ to guarantee the recovery is possible with both $\hat{S}^{sd}^{sd}$ and $\hat S^b$. Figure~\ref{fig:ratios} shows that in the three examples, the convergence is much faster with $\hat S^b$. The more discriminative the blocks are, the larger the gain.
 \paul{I have made simplifications assumptions on $\gamma$ in the discussions of the oracle convergence rates but in reality $\kappa^*$ depends on $\gamma$ and $\gamma$ depends on $\kappa^*$.}
 
 \subsection{Convergence with no betamin condition}\label{ssec:nobetaminhyp}
@@ -749,14 +749,27 @@ Theorem~\ref{thm:convtoT} shows, assuming only sufficiently large penalties as g
 
 \subsection{Data analysis with externally-informed penalization}\label{sec:informed_l0}
 
-We propose two data analysis methods to set block penalties that do not require oracle values. The proposed methods adapt to the relevance of the external-information which, as discussed in XXX, is driven by varying sparsity levels across blocks. Exploiting the connection between block $\ell_0$ penalties and Bayesian variable selection, we use an empirical Bayes approach to estimate the proportion of truly active variables in each block and set penalties. Relying on such connection also allows the use of fast Bayesian computational methods that overcome the intractability of $\ell_0$ penalties. Despite their Bayesian motivation, the methods are fully data-dependent and do not require any prior distribution.
+\paul{I changed this part and kept only $\hat S^{A,ei}$ because I realised the comparison of the properties of $\hat S^{EB,ei}$ compared to those of $\hat S^{EB,sd}$ was more subtle than I thought and I constructed an example where $\hat S^{EB,sd}$ greatly outperforms $\hat S^{EB,ei}$ in terms of probability of recovery, but $\hat S^{A,sd}$ does not outperform $\hat S^{A,ei}$ too much. Keeping only one also saves space.}
 
-Recall, by the BIC approximation in \eqref{eq:block_modelprob}, $NC(M)$ can be understood as the pseudo-posterior probability for model $M$ in a Bayesian variable selection framework where the $\kappa_j$'s are a suitable function of the block prior inclusion probability $\theta_j$. In such Bayesian framework, the posterior inclusion probability for a variable $j$ is given by the sum of the posterior probabilities of model including variable $j$. We then estimate the number of active variables in block $j$ by 
+We propose a data analysis methods to set block penalties that does not require oracle values. The proposed method adapts to the relevance of the external-information which, as discussed in XXX, is driven by varying sparsity levels across blocks. Exploiting the connection between block $\ell_0$ penalties and Bayesian variable selection, we use an empirical Bayes approach to estimate the proportion of truly active variables in each block and set penalties. Relying on such connection also allows the use of fast Bayesian computational methods that overcome the intractability of $\ell_0$ penalties. Despite their Bayesian motivation, the methods is fully data-dependent and does not require any prior distribution.
+
+Recall, by the BIC approximation in \eqref{eq:block_modelprob}, for any model $M$, $NC(M)$ can be understood as the pseudo-posterior probability for model $M$ in a Bayesian variable selection framework where the $\kappa_j$'s are a suitable function of the block prior inclusion probability $\theta_j$. In that Bayesian framework, $\theta_j$ is the prior belief on $s_j/p_j$, the proportion of active coefficients in block $B_j$. A related standard empirical Bayes strategy to set $\hat{\theta}_j$ consists in maximizing the marginal likelihood of $\by$ given $\btheta$, i.e.
+\begin{eqnarray}
+\hat{\btheta}
+%\hat{\bs \theta}^{EB}
+\,:=\, \arg\max_{\btheta} p(\by \mid \btheta)=
+\arg\max_{\btheta} \int p(\by \mid \bbeta, M) d P(\bbeta, M \mid \btheta).
+\nonumber
+\end{eqnarray}
+The empirical Bayes estimator $\hat{\btheta}$ statisfies the property in the next result related to Proposition 3.1 in \cite{papaspiliopoulos:2025}.
+\begin{lem}\label{lem:empiricalbayesinterpret} For $p(M \mid \btheta)$ in \eqref{eq:block_modelprior}, the empirical Bayes estimator satisfies 
+$$\hat{\theta}_j= \frac{1}{p_j}\sum_{i\in B_j}\sum_{M\in\M: i\in M}P(M \mid \bs y,\hat{\bs \theta}).$$
+\end{lem}
+Lemma and the interpretation, for any model $M$, of $NC(M)$ as the pseudo-posterior probability for model $M$, motivates estimating the number of active variables in block $j$ by 
 \begin{equation}\label{eq:shat}
     \hat{s}_j \,:=\, \sum_{i\in B_j}\,\,\sum_{M\in \M | i \in M}NC(M)
 \end{equation}
-for a given set block penalties $\kappa_1,\ldots,\kappa_b$.
-The estimator of the proportion of active variables $\hat{s}_j/p_j$ can then be seen as an approximation to the empirical Bayes estimator of block prior inclusion probability $\theta_j$, as we discuss in Supplement XXX.
+for a given set block penalties $\kappa_1,\ldots,\kappa_b$. That is, $\hat{s}_j \approx p_j \hat{\theta}_j$.
 
 The next asymptotic bounds on the expectation of $\hat{s}_j/p_j$ follow from Theorem~\ref{thm:convtoT}.
 \begin{prop}
@@ -767,49 +780,56 @@ $$ \,\, \frac{|S^{L}_j(\kappa)|}{p_j}\leq \lim_{n\to\infty}\E\bigg(\frac{\hat{s}
 An immediate consequence is that, if the betamin condition in Assumption~\hyperlink{lab:A5}{A5} also holds, then $\hat{s}_j/p_j \stackrel{L_1}{\longrightarrow} s_j/p_j$
 because $S_j=S_j^{L}(\kappa)$ and $S_j^{S}(\kappa)=\emptyset$ for all $j$. The proposition also shows that, when Assumption~\hyperlink{lab:A7}{A7} is not met, $\hat{s}_j/p_j$ is asymptotically downward biased by at least $|S^{S}_j(\kappa)|/p_j$, but it is guaranteed to be larger than the proportion of signals that satisfy Assumption~\hyperlink{lab:A5}{A5}.
 
-We propose a two-step procedure that uses $\hat{s}_j$ in \eqref{eq:shat} to set such adaptive block penalties. In the first step of the procedure, we use a standard (non-block-based) penalty $\kappa^{\circ}$ and estimate the number of active signals $s_j$ in each block $j$ with $\hat{s}_j$. In the second step, we use the estimated $s_j$ to set block penalties. The variable selection consistency of the proposed procedure follows from the results of Section~\ref{sec:properties_legression}. While in Section~\ref{sec:properties_legression} the gains in conditions for consistency were driven by how $p_j-s_j$ compared to $p-s$, here they are driven by how $p_j-|S^L_j (\kappa^{\circ})|$ compares to $p-|S^L (\kappa^{\circ})|$. This occurs because recovery of small signals in Step 1 is not guaranteed.
-
-The procedure has two variants. The first variant directly uses to set block penalties in the second step the correspondence between $\kappa_j$ and $\theta_j$ in \eqref{eq:block_modelprob} and the approximate empirical Bayes approach where $\theta_j= \hat{s}_j/p_j$. 
-The second variant is motivated by Theorem~\ref{theo:suffcondlinearmodel}. Considering jointly the BIC approximation in \eqref{eq:block_modelprob} and the sufficient Assumption~\hyperlink{lab:A6}{A6}, a natural choice is to set $\theta_j=(p_j-s_j+1)^{-1}$. This choice yields block penalties that are sufficiently large for Theorem~\ref{theo:suffcondlinearmodel} to hold, where $f_j$ in Assumption~\hyperlink{lab:A6}{A6} takes value $\ln(n)/2$ for all $j$. The second variant approximates this choice.
+We propose a two-step procedure that uses $\hat{s}_j$ in \eqref{eq:shat} to set adaptive block penalties leveraging the difference in sparsity across the blocks induced by the external information. In the first step of the procedure, we use a standard (non-block-based) penalty $\kappa^{\circ}$ and estimate the number of active signals $s_j$ in each block $j$ with $\hat{s}_j$. In the second step, we use the estimated $s_j$ to set block penalties. The variable selection consistency of the proposed procedure follows from the results of Section~\ref{sec:properties_legression}. While in Section~\ref{sec:properties_legression} the gains in conditions for consistency were driven by how $p_j-s_j$ compared to $p-s$, here they are driven by how $p_j-|S^L_j (\kappa^{\circ})|$ compares to $p-|S^L (\kappa^{\circ})|$. This occurs because recovery of small signals in Step 1 is not guaranteed.
+%The procedure has two variants. The first variant directly uses to set block penalties in the second step the correspondence between $\kappa_j$ and $\theta_j$ in \eqref{eq:block_modelprob} and the approximate empirical Bayes approach where $\theta_j= \hat{s}_j/p_j$. The second variant is motivated by Theorem~\ref{theo:suffcondlinearmodel}. 
+Our choice of block penalty is motivated by the joint consideration of the BIC approximation in \eqref{eq:block_modelprob} and the sufficient Assumption~\hyperlink{lab:A6}{A6}. It is natural to set $\theta_j\approx (p_j-s_j+1)^{-1}$: this choice yields block penalties that are sufficiently large for Theorem~\ref{theo:suffcondlinearmodel} to hold, where $f_j$ in Assumption~\hyperlink{lab:A6}{A6} takes value $\ln(n)/2$ for all $j$.
 
 \textbf{\hypertarget{lab:Algo2}{Algorithm 2}}
 \begin{enumerate}[label=(\roman*)]
     \item Set $\kappa_j=\kappa^{\circ}=\ln(p)+\frac{1}{2}\ln(n)$ 
     for $j=1,\ldots,b$. Compute $\hat{s}_j/p_j$ in \eqref{eq:shat} for $j=1,\ldots,b$.
-
-    \item Obtain $\hat{S}^{EB,ei}$ solving \eqref{eq:Mhat} with $\kappa_j^{EB}= \ln(p_j/\hat{s}_j -1)+ \tfrac{1}{2}\ln(n)$.
-    Alternatively, obtain $\hat{S}^{A,ei}$ solving \eqref{eq:Mhat} with
+    \item Obtain $\hat{S}^{A,ei}$ solving \eqref{eq:Mhat} with
     $\kappa_j^{A} = \ln(p_j-\hat{s}_j)+ \tfrac{1}{2}\ln(n)$.
+    %Alternatively, obtain $\hat{S}^{EB,ei}$ solving \eqref{eq:Mhat} with $\kappa_j^{EB}= \ln(p_j/\hat{s}_j -1)+ \tfrac{1}{2}\ln(n)$.
 \end{enumerate}
 
-We refer to $\hat{S}^{EB,ei}$ as the block empirical Bayes selector, and to $\hat{S}^{A,ei}$ as the block adaptive selector.
-Step 1 approximates posterior model probabilities under equal prior inclusion probabilities $\theta_j=(p+1)^{-1}$ in \eqref{eq:block_modelprior} across blocks, and estimates the proportion of truly active coefficients with $\hat{s}_j/p_j$. Step 1 can then be approximated by any Bayesian computational method for posterior model probabilities. In particular, in the examples of Section~\ref{sec:examplesinforml0}, we use an MCMC algorithm. Step 2 selects a model using the block penalties $\kappa_j^{EB}$ induced by setting $\theta_j=\hat{s}_j/p_j$ in the BIC approximation \eqref{eq:block_modelprob},
-or alternatively setting $\kappa_j^{A}= \kappa_j^{EB} + \ln(\hat{s}_j)$. Any fast computational method for the exact or approximate resolution of the $\ell_0$ problem may be used for Step 2. 
-Under mild assumptions, both $\kappa_j^{EB}$ and $\kappa_j^{A}$ lead to variable selection consistency.
-The main difference is that in non-sparse settings where $s$ grows faster than $\sqrt{n}$, the penalty $\kappa_j^{EB}$ can be insufficient and there $\kappa_j^{A}$ might be preferred.
+%We refer to $\hat{S}^{EB,ei}$ as the block empirical Bayes selector, and 
+We refer to $\hat{S}^{A,ei}$ as the block adaptive selector. Step 1 approximates posterior model probabilities under equal prior inclusion probabilities $\theta_j=(p+1)^{-1}$ in \eqref{eq:block_modelprior} across blocks, and estimates the proportion of truly active coefficients with $\hat{s}_j/p_j$. Step 1 can then be approximated by any Bayesian computational method for posterior model probabilities. In particular, in the examples of Section~\ref{sec:examplesinforml0}, we use an MCMC algorithm. Step 2 selects a model using the block penalties 
+%$\kappa_j^{EB}$ induced by setting $\theta_j=\hat{s}_j/p_j$ in the BIC approximation \eqref{eq:block_modelprob}, or alternatively setting 
+$\kappa_j^{A}= \ln(p_j-\hat{s}_j)+ \tfrac{1}{2}\ln(n)$. Any fast computational method for the exact or approximate resolution of the $\ell_0$ problem may be used for Step 2. Under mild assumptions $\kappa_j^{A}$ leads to variable selection consistency. In Supplement XXX, we discuss the properties of an alternative choice for block penalties in step 2 that corresponds to directly setting prior inclusion probabilities with empirical Bayes, that is $\theta_j\approx\hat\theta_j$.
+%Under mild assumptions, both $\kappa_j^{EB}$ and $\kappa_j^{A}$ lead to variable selection consistency. The main difference is that in non-sparse settings where $s$ grows faster than $\sqrt{n}$, the penalty $\kappa_j^{EB}$ can be insufficient and there $\kappa_j^{A}$ might be preferred.
 
-Theorem~\ref{theo:empbayesselconsist} shows
-the consistency of $\hat{S}^{EB,ei}$ under
-assumptions:
+%Theorem~\ref{theo:empbayesselconsist} shows the consistency of $\hat{S}^{EB,ei}$ under assumptions:
 
-\hypertarget{lab:A7}{(A7)}\quad $s=o(\sqrt{n})$\\[5pt]
-\hypertarget{lab:A8}{(A8)}\quad For each block $j$, there exists $a_j\to \infty$ such that for every sufficiently large $n$, 
-\begin{equation*}\label{cond:suffIIreg2}
-        \sqrt{\frac{ (1-\psi)n\rho(\bX)}{6}}{\beta_{\min,j}^*} \,- \,\sqrt{\ln\bigg(\frac{p_j}{|S^{L}_j(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} \;=\; \sqrt{\ln(s_j)} + a_j .
-    \end{equation*}
-where $\psi=\tfrac12\Big(1+\max_j \ln(p_j-s_j)/\big(\ln(p_j/s_j-1)+\ln(n)/2\big)\Big)$.
+%\hypertarget{lab:A7}{(A7)}\quad $s=o(\sqrt{n})$\\[5pt]
+%\hypertarget{lab:A8}{(A8)}\quad For each block $j$, there exists $a_j\to \infty$ such that for every sufficiently large $n$, 
+%\begin{equation*}\label{cond:suffIIreg2}
+%        \sqrt{\frac{ (1-\psi)n\rho(\bX)}{6}}{\beta_{\min,j}^*} \,- \,\sqrt{\ln\bigg(\frac{p_j}{|S^{L}_j(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} \;=\; \sqrt{\ln(s_j)} + a_j .
+%    \end{equation*}
+%where $\psi=\tfrac12\Big(1+\max_j \ln(p_j-s_j)/\big(\ln(p_j/s_j-1)+\ln(n)/2\big)\Big)$.
+%
+%\begin{thm}\label{theo:empbayesselconsist}
+%    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, \hyperlink{lab:A7}{A7}, and \hyperlink{lab:A8}{A8} , then
+%$\lim_{n \to \infty} P(\hat{S}^{EB,ei} = S)= 1$, and there exists a constant $c>0$ such that for all sufficiently large $n$ and any $\delta \in (0,1)$,
+%\begin{equation}\label{eq:rateconvregEB}
+% P(\hat{S}^{EB,ei} \neq S)\;\leq\; c\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa^{EB}_j-\ln(p_j-s_j)\big]} + 
+%    e^{-\tfrac{\delta}{2}\big[(\sqrt{\frac{(1-\psi) n\rho(\bX)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa^{EB}_j})^2 -\ln(s_j) \big]}.
+%\end{equation}
+%\end{thm}
 
-\begin{thm}\label{theo:empbayesselconsist}
-    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, \hyperlink{lab:A7}{A7}, and \hyperlink{lab:A8}{A8} , then
-$\lim_{n \to \infty} P(\hat{S}^{EB,ei} = S)= 1$, and there exists a constant $c>0$ such that for all sufficiently large $n$ and any $\delta \in (0,1)$,
-\begin{equation}\label{eq:rateconvregEB}
- P(\hat{S}^{EB,ei} \neq S)\;\leq\; c\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa^{EB}_j-\ln(p_j-s_j)\big]} + 
-    e^{-\tfrac{\delta}{2}\big[(\sqrt{\frac{(1-\psi) n\rho(\bX)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa^{EB}_j})^2 -\ln(s_j) \big]}.
-\end{equation}
-\end{thm}
+%By Theorem~\ref{theo:empbayesselconsist}, $\hat{S}^{sd}^{EB}$ is variable selection consistent under the betamin assumption
+%\begin{equation}\label{eq:betaminA}
+%        \sqrt{\frac{ (1-\xi')n\rho(\bX)}{2}}\beta_{\min}^* \,- \,\sqrt{\ln\big(p-|S^{L}(\kappa^{\circ})|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln(s)} + a,
+%    \end{equation}
+%where $\psi'=\tfrac12\Big(1+ \ln(p-s)/\big(\ln(p/s-1)+\ln(n)/2\big)\Big)$ and $a \to \infty$. When for all $j$, $\ln(s_j)=o(\ln(p_j-s_j))$ and $\ln(s)=o(\ln(p-s))$, we have that for any $j$ and  $n$ large enough,
+%\begin{eqnarray}\label{eq:aobv}
+%&\sqrt{\ln\bigg(\frac{p}{|S^{L}(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} + \sqrt{\ln(s)} \geq \sqrt{\ln\bigg(\frac{p_j}{|S^{L}_j(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} + \sqrt{\ln(s_j)}
+%\end{eqnarray}
+%and also $\psi > \psi'$. \paul{I made a correction and added the the assumption $\ln(s_j)=o(\ln(p_j-s_j))$ and $\ln(s)=o(\ln(p-s))$, because \eqref{eq:aobv} does not actually hold obviously. Under the assumption added $\hat{S}^{EB,ei}\approx\hat{S}^{A,ei}$ so it is not very interesting but it is the best I could do.} Sufficient conditions for consistency are then milder for $\hat S^{EB,b}$ than for $\hat S^{EB}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|\ll p-|S^{L}(\kappa^{\circ})|$.  
 
 Theorem~\ref{theo:informedl0consist} below shows
-the consistency of $\hat{S}^{A,ei}$. It no longer requires Assumption~\hyperlink{lab:A7}{A7}, and Assumption~\hyperlink{lab:A8}{A8} is replaced by the more stringent Assumption A9: \\[5pt]
+the consistency of $\hat{S}^{A,ei}$ under betamin assumption,
+
 \hypertarget{lab:A9}{(A9)}\quad For each block $j$, there exists $d_j\to \infty$ such that for  all sufficiently large $n$,
 \begin{equation*}
         \sqrt{\frac{ (1-\xi)n\rho(\bX)}{2}}\beta_{\min,j}^* \,- \,\sqrt{\ln\big(p_j-|S^{L}_j(\kappa^{\circ})|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln(s_j)} + d_j .
@@ -825,25 +845,66 @@ $\lim_{n \to \infty} P(\hat{S}^{A,ei} = S) = 1$, and there exists a constant $c>
 \end{equation}
 \end{thm}
 
-Our proposed selectors $\hat{S}^{EB,ei}$ and $\hat{S}^{A,ei}$ have similar but slightly stricter sufficient betamin conditions than the oracle selector with penalties $\kappa_j^*$. Assumption~\hyperlink{lab:A8}{A8} and~\hyperlink{lab:A9}{A9} ressemble the betamin assumption in \eqref{eq:suffoptim} with $\ln(p_j-s_j)$ replaced by, respectively $\ln(p_j/|S^{L}_j(\kappa^{\circ})|-1)+\frac12\ln(n)$ and $\ln(p_j-|S^{L}_j(\kappa^{\circ})|)+\frac12\ln(n)$. By definition, $\hat{S}^{EB,ei}$ and $\hat{S}^{A,ei}$ have slower convergence rates than the oracle selector. They approximate better the oracle selector when signals are small. Indeed, when $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\approx \ln(p_j/s_j-1)$, the oracle penalty $\kappa_j^*$ in \eqref{eq:oraclepenreg} satisfies $\kappa_j^*\approx \ln(p_j/s_j-1)$ and $\kappa_j^{EB}$ and $\kappa_j^{A}$ are larger but not too far from the oracle block penalties. When $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\gg \ln(p_j/s_j-1)$, we have $\kappa_j^*\approx \sqrt{n\rho(\bX)/24}\beta_{\min,j}^*$ and then,  $\kappa_j^*\gg \kappa_j^{EB}$ and $\kappa_j^*\gg \kappa_j^{A}$.
+Our proposed selector $\hat{S}^{A,ei}$ has similar but slightly stricter sufficient betamin condition than the oracle selector with penalties $\kappa_j^*$. Assumption\hyperlink{lab:A9}{A9} ressembles the betamin assumption in \eqref{eq:suffoptim} with $\ln(p_j-s_j)$ replaced by $\ln(p_j-|S^{L}_j(\kappa^{\circ})|)+\frac12\ln(n)$. By definition, $\hat{S}^{A,ei}$ has slower convergence rates than the oracle selector. It approximates better the oracle selector when signals are small. Indeed, when $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\approx \ln(p_j/s_j-1)$, the oracle penalty $\kappa_j^*$ in \eqref{eq:oraclepenreg} satisfies $\kappa_j^*\approx \ln(p_j/s_j-1)$ and $\kappa_j^{A}$ is larger but not too far from the oracle block penalties, in particular when $\ln(\sqrt{n}s_j)=o(\ln(p_j/s_j-1))$. When $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\gg \ln(p_j/s_j-1)$, we have $\kappa_j^*\approx \sqrt{n\rho(\bX)/24}\beta_{\min,j}^*$ and then, $\kappa_j^*\gg \kappa_j^{A}$. 
 
-We compare next $\hat{S}^{EB,ei}$ and $\hat{S}^{A,ei}$ to fairer competitors, their respective non-informed counterparts. That is, selector $\hat{S}^{EB}$ that sets in Step 2 a single common penalty $\kappa^{EB}=\ln(p/\hat{s} -1)+ \tfrac{1}{2}\ln(n)$ and selector $\hat{S}^{A}$ that sets in Step 2 a single common penalty $\kappa^{A}=\ln(p-\hat{s})+ \tfrac{1}{2}\ln(n)$.
-
-By Theorem~\ref{theo:empbayesselconsist}, $\hat{S}^{EB}$ is variable selection consistent under the betamin assumption
-\begin{equation}\label{eq:betaminA}
-        \sqrt{\frac{ (1-\xi')n\rho(\bX)}{2}}\beta_{\min}^* \,- \,\sqrt{\ln\big(p-|S^{L}(\kappa^{\circ})|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln(s)} + a,
-    \end{equation}
-where $\psi'=\tfrac12\Big(1+ \ln(p-s)/\big(\ln(p/s-1)+\ln(n)/2\big)\Big)$ and $a \to \infty$. When for all $j$, $\ln(s_j)=o(\ln(p_j-s_j))$ and $\ln(s)=o(\ln(p-s))$, we have that for any $j$ and  $n$ large enough,
-\begin{eqnarray}\label{eq:aobv}
-&\sqrt{\ln\bigg(\frac{p}{|S^{L}(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} + \sqrt{\ln(s)} \geq \sqrt{\ln\bigg(\frac{p_j}{|S^{L}_j(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)} + \sqrt{\ln(s_j)}
-\end{eqnarray}
-and also $\psi > \psi'$. \paul{I made a correction and added the the assumption $\ln(s_j)=o(\ln(p_j-s_j))$ and $\ln(s)=o(\ln(p-s))$, because \eqref{eq:aobv} does not actually hold obviously. Under the assumption added $\hat{S}^{EB,ei}\approx\hat{S}^{A,ei}$ so it is not very interesting but it is the best I could do.} Sufficient conditions for consistency are then milder for $\hat S^{EB,b}$ than for $\hat S^{EB}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|\ll p-|S^{L}(\kappa^{\circ})|$.  
-
-By Theorem~\ref{theo:informedl0consist}, $\hat{S}^{A}$ is variable selection consistent under the betamin assumption
+We compare next $\hat{S}^{A,ei}$ to a fairer competitor, its non-informed counterpart $\hat{S}^{sd}^{A,sd}$ that sets in Step 2 a single common penalty $\kappa^{A}=\ln(p-\hat{s}^{sd})+ \tfrac{1}{2}\ln(n)$. By Theorem~\ref{theo:informedl0consist}, $\hat{S}^{sd}^{A}$ is variable selection consistent under the betamin assumption
 \begin{equation}\label{eq:betaminEB}
         \sqrt{\frac{ (1-\xi')n\rho(\bX)}{2}}\beta_{\min}^* \,- \,\sqrt{\ln\big(p-|S^{L}(\kappa^{\circ})|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln(s)} +  d,
     \end{equation}
-where $\xi'=\tfrac12(1+\ln(p-s)/(\ln(p-s)+0.5\ln(n)))$ and $d\to \infty$. We have that for any $j$ and $n$ large enough,
+where $\xi'=\tfrac12(1+\ln(p-s)/(\ln(p-s)+0.5\ln(n)))$ and $d\to \infty$. We have that for any $j$, $\ln(p-|S^{L}(\kappa^{\circ})|)\geq \ln(p_j-|S_j^{L}(\kappa^{\circ})|)$ and $\ln(s)\geq \ln(s_j)$. The sufficient assumption for consistency is then milder for $\hat S^{A,ei}$ than for $\hat S^{A,sd}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|\ll p-|S^{L}(\kappa^{\circ})|$. Although not developped here, necessary betamin assumptions are also milder for $\hat S^{A,ei}$ than for $\hat S^{A,sd}$.
+
+Assume now that sufficient assumptions for both $\hat S^{A,ei}$ and $\hat S^{A,sd}$ to be consistent are met and denote their convergence rate in \eqref{XXX}, $CR^{A,ei}$ and $CR^{A,sd}$ respectively. Assumme without loss of generality that the smallest signal is in block $b$, $\beta^*_{\min,b}=\beta^*_{\min}$. In a small signal setting such that 
+$$(\beta^*_{\min}-\sqrt{\kappa^{A}_b})^2-\ln(s_b)=\min_{j=1,\ldots,b}\big\{(\beta^*_{\min,j}-\sqrt{\kappa^{A}_j})^2-\ln(s_j),\kappa^{A}_j-\ln(p_j-s_j)\big\} \quad \text{and}\quad 
+(\beta^*_{\min}-\sqrt{\kappa^{A}})^2-\ln(s)=\min\big\{(\beta^*_{\min}-\sqrt{\kappa^{A}})^2-\ln(s),\kappa^{A}-\ln(p-s)\big\},$$
+we have
+$$CR^{A,ei}\sim ce^{-\frac{\delta}{2}((\beta^*_{\min}-\sqrt{\kappa^{A}_b})^2-\ln(s_b))}\;\;\text{and}\;;CR^{A,sd}\sim ce^{-\frac{\delta}{2}((\beta^*_{\min}-\sqrt{\kappa^{A}})^2-\ln(s))} $$
+and then
+$$\frac{CR^{A,ei}}{CR^{A,ds}} = e^{-\frac{\delta}{2}((\beta^*_{\min}-\sqrt{\kappa^{A}_b})^2-(\beta^*_{\min}-\sqrt{\kappa^{A}})^2 + \ln(s/s_b))},$$
+and $CR^{A,ei}<CR^{A,ds}$ since $\kappa^{A}>\kappa^{A}_b$ and $s>s_b$. The less sparse block $b$ is, the smaller $\kappa^{A}_b$ is compared to $\kappa^{A}$, the smaller $CR^{A,ei}$ is compared to $CR^{A,ds}$. 
+
+In a large signal setting such that 
+$$\kappa^{A}_b-\ln(p_b-s_b)=\min_{j=1,\ldots,b}\big\{(\beta^*_{\min,j}-\sqrt{\kappa^{A}_j})^2-\ln(s_j),\kappa^{A}_j-\ln(p_j-s_j)\big\} \quad \text{and}\quad 
+\kappa^{A}-\ln(p-s)=\min\big\{(\beta^*_{\min}-\sqrt{\kappa^{A}})^2-\ln(s),\kappa^{A}-\ln(p-s)\big\},$$
+we have
+$$\frac{CR^{A,ei}}{CR^{A,ds}} = e^{-\frac{\delta}{2}(\kappa^{A}_b-\kappa^{A}) + \ln((p-s)/(p_b-s_b))},$$
+and $CR^{A,ei}>CR^{A,ds}$.
+
+That is, $\hat S^{A,ei}$ recovers most of the benefits of oracle block penalties. It has milder sufficient conditions for variable selection consistency than its non-informed counterpart $\hat S^{A,sd}$. It also has faster convergence rates in small signal settings by setting lower penalties in the blocks that are less sparse. The more informative is the block partition, that is one or several blocks being significantly less sparse than the global set of variables, the greater the gains. However, in large signals settings, its convergence rate is slower than that of $\hat S^{A,sd}$. This is because the strength of the smallest signal cannot be reliably estimated and, unlike the oracle penalties $\kappa^*_j$, the $\kappa^A_j$ do not grow with the $\beta_{\min,j}^*$. We show in our simulation study that this loss in probability of recovery that $\hat S^{A,ei}$ suffers in high signals settings is small when it is compared to $\hat S^{A,sd}$.
+
+\section{Transfer learning for variable selection}
+In this section we use the results of Section~\ref{sec:properties_legression} to obtain the properties of the transfer learning \hyperlink{lab:AlgoTL}{Algorithm 1}. This algorithm transfers the sets of variable selected in the source datasets, $\hat{S}^{(k)}$ $k=1,\ldots,K$, to ease variable selection in the target dataset. The set of variables in the target dataset $V$ is partitioned in two blocks, $B_1= \cup_{k=1}^K \hat S^{(k)}$ and $B_2=V\setminus  \cup_{k=1}^K \hat S^{(k)}$ and an externally-informed selector to select variables in the target dataset. In particuler, we derive the properties \hyperlink{lab:AlgoTL}{Algorithm 1} where the externally-informed selector is taken to be $\hat S^{A,ei}$. For simplicity we assumd the set of variables to be same in the target and source datasets. This assumption can be relaxed in our results at the expense of more complicated expressions.
+
+Consider the
+
+The properties of \hyperlink{lab:AlgoTL}{Algorithm 1} with externally-informed selector $\hat S^{A,ei}$ follow from Theorem~\ref{}. Consider the betamin assumption
+\hypertarget{lab:A10}{(A10)}\quad For each block $j$, there exists $d_j\to \infty$ such that for  all sufficiently large $n$,
+\begin{equation*}
+        \sqrt{\frac{ (1-\xi)n\rho(\bX)}{6}}\beta_{\min,1}^* \,- \,\sqrt{\ln\big(|\cup_{k=1}^K(S^{(k)}\setminus S_1^L(\kappa^{\circ}))|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln\big(|\cup_{k=1}^K(\hat S^{(k)}\cap S)|\big)} + d_1,\text{ and}\\
+        \sqrt{\frac{ (1-\xi)n\rho(\bX)}{6}}\beta_{\min,2}^* \,- \,\sqrt{\ln\big(\big|\cap_{k=1}^K\big( \hat S^{(k)}\cup S_2^L(\kappa^{\circ}))^C|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln\big(|\cap_{k=1}^K( S\setminus \hat S^{(k)})|\big)} + d_2,\text{ and}\\ .
+    \end{equation*}
+where $\xi=\tfrac12(1+\max_j \ln(p_j-s_j)/(\ln(p_j-s_j)+0.5\ln(n)))$.
+
+
+By defintion of $B_1$ and $B_2$, we have
+\begin{eqnarray}
+    & s_1 = |B_1 \cap S| = |\cup_{k=1}^K(\hat S^{(k)}\cap S)|,\\
+    & s_2 = |B_2 \cap S| = |\cap_{k=1}^K( S\setminus \hat S^{(k)})|,\\
+    & p_1-|S_1^L(\kappa^{\circ})| = |B_1 \setminus S_1^L(\kappa^{\circ})| = |\cup_{k=1}^K(\hat S^{(k)}\setminus S_1^L(\kappa^{\circ}))|,\\
+    & p_2-|S_2^L(\kappa^{\circ})| = |B_2 \cap {S_2^L(\kappa^{\circ})}^C| = \big|\cap_{k=1}^K\big( \hat S^{(k)}\cup S_2^L(\kappa^{\circ}))^C|.\\
+\end{eqnarray}
+
+
+
+%For any $k=1,\ldots,K$, let $FP^{(k)}$ and $FN^{(k)}$ denote the sets of, respectively, false positives and false negatives in $\hat S^{(k)}$. Then, for any $k=1,\ldots,K$, we have that $\hat{S}^{(k)}= (S^{(k)}\setminus FN^{(k)})\cup FP^{(k)}$ and $ \cup_{k=1}^K\hat{S}^{(k)}=  \cup_{k=1}^K(S^{(k)}\setminus FN^{(k)})\,\cup\,  \cup_{k=1}^K FP^{(k)}$. It follows,
+%\begin{eqnarray}
+%    & s_1 = |B_1 \cap S| = |\big(\cup_{k=1}^K(S^{(k)}\setminus FN^{(k)})\cap S\big)\,\cup\,  \big(\cup_{k=1}^K FP^{(k)}\cap S\big)|\\
+%    & p_1-s_1 = |B_1 \cap S^C| = |\big(\cup_{k=1}^K(S^{(k)}\setminus FN^{(k)})\cap S^C\big)\,\cup\,  \big(\cup_{k=1}^K FP^{(k)}\cap S^C\big)|\\
+%    & s_2 = |B_2 \cap S| = |\big(\cup_{k=1}^K(S^{(k)}\setminus FN^{(k)})\cap S\big)\,\cup\,  \big(\cup_{k=1}^K FP^{(k)}\cap S\big)|\\
+%    & p_2-s_2 = |B_2 \cap S^C| = |\big(\cap_{k=1}^K(S^{(k)}\setminus FN^{(k)})^c \cap S^C\big)\,\cup\,  \big(\cup_{k=1}^K FP^{(k)}\cap S^C\big)|\\
+%\end{eqnarray}
+
+
+
 
 \begin{figure}
 
@@ -931,7 +992,7 @@ Section~\ref{sec-verify} (.txt file).
 \section{Tightness of conditions for variable selection consistency in linear regression}\label{suppsec:tightness}
 
 
-Sufficient and necessary assumptions for variable selection consistency for a (non-informed) oracle selector that knows $s$ were derived by \cite{infotheowainwright} and \cite{wang2010}.we compare those to our assumptions for the standard $\ell_0$ selector $\hat{S}$. Specifically, we compare the scaling of $n$ implied by the assumptions under six regimes of interest of $\left(p, s, \beta_{\min }^*\right)$. For simplicity, the effect of the conditioning of $\bX$ is disregarded, i.e $\rho(\bX)$, $\bar{\lambda}$ and $\underline{\lambda}$ are considered fixed and bounded away from 0. As discussed in Section~\ref{ch:introduction} Section~\ref{subsec:litoracle}, \cite{infotheowainwright} and \cite{wang2010} derive sufficient and necessary assumptions in a setting that slightly differ from the one considered in this thesis. They study a slightly weaker notion of consistency and necessary conditions are given for the harder task of recovering $S$ when the latter is chosen uniformly at random among subsets of size $s$. Although their assumptions and mines are then not entirely comparable, the comparison gives an idea of the tightness of our results.
+Sufficient and necessary assumptions for variable selection consistency for a (non-informed) oracle selector that knows $s$ were derived by \cite{infotheowainwright} and \cite{wang2010}.we compare those to our assumptions for the standard $\ell_0$ selector $\hat{S}^{sd}$. Specifically, we compare the scaling of $n$ implied by the assumptions under six regimes of interest of $\left(p, s, \beta_{\min }^*\right)$. For simplicity, the effect of the conditioning of $\bX$ is disregarded, i.e $\rho(\bX)$, $\bar{\lambda}$ and $\underline{\lambda}$ are considered fixed and bounded away from 0. As discussed in Section~\ref{ch:introduction} Section~\ref{subsec:litoracle}, \cite{infotheowainwright} and \cite{wang2010} derive sufficient and necessary assumptions in a setting that slightly differ from the one considered in this thesis. They study a slightly weaker notion of consistency and necessary conditions are given for the harder task of recovering $S$ when the latter is chosen uniformly at random among subsets of size $s$. Although their assumptions and mines are then not entirely comparable, the comparison gives an idea of the tightness of our results.
 
 Theorem~\ref{theo:suffcondlinearmodel} of this thesis shows variable selection consistency with $\hat{S}^{ei}$ under Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5}. By \eqref{eq:gpkr} in the proof of Theorem~\ref{prop:fullrecovreg}, an assumption slightly less stringent than \hyperlink{lab:A5}{A5}, and easier to analyse, is sufficient together with \hyperlink{lab:A4}{A4}. That assumption is: \\[5pt]
 for each block $j$, there exists $g_j\to \infty$ such that for every sufficiently large $n$,
@@ -940,7 +1001,7 @@ for each block $j$, there exists $g_j\to \infty$ such that for every sufficientl
     \end{equation*}
 where $\gamma:=\tfrac12(1+\max_j\ln(p_j-s_j)/\kappa_j)\in (\tfrac12,1)$
 
-Consider assumptions~\hyperlink{lab:A5}{A5} and \hyperlink{lab:A15}{A15} for the standard $\ell_0$ selector $\hat{S}$ with single penalty $\kappa$. Their combination implies an assumption on the scaling of $(n,p,s,\beta_{\min}^*)$. To simplify the analysis of that assumption, we assume $\kappa=(1+\varepsilon)\ln(p-s)$ for some fixed $\varepsilon>0$. This choice guarantees that $\kappa$ meets assumption~\hyperlink{lab:A4}{A4} and that $1-\gamma$ is constant and bounded away from 0. A sufficient assumption on $(n,p,s,\beta_{\min}^*)$ that follows from assumptions~\hyperlink{lab:A5}{A5} and \eqref{eq:newasssufflinreg} is then that there exists $t\to \infty$, growing at an arbitrarily slow rate, such that:
+Consider assumptions~\hyperlink{lab:A5}{A5} and \hyperlink{lab:A15}{A15} for the standard $\ell_0$ selector $\hat{S}^{sd}$ with single penalty $\kappa$. Their combination implies an assumption on the scaling of $(n,p,s,\beta_{\min}^*)$. To simplify the analysis of that assumption, we assume $\kappa=(1+\varepsilon)\ln(p-s)$ for some fixed $\varepsilon>0$. This choice guarantees that $\kappa$ meets assumption~\hyperlink{lab:A4}{A4} and that $1-\gamma$ is constant and bounded away from 0. A sufficient assumption on $(n,p,s,\beta_{\min}^*)$ that follows from assumptions~\hyperlink{lab:A5}{A5} and \eqref{eq:newasssufflinreg} is then that there exists $t\to \infty$, growing at an arbitrarily slow rate, such that:
 \begin{equation}\label{eq:groh}
     n= \frac{12(1+\varepsilon)}{\varepsilon}\frac{(1+\varepsilon)\ln(p-s)+\ln(s)}{\rho(\bX){\beta_{\min}^*}^2} \;+\;t
 \end{equation}
@@ -971,7 +1032,7 @@ An immediate initial conclusion is that for any regime of $(n,p,s,\beta_{\min}^*
 % \end{table*}
 
 
-In this thesis we establish the necessity of assumption~\eqref{eq:betaminnecreg} which, when applied to $\hat{S}$ ($\hat{S}^{ei}$ with $b=1$), implies
+In this thesis we establish the necessity of assumption~\eqref{eq:betaminnecreg} which, when applied to $\hat{S}^{sd}$ ($\hat{S}^{ei}$ with $b=1$), implies
 \begin{equation}\label{eq:gpiR}
 \lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min}^*-\underline{\lambda}\sqrt{\ln(p-s)} n\;=\; \frac{\underline{\lambda}\sqrt{\ln(p-s)}}{\bar{\lambda}{\beta_{\min}^*}^2}+t^{\prime}
 \end{equation}
@@ -1015,30 +1076,18 @@ reformulation of $\hat{S}^{ei}$ in linear regression \eqref{eq:linearmodel}. For
 \begin{equation}\label{eq:CM}
     C(M)\;: =\;\tfrac{1}{2}\|\bX_M\tilde{\bbeta}^{(M)}\|^2-\sum_{j=1}^b\kappa_j |M_j|\quad\text{and}\quad NC(M)\;:=\;\frac{e^{C(M)}}{\underset{M' \in \M}{\sum} e^{C(M')}}.
 \end{equation}
-% \begin{lem}\label{lem:useful-reformulation} $\hat{S}^{ei}$ satisfies $\hat{S}^{ei}\;\in\;\arg\max_{M\in \M} NC(M)$
-% \end{lem}
+
 By Lemma~\ref{lem:useful-reformulation}, $\hat{S}^{ei}$ selects
 $M\in \M$ with the largest normalized score $NC(M)$. By the BIC approximation in \eqref{eq:block_modelprob}, $C(M)$ and $NC(M)$ can be understood as, respectively, the unscaled and scaled pseudo-posterior probability for model $M$ in a Bayesian variable selection framework. 
 Proposition 1 in \cite{rossell2022concentration}, reproduced below as Lemma~\ref{lem:L0toL1convergence} (i), proves that the expectation of those pseudo-posterior probabilities bounds the probability of an incorrect model selection $(\hat{S}^{ei}\neq S)$. 
 
-% \begin{lem}\label{lem:L0toL1convergence}
-% \begin{enumerate}[label=(\roman*)]
-% \item 
-% $P(\hat{S}^{ei} \neq S) \,\,\leq \,\, 2 \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right).$
-% \item  For any $M,M'\in\M$, such that $M\neq M'$, 
-% $NC(M)\;\leq \;\big(1+e^{C(M')-C(M)}\big)^{-1}$.
-% \end{enumerate}
-% \end{lem}
 we use Lemma~\ref{lem:L0toL1convergence} (i) to show the variable selection consistency of $\hat{S}^{ei}$ by guaranteeing the vanishing, in expectation, of the sum of the normalized scores. Such vanishing bears resemblance to what is known as \emph{strong selection consistency} property \citep{narisettyhe2014}: the concentration of pseudo-posterior model probabilities on the truth $S$. We prove, however, $L_1$ convergence instead of convergence in probability.
 To bound $\E(NC(M))$ for $M\neq S$, by Lemma~\ref{lem:L0toL1convergence} (ii) with $M'=S$, it is enough to bound the expectation of a simple function of $C(S)-C(M)$, the pairwise comparison between each $M$ and the data-generating $S$.
 This is achieved by noting that, directly by the definition in \eqref{eq:CM}, $C(S)-C(M)=\tfrac12 L_{SM}+\Delta_{MS}$, where for any two models $M,T\subseteq V$, we denote
 \begin{equation}\label{eq:DeltaM}
 \Delta_{MT}\;:=\;\sum_{j=1}^b \kappa_j(|M_j|-|T_j|) \quad\text{and} \quad L_{TM}\;:=\;\|\bX_{T}\tilde{\bbeta}^{(T)}\|^2-\|\bX_{M}\tilde{\bbeta}^{(M)}\|^2.
 \end{equation}
-%and for any two models $Q,M\subseteq V$, we denote 
-%$$L_{QM}\;:=\;\|\bX_{Q}\tilde{\bbeta}^{(Q)}\|^2-\|\bX_{M}\tilde{\bbeta}^{(M)}\|^2.$$
 To lower bound $C(S)-C(M)$, we use that $L_{SM}$ can be expressed in terms of chi-squared variables.
-%For any over-fitted model $M \supset S$, we have $\Delta_{MS}>0$ and it is well-known that $-L_{SM} \sim \chi_{|M \setminus S|}^2$. Hence, if one sets large enough $\kappa_j$ (and thus $\Delta_{MS}$), then $NC(M)$ vanishes. For non-overfitted models $M\not\supset S$, 
 The idea is to take the union model $Q_S=S\cup M$, and to note that $L_{SM}=L_{Q_SM}-L_{Q_SS}$. The next lemma from \cite{rossell2022concentration} is used to bound $L_{Q_SM}$, $L_{Q_SS}$, and hence also $L_{SM}$.
 
 \begin{lem}\label{lemma:s7}
@@ -1059,7 +1108,6 @@ If the noncentrality parameter $\mu_{Q_SM}$ is large enough, then $L_{SM}$ and $
         \rho(\bX)\;\;=\;\;\min_{M \in \M:\, M\not \supseteq S} \lambda_{\min}\big(\tfrac{1}{n} \boldsymbol{X}_{S \setminus M}^{\top}\left(I_n- P_M\right) \boldsymbol{X}_{S \setminus M}\big).
     \end{equation}
 The quantity $\rho(\bX)$ is nonnegative and relates to how distinguishable the other models $M\in \M$ are from $S$ \citep{infotheowainwright}.  More specifically, $\tfrac{1}{n} \boldsymbol{X}_{S \setminus M}^{\top}\left(I_n- P_M\right) \boldsymbol{X}_{S \setminus M}$ is the sample covariance matrix of the residuals when regressing $\boldsymbol{X}_{S \setminus M}$ on $\boldsymbol{X}_M$.
-%That is, $\rho(\bX)$ measures how well one can approximate the $\boldsymbol{X}_{S \setminus M}$ with $\boldsymbol{X}_M$.
 In an orthonormal case where $\bX^{\top}\bX=n\I_p$, then $\rho(\bX)=1$.  
 
 \begin{lem}\label{lem:boundrho}
@@ -1179,7 +1227,6 @@ $$
 $$
 \end{lem}
 
-%\paul{I had to reprove this one because it was with factor 2 instead of $c$.}
 
 \begin{proof}
 For any $u\in [\underline{u},\bar{u}]$, we have $c\log \left(\frac{h}{1 / u-1}\right) \geq c\log \left(\frac{h}{1 / \underline{u}-1}\right)$. Since $\underline{u}\geq (1+h^{\psi}e^{-(\eta+\mu)/c})^{-1}$ by assumption  we also have that, for any $u\in (\underline{u},\bar{u})$,
@@ -1240,7 +1287,6 @@ $$
 \int_0^1 P\left(W>c \log \left(\frac{h}{1 / u-1}\right)\right) d u = o\big(  h^{-\alpha}\big).$$
 \end{lem}
 
-%\paul{I had to reprove this one too because it was with factor 2 instead of $c$.}
 
 \begin{proof}
 Since a probability is bounded by $1$, for any $a\in(0,1)$,
@@ -1594,7 +1640,7 @@ $$P(\hat{S}^{ei} \neq S) \; \leq \; 2 \sum_{j=1}^be^{-[\frac{n}{8}{\beta^*_{\min
 which proves \eqref{eq:optimrateconvgsm}.
 
 \subsection{Proof of Corollary~\ref{cor:selconstimpossible}}
-Since $\hat{S}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Lemma~\ref{lem:necbetaminblockthresh} for $\hat{S}$ are met and $\lim_{n \to \infty} P(\hat{S} = S) < 1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold, by Propositions~\ref{prop:suffnecblockthreshI} (i) and \ref{prop:suffnecblockthreshII} (i), $\lim_{n \to \infty} P(\hat{S}^{ei} \subseteq S)= 1$ and $\lim_{n \to \infty} P(\hat{S}^{ei} \supseteq S)= 1$, and then $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.\color{black}
+Since $\hat{S}^{sd}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Lemma~\ref{lem:necbetaminblockthresh} for $\hat{S}^{sd}$ are met and $\lim_{n \to \infty} P(\hat{S}^{sd} = S) < 1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold, by Propositions~\ref{prop:suffnecblockthreshI} (i) and \ref{prop:suffnecblockthreshII} (i), $\lim_{n \to \infty} P(\hat{S}^{ei} \subseteq S)= 1$ and $\lim_{n \to \infty} P(\hat{S}^{ei} \supseteq S)= 1$, and then $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.\color{black}
 
 
 \subsection{Proof of Proposition~\ref{prop:suffnecIIblockthreshbis}}
@@ -1640,7 +1686,7 @@ Consider the case $\lim_{n\to \infty}\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}
 $\lim_{n\to \infty}P(\hat{S}^{ei} \subseteq S)< 1$ and $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$.  Now consider the case $\lim_{n\to \infty}\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}}-1 \geq0$. It follows that, by Assumption~\hyperlink{lab:A2}{A2} $\tau_j\to\infty$ and, by \eqref{eq:proofnecbetaminbis}, $\lim_{n\to \infty}\sqrt{n}\beta_{\min,j}^*-\sqrt{n}\tau_j \leq c$. We can then apply Lemma~\ref{lem:gennecIIblockthresh}, and we have that $\lim_{n\to \infty}P(\hat{S}^{ei} \supseteq S)< 1$ and $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$.
 
 
-\subsection{Proof of Corollary~\ref{cor:sfin}} Observe that the conditions of Lemma~\ref{lem:necbetaminblockthresh2} hold for $\hat{S}$ ($\hat{S}^{ei}$ for $b=1$), and then $\lim_{n\to \infty}P(\hat{S} = S)<1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5bis}{A5bis} hold, by Proposition~\ref{prop:suffnecblockthreshI} (i) and Proposition~\ref{prop:suffnecIIblockthreshbis}, $\lim_{n\to \infty}P(\hat{S}^{ei} \subseteq 1)= 1$ and $\lim_{n\to \infty}P( \hat{S}^{ei} \supseteq S)=1$, and then $\lim_{n\to \infty}P(\hat{S}^{ei} = S)=1$.
+\subsection{Proof of Corollary~\ref{cor:sfin}} Observe that the conditions of Lemma~\ref{lem:necbetaminblockthresh2} hold for $\hat{S}^{sd}$ ($\hat{S}^{ei}$ for $b=1$), and then $\lim_{n\to \infty}P(\hat{S}^{sd} = S)<1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5bis}{A5bis} hold, by Proposition~\ref{prop:suffnecblockthreshI} (i) and Proposition~\ref{prop:suffnecIIblockthreshbis}, $\lim_{n\to \infty}P(\hat{S}^{ei} \subseteq 1)= 1$ and $\lim_{n\to \infty}P( \hat{S}^{ei} \supseteq S)=1$, and then $\lim_{n\to \infty}P(\hat{S}^{ei} = S)=1$.
 
 
 
@@ -2004,7 +2050,7 @@ $$P\big(|Z_M|>\sqrt{2\kappa_j}\big)
 Consider the case $\lim_{n\to \infty}\sqrt{\tfrac{\kappa_j}{\underline{\lambda}_j^2\ln(p_j-s_j)}}-1<0$. Then by Proposition~\ref{prop:nectypeIreg}, we have $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$. Now consider the case $\lim_{n\to \infty}\sqrt{\tfrac{\kappa_j}{\underline{\lambda}_j^2\ln(p_j-s_j)}}-1 \geq0$. Then, $\kappa_j\to\infty$ since by assumption $\underline{\lambda}^2_j\ln(p_j-s_j)\to\infty$. Moreover, condition \eqref{eq:proofnecbetaminbislinreg} implies that $\lim_{n\to \infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\kappa_j} \leq c$. By Proposition~\ref{prop:nectypeIIreg2}, we have that $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$.
 
 \subsection{Proof of Corollary~\ref{cor:selconstimpossiblereg}}
-Since $\hat{S}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Corollary~\ref{cor:necrecovreg} for $\hat{S}$ are met and $\lim_{n \to \infty} P(\hat{S} = S) < 1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold, by Theorem~\ref{theo:suffcondlinearmodel} we have that $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.
+Since $\hat{S}^{sd}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Corollary~\ref{cor:necrecovreg} for $\hat{S}^{sd}$ are met and $\lim_{n \to \infty} P(\hat{S}^{sd} = S) < 1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold, by Theorem~\ref{theo:suffcondlinearmodel} we have that $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.
 
 \subsection{Proof of Theorem~\ref{thm:convtoT}}
 The proof strategy is the same as that of Theorem~\ref{theo:suffcondlinearmodel}, with suitable adjustments. 
@@ -2459,7 +2505,7 @@ Consider the case $\lim_{n\to \infty}\sqrt{\tfrac{\eta_j(s_j+1)-\eta_j(s_j)}{\un
 $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$. Now consider the case $\lim_{n\to \infty}\sqrt{\tfrac{\eta_j(s_j+1)-\eta_j(s_j)}{\underline{\lambda}_j^2\ln(p_j-s_j)}}-1 \geq0$. Since by assumption $\underline{\lambda}^2_j\ln(p_j-s_j)\to\infty$, $\eta_j(s_j+1)-\eta_j(s_j)\to\infty$ and by concavity $\eta_j(s_j)-\eta_j(s_j-1)\to\infty$ too. Moreover, condition \eqref{eq:proofnecbetaminbislinregbis} implies that $\lim_{n\to \infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\big(\eta_j(s_j)-\eta_j(s_j-1)\big)} \leq c$. By Proposition~\ref{prop:nectypeIregnonlin} (ii), we have that  $\lim_{n\to \infty}P(\hat{S}^{ei} = S)< 1$.
 
 \subsection{Proof of Corollary~\ref{cor:selconstimpossibleregnonlin}}
-Since $\hat{S}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Corollary~\ref{cor:necrecovregnonlin} for $\hat{S}$ are met and $\lim_{n \to \infty} P(\hat{S} = S) < 1$. Since Assumptions~\hyperlink{lab:A4bis}{A4bis} and \hyperlink{lab:A5bis}{A5bis} hold, by Theorem~\ref{theo:suffcondlinearmodelnonlinpen} we have that $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.
+Since $\hat{S}^{sd}$ is $\hat{S}^{ei}$ with $b=1$, the assumptions of Corollary~\ref{cor:necrecovregnonlin} for $\hat{S}^{sd}$ are met and $\lim_{n \to \infty} P(\hat{S}^{sd} = S) < 1$. Since Assumptions~\hyperlink{lab:A4bis}{A4bis} and \hyperlink{lab:A5bis}{A5bis} hold, by Theorem~\ref{theo:suffcondlinearmodelnonlinpen} we have that $\lim_{n \to \infty} P(\hat{S}^{ei} = S)= 1$.
 
  
 \section{Proofs of Section~\ref{sec:informed_l0}}\label{suppsec:proofsempbayes}

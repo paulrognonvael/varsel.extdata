@@ -1,123 +1,123 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.17)  1 NOV 2025 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.4)  2 NOV 2025 00:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex
-(c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
-(c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(c:/texlive/2025/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+**c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex
+(c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
-) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
-\@mathmargin=\skip51
+\c@part=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
-\ex@=\dimen149
-)) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen141
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen150
-) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen142
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count283
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count284
-\leftroot@=\count285
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count286
-\DOTSCASE@=\count287
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen151
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count288
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count289
-\dotsspace@=\muskip17
-\c@parentequation=\count290
-\dspbrk@lvl=\count291
+\inf@bad=\count196
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count197
+\leftroot@=\count198
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count199
+\DOTSCASE@=\count266
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count267
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count268
+\dotsspace@=\muskip16
+\c@parentequation=\count269
+\dspbrk@lvl=\count270
 \tag@help=\toks18
-\row@=\count292
-\column@=\count293
-\maxfields@=\count294
+\row@=\count271
+\column@=\count272
+\maxfields@=\count273
 \andhelp@=\toks19
-\eqnshift@=\dimen152
-\alignsep@=\dimen153
-\tagshift@=\dimen154
-\tagwidth@=\dimen155
-\totwidth@=\dimen156
-\lineht@=\dimen157
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
 \@envbody=\toks20
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
-) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (c:/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks22
 \thm@bodyfont=\toks23
 \thm@headfont=\toks24
 \thm@notefont=\toks25
 \thm@headpunct=\toks26
-\thm@preskip=\skip54
-\thm@postskip=\skip55
-\thm@headsep=\skip56
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
 \dth@everypar=\toks27
-) (c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-) (c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
-) (c:/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks28
 \inpenc@posthook=\toks29
-) (c:/texlive/2025/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-) (c:/texlive/2025/texmf-dist/tex/latex/lm/lmodern.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -151,305 +151,321 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (c:/texlive/2025/texmf-dist/tex/latex/upquote/upquote.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
-) (c:/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
 Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
- (c:/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks30
-) (c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count295
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count274
 )
 \MT@toks=\toks31
-\MT@tempbox=\box55
-\MT@count=\count296
+\MT@tempbox=\box53
+\MT@count=\count275
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
 \MT@prot@toks=\toks32
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen158
+\MT@outer@kern=\dimen150
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count297
- (c:/texlive/2025/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+\MT@listname@count=\count276
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdftex.def
 File: microtype-pdftex.def 2025/07/09 v3.2b Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 944.
 LaTeX Info: Redefining \lslig on input line 944.
-\MT@outer@space=\skip57
+\MT@outer@space=\skip56
 )
 Package microtype Info: Loading configuration file microtype.cfg.
- (c:/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
 File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-) (c:/texlive/2025/texmf-dist/tex/latex/parskip/parskip.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
- (c:/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (c:/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (c:/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))) (c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+))) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (c:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-) (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (c:/texlive/2025/texmf-dist/tex/latex/graphics/dvipsnam.def
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-) (c:/texlive/2025/texmf-dist/tex/latex/xcolor/svgnam.def
-File: svgnam.def 2024/09/29 v3.02 Predefined colors according to SVG 1.1 (UK)
-) (c:/texlive/2025/texmf-dist/tex/latex/xcolor/x11nam.def
-File: x11nam.def 2024/09/29 v3.02 Predefined colors according to Unix/X11 (UK)
-) (c:/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
-\LTleft=\skip58
-\LTright=\skip59
-\LTpre=\skip60
-\LTpost=\skip61
-\LTchunksize=\count298
-\LTcapwidth=\dimen159
-\LT@head=\box56
-\LT@firsthead=\box57
-\LT@foot=\box58
-\LT@lastfoot=\box59
-\LT@gbox=\box60
-\LT@cols=\count299
-\LT@rows=\count300
-\c@LT@tables=\count301
-\c@LT@chunks=\count302
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\svgnam.def
+File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\x11nam.def
+File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
+\LTleft=\skip57
+\LTright=\skip58
+\LTpre=\skip59
+\LTpost=\skip60
+\LTchunksize=\count277
+\LTcapwidth=\dimen151
+\LT@head=\box54
+\LT@firsthead=\box55
+\LT@foot=\box56
+\LT@lastfoot=\box57
+\LT@gbox=\box58
+\LT@cols=\count278
+\LT@rows=\count279
+\c@LT@tables=\count280
+\c@LT@chunks=\count281
 \LT@p@ftn=\toks33
-) (c:/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen160
-\lightrulewidth=\dimen161
-\cmidrulewidth=\dimen162
-\belowrulesep=\dimen163
-\belowbottomsep=\dimen164
-\aboverulesep=\dimen165
-\abovetopsep=\dimen166
-\cmidrulesep=\dimen167
-\cmidrulekern=\dimen168
-\defaultaddspace=\dimen169
-\@cmidla=\count303
-\@cmidlb=\count304
-\@aboverulesep=\dimen170
-\@belowrulesep=\dimen171
-\@thisruleclass=\count305
-\@lastruleclass=\count306
-\@thisrulewidth=\dimen172
-) (c:/texlive/2025/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
-\col@sep=\dimen173
-\ar@mcellbox=\box61
-\extrarowheight=\dimen174
+\heavyrulewidth=\dimen152
+\lightrulewidth=\dimen153
+\cmidrulewidth=\dimen154
+\belowrulesep=\dimen155
+\belowbottomsep=\dimen156
+\aboverulesep=\dimen157
+\abovetopsep=\dimen158
+\cmidrulesep=\dimen159
+\cmidrulekern=\dimen160
+\defaultaddspace=\dimen161
+\@cmidla=\count282
+\@cmidlb=\count283
+\@aboverulesep=\dimen162
+\@belowrulesep=\dimen163
+\@thisruleclass=\count284
+\@lastruleclass=\count285
+\@thisrulewidth=\dimen164
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen165
+\ar@mcellbox=\box59
+\extrarowheight=\dimen166
 \NC@list=\toks34
-\extratabsurround=\skip62
-\backup@length=\skip63
-\ar@cellbox=\box62
-) (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count307
-\calc@Bcount=\count308
-\calc@Adimen=\dimen175
-\calc@Bdimen=\dimen176
-\calc@Askip=\skip64
-\calc@Bskip=\skip65
-LaTeX Info: Redefining \setlength on input line 86.
-LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count309
-\calc@Cskip=\skip66
-) (c:/texlive/2025/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+\extratabsurround=\skip61
+\backup@length=\skip62
+\ar@cellbox=\box60
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count286
+\calc@Bcount=\count287
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip63
+\calc@Bskip=\skip64
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count288
+\calc@Cskip=\skip65
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/footnotehyper\footnotehyper.sty
 Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
-\FNH@notes=\box63
-\FNH@width=\dimen177
+\FNH@notes=\box61
+\FNH@width=\dimen169
 \FNH@toks=\toks35
-) (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen178
-\Gin@req@width=\dimen179
-) (c:/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+\Gin@req@height=\dimen170
+\Gin@req@width=\dimen171
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (c:/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen180
-\captionmargin=\dimen181
-\caption@leftmargin=\dimen182
-\caption@rightmargin=\dimen183
-\caption@width=\dimen184
-\caption@indent=\dimen185
-\caption@parindent=\dimen186
-\caption@hangindent=\dimen187
+\caption@tempdima=\dimen172
+\captionmargin=\dimen173
+\caption@leftmargin=\dimen174
+\caption@rightmargin=\dimen175
+\caption@width=\dimen176
+\caption@indent=\dimen177
+\caption@parindent=\dimen178
+\caption@hangindent=\dimen179
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count310
-\c@continuedfloat=\count311
+\c@caption@flags=\count289
+\c@continuedfloat=\count290
 Package caption Info: longtable package is loaded.
- (c:/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-)) (c:/texlive/2025/texmf-dist/tex/latex/float/float.sty
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count312
+\c@float@type=\count291
 \float@exts=\toks36
-\float@box=\box64
+\float@box=\box62
 \@float@everytoks=\toks37
-\@floatcapt=\box65
+\@floatcapt=\box63
 )
 \@float@every@codelisting=\toks38
-\c@codelisting=\count313
- (c:/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+\c@codelisting=\count292
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count314
+\c@subfigure=\count293
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count315
-) (c:/texlive/2025/texmf-dist/tex/latex/natbib/natbib.sty
+\c@subtable=\count294
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip67
-\bibsep=\skip68
+\bibhang=\skip66
+\bibsep=\skip67
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count316
-) (c:/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty
+\c@NAT@ctr=\count295
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
- (c:/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
- (c:/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (c:/texlive/2025/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (c:/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (c:/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (c:/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (c:/texlive/2025/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
- (c:/texlive/2025/texmf-dist/tex/latex/refcount/refcount.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (c:/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count317
-) (c:/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+\c@section@level=\count296
 )
-\@linkdim=\dimen188
-\Hy@linkcounter=\count318
-\Hy@pagecounter=\count319
- (c:/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen180
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (c:/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count320
- (c:/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count299
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4066.
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Option `unicode' set `true' on input line 4062.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count321
- (c:/texlive/2025/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count300
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen189
- (c:/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen181
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (c:/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count322
-\Field@Width=\dimen190
-\Fld@charsize=\dimen191
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count323
-\c@Item=\count324
-\c@Hfootnote=\count325
+\Fld@menulength=\count301
+\Field@Width=\dimen182
+\Fld@charsize=\dimen183
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (c:/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count326
-\c@bookmark@seq@number=\count327
- (c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip69
-) (c:/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+\Hy@SectionHShift=\skip68
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count328
-)) (c:/texlive/2025/texmf-dist/tex/latex/xurl/xurl.sty
+\BKM@id=\count307
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 159.
-\c@thm=\count329
- (c:/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip70
-\enit@outerparindent=\dimen192
+\c@thm=\count308
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip69
+\enit@outerparindent=\dimen184
 \enit@toks=\toks39
-\enit@inbox=\box66
-\enit@count@id=\count330
-\enitdp@description=\count331
+\enit@inbox=\box64
+\enit@count@id=\count309
+\enitdp@description=\count310
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 212.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count332
-) (./paper.aux)
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count311
+\l__pdf_internal_box=\box65
+) (paper.aux
+
+LaTeX Warning: Label `sec:properties_legression' multiply defined.
+
+
+LaTeX Warning: Label `eq:CM' multiply defined.
+
+)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 212.
@@ -487,26 +503,26 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
- (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-) (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen193
-\scratchbox=\box67
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\scratchcounter=\count312
+\scratchdimen=\dimen185
+\scratchbox=\box66
+\nofMPsegments=\count313
+\nofMParguments=\count314
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen194
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPscratchCnt=\count315
+\MPscratchDim=\dimen186
+\MPnumerator=\count316
+\makeMPintoPDFobject=\count317
 \everyMPtoPDFconversion=\toks41
-) (c:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
@@ -514,19 +530,19 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 212.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -536,25 +552,25 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 232.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 232.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 232.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 247.
- (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmss.fd
+ (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -567,15 +583,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 247.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 247.
+ [1
 
-
-[1
-
-{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+{C:/Users/Usuario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 
 Package natbib Warning: Citation `giannone2021economic' on page 2 undefined on input line 269.
-
-
 
 [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -614,11 +626,6 @@ Package natbib Warning: Citation `EBIC' on page 3 undefined on input line 278.
 
 Package natbib Warning: Citation `rossell2022concentration' on page 3 undefined on input line 278.
 
-
-LaTeX Warning: Reference `sec:intro_blockpen' on page 3 undefined on input line 278.
-
-
-
 [3]
 
 Package natbib Warning: Citation `telesca' on page 4 undefined on input line 280.
@@ -629,7 +636,7 @@ Package natbib Warning: Citation `dunson...' on page 4 undefined on input line 2
 
 LaTeX Warning: Command \. invalid in math mode on input line 284.
 
-c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:284: Please use \mathaccent for accents in math mode.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:284: Please use \mathaccent for accents in math mode.
 \MT@orig@add@accent ...gnorespaces \relax \accent 
                                                   #1 #2\egroup \ifmmode \els...
 l.284     \Gamma: z_i \to B_j,\,\. j
@@ -642,8 +649,6 @@ Package natbib Warning: Citation `BIC' on page 4 undefined on input line 286.
 
 
 Package natbib Warning: Citation `EBIC' on page 4 undefined on input line 286.
-
-
 
 [4]
 
@@ -694,8 +699,6 @@ Package natbib Warning: Citation `belloni2014inference' on page 5 undefined on i
 
 Package natbib Warning: Citation `antonelli2021bayesian' on page 5 undefined on input line 290.
 
-
-
 [5]
 
 Package natbib Warning: Citation `Jiang2016' on page 6 undefined on input line 292.
@@ -713,12 +716,6 @@ Package natbib Warning: Citation `Tian2023' on page 6 undefined on input line 29
 Package natbib Warning: Citation `dunson' on page 6 undefined on input line 292.
 
 
-LaTeX Warning: Reference `sec:intro_blockpen' on page 6 undefined on input line 296.
-
-
-LaTeX Warning: Reference `sec:properties_legression' on page 6 undefined on input line 298.
-
-
 Package natbib Warning: Citation `infotheowainwright' on page 6 undefined on input line 298.
 
 
@@ -730,22 +727,11 @@ Package natbib Warning: Citation `bryon' on page 6 undefined on input line 298.
 
 Package natbib Warning: Citation `butucea2018' on page 6 undefined on input line 298.
 
-
-
 [6]
 
 LaTeX Warning: Reference `sec:TL' on page 7 undefined on input line 300.
 
-
-LaTeX Warning: Reference `sec:properties_legression' on page 7 undefined on input line 300.
-
-
-
-[7]
-
-[8]
-
-[9{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[7] [8] [9{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
 
 Package natbib Warning: Citation `BIC' on page 10 undefined on input line 338.
 
@@ -753,10 +739,7 @@ Package natbib Warning: Citation `BIC' on page 10 undefined on input line 338.
 Package natbib Warning: Citation `zellner1986assessing' on page 10 undefined on input line 348.
 
 
-LaTeX Warning: Reference `eq:stdl0' on page 10 undefined on input line 349.
-
-
-c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:349: LaTeX Error: Unicode character − (U+2212)
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:349: LaTeX Error: Unicode character − (U+2212)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -768,52 +751,34 @@ l.349 ...kappa = \frac12 \ln(n) + \ln(1/\theta −
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-
-LaTeX Warning: Reference `eq:block_modelprior' on page 10 undefined on input line 361.
-
-
-
 [10]
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:372: Double superscript.
+l.372 ...1$, $\hat S^{ei}$ recovers $\hat{S}^{sd}^
+                                                  {sd}$.
+I treat `x^1^2' essentially like `x^1{}^2'.
 
-LaTeX Warning: Reference `eq:block_modelprior' on page 11 undefined on input line 368.
-
-
-LaTeX Warning: Reference `eq:partition' on page 11 undefined on input line 368.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 11 undefined on input line 372.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 11 undefined on input line 376.
-
-
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:378: Double superscript.
+l.378 ...z_i=1$ if $i\in \cup_{k=1}^K\hat{S}^{sd}^
+                                                  {(k)}$ and $z_i=0$ otherwi...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 [11]
-
-LaTeX Warning: Reference `eq:Mhat' on page 12 undefined on input line 383.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:383: Double superscript.
+l.383 ...h $B_1=\{i:i\in \cup_{k=1}^K\hat{S}^{sd}^
+                                                  {(k)}\}$ and $B_2=V\setmin...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 LaTeX Warning: Reference `XXX' on page 12 undefined on input line 386.
 
-
-
 [12]
-
-LaTeX Warning: Reference `eq:Mhat' on page 13 undefined on input line 403.
-
-
-LaTeX Warning: Reference `eq:linearmodel' on page 13 undefined on input line 403.
-
-
-LaTeX Warning: Reference `sec:properties_legression' on page 13 undefined on input line 403.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:403: Double superscript.
+l.403 ...fits of $\hat S^{ei}$ over $\hat{S}^{sd}^
+                                                  {sd}$ in relation to the r...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 LaTeX Warning: Reference `' on page 13 undefined on input line 403.
-
-
-LaTeX Warning: Reference `eq:linearmodel' on page 13 undefined on input line 414.
-
-
 
 [13]
 
@@ -821,48 +786,18 @@ LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 419.
 
 
-LaTeX Warning: Reference `lem:useful-reformulation' on page 14 undefined on input line 422.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 14 undefined on input line 423.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 14 undefined on input line 423.
-
-
 Package natbib Warning: Citation `rossell2022concentration' on page 14 undefined on input line 423.
 
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 14 undefined on input line 432.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 14 undefined on input line 432.
-
-
-
-[14]
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 15 undefined on input line 461.
-
-
-LaTeX Warning: Reference `prop:fullrecovreg' on page 15 undefined on input line 461.
-
-
-
-[15]
-
-LaTeX Warning: Reference `eq:rateconvreg' on page 16 undefined on input line 485.
-
-
-LaTeX Warning: Reference `eq:rateconvreg' on page 16 undefined on input line 485.
-
-
-LaTeX Warning: Reference `prop:fullrecovreg' on page 16 undefined on input line 487.
+[14] [15]
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:487: Double superscript.
+l.487 ...informed $\ell_0$ selector $\hat{S}^{sd}^
+                                                  {sd}$, they nearly match t...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 Package natbib Warning: Citation `butucea2018' on page 16 undefined on input line 487.
 
-c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:487: Undefined control sequence.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:487: Undefined control sequence.
 l.487 ...e choice $\sqrt{\tilde{\kappa}}=(1/2)\sqr
                                                   {n/2}\beta_{\min}^*+(1/2)\...
 The control sequence at the end of the top line
@@ -871,40 +806,28 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: Reference `eq:rateconvreg' on page 16 undefined on input line 487.
-
-
-
 [16]
 
 LaTeX Warning: Command \O invalid in math mode on input line 508.
+
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:508: Double superscript.
+l.508 ...\quad \lim_{n \to \infty} P(\hat{S}^{sd}^
+                                                  b=S)= 0$.
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 Underfull \hbox (badness 1117) in paragraph at lines 511--513
 []\T1/lmr/m/it/12 (+20) If for some $\OML/lmm/m/it/12 j \OMS/lmsy/m/n/12 2 f\OT1/lmr/m/n/12 (+20) 1\OML/lmm/m/it/12 ; [] ; b\OMS/lmsy/m/n/12 g$\T1/lmr/m/it/12 (+20) , $[][] []\OT1/lmr/m/n/12 (+20) (\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 (+20) ) \OMS/lmsy/m/n/12 ! 1$ \T1/lmr/m/it/12 (+20) and $[][] []\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@
  []
 
-
-LaTeX Warning: Reference `prop:nectypeItypeII' on page 17 undefined on input line 519.
-
-
-LaTeX Warning: Reference `prop:nectypeItypeII' on page 17 undefined on input line 523.
-
-
-LaTeX Warning: Reference `prop:nectypeItypeII' on page 17 undefined on input line 523.
-
-
-
 [17]
 
 LaTeX Warning: Reference `cond:necIallblockpen' on page 18 undefined on input line 527.
 
-
-LaTeX Warning: Reference `eq:betaminnecreg' on page 18 undefined on input line 527.
-
-
-LaTeX Warning: Reference `eq:betaminnecreg' on page 18 undefined on input line 527.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:527: Double superscript.
+l.527 ...informed $\ell_0$ selector $\hat{S}^{sd}^
+                                                  {sd}$, improve on the know...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 Package natbib Warning: Citation `infotheowainwright' on page 18 undefined on input line 527.
@@ -912,23 +835,16 @@ Package natbib Warning: Citation `infotheowainwright' on page 18 undefined on in
 
 Package natbib Warning: Citation `XXX' on page 18 undefined on input line 527.
 
-
-
 [18]
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:610: Double superscript.
+l.610 ...angeblockpenex} imply that $\hat{S}^{sd}^
+                                                  {i}$ requires milder condi...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
-LaTeX Warning: Reference `eq:rangeblockpenex' on page 19 undefined on input line 610.
-
-
-LaTeX Warning: Reference `eq:rangeblockpenex' on page 19 undefined on input line 610.
-
-
-LaTeX Warning: Reference `eq:rangeblockpenex' on page 19 undefined on input line 610.
-
-
-LaTeX Warning: Reference `cor:selconstimpossiblereg' on page 19 undefined on input line 614.
-
-
-LaTeX Warning: Reference `eq:oraclepenreg' on page 19 undefined on input line 622.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:614: Double superscript.
+l.614 ...\hat{S}^{ei}$ but not with $\hat{S}^{sd}^
+                                                  {sd}$.
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 LaTeX Warning: Reference `eq:optimrateconvreg' on page 19 undefined on input line 622.
@@ -939,20 +855,17 @@ LaTeX Warning: Reference `eq:ratioCR' on page 19 undefined on input line 628.
 
 LaTeX Warning: Reference `eq:optimrateconvgsm' on page 19 undefined on input line 628.
 
-
-
-[19]
-
-LaTeX Warning: Reference `tab:examples' on page 20 undefined on input line 655.
-
-
-
-[20]
+[19] [20]
 
 LaTeX Warning: Reference `fig:boundthresh' on page 21 undefined on input line 677.
 
 
 LaTeX Warning: Reference `fig:boundthresh2' on page 21 undefined on input line 677.
+
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:677: Double superscript.
+l.677 ...cy with $\hat{S}^{sd}$ and $\hat{S}^{sd}^
+                                                  {b}$ given in \eqref{eq:ra...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 LaTeX Warning: Reference `eq:rangethreshex' on page 21 undefined on input line 677.
@@ -960,2022 +873,670 @@ LaTeX Warning: Reference `eq:rangethreshex' on page 21 undefined on input line 6
 
 LaTeX Warning: Reference `eq:rangeblockthreshex' on page 21 undefined on input line 677.
 
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:677: Double superscript.
+l.677 ...onsidered while it is with $\hat{S}^{sd}^
+                                                  {b}$.
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:678: Double superscript.
+l.678 ...uires larger $n$ than with $\hat{S}^{sd}^
+                                                  b$. Example 1 shows that t...
+I treat `x^1^2' essentially like `x^1{}^2'.
+
 
 LaTeX Warning: Reference `fig:ratios' on page 21 undefined on input line 722.
 
-
-LaTeX Warning: Reference `eq:goodoregratio' on page 21 undefined on input line 722.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:722: Double superscript.
+l.722 ...very is possible with both $\hat{S}^{sd}^
+                                                  {sd}$ and $\hat S^b$. Figu...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
 LaTeX Warning: Reference `fig:ratios' on page 21 undefined on input line 722.
 
+[21] [22]
 
-LaTeX Warning: Reference `eq:CM' on page 21 undefined on input line 727.
+Package natbib Warning: Citation `papaspiliopoulos:2025' on page 23 undefined on input line 764.
 
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:766: Undefined control sequence.
+l.766 ...\in B_j}\sum_{M\in\M: i\in M}P(M \mid \bs
+                                                   y,\hat{\bs \theta}).$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 21 undefined on input line 727.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:766: Undefined control sequence.
+<recently read> \bs 
+                    
+l.766 ...M: i\in M}P(M \mid \bs y,\hat{\bs \theta}
+                                                  ).$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: Reference `sec:informed_l0' on page 21 undefined on input line 727.
-
-
-
-[21]
-
-LaTeX Warning: Reference `thm:convtoT' on page 22 undefined on input line 747.
-
-
-
-[22]
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 23 undefined on input line 754.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 23 undefined on input line 761.
-
-
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:766: Undefined control sequence.
+<argument> \bs 
+               \theta 
+l.766 ...M: i\in M}P(M \mid \bs y,\hat{\bs \theta}
+                                                  ).$$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 [23]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.26}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.769 \begin{equation}
+                      \label{eq:shat}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.26}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.769 \begin{equation}
+                      \label{eq:shat}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.26}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.769 \begin{equation}
+                      \label{eq:shat}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.26}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.769 \begin{equation}
+                      \label{eq:shat} [24]
 
-LaTeX Warning: Reference `eq:shat' on page 24 undefined on input line 770.
-
-
-LaTeX Warning: Reference `sec:properties_legression' on page 24 undefined on input line 770.
-
-
-LaTeX Warning: Reference `sec:properties_legression' on page 24 undefined on input line 770.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 24 undefined on input line 772.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 24 undefined on input line 773.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 24 undefined on input line 773.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 24 undefined on input line 773.
-
-
-LaTeX Warning: Reference `eq:shat' on page 24 undefined on input line 778.
-
-
-LaTeX Warning: Reference `eq:Mhat' on page 24 undefined on input line 780.
-
-
-LaTeX Warning: Reference `eq:Mhat' on page 24 undefined on input line 781.
-
-
-LaTeX Warning: Reference `eq:block_modelprior' on page 24 undefined on input line 786.
-
-
-LaTeX Warning: Reference `sec:examplesinforml0' on page 24 undefined on input line 786.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 24 undefined on input line 786.
-
-
-
-[24]
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 25 undefined on input line 791.
-
-
-LaTeX Warning: Reference `theo:informedl0consist' on page 25 undefined on input line 811.
-
-
+LaTeX Warning: Reference `sec:examplesinforml0' on page 25 undefined on input line 797.
 
 [25]
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:850: Double superscript.
+l.850 ...s non-informed counterpart $\hat{S}^{sd}^
+                                                  {A,sd}$ that sets in Step ...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
-LaTeX Warning: Reference `eq:suffoptim' on page 26 undefined on input line 828.
-
-
-LaTeX Warning: Reference `eq:oraclepenreg' on page 26 undefined on input line 828.
-
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 26 undefined on input line 832.
-
-
-LaTeX Warning: Reference `eq:aobv' on page 26 undefined on input line 840.
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:850: Double superscript.
+l.850 ...f{theo:informedl0consist}, $\hat{S}^{sd}^
+                                                  {A}$ is variable selection...
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 
+LaTeX Warning: Reference `XXX' on page 26 undefined on input line 856.
+
+
+Overfull \hbox (263.13426pt too wide) detected at line 858
+\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 ) = [] [](\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 )[] [] (\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s\OT1/lmr/m/n/12 ) = [] [](\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 ;
+ []
 
 [26]
+Overfull \hbox (188.68686pt too wide) detected at line 867
+\OML/lmm/m/it/12 ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 ) = [] [](\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p[] \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s[]\OT1/lmr/m/n/12 )[] [] \OML/lmm/m/it/12 ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s\OT1/lmr/m/n/12 ) = [] [](\OML/lmm/m/it/12 ^^L[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 s\OT1/lmr/m/n/12 )\OML/lmm/m/it/12 ; ^^T[] \OMS/lmsy/m/n/12 ^^@ []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 s\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 ;
+ []
 
-LaTeX Warning: Reference `theo:informedl0consist' on page 27 undefined on input line 842.
+[27]
+
+LaTeX Warning: Reference `' on page 28 undefined on input line 879.
 
 
-LaTeX Warning: File `fig1.pdf' not found on input line 852.
+Overfull \hbox (564.39052pt too wide) detected at line 884
+[]\OML/lmm/m/it/12 ^^L[]  \OMS/lmsy/m/n/12 ^^@  []  \OT1/lmr/m/n/12 =  [] + \OML/lmm/m/it/12 d[]; [][] []^^L[]  \OMS/lmsy/m/n/12 ^^@  []  \OT1/lmr/m/n/12 =  [] + \OML/lmm/m/it/12 d[]; [][] :
+ []
 
 
-c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:852: Package pdftex.def Error: File `fig1.pdf' not found: using draft setting.
+LaTeX Warning: File `fig1.pdf' not found on input line 913.
+
+
+c:/Users/Usuario/Documents/GitHub/varsel.extdata/WIP/paper/paper.tex:913: Package pdftex.def Error: File `fig1.pdf' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.852 ...s[width=3in,height=\textheight]{fig1.pdf}
+l.913 ...s[width=3in,height=\textheight]{fig1.pdf}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 852.
-(c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 913.
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+) [28] [29]
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 2 on input line 877.
+Package natbib Warning: Citation `gelm:veht:2021' on page 30 undefined on input line 957.
 
-[27]
 
-Package natbib Warning: Citation `gelm:veht:2021' on page 28 undefined on input line 896.
+Package natbib Warning: Citation `brom:woo:2018' on page 30 undefined on input line 959.
 
 
-Package natbib Warning: Citation `brom:woo:2018' on page 28 undefined on input line 898.
+Package natbib Warning: Citation `bish:fien:1975' on page 30 undefined on input line 960.
 
 
-Package natbib Warning: Citation `bish:fien:1975' on page 28 undefined on input line 899.
+Package natbib Warning: Citation `infotheowainwright' on page 30 undefined on input line 995.
 
 
+Package natbib Warning: Citation `wang2010' on page 30 undefined on input line 995.
 
-[28]
 
-LaTeX Warning: Reference `sec-verify' on page 29 undefined on input line 928.
+LaTeX Warning: Reference `ch:introduction' on page 30 undefined on input line 995.
 
 
-Package natbib Warning: Citation `infotheowainwright' on page 29 undefined on input line 934.
+LaTeX Warning: Reference `subsec:litoracle' on page 30 undefined on input line 995.
 
 
-Package natbib Warning: Citation `wang2010' on page 29 undefined on input line 934.
+Package natbib Warning: Citation `infotheowainwright' on page 30 undefined on input line 995.
 
 
-LaTeX Warning: Reference `ch:introduction' on page 29 undefined on input line 934.
+Package natbib Warning: Citation `wang2010' on page 30 undefined on input line 995.
 
+[30] [31]
 
-LaTeX Warning: Reference `subsec:litoracle' on page 29 undefined on input line 934.
+Package natbib Warning: Citation `infotheowainwright' on page 32 undefined on input line 1009.
 
 
-Package natbib Warning: Citation `infotheowainwright' on page 29 undefined on input line 934.
+LaTeX Warning: Reference `tab:scalingsuff' on page 32 undefined on input line 1015.
 
 
-Package natbib Warning: Citation `wang2010' on page 29 undefined on input line 934.
+Package natbib Warning: Citation `infotheowainwright' on page 32 undefined on input line 1015.
 
 
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 29 undefined on input line 936.
+Package natbib Warning: Citation `infotheowainwright' on page 32 undefined on input line 1015.
 
 
-LaTeX Warning: Reference `eq:gpkr' on page 29 undefined on input line 936.
-
-
-LaTeX Warning: Reference `prop:fullrecovreg' on page 29 undefined on input line 936.
-
-
-
-[29]
-
-LaTeX Warning: Reference `eq:newasssufflinreg' on page 30 undefined on input line 943.
-
-
-Package natbib Warning: Citation `infotheowainwright' on page 30 undefined on input line 948.
-
-
-LaTeX Warning: Reference `eq:groh' on page 30 undefined on input line 954.
-
-
-LaTeX Warning: Reference `eq:groh2' on page 30 undefined on input line 954.
-
-
-LaTeX Warning: Reference `tab:scalingsuff' on page 30 undefined on input line 954.
-
-
-LaTeX Warning: Reference `eq:groh' on page 30 undefined on input line 954.
-
-
-LaTeX Warning: Reference `eq:groh2' on page 30 undefined on input line 954.
-
-
-Package natbib Warning: Citation `infotheowainwright' on page 30 undefined on input line 954.
-
-
-Package natbib Warning: Citation `infotheowainwright' on page 30 undefined on input line 954.
-
-
-LaTeX Warning: Reference `eq:betaminnecreg' on page 30 undefined on input line 974.
-
-
-
-[30]
-
-Package natbib Warning: Citation `wang2010' on page 31 undefined on input line 978.
-
-
-LaTeX Warning: Reference `tab:scalingnec' on page 31 undefined on input line 986.
-
-
-LaTeX Warning: Reference `eq:gpiR' on page 31 undefined on input line 986.
-
-
-LaTeX Warning: Reference `eq:gpiR2' on page 31 undefined on input line 986.
-
-
-Package natbib Warning: Citation `wang2010' on page 31 undefined on input line 1004.
-
-
-Package natbib Warning: Citation `wang2010' on page 31 undefined on input line 1004.
-
-
-Package natbib Warning: Citation `wang2010' on page 31 undefined on input line 1004.
-
-
-Package natbib Warning: Citation `wang2010' on page 31 undefined on input line 1004.
-
-
-LaTeX Warning: Reference `eq:linearmodel' on page 31 undefined on input line 1014.
-
-
-LaTeX Warning: Reference `lem:useful-reformulation' on page 31 undefined on input line 1020.
-
-
-LaTeX Warning: Reference `eq:block_modelprob' on page 31 undefined on input line 1021.
-
-
-Package natbib Warning: Citation `rossell2022concentration' on page 31 undefined on input line 1022.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 31 undefined on input line 1022.
-
-
-
-[31]
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 32 undefined on input line 1032.
-
-
-Package natbib Warning: Citation `narisettyhe2014' on page 32 undefined on input line 1032.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 32 undefined on input line 1033.
-
-
-LaTeX Warning: Reference `eq:CM' on page 32 undefined on input line 1034.
-
-
-Package natbib Warning: Citation `rossell2022concentration' on page 32 undefined on input line 1042.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 32 undefined on input line 1055.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 32 undefined on input line 1055.
-
-
-LaTeX Warning: Reference `lem:boundrho' on page 32 undefined on input line 1057.
-
-
+Package natbib Warning: Citation `wang2010' on page 32 undefined on input line 1039.
 
 [32]
 
-Package natbib Warning: Citation `infotheowainwright' on page 33 undefined on input line 1061.
+LaTeX Warning: Reference `tab:scalingnec' on page 33 undefined on input line 1047.
 
 
-LaTeX Warning: Reference `eq:muQM' on page 33 undefined on input line 1066.
-
-(./paper.bbl)
-
-LaTeX Warning: Reference `suppsec:auxiliary' on page 33 undefined on input line 1088.
+Package natbib Warning: Citation `wang2010' on page 33 undefined on input line 1065.
 
 
-LaTeX Warning: Reference `suppsec:proofsecgsm' on page 33 undefined on input line 1088.
+Package natbib Warning: Citation `wang2010' on page 33 undefined on input line 1065.
 
 
-LaTeX Warning: Reference `sec:properties_orth' on page 33 undefined on input line 1088.
+Package natbib Warning: Citation `wang2010' on page 33 undefined on input line 1065.
 
 
-LaTeX Warning: Reference `suppsec:proofseclinreg' on page 33 undefined on input line 1088.
+Package natbib Warning: Citation `wang2010' on page 33 undefined on input line 1065.
 
 
-LaTeX Warning: Reference `sec:properties_legression' on page 33 undefined on input line 1088.
+Package natbib Warning: Citation `rossell2022concentration' on page 33 undefined on input line 1082.
 
 
-LaTeX Warning: Reference `suppsec:proofsempbayes' on page 33 undefined on input line 1088.
-
-
-LaTeX Warning: Reference `sec:informed_l0' on page 33 undefined on input line 1088.
-
-
+Package natbib Warning: Citation `narisettyhe2014' on page 33 undefined on input line 1084.
 
 [33]
 
+Package natbib Warning: Citation `rossell2022concentration' on page 34 undefined on input line 1091.
+
 [34]
 
-LaTeX Warning: Reference `eq:muQM' on page 35 undefined on input line 1127.
+Package natbib Warning: Citation `infotheowainwright' on page 35 undefined on input line 1110.
 
+(paper.bbl)
 
-LaTeX Warning: Reference `eq:muQM' on page 35 undefined on input line 1134.
+LaTeX Warning: Reference `sec:properties_orth' on page 35 undefined on input line 1136.
 
+[35] [36]
 
-LaTeX Warning: Reference `eq:rhoX' on page 35 undefined on input line 1141.
-
-
-
-[35]
-
-Package natbib Warning: Citation `birge' on page 36 undefined on input line 1153.
-
-
-Package natbib Warning: Citation `rossell2022concentration' on page 36 undefined on input line 1172.
-
-
-Underfull \hbox (badness 1286) in paragraph at lines 1185--1186
-[]\T1/lmr/m/n/12 (+20) For any $\OML/lmm/m/it/12 u \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (+20) [[]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 (+20) ]$\T1/lmr/m/n/12 (+20) , we have $\OML/lmm/m/it/12 c [] [] \OMS/lmsy/m/n/12 ^^U \OML/lmm/m/it/12 c [] []$\T1/lmr/m/n/12 (+20) . Since $[] \OMS/lmsy/m/n/12 ^^U
- []
-
-
-
-[36]
-
-LaTeX Warning: Reference `lemma:s1s3' on page 37 undefined on input line 1191.
-
-
-LaTeX Warning: Reference `eq:rpoig' on page 37 undefined on input line 1199.
-
-
-LaTeX Warning: Reference `eq:random2' on page 37 undefined on input line 1203.
-
-
-LaTeX Warning: Reference `eq:randomm' on page 37 undefined on input line 1203.
-
-
+Package natbib Warning: Citation `birge' on page 37 undefined on input line 1201.
 
 [37]
 
-LaTeX Warning: Reference `lemma:s18' on page 38 undefined on input line 1251.
+Package natbib Warning: Citation `rossell2022concentration' on page 38 undefined on input line 1220.
 
 
-LaTeX Warning: Reference `eq:random24' on page 38 undefined on input line 1268.
+Underfull \hbox (badness 1286) in paragraph at lines 1232--1233
+[]\T1/lmr/m/n/12 (+20) For any $\OML/lmm/m/it/12 u \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (+20) [[]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 (+20) ]$\T1/lmr/m/n/12 (+20) , we have $\OML/lmm/m/it/12 c [] [] \OMS/lmsy/m/n/12 ^^U \OML/lmm/m/it/12 c [] []$\T1/lmr/m/n/12 (+20) . Since $[] \OMS/lmsy/m/n/12 ^^U
+ []
 
+[38] [39] [40] [41] [42] [43]
 
-LaTeX Warning: Reference `eq:random25' on page 38 undefined on input line 1268.
+LaTeX Warning: Reference `sec:properties_orth' on page 44 undefined on input line 1464.
 
 
-LaTeX Warning: Reference `eq:CM' on page 38 undefined on input line 1309.
+LaTeX Warning: Reference `prop:isthresh' on page 44 undefined on input line 1468.
 
 
-LaTeX Warning: Reference `lemma:s7' on page 38 undefined on input line 1309.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergencegen' on page 38 undefined on input line 1309.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 38 undefined on input line 1309.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 38 undefined on input line 1309.
-
-
-LaTeX Warning: Reference `eq:CM' on page 38 undefined on input line 1309.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentralgen' on page 38 undefined on input line 1309.
-
-
-
-[38]
-
-LaTeX Warning: Reference `eq:Mhat' on page 39 undefined on input line 1311.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 39 undefined on input line 1326.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 39 undefined on input line 1326.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 39 undefined on input line 1331.
-
-
-
-[39]
-
-LaTeX Warning: Reference `eq:prooflemmas20nonspu' on page 40 undefined on input line 1357.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 40 undefined on input line 1360.
-
-
-LaTeX Warning: Reference `lemma:s20' on page 40 undefined on input line 1361.
-
-
-LaTeX Warning: Reference `eq:prooflemmas20nonspu' on page 40 undefined on input line 1367.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 40 undefined on input line 1368.
-
-
-
-[40]
-
-LaTeX Warning: Reference `lemma:s2' on page 41 undefined on input line 1372.
-
-
-LaTeX Warning: Reference `eq:boundLQS' on page 41 undefined on input line 1382.
-
-
-LaTeX Warning: Reference `eq:boundLQM' on page 41 undefined on input line 1382.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 41 undefined on input line 1386.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 41 undefined on input line 1397.
-
-
-LaTeX Warning: Reference `eq:upperbounnnnnd' on page 41 undefined on input line 1404.
-
-
-LaTeX Warning: Reference `eq:poihe' on page 41 undefined on input line 1405.
-
-
-
-[41]
-
-LaTeX Warning: Reference `eq:upperbounnnnnd' on page 42 undefined on input line 1407.
-
-
-LaTeX Warning: Reference `eq:lowerbounnnnnd' on page 42 undefined on input line 1409.
-
-
-LaTeX Warning: Reference `eq:poihe' on page 42 undefined on input line 1409.
-
-
-LaTeX Warning: Reference `eq:lowerbounnnnnd' on page 42 undefined on input line 1413.
-
-
-LaTeX Warning: Reference `sec:properties_orth' on page 42 undefined on input line 1418.
-
-
-LaTeX Warning: Reference `prop:isthresh' on page 42 undefined on input line 1422.
-
-
-LaTeX Warning: Reference `eq:Mhat' on page 42 undefined on input line 1426.
-
-
-
-[42]
-
-LaTeX Warning: Reference `eq:GSM' on page 43 undefined on input line 1430.
-
-
-LaTeX Warning: Reference `eq:MhatGSM' on page 43 undefined on input line 1434.
-
-
-LaTeX Warning: Reference `lem:l1isthreshold' on page 43 undefined on input line 1436.
-
-
-LaTeX Warning: Reference `eq:genl1' on page 43 undefined on input line 1437.
-
-
-LaTeX Warning: Reference `eq:genl1' on page 43 undefined on input line 1437.
-
-
-LaTeX Warning: Reference `eq:genl1ada' on page 43 undefined on input line 1441.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 43 undefined on input line 1445.
-
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 43 undefined on input line 1448.
-
-
-
-[43]
-
-Package natbib Warning: Citation `galambos' on page 44 undefined on input line 1460.
-
-
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 44 undefined on input line 1468.
-
-
-LaTeX Warning: Reference `lem:upconcentminnormal' on page 44 undefined on input line 1474.
-
-
+LaTeX Warning: Reference `eq:GSM' on page 44 undefined on input line 1476.
 
 [44]
 
-LaTeX Warning: Reference `lemma:3tailbounds' on page 45 undefined on input line 1479.
+LaTeX Warning: Reference `lem:l1isthreshold' on page 45 undefined on input line 1482.
 
 
-Package natbib Warning: Citation `chu' on page 45 undefined on input line 1486.
+LaTeX Warning: Reference `eq:genl1' on page 45 undefined on input line 1483.
 
 
-LaTeX Warning: Reference `eq:random' on page 45 undefined on input line 1489.
+LaTeX Warning: Reference `eq:genl1' on page 45 undefined on input line 1483.
 
 
-LaTeX Warning: Reference `eq:pafvih' on page 45 undefined on input line 1497.
+LaTeX Warning: Reference `eq:genl1ada' on page 45 undefined on input line 1487.
 
 
-LaTeX Warning: Reference `eq:grpoih' on page 45 undefined on input line 1497.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 45 undefined on input line 1499.
-
-
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 45 undefined on input line 1504.
-
-
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 45 undefined on input line 1491.
 
 [45]
 
-LaTeX Warning: Reference `lemma:3tailbounds' on page 46 undefined on input line 1505.
+Package natbib Warning: Citation `galambos' on page 46 undefined on input line 1506.
 
 
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 46 undefined on input line 1513.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 46 undefined on input line 1514.
 
 
-LaTeX Warning: Reference `lem:upconcentminnormal' on page 46 undefined on input line 1513.
-
-
+LaTeX Warning: Reference `lem:upconcentminnormal' on page 46 undefined on input line 1520.
 
 [46]
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 47 undefined on input line 1541.
+Package natbib Warning: Citation `chu' on page 47 undefined on input line 1532.
 
 
-LaTeX Warning: Reference `eq:necbetaminblockthresh' on page 47 undefined on input line 1542.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 47 undefined on input line 1545.
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 1542--1543
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 47 undefined on input line 1550.
+
+[47]
+
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 48 undefined on input line 1559.
+
+
+LaTeX Warning: Reference `lem:upconcentminnormal' on page 48 undefined on input line 1559.
+
+[48]
+
+LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 49 undefined on input line 1587.
+
+
+LaTeX Warning: Reference `eq:necbetaminblockthresh' on page 49 undefined on input line 1588.
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 1588--1589
 \T1/lmr/m/n/12 (+20) and [] im-plies that we have ei-ther $[][] []\OML/lmm/m/it/12 ^^\[]=[] < \OT1/lmr/m/n/12 (+20) 1$ \T1/lmr/m/n/12 (+20) or else
  []
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 47 undefined on input line 1544.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 49 undefined on input line 1590.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 47 undefined on input line 1549.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 49 undefined on input line 1595.
 
 
-LaTeX Warning: Reference `theo:fullrecovGS' on page 47 undefined on input line 1551.
+LaTeX Warning: Reference `theo:fullrecovGS' on page 49 undefined on input line 1597.
 
 
-LaTeX Warning: Reference `eq:rateconvgsm' on page 47 undefined on input line 1551.
+LaTeX Warning: Reference `eq:rateconvgsm' on page 49 undefined on input line 1597.
 
 
-LaTeX Warning: Reference `lemma:3tailbounds' on page 47 undefined on input line 1555.
-
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 47 undefined on input line 1559.
-
-
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 47 undefined on input line 1561.
-
-
-
-[47]
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 48 undefined on input line 1562.
-
-
-LaTeX Warning: Reference `eq:type1convrate' on page 48 undefined on input line 1566.
-
-
-LaTeX Warning: Reference `eq:type2convrate' on page 48 undefined on input line 1566.
-
-
-LaTeX Warning: Reference `eq:grpihj' on page 48 undefined on input line 1566.
-
-
-LaTeX Warning: Reference `eq:rateconvgsm' on page 48 undefined on input line 1570.
-
-
-LaTeX Warning: Reference `eq:betamin' on page 48 undefined on input line 1572.
-
-
-LaTeX Warning: Reference `eq:betamin' on page 48 undefined on input line 1572.
-
-
-LaTeX Warning: Reference `eq:optimrateconvgsm' on page 48 undefined on input line 1580.
-
-
-LaTeX Warning: Reference `eq:fhfhfhf' on page 48 undefined on input line 1580.
-
-
-
-[48]
-
-LaTeX Warning: Reference `eq:edpo' on page 49 undefined on input line 1592.
-
-
-LaTeX Warning: Reference `eq:optimrateconvgsm' on page 49 undefined on input line 1594.
-
-
-LaTeX Warning: Reference `cor:selconstimpossible' on page 49 undefined on input line 1596.
-
-
-LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 49 undefined on input line 1597.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 49 undefined on input line 1597.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 49 undefined on input line 1597.
-
-
-LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 49 undefined on input line 1600.
-
-
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 49 undefined on input line 1603.
-
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 49 undefined on input line 1604.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 49 undefined on input line 1611.
-
-
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 49 undefined on input line 1613.
-
-
-LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 49 undefined on input line 1614.
-
-
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 49 undefined on input line 1607.
 
 [49]
 
-LaTeX Warning: Reference `eq:AVFLKN' on page 50 undefined on input line 1624.
+LaTeX Warning: Reference `eq:rateconvgsm' on page 50 undefined on input line 1616.
 
 
-LaTeX Warning: Reference `lemma:3tailbounds' on page 50 undefined on input line 1627.
+LaTeX Warning: Reference `eq:betamin' on page 50 undefined on input line 1618.
 
 
-LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 50 undefined on input line 1629.
+LaTeX Warning: Reference `eq:betamin' on page 50 undefined on input line 1618.
 
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 50 undefined on input line 1631.
-
-
-LaTeX Warning: Reference `eq:necbetaminblockthreshbis' on page 50 undefined on input line 1634.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 50 undefined on input line 1639.
-
-
-LaTeX Warning: Reference `eq:proofnecbetaminbis' on page 50 undefined on input line 1640.
-
-
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 50 undefined on input line 1640.
-
-
+LaTeX Warning: Reference `eq:optimrateconvgsm' on page 50 undefined on input line 1626.
 
 [50]
 
-LaTeX Warning: Reference `cor:sfin' on page 51 undefined on input line 1643.
+LaTeX Warning: Reference `eq:optimrateconvgsm' on page 51 undefined on input line 1640.
 
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 51 undefined on input line 1643.
+LaTeX Warning: Reference `cor:selconstimpossible' on page 51 undefined on input line 1642.
+
+
+LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 51 undefined on input line 1643.
 
 
 LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 51 undefined on input line 1643.
 
 
-LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 51 undefined on input line 1643.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 51 undefined on input line 1643.
 
 
-LaTeX Warning: Reference `sec:properties_legression' on page 51 undefined on input line 1647.
+LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 51 undefined on input line 1646.
 
 
-LaTeX Warning: Reference `lem:useful-reformulation' on page 51 undefined on input line 1648.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 51 undefined on input line 1649.
 
 
-LaTeX Warning: Reference `eq:Mhat' on page 51 undefined on input line 1655.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 51 undefined on input line 1657.
 
 
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 51 undefined on input line 1658.
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 51 undefined on input line 1659.
 
 
-LaTeX Warning: Reference `lem:L0toL1convergencegen' on page 51 undefined on input line 1659.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 51 undefined on input line 1665.
-
-
-Package natbib Warning: Citation `rossell2022concentration' on page 51 undefined on input line 1666.
-
-
+LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 51 undefined on input line 1660.
 
 [51]
 
-LaTeX Warning: Reference `lem:boundrho' on page 52 undefined on input line 1668.
+LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 52 undefined on input line 1675.
 
 
-LaTeX Warning: Reference `lem:boundrhogen' on page 52 undefined on input line 1669.
+LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 52 undefined on input line 1677.
 
 
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 52 undefined on input line 1671.
+LaTeX Warning: Reference `eq:necbetaminblockthreshbis' on page 52 undefined on input line 1680.
 
 
-LaTeX Warning: Reference `lem:boundexpnc' on page 52 undefined on input line 1672.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 52 undefined on input line 1685.
 
 
-LaTeX Warning: Reference `eq:DeltaM' on page 52 undefined on input line 1672.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 52 undefined on input line 1672.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 52 undefined on input line 1673.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 52 undefined on input line 1675.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 52 undefined on input line 1678.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 52 undefined on input line 1680.
-
-
-LaTeX Warning: Reference `lem:boundrho' on page 52 undefined on input line 1680.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond' on page 52 undefined on input line 1688.
-
-
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 52 undefined on input line 1686.
 
 [52]
 
-LaTeX Warning: Reference `lem:boundexpnc' on page 53 undefined on input line 1693.
+LaTeX Warning: Reference `cor:sfin' on page 53 undefined on input line 1689.
 
 
-LaTeX Warning: Reference `eq:nonoverfittingcond' on page 53 undefined on input line 1698.
+LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 53 undefined on input line 1689.
 
 
-LaTeX Warning: Reference `eq:nonoverfittingcond' on page 53 undefined on input line 1700.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 53 undefined on input line 1689.
 
 
-LaTeX Warning: Reference `eq:psif' on page 53 undefined on input line 1718.
+LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 53 undefined on input line 1689.
 
 
-LaTeX Warning: Reference `eq:ogbea' on page 53 undefined on input line 1727.
+Package natbib Warning: Citation `rossell2022concentration' on page 53 undefined on input line 1712.
 
-
-LaTeX Warning: Reference `eq:psig' on page 53 undefined on input line 1727.
-
-
-LaTeX Warning: Reference `eq:boundexp' on page 53 undefined on input line 1729.
-
-
-LaTeX Warning: Reference `eq:ooofjfj' on page 53 undefined on input line 1729.
-
-
-LaTeX Warning: Reference `eq:ooofjfj2' on page 53 undefined on input line 1729.
-
-
-
-[53]
-
-LaTeX Warning: Reference `eq:fyv' on page 54 undefined on input line 1734.
-
-
-
-[54]
-
-LaTeX Warning: Reference `eq:uygfew' on page 55 undefined on input line 1752.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 55 undefined on input line 1780.
-
-
-LaTeX Warning: Reference `prop:fullrecovreg' on page 55 undefined on input line 1782.
-
-
-LaTeX Warning: Reference `eq:rateconvreg' on page 55 undefined on input line 1784.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 55 undefined on input line 1784.
-
-
-LaTeX Warning: Reference `eq:upperbound_sumprob' on page 55 undefined on input line 1784.
-
-
-
-[55]
-
-LaTeX Warning: Reference `eq:prodconstreg' on page 56 undefined on input line 1798.
-
-
-Overfull \hbox (23.72401pt too wide) in paragraph at lines 1799--1801
+[53] [54] [55] [56] [57]
+Overfull \hbox (23.72401pt too wide) in paragraph at lines 1845--1847
 \T1/lmr/m/n/12 (-20) where all the terms in $\OMS/lmsy/m/n/12 R$ \T1/lmr/m/n/12 (-20) are prod-uct of two or more of the sums $\OML/lmm/m/it/12 S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; [] ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 w[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; [] ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 w[]\OT1/lmr/m/n/12 (-20) )$\T1/lmr/m/n/12 (-20) .
  []
 
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 56 undefined on input line 1807.
-
-
-LaTeX Warning: Reference `eq:fierg' on page 56 undefined on input line 1807.
-
-
-LaTeX Warning: Reference `eq:fierg2' on page 56 undefined on input line 1807.
-
-
-LaTeX Warning: Reference `eq:ogbea' on page 56 undefined on input line 1810.
-
-
-
-[56]
-
-LaTeX Warning: Reference `eq:rateconvreg' on page 57 undefined on input line 1818.
-
-
-LaTeX Warning: Reference `eq:oraclepenreg' on page 57 undefined on input line 1824.
-
-
-LaTeX Warning: Reference `theo:fullrecovGS' on page 57 undefined on input line 1824.
-
-
-LaTeX Warning: Reference `betamincond:minimalreg' on page 57 undefined on input line 1824.
-
-
-LaTeX Warning: Reference `theo:fullrecovGS' on page 57 undefined on input line 1824.
-
-
-LaTeX Warning: Reference `eq:oraclerateconvreg' on page 57 undefined on input line 1834.
-
-
-LaTeX Warning: Reference `theo:fullrecovGS' on page 57 undefined on input line 1843.
-
-
-
-[57]
-
-LaTeX Warning: Reference `eq:afi' on page 58 undefined on input line 1851.
-
-
-LaTeX Warning: Reference `eq:oig' on page 58 undefined on input line 1851.
-
-
-LaTeX Warning: Reference `eq:oraclerateconvreg' on page 58 undefined on input line 1853.
-
-
-LaTeX Warning: Reference `prop:nectypeIreg' on page 58 undefined on input line 1855.
-
-
-LaTeX Warning: Reference `eq:CM' on page 58 undefined on input line 1858.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 58 undefined on input line 1862.
-
-
-LaTeX Warning: Reference `eq:nOAJH1' on page 58 undefined on input line 1869.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 58 undefined on input line 1874.
-
-
-
 [58]
 
-Package natbib Warning: Citation `hartigan' on page 59 undefined on input line 1879.
+LaTeX Warning: Reference `theo:fullrecovGS' on page 59 undefined on input line 1870.
 
 
-LaTeX Warning: Reference `prop:nectypeIreg' on page 59 undefined on input line 1881.
-
-
-LaTeX Warning: Reference `eq:upperboundrecov' on page 59 undefined on input line 1882.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentral' on page 59 undefined on input line 1884.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentralgen' on page 59 undefined on input line 1885.
-
-
-LaTeX Warning: Reference `prop:nectypeIIreg' on page 59 undefined on input line 1888.
-
-
-LaTeX Warning: Reference `eq:CM' on page 59 undefined on input line 1896.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 59 undefined on input line 1896.
-
-
-LaTeX Warning: Reference `eq:nectypeIIreg_bound' on page 59 undefined on input line 1896.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 59 undefined on input line 1897.
-
-
-LaTeX Warning: Reference `lemma:s1s3' on page 59 undefined on input line 1897.
-
-
-LaTeX Warning: Reference `lemma:s1s3' on page 59 undefined on input line 1900.
-
-
+LaTeX Warning: Reference `theo:fullrecovGS' on page 59 undefined on input line 1870.
 
 [59]
 
-LaTeX Warning: Reference `lem:upperboundnoncentral' on page 60 undefined on input line 1903.
+LaTeX Warning: Reference `theo:fullrecovGS' on page 60 undefined on input line 1889.
 
 
-LaTeX Warning: Reference `eq:vfej' on page 60 undefined on input line 1917.
-
-
-LaTeX Warning: Reference `eq:AGEoj' on page 60 undefined on input line 1923.
-
-
-LaTeX Warning: Reference `lemma:s1s3' on page 60 undefined on input line 1926.
-
-
-LaTeX Warning: Reference `eq:nectypeIIreg_bound' on page 60 undefined on input line 1932.
-
-
+LaTeX Warning: Reference `prop:nectypeIreg' on page 60 undefined on input line 1901.
 
 [60]
 
-LaTeX Warning: Reference `prop:nectypeIIreg2' on page 61 undefined on input line 1935.
+Package natbib Warning: Citation `hartigan' on page 61 undefined on input line 1925.
 
 
-LaTeX Warning: Reference `eq:CM' on page 61 undefined on input line 1936.
+LaTeX Warning: Reference `prop:nectypeIreg' on page 61 undefined on input line 1927.
 
 
-LaTeX Warning: Reference `eq:DeltaM' on page 61 undefined on input line 1942.
+LaTeX Warning: Reference `lem:upperboundnoncentral' on page 61 undefined on input line 1930.
 
 
-LaTeX Warning: Reference `eq:pokvfb' on page 61 undefined on input line 1948.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 61 undefined on input line 1953.
-
-
-LaTeX Warning: Reference `eq:upperboundrecov2' on page 61 undefined on input line 1959.
-
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 61 undefined on input line 1961.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentral' on page 61 undefined on input line 1964.
-
-
-LaTeX Warning: Reference `eq:necbetaminlingreghbis' on page 61 undefined on input line 1964.
-
-
+LaTeX Warning: Reference `prop:nectypeIIreg' on page 61 undefined on input line 1934.
 
 [61]
 
-LaTeX Warning: Reference `cor:necrecovreg' on page 62 undefined on input line 1996.
-
-
-LaTeX Warning: Reference `eq:necbetaminlinregbis' on page 62 undefined on input line 1999.
-
-
-LaTeX Warning: Reference `prop:nectypeIreg' on page 62 undefined on input line 2004.
-
-
-LaTeX Warning: Reference `eq:proofnecbetaminbislinreg' on page 62 undefined on input line 2004.
-
-
-LaTeX Warning: Reference `prop:nectypeIIreg2' on page 62 undefined on input line 2004.
-
-
-LaTeX Warning: Reference `cor:selconstimpossiblereg' on page 62 undefined on input line 2006.
-
-
-LaTeX Warning: Reference `cor:necrecovreg' on page 62 undefined on input line 2007.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 62 undefined on input line 2007.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 62 undefined on input line 2009.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 62 undefined on input line 2010.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 62 undefined on input line 2011.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 62 undefined on input line 2012.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 62 undefined on input line 2013.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 62 undefined on input line 2019.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 62 undefined on input line 2019.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 62 undefined on input line 2019.
-
-
-LaTeX Warning: Reference `eq:defSes' on page 62 undefined on input line 2019.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 62 undefined on input line 2019.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 62 undefined on input line 2021.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergencegen' on page 62 undefined on input line 2021.
-
-
+LaTeX Warning: Reference `lem:upperboundnoncentral' on page 62 undefined on input line 1949.
 
 [62]
 
-LaTeX Warning: Reference `lem:boundexpnc' on page 63 undefined on input line 2025.
+LaTeX Warning: Reference `prop:nectypeIIreg2' on page 63 undefined on input line 1981.
 
 
-LaTeX Warning: Reference `eq:DeltaM' on page 63 undefined on input line 2027.
+LaTeX Warning: Reference `lem:upperboundnoncentral' on page 63 undefined on input line 2010.
 
 
-LaTeX Warning: Reference `lem:boundrhogen' on page 63 undefined on input line 2029.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2' on page 63 undefined on input line 2033.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 63 undefined on input line 2033.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2' on page 63 undefined on input line 2033.
-
-
+LaTeX Warning: Reference `eq:necbetaminlingreghbis' on page 63 undefined on input line 2010.
 
 [63]
 
-LaTeX Warning: Reference `lem:boundexpnc' on page 64 undefined on input line 2037.
+LaTeX Warning: Reference `cor:necrecovreg' on page 64 undefined on input line 2042.
 
 
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 64 undefined on input line 2038.
+LaTeX Warning: Reference `eq:necbetaminlinregbis' on page 64 undefined on input line 2045.
 
 
-LaTeX Warning: Reference `eq:nonoverfittingcond2' on page 64 undefined on input line 2039.
+LaTeX Warning: Reference `prop:nectypeIreg' on page 64 undefined on input line 2050.
 
 
-LaTeX Warning: Reference `lem:upperboundnoncentralgen' on page 64 undefined on input line 2039.
+LaTeX Warning: Reference `prop:nectypeIIreg2' on page 64 undefined on input line 2050.
 
 
+LaTeX Warning: Reference `cor:necrecovreg' on page 64 undefined on input line 2053.
 
-[64]
-
-LaTeX Warning: Reference `eq:truc' on page 65 undefined on input line 2052.
-
-
-LaTeX Warning: Reference `eq:ovrwS' on page 65 undefined on input line 2052.
-
-
-LaTeX Warning: Reference `eq:onbfsa' on page 65 undefined on input line 2059.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 65 undefined on input line 2062.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2' on page 65 undefined on input line 2067.
-
-
-
-[65]
-
-LaTeX Warning: Reference `eq:psif2' on page 66 undefined on input line 2090.
-
-
-LaTeX Warning: Reference `eq:bngrws' on page 66 undefined on input line 2099.
-
-
-LaTeX Warning: Reference `eq:psig2' on page 66 undefined on input line 2099.
-
-
-LaTeX Warning: Reference `eq:boundexp2' on page 66 undefined on input line 2099.
-
-
-LaTeX Warning: Reference `eq:ooofjfj3' on page 66 undefined on input line 2099.
-
-
-LaTeX Warning: Reference `eq:ooofjfj4' on page 66 undefined on input line 2099.
-
-
-LaTeX Warning: Reference `eq:fyv2' on page 66 undefined on input line 2104.
-
-
-
-[66]
-
-LaTeX Warning: Reference `eq:gepihw' on page 67 undefined on input line 2113.
-
-
-LaTeX Warning: Reference `eq:defST' on page 67 undefined on input line 2117.
-
-
-LaTeX Warning: Reference `eq:gepihw' on page 67 undefined on input line 2118.
-
-
-LaTeX Warning: Reference `eq:uygfew2' on page 67 undefined on input line 2134.
-
-
-
-[67]
-
-LaTeX Warning: Reference `eq:upperboudbinom' on page 68 undefined on input line 2140.
-
-
-LaTeX Warning: Reference `eq:gepihw2' on page 68 undefined on input line 2157.
-
-
-LaTeX Warning: Reference `eq:ogr' on page 68 undefined on input line 2157.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergencegen' on page 68 undefined on input line 2161.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 68 undefined on input line 2164.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 68 undefined on input line 2165.
-
-
-LaTeX Warning: Reference `eq:DeltaMbis' on page 68 undefined on input line 2165.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 68 undefined on input line 2165.
-
-
-LaTeX Warning: Reference `eq:DeltaMbis' on page 68 undefined on input line 2165.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 68 undefined on input line 2165.
-
-
-LaTeX Warning: Reference `lem:L0toL1convergence' on page 68 undefined on input line 2167.
-
-
-
-[68]
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 69 undefined on input line 2170.
-
-
-LaTeX Warning: Reference `eq:DeltaMbis' on page 69 undefined on input line 2172.
-
-
-LaTeX Warning: Reference `lem:boundrho' on page 69 undefined on input line 2172.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcondbis' on page 69 undefined on input line 2180.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 69 undefined on input line 2185.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcondbis' on page 69 undefined on input line 2190.
-
-
-
-[69]
-
-LaTeX Warning: Reference `eq:nonoverfittingcondbis' on page 70 undefined on input line 2192.
-
-
-LaTeX Warning: Reference `eq:psifbis' on page 70 undefined on input line 2213.
-
-
-
-[70]
-
-LaTeX Warning: Reference `eq:ogbeabis' on page 71 undefined on input line 2230.
-
-
-LaTeX Warning: Reference `eq:psigbis' on page 71 undefined on input line 2230.
-
-
-LaTeX Warning: Reference `eq:boundexpbis' on page 71 undefined on input line 2230.
-
-
-LaTeX Warning: Reference `eq:ooofjfjbis' on page 71 undefined on input line 2230.
-
-
-LaTeX Warning: Reference `eq:ooofjfj2bis' on page 71 undefined on input line 2230.
-
-
-LaTeX Warning: Reference `eq:fyvbis' on page 71 undefined on input line 2235.
-
-
-
-[71]
-
-LaTeX Warning: Reference `eq:uygfewbis' on page 72 undefined on input line 2253.
-
-
-LaTeX Warning: Reference `eq:upperboudbinom' on page 72 undefined on input line 2265.
-
-
-
-[72]
-
-LaTeX Warning: Reference `cor:ebic' on page 73 undefined on input line 2283.
-
-
-LaTeX Warning: Reference `eq:betaminebic' on page 73 undefined on input line 2284.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 73 undefined on input line 2284.
-
-
-LaTeX Warning: Reference `eq:defkappatilde' on page 73 undefined on input line 2286.
-
-
-LaTeX Warning: Reference `eq:idbinom' on page 73 undefined on input line 2296.
-
-
-
-[73]
-
-LaTeX Warning: Reference `eq:boundbinom' on page 74 undefined on input line 2304.
-
-
-LaTeX Warning: Reference `eq:identitybinom' on page 74 undefined on input line 2304.
-
-
-LaTeX Warning: Reference `eq:gggg' on page 74 undefined on input line 2312.
-
-
-LaTeX Warning: Reference `eq:gggg2' on page 74 undefined on input line 2312.
-
-
-LaTeX Warning: Reference `eq:idbinom' on page 74 undefined on input line 2326.
-
-
-LaTeX Warning: Reference `eq:boundbinom' on page 74 undefined on input line 2330.
-
-
-
-[74]
-
-LaTeX Warning: Reference `eq:PVnk' on page 75 undefined on input line 2340.
-
-
-LaTeX Warning: Reference `eq:feIH' on page 75 undefined on input line 2340.
-
-
-LaTeX Warning: Reference `eq:betaminebic' on page 75 undefined on input line 2350.
-
-
-LaTeX Warning: Reference `eq:EBICpen' on page 75 undefined on input line 2351.
-
-
-LaTeX Warning: Reference `eq:betaminebic' on page 75 undefined on input line 2359.
-
-
-LaTeX Warning: Reference `eq:oaebr4bis' on page 75 undefined on input line 2364.
-
-
-LaTeX Warning: Reference `eq:identitybinom' on page 75 undefined on input line 2364.
-
-
-LaTeX Warning: Reference `eq:upperboudbinom' on page 75 undefined on input line 2364.
-
-
-LaTeX Warning: Reference `eq:boundbinom' on page 75 undefined on input line 2364.
-
-
-
-[75]
-
-LaTeX Warning: Reference `eq:identitybinom2' on page 76 undefined on input line 2372.
-
-
-LaTeX Warning: Reference `eq:upperboudbinom' on page 76 undefined on input line 2372.
-
-
-LaTeX Warning: Reference `eq:boundbinom' on page 76 undefined on input line 2372.
-
-
-LaTeX Warning: Reference `eq:pifr' on page 76 undefined on input line 2382.
-
-
-LaTeX Warning: Reference `eq:pifr2' on page 76 undefined on input line 2382.
-
-
-LaTeX Warning: Reference `eq:oaebr4bis' on page 76 undefined on input line 2386.
-
-
-LaTeX Warning: Reference `eq:oaebr3bis' on page 76 undefined on input line 2386.
-
-
-LaTeX Warning: Reference `eq:lowerboundb1ebic2' on page 76 undefined on input line 2386.
-
-
-LaTeX Warning: Reference `eq:bounbkappaebicunderfit' on page 76 undefined on input line 2386.
-
-
-LaTeX Warning: Reference `eq:oaebr3bis' on page 76 undefined on input line 2396.
-
-
-LaTeX Warning: Reference `eq:betaminebic' on page 76 undefined on input line 2396.
-
-
-LaTeX Warning: Reference `eq:EBICpen' on page 76 undefined on input line 2398.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 76 undefined on input line 2398.
-
-
-LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 76 undefined on input line 2400.
-
-
-LaTeX Warning: Reference `eq:defOj' on page 76 undefined on input line 2402.
-
-
-LaTeX Warning: Reference `eq:CM' on page 76 undefined on input line 2402.
-
-
-
-[76]
-
-LaTeX Warning: Reference `eq:DeltaMbis' on page 77 undefined on input line 2406.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 77 undefined on input line 2411.
-
-
-LaTeX Warning: Reference `eq:nOAJH' on page 77 undefined on input line 2411.
-
-
-LaTeX Warning: Reference `eq:oSBV2' on page 77 undefined on input line 2416.
-
-
-LaTeX Warning: Reference `eq:oSBV' on page 77 undefined on input line 2416.
-
-
-LaTeX Warning: Reference `prop:nectypeIreg' on page 77 undefined on input line 2416.
-
-
-Package natbib Warning: Citation `hartigan' on page 77 undefined on input line 2416.
-
-
-LaTeX Warning: Reference `eq:ovpsk' on page 77 undefined on input line 2416.
-
-
-LaTeX Warning: Reference `eq:CM' on page 77 undefined on input line 2419.
-
-
-
-[77]
-
-LaTeX Warning: Reference `eq:DeltaMbis' on page 78 undefined on input line 2425.
-
-
-LaTeX Warning: Reference `eq:pokvfb2' on page 78 undefined on input line 2431.
-
-
-LaTeX Warning: Reference `eq:pokvfc2' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `eq:pokvfc' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `prop:nectypeIreg' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `lemma:3tailbounds' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentral' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentral' on page 78 undefined on input line 2436.
-
-
-LaTeX Warning: Reference `cor:necrecovregnonlin' on page 78 undefined on input line 2438.
-
-
-LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 78 undefined on input line 2439.
-
-
-
-[78]
-
-LaTeX Warning: Reference `eq:necbetaminlinregbis2' on page 79 undefined on input line 2453.
-
-
-LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 79 undefined on input line 2458.
-
-
-LaTeX Warning: Reference `eq:proofnecbetaminbislinregbis' on page 79 undefined on input line 2459.
-
-
-LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 79 undefined on input line 2459.
-
-
-LaTeX Warning: Reference `cor:selconstimpossibleregnonlin' on page 79 undefined on input line 2461.
-
-
-LaTeX Warning: Reference `cor:necrecovregnonlin' on page 79 undefined on input line 2462.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 79 undefined on input line 2462.
-
-
-LaTeX Warning: Reference `sec:informed_l0' on page 79 undefined on input line 2465.
-
-
-LaTeX Warning: Reference `prop:shatconsistence' on page 79 undefined on input line 2467.
-
-
-
-[79]
-
-LaTeX Warning: Reference `thm:convtoT' on page 80 undefined on input line 2485.
-
-
-LaTeX Warning: Reference `eq:wigr' on page 80 undefined on input line 2489.
-
-
-LaTeX Warning: Reference `eq:decompshat' on page 80 undefined on input line 2495.
-
-
-LaTeX Warning: Reference `eq:uuuuu' on page 80 undefined on input line 2504.
-
-
-LaTeX Warning: Reference `eq:uuuuu2' on page 80 undefined on input line 2504.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 80 undefined on input line 2509.
-
-
-
-[80]
-
-LaTeX Warning: Reference `lem:empiricalbayesinterpret' on page 81 undefined on input line 2511.
-
-
-LaTeX Warning: Reference `eq:block_modelprior' on page 81 undefined on input line 2523.
-
-
-LaTeX Warning: Reference `eq:partialprobmodel' on page 81 undefined on input line 2535.
-
-
-LaTeX Warning: Reference `eq:partialmarglikelihood' on page 81 undefined on input line 2535.
-
-
-LaTeX Warning: Reference `eq:logderivative' on page 81 undefined on input line 2544.
-
-
-
-[81]
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 82 undefined on input line 2551.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 82 undefined on input line 2551.
-
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 82 undefined on input line 2551.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 82 undefined on input line 2552.
-
-
-
-[82]
-
-LaTeX Warning: Reference `eq:rewriteshat' on page 83 undefined on input line 2579.
-
-
-LaTeX Warning: Reference `eq:Tkappa' on page 83 undefined on input line 2597.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 83 undefined on input line 2597.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 83 undefined on input line 2598.
-
-
-LaTeX Warning: Reference `prop:shatconsistence' on page 83 undefined on input line 2599.
-
-
-LaTeX Warning: Reference `eq:uuuuu' on page 83 undefined on input line 2599.
-
-
-LaTeX Warning: Reference `eq:uuuuu2' on page 83 undefined on input line 2599.
-
-
-LaTeX Warning: Reference `prop:shatconsistence' on page 83 undefined on input line 2599.
-
-
-
-[83]
-
-LaTeX Warning: Reference `thm:convtoT' on page 84 undefined on input line 2603.
-
-
-LaTeX Warning: Reference `eq:gammakeb' on page 84 undefined on input line 2629.
-
-
-LaTeX Warning: Reference `eq:oaebr' on page 84 undefined on input line 2629.
-
-
-LaTeX Warning: Reference `eq:oaebr2' on page 84 undefined on input line 2629.
-
-
-
-[84]
-
-LaTeX Warning: Reference `eq:eeeeeeeh' on page 85 undefined on input line 2631.
-
-
-LaTeX Warning: Reference `eq:oaebr' on page 85 undefined on input line 2638.
-
-
-LaTeX Warning: Reference `eq:oaebr2' on page 85 undefined on input line 2640.
-
-
-LaTeX Warning: Reference `eq:rewriteshat' on page 85 undefined on input line 2646.
-
-
-LaTeX Warning: Reference `eq:decompstep2pen' on page 85 undefined on input line 2647.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 85 undefined on input line 2658.
-
-
-LaTeX Warning: Reference `eq:gggggggg' on page 85 undefined on input line 2663.
-
-
-
-[85]
-
-LaTeX Warning: Reference `eq:oaebr2' on page 86 undefined on input line 2670.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 86 undefined on input line 2673.
-
-
-LaTeX Warning: Reference `theo:informedl0consist' on page 86 undefined on input line 2675.
-
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 86 undefined on input line 2675.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 86 undefined on input line 2675.
-
-
-LaTeX Warning: Reference `eq:decompstep2pen2' on page 86 undefined on input line 2677.
-
-
-LaTeX Warning: Reference `theo:empbayesselconsist' on page 86 undefined on input line 2682.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 86 undefined on input line 2682.
-
-
-
-[86]
-
-LaTeX Warning: Reference `eq:gammaka' on page 87 undefined on input line 2702.
-
-
-LaTeX Warning: Reference `eq:oaebr3' on page 87 undefined on input line 2702.
-
-
-LaTeX Warning: Reference `eq:oaebr4' on page 87 undefined on input line 2702.
-
-
-LaTeX Warning: Reference `eq:finallowerboundkappaj2' on page 87 undefined on input line 2704.
-
-
-LaTeX Warning: Reference `eq:oaebr3' on page 87 undefined on input line 2713.
-
-
-LaTeX Warning: Reference `eq:oaebr4' on page 87 undefined on input line 2715.
-
-
-LaTeX Warning: Reference `eq:decompstep2pen' on page 87 undefined on input line 2715.
-
-
-LaTeX Warning: Reference `eq:gewou' on page 87 undefined on input line 2721.
-
-
-
-[87]
-
-LaTeX Warning: Reference `eq:oaebr4' on page 88 undefined on input line 2726.
-
-
-LaTeX Warning: Reference `theo:suffcondlinearmodel' on page 88 undefined on input line 2729.
-
-
-LaTeX Warning: Reference `sec:empBayescomp' on page 88 undefined on input line 2731.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 88 undefined on input line 2736.
-
-
-LaTeX Warning: Reference `lem:boundexpnc' on page 88 undefined on input line 2736.
-
-
-LaTeX Warning: Reference `eq:CM' on page 88 undefined on input line 2736.
-
-
-LaTeX Warning: Reference `eq:DeltaM' on page 88 undefined on input line 2738.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 88 undefined on input line 2738.
-
-
-LaTeX Warning: Reference `eq:barkappa' on page 88 undefined on input line 2744.
-
-
-LaTeX Warning: Reference `eq:DeltaMprob' on page 88 undefined on input line 2754.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 88 undefined on input line 2754.
-
-
-
-[88]
-
-LaTeX Warning: Reference `eq:saknv' on page 89 undefined on input line 2765.
-
-
-LaTeX Warning: Reference `eq:pdSVN' on page 89 undefined on input line 2779.
-
-
-LaTeX Warning: Reference `eq:pdSVN2' on page 89 undefined on input line 2785.
-
-
-LaTeX Warning: Reference `eq:fsan' on page 89 undefined on input line 2785.
-
-
-
-[89]
-
-LaTeX Warning: Reference `eq:prooflemmas20nonspu2' on page 90 undefined on input line 2816.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 90 undefined on input line 2819.
-
-
-LaTeX Warning: Reference `lemma:s20' on page 90 undefined on input line 2820.
-
-
-LaTeX Warning: Reference `eq:prooflemmas20nonspu2' on page 90 undefined on input line 2826.
-
-
-LaTeX Warning: Reference `lemma:s7' on page 90 undefined on input line 2827.
-
-
-
-[90]
-
-LaTeX Warning: Reference `lemma:s2' on page 91 undefined on input line 2831.
-
-
-LaTeX Warning: Reference `eq:boundLQSprob' on page 91 undefined on input line 2843.
-
-
-LaTeX Warning: Reference `eq:boundLQMprob' on page 91 undefined on input line 2843.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 91 undefined on input line 2848.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 91 undefined on input line 2848.
-
-
-
-[91]
-
-LaTeX Warning: Reference `eq:defSes2' on page 92 undefined on input line 2855.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `sec:informed_l0' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 92 undefined on input line 2859.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 92 undefined on input line 2861.
-
-
-LaTeX Warning: Reference `thm:convtoT' on page 92 undefined on input line 2861.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 92 undefined on input line 2862.
-
-
-LaTeX Warning: Reference `eq:DeltaMprob' on page 92 undefined on input line 2862.
-
-
-LaTeX Warning: Reference `eq:muQM' on page 92 undefined on input line 2862.
-
-
-LaTeX Warning: Reference `eq:defSes2' on page 92 undefined on input line 2862.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 92 undefined on input line 2864.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 92 undefined on input line 2869.
-
-
-LaTeX Warning: Reference `eq:DeltaMprob' on page 92 undefined on input line 2871.
-
-
-LaTeX Warning: Reference `lem:boundrhogen' on page 92 undefined on input line 2873.
-
-
-
-[92]
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2prob' on page 93 undefined on input line 2877.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 93 undefined on input line 2877.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2prob' on page 93 undefined on input line 2877.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 93 undefined on input line 2881.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2prob' on page 93 undefined on input line 2881.
-
-
-LaTeX Warning: Reference `lem:upperboundnoncentralgen' on page 93 undefined on input line 2881.
-
-
-
-[93]
-
-LaTeX Warning: Reference `eq:truc' on page 94 undefined on input line 2894.
-
-
-LaTeX Warning: Reference `eq:ovrwSprob' on page 94 undefined on input line 2894.
-
-
-LaTeX Warning: Reference `eq:onbfsaprob' on page 94 undefined on input line 2901.
-
-
-LaTeX Warning: Reference `lem:boundpostprob' on page 94 undefined on input line 2904.
-
-
-LaTeX Warning: Reference `eq:nonoverfittingcond2prob' on page 94 undefined on input line 2909.
-
-
-
-[94]
-
-LaTeX Warning: Reference `eq:psif2prob' on page 95 undefined on input line 2932.
-
-
-LaTeX Warning: Reference `eq:bngrwsprob' on page 95 undefined on input line 2941.
-
-
-LaTeX Warning: Reference `eq:psig2prob' on page 95 undefined on input line 2941.
-
-
-LaTeX Warning: Reference `eq:boundexp2prob' on page 95 undefined on input line 2941.
-
-
-LaTeX Warning: Reference `eq:ooofjfj3prob' on page 95 undefined on input line 2941.
-
-
-LaTeX Warning: Reference `eq:ooofjfj4prob' on page 95 undefined on input line 2941.
-
-
-Overfull \hbox (2.84978pt too wide) detected at line 2944
-[][][]\U/msb/m/n/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 M \OMS/lmsy/m/n/12 j \OT1/lmr/bx/n/12 y\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ))  \OMS/lmsy/m/n/12 ^^T  [] [] \OML/lmm/m/it/12 :
+[64] [65] [66] [67]
+Underfull \hbox (badness 4096) in paragraph at lines 2144--2146
+\T1/lmr/m/n/12 (+20) where the first in-equal-ity fol-lows from [] and the sec-ond in-equal-ity
  []
 
 
-LaTeX Warning: Reference `eq:fyv22' on page 95 undefined on input line 2946.
+Underfull \hbox (badness 1867) in paragraph at lines 2144--2146
+\T1/lmr/m/n/12 (+20) from []. In [], $\OML/lmm/m/it/12  A[] \OT1/lmr/m/n/12 (+20) = [][] \OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 M[] \OMS/lmsy/m/n/12 n \OML/lmm/m/it/12 T[]\OMS/lmsy/m/n/12 j\OML/lmm/m/it/12  ^^M^^T[] \OT1/lmr/m/n/12 (+20) + [][] \OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 T[] \OMS/lmsy/m/n/12 n
+ []
+
+[68] [69]
+
+LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 70 undefined on input line 2210.
 
 
-
-[95]
-
-LaTeX Warning: Reference `eq:gepihwprob' on page 96 undefined on input line 2955.
+LaTeX Warning: Reference `eq:DeltaMbis' on page 70 undefined on input line 2211.
 
 
-LaTeX Warning: Reference `eq:defSTprob' on page 96 undefined on input line 2959.
+LaTeX Warning: Reference `eq:DeltaMbis' on page 70 undefined on input line 2211.
+
+[70]
+
+LaTeX Warning: Reference `eq:DeltaMbis' on page 71 undefined on input line 2218.
+
+[71] [72]
+Underfull \hbox (badness 4096) in paragraph at lines 2275--2277
+\T1/lmr/m/n/12 (+20) where the first in-equal-ity fol-lows from [] and the sec-ond in-equal-ity
+ []
 
 
-LaTeX Warning: Reference `eq:gepihwprob' on page 96 undefined on input line 2960.
+Underfull \hbox (badness 1824) in paragraph at lines 2275--2277
+\T1/lmr/m/n/12 (+20) from []. In [], $\OML/lmm/m/it/12  A[] \OT1/lmr/m/n/12 (+20) = [][] \OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 M[] \OMS/lmsy/m/n/12 n \OML/lmm/m/it/12 S[]\OMS/lmsy/m/n/12 j\OML/lmm/m/it/12  ^^M[]\OT1/lmr/m/n/12 (+20) (\OML/lmm/m/it/12 M\OT1/lmr/m/n/12 (+20) ) + [][] \OMS/lmsy/m/n/12 j\OML/lmm/m/it/12 S[] \OMS/lmsy/m/n/12 n
+ []
+
+[73] [74]
+
+LaTeX Warning: Reference `cor:ebic' on page 75 undefined on input line 2329.
 
 
-
-[96]
-
-LaTeX Warning: Reference `eq:uygfew2prob' on page 97 undefined on input line 2976.
+LaTeX Warning: Reference `eq:betaminebic' on page 75 undefined on input line 2330.
 
 
-LaTeX Warning: Reference `eq:upperboudbinom' on page 97 undefined on input line 2982.
+LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 75 undefined on input line 2330.
 
 
-LaTeX Warning: Reference `eq:gepihwprob2prob' on page 97 undefined on input line 2999.
+LaTeX Warning: Reference `eq:defkappatilde' on page 75 undefined on input line 2332.
+
+[75] [76]
+
+LaTeX Warning: Reference `eq:betaminebic' on page 77 undefined on input line 2396.
 
 
-LaTeX Warning: Reference `eq:ogrprob' on page 97 undefined on input line 2999.
+LaTeX Warning: Reference `eq:EBICpen' on page 77 undefined on input line 2397.
 
 
-LaTeX Warning: Reference `prop:shatconsistenceprob' on page 97 undefined on input line 3005.
+LaTeX Warning: Reference `eq:betaminebic' on page 77 undefined on input line 2405.
+
+[77]
+
+LaTeX Warning: Reference `eq:betaminebic' on page 78 undefined on input line 2442.
 
 
-LaTeX Warning: Reference `prop:shatconsistence' on page 97 undefined on input line 3005.
+LaTeX Warning: Reference `eq:EBICpen' on page 78 undefined on input line 2444.
 
 
-LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 97 undefined on input line 3005.
+LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 78 undefined on input line 2444.
+
+[78]
+
+LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 79 undefined on input line 2446.
 
 
-
-[97]
-
-LaTeX Warning: Reference `eq:Tkappaprob' on page 98 undefined on input line 3015.
+LaTeX Warning: Reference `eq:DeltaMbis' on page 79 undefined on input line 2452.
 
 
-LaTeX Warning: Reference `thm:convtoTprob' on page 98 undefined on input line 3031.
+LaTeX Warning: Reference `prop:nectypeIreg' on page 79 undefined on input line 2462.
 
 
-LaTeX Warning: Reference `eq:wigrprob' on page 98 undefined on input line 3035.
+Package natbib Warning: Citation `hartigan' on page 79 undefined on input line 2462.
+
+[79]
+
+LaTeX Warning: Reference `eq:DeltaMbis' on page 80 undefined on input line 2471.
 
 
-
-[98]
-
-LaTeX Warning: Reference `eq:decompshatprob' on page 99 undefined on input line 3041.
+LaTeX Warning: Reference `prop:nectypeIreg' on page 80 undefined on input line 2482.
 
 
-LaTeX Warning: Reference `eq:uuuuuprob' on page 99 undefined on input line 3050.
+LaTeX Warning: Reference `lem:upperboundnoncentral' on page 80 undefined on input line 2482.
 
 
-LaTeX Warning: Reference `eq:uuuuuprob2' on page 99 undefined on input line 3050.
+LaTeX Warning: Reference `lem:upperboundnoncentral' on page 80 undefined on input line 2482.
 
 
-Overfull \hbox (20.44913pt too wide) detected at line 3054
+LaTeX Warning: Reference `cor:necrecovregnonlin' on page 80 undefined on input line 2484.
+
+
+LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 80 undefined on input line 2485.
+
+[80]
+
+LaTeX Warning: Reference `eq:necbetaminlinregbis2' on page 81 undefined on input line 2499.
+
+
+LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 81 undefined on input line 2504.
+
+
+LaTeX Warning: Reference `prop:nectypeIregnonlin' on page 81 undefined on input line 2505.
+
+
+LaTeX Warning: Reference `cor:selconstimpossibleregnonlin' on page 81 undefined on input line 2507.
+
+
+LaTeX Warning: Reference `cor:necrecovregnonlin' on page 81 undefined on input line 2508.
+
+
+LaTeX Warning: Reference `theo:suffcondlinearmodelnonlinpen' on page 81 undefined on input line 2508.
+
+[81] [82] [83]
+
+LaTeX Warning: Reference `theo:empbayesselconsist' on page 84 undefined on input line 2597.
+
+
+LaTeX Warning: Reference `theo:empbayesselconsist' on page 84 undefined on input line 2597.
+
+[84] [85] [86] [87]
+
+LaTeX Warning: Reference `theo:empbayesselconsist' on page 88 undefined on input line 2721.
+
+[88]
+
+LaTeX Warning: Reference `theo:empbayesselconsist' on page 89 undefined on input line 2728.
+
+[89]
+
+LaTeX Warning: Reference `sec:empBayescomp' on page 90 undefined on input line 2777.
+
+[90]
+
+LaTeX Warning: Reference `eq:barkappa' on page 91 undefined on input line 2790.
+
+[91] [92] [93]
+
+LaTeX Warning: Reference `eq:defSes2' on page 94 undefined on input line 2901.
+
+
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 94 undefined on input line 2905.
+
+
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 94 undefined on input line 2905.
+
+
+LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 94 undefined on input line 2905.
+
+
+LaTeX Warning: Reference `eq:defSes2' on page 94 undefined on input line 2908.
+
+[94] [95] [96] [97]
+Overfull \hbox (2.84978pt too wide) detected at line 2990
+[][][]\U/msb/m/n/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 M \OMS/lmsy/m/n/12 j \OT1/lmr/bx/n/12 y\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ))  \OMS/lmsy/m/n/12 ^^T  [] [] \OML/lmm/m/it/12 :
+ []
+
+[98] [99]
+
+LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 100 undefined on input line 3051.
+
+[100] [101]
+Overfull \hbox (20.44913pt too wide) detected at line 3100
 \OML/lmm/m/it/12 E[][] [] p\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 m[] \OT1/lmr/m/n/12 = 1 \OMS/lmsy/m/n/12 j \OT1/lmr/bx/n/12 y\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 )[] \OMS/lmsy/m/n/12 ^^T [] [] \U/msb/m/n/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 M \OMS/lmsy/m/n/12 j \OT1/lmr/bx/n/12 y\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 )) + [] \U/msb/m/n/12 E\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 p\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 M \OMS/lmsy/m/n/12 j \OT1/lmr/bx/n/12 y\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 ))\OML/lmm/m/it/12 :
  []
 
 
-LaTeX Warning: Reference `thm:convtoTprob' on page 99 undefined on input line 3055.
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 102 undefined on input line 3106.
 
 
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 99 undefined on input line 3060.
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 102 undefined on input line 3107.
 
 
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 99 undefined on input line 3061.
+LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 102 undefined on input line 3110.
 
 
-LaTeX Warning: Reference `thm:convtoTprob' on page 99 undefined on input line 3061.
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 102 undefined on input line 3111.
 
 
-LaTeX Warning: Reference `thm:convtoTprob' on page 99 undefined on input line 3061.
+LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 102 undefined on input line 3111.
 
 
-LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 99 undefined on input line 3064.
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 102 undefined on input line 3112.
 
+[102] [103] [104]
+Overfull \hbox (21.79489pt too wide) in paragraph at lines 3198--3200
+\T1/lmr/m/n/12 (-20) hold with prob-a-bil-ity go-ing to 1 for $\OML/lmm/m/it/12 !$ \T1/lmr/m/n/12 (-20) as in [] and $\OML/lmm/m/it/12 ![] \OT1/lmr/m/n/12 (-20) = [][]1 + [][] [][]$
+ []
 
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 99 undefined on input line 3065.
+[105] [106]
 
+LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 107 undefined on input line 3243.
 
-LaTeX Warning: Reference `theo:empbayesselconsistuprob' on page 99 undefined on input line 3065.
 
+LaTeX Warning: Reference `thm:ebayes_zerograd' on page 107 undefined on input line 3246.
 
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 99 undefined on input line 3066.
+[107]
 
+LaTeX Warning: Reference `cor:em_zerograd' on page 108 undefined on input line 3308.
 
 
-[99]
+LaTeX Warning: Reference `thm:ebayes_zerograd' on page 108 undefined on input line 3324.
 
-LaTeX Warning: Reference `eq:rewriteshatprob' on page 100 undefined on input line 3096.
 
-
-
-[100]
-
-LaTeX Warning: Reference `eq:Tkappaprob' on page 101 undefined on input line 3118.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 101 undefined on input line 3118.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 101 undefined on input line 3119.
-
-
-LaTeX Warning: Reference `prop:shatconsistenceprob' on page 101 undefined on input line 3120.
-
-
-LaTeX Warning: Reference `eq:uuuuuprob' on page 101 undefined on input line 3120.
-
-
-LaTeX Warning: Reference `eq:uuuuuprob2' on page 101 undefined on input line 3120.
-
-
-LaTeX Warning: Reference `prop:shatconsistenceprob' on page 101 undefined on input line 3120.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 101 undefined on input line 3126.
-
-
-
-[101]
-
-LaTeX Warning: Reference `eq:gammakebprob' on page 102 undefined on input line 3153.
-
-
-LaTeX Warning: Reference `eq:oaebrprob' on page 102 undefined on input line 3153.
-
-
-LaTeX Warning: Reference `eq:oaebrprob2' on page 102 undefined on input line 3153.
-
-
-LaTeX Warning: Reference `eq:eeeeeeehprob' on page 102 undefined on input line 3155.
-
-
-
-[102]
-
-LaTeX Warning: Reference `eq:oaebrprob' on page 103 undefined on input line 3162.
-
-
-LaTeX Warning: Reference `eq:oaebrprob2' on page 103 undefined on input line 3164.
-
-
-LaTeX Warning: Reference `eq:rewriteshatprob' on page 103 undefined on input line 3170.
-
-
-LaTeX Warning: Reference `eq:decompstep2penprob' on page 103 undefined on input line 3171.
-
-
-LaTeX Warning: Reference `thm:convtoTprob' on page 103 undefined on input line 3182.
-
-
-LaTeX Warning: Reference `eq:ggggggggprob' on page 103 undefined on input line 3187.
-
-
-
-[103]
-
-LaTeX Warning: Reference `eq:oaebrprob2' on page 104 undefined on input line 3194.
-
-
-LaTeX Warning: Reference `thm:suffcondlinearmodel' on page 104 undefined on input line 3197.
-
-
-LaTeX Warning: Reference `thm:ebayes_zerograd' on page 104 undefined on input line 3200.
-
-
-
-[104]
-
-LaTeX Warning: Reference `cor:em_zerograd' on page 105 undefined on input line 3262.
-
-
-LaTeX Warning: Reference `eq:grad_priorprob_indep' on page 105 undefined on input line 3269.
-
-
-LaTeX Warning: Reference `thm:ebayes_zerograd' on page 105 undefined on input line 3278.
-
-
-Overfull \hbox (23.61656pt too wide) in paragraph at lines 3278--3283
+Overfull \hbox (23.61656pt too wide) in paragraph at lines 3324--3329
 \OT1/lmr/m/n/12 (-20) [\OMS/lmsy/m/n/12 r[]\OML/lmm/m/it/12 ^^Y[]\OT1/lmr/m/n/12 (-20) ([])]\OML/lmm/m/it/12 =\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 ^^Y[]\OT1/lmr/m/n/12 (-20) ([])[1 \OMS/lmsy/m/n/12 ^^@ \OML/lmm/m/it/12 ^^Y[]\OT1/lmr/m/n/12 (-20) ([])]) = [][]$ \T1/lmr/m/n/12 (-20) and then $\OMS/lmsy/m/n/12 r[]\OML/lmm/m/it/12 f\OT1/lmr/m/n/12 (-20) ([]) = [][] [][] [] =
  []
 
 
-LaTeX Warning: Reference `prop:mstep_fullrank' on page 105 undefined on input line 3284.
+LaTeX Warning: Reference `prop:mstep_fullrank' on page 108 undefined on input line 3330.
 
-
-
-[105]
+[108]
 
 Package natbib Warning: There were undefined citations.
 
-
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
-
-
-
-[106] (./paper.aux)
+[109] (paper.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
  ***********
 
 
@@ -2985,17 +1546,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17622 strings out of 467748
- 276341 string characters out of 5431137
- 750410 words of memory out of 5000000
- 45196 multiletter control sequences out of 15000+600000
- 766022 words of font info for 322 fonts, out of 8000000 for 9000
+ 17523 strings out of 474456
+ 280791 string characters out of 5741790
+ 1951190 words of memory out of 5000000
+ 38721 multiletter control sequences out of 15000+600000
+ 689927 words of font info for 311 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,20n,93p,1995b,658s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,20n,93p,1996b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{lab:A8bis} has been referenced but does not exist, replaced by a fixed one
 
@@ -3004,6 +1565,9 @@ pdfTeX warning (dest): name{lab:A5ter} has been referenced but does not exist, r
 
 
 pdfTeX warning (dest): name{lab:A4ter} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{lab:A8} has been referenced but does not exist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{lab:A4bis} has been referenced but does not exist, replaced by a fixed one
@@ -3017,6 +1581,13 @@ pdfTeX warning (dest): name{lab:A3bis} has been referenced but does not exist, r
 
 pdfTeX warning (dest): name{lab:A15} has been referenced but does not exist, replaced by a fixed one
 
-<
-!pdfTeX error: pdflatex.exe (file c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb): fflush() failed (Invalid argument)
- ==> Fatal error occurred, no output PDF file produced!
+
+pdfTeX warning (dest): name{lab:A7} has been referenced but does not exist, replaced by a fixed one
+
+<C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib7.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on paper.pdf (109 pages, 1099137 bytes).
+PDF statistics:
+ 1965 PDF objects out of 2073 (max. 8388607)
+ 447 named destinations out of 1000 (max. 500000)
+ 72321 words of extra memory for PDF output out of 74296 (max. 10000000)
+
