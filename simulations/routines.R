@@ -214,12 +214,14 @@ mse.est <- function(model,y, X.design, beta_star){
   beta.est <- rep(0,length(beta_star))
   X.design.df <- data.frame(X.design)
   model.vec <- model.char2vec(model)
-  data<-cbind(data.frame(y=y),X.design.df[,model.vec,drop=FALSE])
-  
-  lin.reg <- lm(y~.+0,data=data)
-  beta.est[model.vec] <- coef(lin.reg)
-  
-  mse <- sum((beta.est-beta_star)^2)/length(beta_star) 
+  if(sum(is.na(model.vec))>0){
+    mse <- NA
+  }else{
+    data<-cbind(data.frame(y=y),X.design.df[,model.vec,drop=FALSE])
+    lin.reg <- lm(y~.+0,data=data)
+    beta.est[model.vec] <- coef(lin.reg)
+    mse <- sum((beta.est-beta_star)^2)/length(beta_star) 
+  }
   return(mse)
 }
 
@@ -289,18 +291,24 @@ cvmse.l0.comp <- function(y, X.design, block0, block1, K, mc.cores=1){
 sel.lasso.scad.cv <- function(y, X.design, beta_star=NULL){
   
   ## CV-LASSO 
+  t0lasso <- Sys.time()
   glmnet.res<- cv.glmnet(X.design,y,intercept = FALSE)
+  t1lasso <- Sys.time()
   sel.lasso.cv <- paste(which(coef(glmnet.res, s=glmnet.res$lambda.min)[-1]!=0),collapse=",")
   cv.mse.lasso <- glmnet.res$cvm[which(glmnet.res$lambda==glmnet.res$lambda.min)]
+  time.secs.lasso <- round(difftime(t1lasso, t0lasso, units = "secs"),3)
   
   ## SCAD
+  t0scad <- Sys.time()
   cvscad <- cv.ncvreg(X=X.design,y=y,family="gaussian",penalty="SCAD",nfolds=10,dfmax=1000,max.iter=10^4)
+  t1scad <- Sys.time()
   sel.scad.cv <- paste(which(cvscad$fit$beta[-1,cvscad$min]!=0),collapse=",")
   cv.mse.scad <- cvscad$cve[which(cvscad$lambda==cvscad$lambda.min)]
+  time.secs.scad <- round(difftime(t1scad, t0scad, units = "secs"),3)
   
-  df.sel <- data.frame(t(c(sel.lasso.cv, sel.scad.cv))) 
+  df.sel <- data.frame(t(c(sel.lasso.cv, sel.scad.cv, time.secs.lasso, time.secs.scad))) 
   df.cvmse <- data.frame(t(c(cv.mse.lasso, cv.mse.scad)))
-  colnames(df.sel) <- c("lasso.cv","scad.cv")
+  colnames(df.sel) <- c("lasso.cv","scad.cv","time.lasso.cv","time.scad.cv")
   colnames(df.cvmse) <- c("lasso.cv","scad.cv")
   
   if(!is.null(beta_star)){

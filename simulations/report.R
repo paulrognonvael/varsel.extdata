@@ -11,10 +11,10 @@ summarize.sim <- function(scenario,path){
   }
   
   nb.inactive<- function(n,scenario){
-    if(scenario==1)  return(1.5*n)
+    if(scenario%in%c(1,6))  return(1.5*n)
     if(scenario==3)  return(n)
     if(scenario==4)  return(n)
-    if(scenario==5)  return(n/2)
+    if(scenario%in%c(5,7))  return(n/2)
   }
   
   
@@ -254,6 +254,8 @@ summarize.sim(1,path)
 summarize.sim(3,path)
 summarize.sim(4,path)
 summarize.sim(5,path)
+summarize.sim(6,path)
+summarize.sim(7,path)
 
 
 

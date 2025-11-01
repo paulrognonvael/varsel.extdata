@@ -8,7 +8,8 @@ library(ncvreg)
 library(parallel)
 
 # Working directory
-setwd(dirname(utils::getSrcFilename(function(){}, full.names = TRUE)))
+path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
+setwd(paste0(path,'scenario5/'))
 
 # Helper functions
 source(paste0(path,"routines.R"))
@@ -35,9 +36,9 @@ bmin <- 0.2
 
 
 # Load simulated data
-X <- as.matrix(read.csv(paste0(dirname(getwd()),"/X.designp2000n700.corr.csv")))
-epsilon <- as.matrix(read.csv(paste0(dirname(getwd()),"/epsilon.csv")))
-betas <- as.matrix(read.csv(paste0(dirname(getwd()),"/betas.csv")))[,1]
+X <- as.matrix(read.csv(paste0(path,"/X.designp2000n700.corr.csv")))
+epsilon <- as.matrix(read.csv(paste0(path,"/epsilon.csv")))
+betas <- as.matrix(read.csv(paste0(path,"/betas.csv")))[,1]
 
 # Lists of methods
 l0method.vec <- c("kappa.o", "EBIC", "S.EB", "S.A", "S.EB.b",
@@ -51,9 +52,8 @@ values.n <- c(20,40,60,80,seq(100,700,100))
 
 for (n  in values.n){
   t0 <- Sys.time()
-  betamin <- bmin
-  beta_star0 <- c(0.8, betas[1:(nb.active(n)/2-1)], rep(0,nb.inactive3(n)))
-  beta_star1 <- c(betamin, betas[(nb.active(n)/2):(nb.active(n)-2)], rep(0,nb.inactive2(n)))
+  beta_star0 <- c(0.5, betas[1:(nb.active(n)/2-1)], rep(0,nb.inactive3(n)))
+  beta_star1 <- c(bmin, betas[(nb.active(n)/2):(nb.active(n)-2)], rep(0,nb.inactive2(n)))
   beta_star <- c(beta_star0, beta_star1)
   block0 <- c(1:length(beta_star0))
   block1 <- c((length(beta_star0)+1):(length(beta_star0)+length(beta_star1)))
