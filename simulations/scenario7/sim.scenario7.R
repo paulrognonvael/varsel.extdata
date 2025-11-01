@@ -100,7 +100,7 @@ for (n  in values.n){
   
   sim.result.df <- postprocess.sim(sim.result.df,beta_star)
   
-  write.csv(sim.result.df,paste0("sim.result.scenario5.n",n,".csv"),row.names = FALSE)
+  write.csv(sim.result.df,paste0("sim.result.scenario7.n",n,".csv"),row.names = FALSE)
   
   t1 <- Sys.time() 
   cat('Time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes'); cat('\n');

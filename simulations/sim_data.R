@@ -20,6 +20,5 @@ write.csv(epsilon,"epsilon.csv",row.names = FALSE)
 
 
 #Generate random beta values
-set.seed(27)
 betas <- runif(100,1/2,1)
 write.csv(betas,"betas.csv",row.names = FALSE)
