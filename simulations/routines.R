@@ -6,10 +6,14 @@ model.char2vec <- function(model.char){
 
 ## Returns the number of false positive and false negatives
 
-nb.error<-function(sel.vect, true.beta, type, block){
+nb.error<-function(sel.vect, true.beta, type, block=NULL){
   truth <- true.beta != 0
   sel.model <- rep(FALSE, length(true.beta))
   sel.model[sel.vect] <- TRUE
+  
+  if(is.null(block)){
+    block=1:length(true.beta)
+  }
   
   if(type=='I'){
     tI <- truth==FALSE & sel.model==TRUE
@@ -322,15 +326,68 @@ sel.lasso.scad.cv <- function(y, X.design, beta_star=NULL){
   return(list(sel=df.sel,cvmse=df.cvmse))
 }
 
-postprocess.sim <- function(sim.result.df,beta_star){
+## Processes the output of simmulation
+
+postprocess.sim <- function(sim.result.df,beta_star,block0=NULL,block1=NULL){
   sim.result.df['recovery']<-  sim.result.df$sel.model==paste(as.character(which(beta_star!=0)),collapse=",")
   sel.list <- lapply(sim.result.df$sel.model, model.char2vec)
-  sim.result.df['nb.tI.b0'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='I', block=block0)
-  sim.result.df['nb.tI.b1'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='I', block=block1)
-  sim.result.df['nb.tII.b0'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='II', block=block0)
-  sim.result.df['nb.tII.b1'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='II', block=block1)
+  if(!is.null(block0) & !is.null(block1)){
+    sim.result.df['nb.tI.b0'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='I', block=block0)
+    sim.result.df['nb.tI.b1'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='I', block=block1)
+    sim.result.df['nb.tII.b0'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='II', block=block0)
+    sim.result.df['nb.tII.b1'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='II', block=block1) 
+  }
+  sim.result.df['nb.tI'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='I') 
+  sim.result.df['nb.tII'] <- sapply(sel.list, nb.error, true.beta=beta_star, type='II') 
   sim.result.df['est.size'] <- sapply(sel.list,length)
-  sim.result.df <- sim.result.df %>% mutate(FP=nb.tI.b0+nb.tI.b1, TP = sum(beta_star!=0)-(nb.tII.b0+nb.tII.b1), 
+  sim.result.df <- sim.result.df %>% mutate(FP=nb.tI, TP = sum(beta_star!=0)-nb.tII, 
   FDR = FP/(FP+TP), power = TP/sum(beta_star!=0))
   return(sim.result.df)
+}
+
+
+## Trans-s-ell0 algorithm
+
+trans.s.ell0 <- function(target_y, target_X, source_y=NULL, source_X=NULL, 
+                         source_sel=NULL, beta_star=NULL){
+ require(mombf)
+  
+ if(is.null(source_y) & is.null(source_sel) | is.null(source_X) & is.null(source_sel)){
+   stop('You must provide either the complete source datasets or the sets of variables 
+         selected in the source datatset')
+ } else {
+   if(is.null(source_y) & !is.null(source_X) | !is.null(source_y) & is.null(source_X)){
+     stop ('You must provide the complete source datasets, both outcomes and variables')
+   }
+ }
+ 
+ if(length(source_y)!=length(source_X)){
+   stop('The number of outcomes vectors does not match the number of design matrices')
+ }  
+
+ if(is.null(source_y) & !is.null(source_sel) | is.null(source_X) & !is.null(source_sel)){
+    block0 <- Reduce(union,source_sel)
+    block1 <- setdiff(1:ncol(target_X), block1)
+ }  
+  
+ if(!is.null(source_y) & !is.null(source_X)){
+   cat('   Selecting variables in the source datasets\n')
+   source_sel <- vector(mode = "list", length = length(source_X))
+   
+   for(k in 1:length(source_X)){
+     bestIC.k <- mombf::bestIC(source_y[[k]],source_X[[k]], 
+                               penalty= log(nrow(source_X[[k]]))+2*log(ncol(source_X[[k]])), 
+                               verbose=FALSE, maxvars= nrow(source_X[[k]])
+                               #vmaxvars=nrow(X.design)*0.9,# deltaini=ini,
+     )
+     source_sel[[k]] <- model.char2vec(bestIC.k$models$modelid[1])
+   }
+   block0 <- Reduce(union,source_sel)
+   block1 <- setdiff(1:ncol(target_X), block0)
+ }  
+ 
+ cat('   Selecting variables in the target dataset\n')
+ res <- selectionl0.comp(y = target_y, X.design = target_X, block0 = block0, 
+                         block1 = block1, beta_star= beta_star)
+ return(res)
 }
