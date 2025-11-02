@@ -11,7 +11,7 @@ set.seed(1278)
 
 # Working directory
 path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
-setwd(paste0(path,'transfer_learning/scenario1/'))
+setwd(paste0(path,'transfer_learning/scenario3/'))
 
 # Helper functions
 source(paste0(path,"routines.R"))
@@ -52,7 +52,7 @@ K.source <- 2
 
 
 # Perturbation frequency
-h <- 0
+h <- 0.4
 
 ###################################################
 
@@ -132,7 +132,7 @@ for (n  in values.n){
   
   sim.result.df <- postprocess.sim(sim.result.df=sim.result.df, beta_star= beta_star)
   
-  write.csv(sim.result.df,paste0("sim.result.scenario1.n",n,".csv"),row.names = FALSE)
+  write.csv(sim.result.df,paste0("sim.result.scenario3.n",n,".csv"),row.names = FALSE)
   
   t1 <- Sys.time() 
   cat('Time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes'); cat('\n');
