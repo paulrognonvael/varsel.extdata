@@ -9,19 +9,19 @@ library(parallel)
 
 # Working directory
 path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
-setwd(paste0(path,'scenario5/'))
+setwd(paste0(path,'scenario1/'))
 
 # Helper functions
-source(paste0(path,"external_info/routines.R"))
+source(paste0(path,"routines.R"))
 
 # Scenario
 
 nb.inactive2 <-function(n){
-  return(sqrt(n)/2)
+  return(sqrt(n))
 }
 
 nb.inactive3 <-function(n){
-  return(n/2-sqrt(n)/2)
+  return(1.5*n-sqrt(n))
 }
 
 nb.inactive.tot<-function(n,nb.inactive.b0=nb.inactive3,nb.inactive.b1=nb.inactive2){
@@ -32,17 +32,16 @@ nb.active<- function(n){
   return(2 * round(3*log(n)/2)) # rounding to the closest even number
 }
 
-bmin <- 0.2
-
+bmin <- 0.33
 
 # Load simulated data
-X <- as.matrix(read.csv(paste0(path,"/X.designp2000n700.corr.csv")))
-epsilon <- as.matrix(read.csv(paste0(path,"/epsilon.csv")))
-betas <- as.matrix(read.csv(paste0(path,"/betas.csv")))[,1]
+X <- as.matrix(read.csv(paste0(path,"X.designp2000n700.corr.csv")))
+epsilon <- as.matrix(read.csv(paste0(path,"epsilon.csv")))
+betas <- as.matrix(read.csv(paste0(path,"betas.csv")))[,1]
 
 # Lists of methods
 l0method.vec <- c("kappa.o", "EBIC", "S.EB", "S.A", "S.EB.b",
-                  "S.A.b")
+  "S.A.b")
 
 method.vec <- c(l0method.vec,"lasso.cv", "scad.cv")
 
@@ -50,8 +49,10 @@ method.vec <- c(l0method.vec,"lasso.cv", "scad.cv")
 
 values.n <- c(20,40,60,80,seq(100,700,100))
 
+
 for (n  in values.n){
-  t0 <- Sys.time()
+  t0 <- Sys.time() 
+  betamin <- bmin
   beta_star0 <- c(0.5, betas[1:(nb.active(n)/2-1)], rep(0,nb.inactive3(n)))
   beta_star1 <- c(bmin, betas[(nb.active(n)/2):(nb.active(n)-2)], rep(0,nb.inactive2(n)))
   beta_star <- c(beta_star0, beta_star1)
@@ -91,16 +92,16 @@ for (n  in values.n){
   
   
   sim.result.df <- pivot_longer(sim.result.sel,cols=method.vec,names_to = 'method',values_to = 'sel.model')
-  
+
   sim.result.est.mse.df <- pivot_longer(sim.result.est.mse,cols=method.vec,names_to = 'method',values_to = 'est.mse')
   sim.result.df <- merge(sim.result.df, sim.result.est.mse.df, by = c('method','sim','n','betamin'))
-  
+    
   # sim.result.cvmse.df <- pivot_longer(sim.result.cvmse,cols=method.vec,names_to = 'method',values_to = 'cv.mse')
   # sim.result.df <- merge(sim.result.df, sim.result.cvmse.df, by = c('method','sim','n','betamin'))
   
   sim.result.df <- postprocess.sim(sim.result.df,beta_star)
   
-  write.csv(sim.result.df,paste0("sim.result.scenario5.n",n,".csv"),row.names = FALSE)
+  write.csv(sim.result.df,paste0("sim.result.scenario1.n",n,".csv"),row.names = FALSE)
   
   t1 <- Sys.time() 
   cat('Time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes'); cat('\n');

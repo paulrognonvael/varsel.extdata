@@ -9,7 +9,7 @@ library(parallel)
 
 # Working directory
 path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
-setwd(paste0(path,'scenario6/'))
+setwd(paste0(path,'external_info/scenario6/'))
 
 # Helper functions
 source(paste0(path,"routines.R"))
