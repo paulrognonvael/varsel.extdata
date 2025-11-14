@@ -78,10 +78,10 @@ for (n  in values.n){
     colnames(res.est.mse.l0) <- l0method.vec
     res.lasso.scad <- sel.lasso.scad.cv(y.df[,i],X.design=X.design, beta_star= beta_star)
     
-    res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel,sim=i,n=n,betamin=betamin)
+    res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel,sim=i,n=n,betamin=bmin)
     sim.result.sel <- bind_rows(sim.result.sel,res.sel)
     
-    res.est.mse <- data.frame(res.est.mse.l0,res.lasso.scad$est.mse,sim=i,n=n,betamin=betamin)
+    res.est.mse <- data.frame(res.est.mse.l0,res.lasso.scad$est.mse,sim=i,n=n,betamin=bmin)
     sim.result.est.mse <- bind_rows(sim.result.est.mse,res.est.mse)
     
     
@@ -104,6 +104,7 @@ for (n  in values.n){
   write.csv(sim.result.df,paste0("sim.result.scenario1.n",n,".csv"),row.names = FALSE)
   
   t1 <- Sys.time() 
-  cat('Time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes'); cat('\n');
+  cat('Running time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes,')
+  cat('Time:', Sys.time()); cat('\n');
   
 }

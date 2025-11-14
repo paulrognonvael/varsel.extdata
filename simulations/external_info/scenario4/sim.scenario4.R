@@ -32,7 +32,7 @@ nb.active<- function(n){
   return(2 * round(3*log(n)/2)) # rounding to the closest even number
 }
 
-bmin <- 0.33
+bmin <- 0.5
 
 
 # Load simulated data
@@ -52,7 +52,7 @@ values.n <- c(20,40,60,80,seq(100,700,100))
 
 for (n  in values.n){
   t0 <- Sys.time()
-  beta_star0 <- c(0.33, betas[1:(nb.active(n)/2-1)], rep(0,nb.inactive3(n)))
+  beta_star0 <- c(bmin, betas[1:(nb.active(n)/2-1)], rep(0,nb.inactive3(n)))
   beta_star1 <- c(bmin, betas[(nb.active(n)/2):(nb.active(n)-2)], rep(0,nb.inactive2(n)))
   beta_star <- c(beta_star0, beta_star1)
   block0 <- c(1:length(beta_star0))
@@ -77,10 +77,10 @@ for (n  in values.n){
     colnames(res.est.mse.l0) <- l0method.vec
     res.lasso.scad <- sel.lasso.scad.cv(y.df[,i],X.design=X.design, beta_star= beta_star)
     
-    res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel,sim=i,n=n,betamin=betamin)
+    res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel,sim=i,n=n,betamin=bmin)
     sim.result.sel <- bind_rows(sim.result.sel,res.sel)
     
-    res.est.mse <- data.frame(res.est.mse.l0,res.lasso.scad$est.mse,sim=i,n=n,betamin=betamin)
+    res.est.mse <- data.frame(res.est.mse.l0,res.lasso.scad$est.mse,sim=i,n=n,betamin=bmin)
     sim.result.est.mse <- bind_rows(sim.result.est.mse,res.est.mse)
     
     
@@ -103,6 +103,7 @@ for (n  in values.n){
   write.csv(sim.result.df,paste0("sim.result.scenario4.n",n,".csv"),row.names = FALSE)
   
   t1 <- Sys.time()
-  cat('Time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes'); cat('\n');
+  cat('Running time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes,')
+  cat('Time:', Sys.time()); cat('\n');
   
 }

@@ -1,6 +1,6 @@
 
 
-path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
+path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/external_info/"
 source(paste0(path,'scenario1/sim.scenario1.R'))
 source(paste0(path,'scenario3/sim.scenario3.R'))
 source(paste0(path,'scenario4/sim.scenario4.R'))

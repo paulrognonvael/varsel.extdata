@@ -11,8 +11,8 @@ library(hgu133plus2.db)
 
 
 # Helper functions
-path = "C:/Users/Usuario/Downloads/PhD-20250908T152636Z-1-001/PhD/Limits on consistent variable selection and external information/Numerical illustrations/"
-source(paste0(path,"routines.R"))
+path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/"
+source(paste0(path,"simulations/routines.R"))
 
 # Load data
 x = read.table(paste0(path,"colon cancer/tgfb.txt"), header=TRUE)

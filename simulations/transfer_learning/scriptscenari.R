@@ -1,9 +1,9 @@
 
 
-path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/"
-source(paste0(path,'scenario1/sim.scenario1.R'))
-source(paste0(path,'scenario3/sim.scenario3.R'))
-source(paste0(path,'scenario4/sim.scenario4.R'))
-source(paste0(path,'scenario5/sim.scenario5.R'))
-source(paste0(path,'scenario6/sim.scenario6.R'))
-source(paste0(path,'scenario7/sim.scenario7.R'))
+path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/transfer_learning/"
+source(paste0(path,'sim.TL.R'))
+TL.sim(h=0,scenario=1)
+#TL.sim(h=0.2,scenario=2)
+TL.sim(h=0.4,scenario=3)
+#TL.sim(h=0.6,scenario=4)
+TL.sim(h=1,scenario=5)
