@@ -141,7 +141,7 @@ TL.sim <- function(h,scenario, n.val=NULL){
     
     t1 <- Sys.time() 
     cat('Running time n=',n,':', round(difftime(t1, t0, units = "mins"),3),'minutes,')
-    cat('Time:', Sys.time()); cat('\n');
+    cat('Time:', format(Sys.time(), "%X")); cat('\n');
     
   }
 }
