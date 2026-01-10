@@ -1,0 +1,1809 @@
+%% Template for the submission to:
+%%   The Annals of Statistics [AOS]
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% In this template, the places where you   %%
+%% need to fill in your information are     %%
+%% indicated by '???'.                      %%
+%%                                          %%
+%% Please do not use \input{...} to include %%
+%% other tex files. Submit your LaTeX       %%
+%% manuscript as one .tex document.         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[bj,authoryear]{imsart}
+
+%% Packages
+\RequirePackage{amsthm,amsmath,amsfonts,amssymb,booktabs,array,makecell}
+%\RequirePackage[numbers]{natbib}
+\RequirePackage[authoryear]{natbib}%% uncomment this for author-year citations
+\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}%% uncomment this for coloring bibliography citations and linked URLs
+\RequirePackage{graphicx}%% uncomment this for including figures
+\usepackage{xr}
+\externaldocument{bj-template}
+\startlocaldefs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Uncomment next line to change            %%
+%% the type of equation numbering           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\numberwithin{equation}{section}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Axiom, Claim, Corollary, Hypothesis, %%
+%% Lemma, Theorem, Proposition              %%
+%% use \theoremstyle{plain}                 %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{thm}{\textsc{Theorem}}[section]
+\newtheorem{prop}[thm]{\textsc{Proposition}}
+\newtheorem{cor}[thm]{\textsc{Corollary}}
+\newtheorem{lem}[thm]{\textsc{Lemma}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% For Assumption, Definition, Example,     %%
+%% Notation, Property, Remark, Fact         %%
+%% use \theoremstyle{remark}                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theoremstyle{remark}
+%\newtheorem{???}{???}
+%\newtheorem*{???}{???}
+%\newtheorem{???}{???}[???]
+%\newtheorem{???}[???]{???}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Please put your definitions here:        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\david}[1]{{\small{\color{blue} \sf $\heartsuit$ [David: #1]}}}
+\newcommand{\piotr}[1]{{\small{\color{red} \sf $\clubsuit$ Piotr: #1}}}
+\newcommand{\cpz}[1]{{\color{red} #1}}
+\newcommand{\paul}[1]{{\small{\color{green} \sf $\spadesuit$ Paul: #1}}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\bs}{\boldsymbol}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\endlocaldefs
+
+\begin{document}
+
+\begin{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Supplementary material to "Improving variable selection properties by using external data"}
+%\title{A sample article title with some additional note\thanksref{T1}}
+\runtitle{Supplementary material}
+%\thankstext{T1}{A sample of additional note to the title.}
+
+\begin{aug}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Only one address is permitted per author. %%
+%% Only division, organization and e-mail is %%
+%% included in the address.                  %%
+%% Additional information can be included in %%
+%% the Acknowledgments section if necessary. %%
+%% ORCID can be inserted by command:         %%
+%% \orcid{0000-0000-0000-0000}               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author[A]{\fnms{Paul}~\snm{Rognon-Vael}\ead[label=e1]{paul.rognon@gmail.com}},
+\author[A]{\fnms{David}~\snm{Rossell}\ead[label=e2]{rosselldavid@gmail.com}}
+\and
+\author[B]{\fnms{Piotr}~\snm{Zwiernik}\ead[label=e3]{piotr.zwiernik@utoronto.ca}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Addresses                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\address[A]{Department of Economics and Business, Universitat Pompeu Fabra \printead[presep={ ,\ }]{e1,e2}}
+\address[B]{Department of Statistical Sciences, University or Toronto
+\printead[presep={,\ }]{e3}}
+\end{aug}
+
+\begin{keyword}[class=MSC]
+\kwd[Primary ]{62F07}
+\kwd[; secondary ]{62C12}
+\kwd{62R07}
+\end{keyword}
+
+\begin{keyword}
+\kwd{data integration}
+\kwd{high-dimensional statistics}
+\end{keyword}
+\end{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Please use \tableofcontents for articles %%
+%% with 50 pages and more                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Main text entry area:
+
+\renewcommand*\thesection{S\arabic{section}}
+\renewcommand*{\theHsection}{S\arabic{section}}
+\setcounter{section}{-1}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+We provide the following additional material:\\
+\noindent\ref{suppsec:ebayes}: Additional motivation for our estimator of sparsity\\
+\ref{suppsec:auxiliary}: Auxiliary results\\
+\ref{suppsec:proofsecgsm}: Proofs of Section~\ref{sec:properties_orth}\\
+\ref{suppsec:proofseclinreg}: Proofs of Section~\ref{sec:properties_legression}\\
+\ref{suppsec:proofsempbayes}: Proofs of Section~\ref{sec:informed_l0}\\
+\ref{suppsec:appendixGSMsfinite}: Gaussian sequence model with fixed number of active signals.\\
+\ref{suppsec:appendixnonlinear}: Non linear block $\ell_0$ penalties in high-dimensional linear regression.\\
+\ref{suppsec:tightness}: Tightness of conditions for variable selection consistency in linear regression.
+
+\section{Additional motivation for our estimator of sparsity}\label{suppsec:ebayes} In Section~\ref{ssec:est.sparsity}, we presented our estimator of the proportion of truly active variables in block $j$ as the posterior mean $E(s_j \mid \bs y,\bs \theta)$. A related standard empirical Bayes strategy is to set $\hat{\theta}^{(j)}$ by %The estimator of the proportion of truly active variables $\hat{\theta}^{(j)}= \widehat{s}_j/p_j$ can also be justified as an empirical Bayes estimator %procedure. 
+%The empirical Bayes estimator of $\bs \theta$ (cf \eqref{eq:block_modelprior}) 
+maximizing the marginal likelihood of $\bs y$ given $\bs \theta$, i.e.
+\begin{eqnarray}
+\hat{\bs \theta}
+%\hat{\bs \theta}^{EB}
+\,:=\, \arg\max_{\bs \theta} p(\bs y \mid \bs \theta)=
+\arg\max_{\bs \theta} \int p(\bs y \mid \bs \beta, M) d P(\bs \beta, M \mid \bs \theta).
+\nonumber
+\end{eqnarray}
+% In the Bayesian framework \eqref{eq:block_modelprior}, $\widehat{s}_j/p_j$ corresponds to the empirical Bayes estimate of $\bs \theta$.
+\begin{lem}\label{lem:empiricalbayesinterpret} For $p(M \mid \bs \theta)$ in \eqref{eq:block_modelprior}, the empirical Bayes estimator satisfies 
+$$\hat{\theta}^{(j)} = \frac{1}{p_j}\sum_{i\in B_j}P(\beta_i \neq 0 \mid \bs y,\hat{\bs \theta}).$$
+\end{lem}
+The posterior mean estimator $\hat{\theta}^{(j)}=\widehat{s}_j/p_j$ can be seen as an approximation to the fixed-point equation in Lemma \ref{lem:empiricalbayesinterpret}, where one replaces $\hat{\bs \theta}$ in the right-hand side by an initial guess (implicitly defined in Section \ref{ssec:databased_blockselection}). 
+
+\subsection{Proof of Lemma~\ref{lem:empiricalbayesinterpret}}
+
+Denote the marginal likelihood of $\bs y$ given $\bs \theta$ by $H(\bs \theta)=p(\bs y \mid \bs \theta)$. For every $j=1,\ldots,b$, the partial derivative of its logarithm with respect to $\theta^{(j)}$ is
+    \begin{equation}\label{eq:logderivative}
+        \frac{\partial \ln H(\bs \theta)}{\partial \theta^{(j)}}=\frac{\partial H(\bs \theta)}{\partial \theta^{(j)}}\,H(\boldsymbol{\theta})^{-1}.
+    \end{equation}
+    Observe that:
+    \begin{equation}\label{eq:partialmarglikelihood}
+    H(\bs \theta)=\sum_{M \in \M}p(\bs y \mid M,\bs\theta)p(M \mid \bs \theta)
+    \quad \text{and}\quad 
+    \frac{\partial H(\bs \theta)}{\partial \theta^{(j)}}=\sum_{M\in \M}p(\bs y \mid M,\bs\theta)\frac{\partial p(M \mid \bs \theta)}{\partial \theta^{(j)}}
+    \end{equation}
+    Recall that each model is defined as $M=(m_1,\ldots,m_p)$ where $m_i = I(\beta_i \neq 0)$ indicates whether variable $j$ is included under $M$, and that our choice of model prior in \eqref{eq:block_modelprior} is 
+    \begin{align}
+        p( M \mid \boldsymbol{\theta})=
+        \prod_{j=1}^b (\theta^{(j)})^{\sum_{i \in B_j} m_i}
+        (1 - \theta^{(j)})^{p_j - \sum_{i \in B_j} m_i}.
+        \nonumber
+    \end{align}
+    Hence, simple algebra shows that for every $M\in \mathcal M$
+    \begin{equation}\label{eq:partialprobmodel}
+    \frac{\partial p(M \mid \bs \theta)}{\partial \theta^{(j)}}= p(M \mid \bs \theta) \bigg(\frac{\sum_{i\in B_j}m_i}{\theta^{(j)}}-\frac{p_j-\sum_{i\in B_j}m_i}{1-\theta^{(j)}} \bigg).       
+    \end{equation}
+    
+    Replacing \eqref{eq:partialprobmodel} into \eqref{eq:partialmarglikelihood}, and using that $$\sum_{M\in \M}\sum_{i\in B_j}m_if(M)=\sum_{i\in B_j}\sum_{M\in \M:m_i=1}f(M)\qquad \mbox{for any function }f,$$ we get
+    \begin{align}\label{eq:partialmarglikelihood2}
+        \frac{\partial H(\bs \theta)}{\partial \theta^{(j)}}&\;=\;\frac{1}{\theta^{(j)}}\sum_{i \in B_j}\sum_{M\in \M: m_i=1}p(\bs y \mid M,\bs\theta)p(M \mid \bs \theta) \\&\quad- \frac{1}{1-\theta^{(j)}}\bigg[p_j H(\bs \theta)-\sum_{i \in B_j}\sum_{M\in \M: m_i=1}p(\bs y \mid M,\bs\theta)p(M \mid \bs \theta). \nonumber
+        \bigg]
+    \end{align}
+    Note that
+    \begin{align*}
+        \frac{\sum_{M\in \M: m_i=1}p(\bs y \mid M,\bs\theta)p(M \mid \bs \theta)}{H(\bs \theta)} = \frac{\sum_{M\in \M: m_i=1}p(\bs y , M\mid \bs \theta)}{p(\bs y \mid \bs \theta)}= P(m_i = 1\mid \bs y,\bs \theta)
+    \end{align*}
+    By \eqref{eq:logderivative}, we then get the following expression of the partial derivative, for every $j=1,\ldots,b$,
+    $$\frac{\partial \ln H(\bs \theta)}{\partial \theta^{(j)}}=\frac{1}{\theta^{(j)}}\sum_{i \in B_j}P(m_i = 1\mid \bs y,\bs \theta) - \frac{1}{1-\theta^{(j)}}\bigg[p_j-\sum_{i \in B_j}P(m_i = 1\mid \bs y,\bs \theta)
+        \bigg]$$
+    Setting the partial derivatives to 0 and solving for $\theta^{(j)}$ gives the desired result.
+
+%\renewcommand*{\theHchapter}{\thepart.\arabic{chapter}}
+\section{Auxiliary results}\label{suppsec:auxiliary}
+
+In this section we collect some technical results.
+
+\subsection{Solutions to penalized likelihood problems}
+
+\begin{lem}\label{lem:l1isthreshold}
+	In the sequence model \eqref{eq:GSM}, selecting the non-zero entries  of the solution to 
+\begin{equation}\label{eq:genl1}
+	\underset{\bs \beta \in \R^p}{\rm minimize} \;\;\tfrac12\|\bs y-\sqrt{n}\bs\beta\|^2+\sum_{j=1}^b \lambda_j \sum_{i \in B_j}|\beta_{i}|
+\end{equation}
+for non-negative $\lambda_1,\ldots,\lambda_b$  is equivalent to taking the selector $\hat S^{b}$ in \eqref{prop:isthresh} with $\bs \tau=(\lambda_1/n,\ldots,\lambda_b/n)$. Let $\bs\beta^\circ$ be either the MLE or the LASSO estimator with penalty $\lambda^\circ$. Selecting the non-zero entries of the solution to the problem
+\begin{equation}\label{eq:genl1ada}
+	\underset{\bs \beta \in \R^p}{\rm minimize} \;\;\tfrac12\|\bs y-\sqrt{n}\bs\beta\|^2+\sum_{j=1}^b \lambda_j \sum_{i \in B_j}\tfrac{|\beta_{i}|}{|\beta_i^\circ|}.
+\end{equation}
+is equivalent to taking the selector $\hat S^{b}$ with $\bs \tau=(\sqrt{\lambda_1/n},\ldots,\sqrt{\lambda_b/n})$ if $\bs\beta^\circ$ is the MLE and with $\bs \tau=(\lambda^\circ/2n+\sqrt{(\lambda^\circ/2n)^2+\lambda_1/n},\ldots,\lambda^\circ/2n+\sqrt{(\lambda^\circ/2n)^2+\lambda_b/n})$ if $\bs\beta^\circ$ is a LASSO estimate.
+\end{lem}
+
+\begin{proof}
+    Denote by $\hat{\bs \beta}$ the minimizer of the problem \eqref{eq:genl1}. The MLE under the full model is $\tilde{\bs\beta}=\tfrac{1}{\sqrt{n}} \bs y$ and the optimized function in \eqref{eq:genl1} can be then rewritten as
+	$$
+	\tfrac{1}{2}\bs y^{\top}\bs y +\tfrac{n}{2}\sum_{j=1}^b\sum_{i\in B_j}\left(\beta_i^2-2\tilde\beta_i\beta_i+2\tfrac{\lambda_j}{n}|\beta_i|\right)
+	$$
+	which we optimize with respect to each $\beta_i$ separately. For any $i\in B_j$ we have $\hat\beta_i=0$ if and only if $|\tilde \beta_i|\leq \lambda_j/n$. Similarly  for \eqref{eq:genl1ada}, denoting $\hat{\bs \beta}$ the minimizer of the problem, for any $i\in B_j$ we have $\hat\beta_i=0$ if and only if $|\tilde \beta_i|\leq \lambda_j/(|\beta^{\circ}_i|n)$. If $\bs \beta^{\circ}= \tilde{\bs\beta}$, then for any $i\in B_j$ $\hat{\beta}_i = 0$ if and only if $|\tilde \beta_i|\leq \sqrt{\lambda_j/n}$. If $\bs\beta^\circ$ is a LASSO estimate with penalization $\lambda^\circ$, then for any $i\in B_j$ 
+ $\hat{\beta}_i = 0$ if and only if $\tilde{\beta}^2_i + \operatorname{sign}(\lambda^{\circ}/n-\tilde{\beta}_i)\lambda^\circ/(n\tilde{\beta}_i)-\lambda_j/n \leq 0$. Equivalently, for any $i\in B_j$ 
+ $\hat{\beta}_i = 0$ if and only if $|\tilde{\beta}_ i| \leq  \tfrac{1}{2}\left(\lambda^\circ/n+\sqrt{(\lambda^\circ/n)^2+4 \lambda_j/n}\right)$.
+\end{proof}
+
+\subsection{Tail bounds}
+
+\begin{lem}\label{lemma:3tailbounds}\textbf{Tail bounds on the maximum and minimum of folded Gaussians} 
+\begin{enumerate}[label=(\roman*)]
+        \item If $\bs y\sim N_p(0,n^{-1}I_p)$, $p>1$, and $a \geq \sqrt{2\ln(p)/n}$, $$P\Big(\underset{i\in\{1,\ldots,p\}}{\max}|y_i|> a \Big) \leq \frac{e^{-\frac{n}{2}\left(a^2-\frac{2\ln (p)}{n}\right)}}{\sqrt{\pi\ln (p)}}.$$
+    \item If $\bs y\sim N_s\left(\bs\mu,\sigma^2I_s\right)$, $s>1$, and $a \leq \underset{i\in\{1,\ldots,s\}}{\min}|\mu_i|$,
+        $$P\Big(\underset{i\in\{1,\ldots,s\}}{\min}|y_i| > a\Big) \geq P\Big(\underset{i\in\{1,\ldots,s\}}{\min}|\mu_i|-\underset{i\in\{1,\ldots,s\}}{\max}|y_i-\mu_i| > a \Big).$$
+    \item If $y_i\sim N\left(\mu,\sigma^2\right)$ for $i=1,\ldots,s$, $\mu \in \mathbb{R}$, and $a<|\mu|$, then
+        $$P\Big(\underset{i\in\{1,\ldots,s\}}{\min}|y_i| > a \Big) \leq \exp\left\{-\frac{s}{2}\frac{e^{-2\sigma^{-2}(|\mu|-a)^2/\pi}-e^{-\sigma^{-2}(a+|\mu|)^2/2}}{\left(1-e^{-2\sigma^{-2}(|\mu|-a)^2/\pi}\right)^{\frac{1}{2}}+\left(1-e^{-\sigma^{-2}(a+|\mu|)^2/2}\right)^{\frac{1}{2}}}\right\}.$$
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+
+\textbf{Part (i)} \,\, By the union bound and the identical distribution of the $y_i$'s,
+\begin{center}
+    $P\Big(\underset{i\in\{1,\ldots,p\}}{\max}|y_i|> a \Big)     \leq \sum_{i=1}^{p}{ P\left(|\sqrt{n}y_i|>\sqrt{n}a \right)}
+    = p\; P\left(|z|>\sqrt{n}a\right).$
+\end{center}
+    where $z\sim N(0,1)$. 
+    By symmetry and using the standard tail bound for standard normal, $P(z \geq \delta) \leq (2\pi)^{-1/2} \delta^{-1} e^{-\delta^{2} / 2}$ for $\delta \geq 0$, we obtain that 
+\begin{center}
+  $P\Big(\underset{i\in\{1,\ldots,p\}}{\max}|y_i|> a \Big) 
+     \leq  p\; 2 \, P\left(z>\sqrt{n}a\right) \leq \frac{1}{\sqrt{\pi}}\frac{\sqrt{2}}{\sqrt{n}a}p e^{-\frac{n}{2} a^{2}}.$
+\end{center}
+Since $a \geq \sqrt{\frac{2\ln(p)}{n}}$, we have that $\frac{\sqrt{2}}{\sqrt{n}a}\leq \frac{1}{\sqrt{\ln(p)}}$. Taking $a^2=a^2-\frac{2\ln(p)}{n}+\frac{2\ln(p)}{n}$, we get \begin{center}
+$ P\Big(\underset{i\in\{1,\ldots,p\}}{\max}|y_i|> a \Big) \leq \frac{1}{\sqrt{\pi\ln(p)}} e^{-\frac{n}{2} \left(a^{2}-\frac{2\ln(p)}{n}\right)}.$ \\\end{center}
+
+\textbf{Part (ii)} Consider the events $A:=\{ \underset{i \in \{1,\ldots,s\}}{\min}|\mu_i|- \underset{i \in \{1,\ldots,s\}}{\max}|y_i-\mu_i| > a\}$ and $B:=\{\underset{i \in \{1,\ldots,s\}}{\min}|y_i| > a\}$. We first show that $A$ implies $B$. $A$ implies that, for all $i$, $(\underset{i \in \{1,\ldots,s\}}{\min}|\mu_i|) - |y_i-\mu_i| > a $.  By the triangle inequality, we have that $ -|y_i-\mu_i|\leq|y_i|-|\mu_i|$ and therefore that $$ \text{for all } i, \;\;\;(\min_{i \in \{1,\ldots,s\}}|\mu_i|) - |y_i-\mu_i| \leq  (\min_{i \in \{1,\ldots,s\}}|\mu_i|) +|y_i| - |\mu_i| < |y_i|.$$ 
+Then, $A$ 
+implies that, for all $i$, $|y_i| > a $, that is $B$. By the monotonicity of the probability $P$: 
+\begin{center}$ P\Big(\underset{i \in \{1,\ldots,s\}}{\min}|\mu_i|-\underset{i \in \{1,\ldots,s\}}{\max}|y_i-\mu_i| > a\Big) \leq P\Big(\underset{i \in \{1,\ldots,s\}}{\min}|y_i| > a\Big) $. \end{center}
+
+
+\textbf{Part (iii)}\,\, 
+Since the $y_i$'s are independent and identically distributed we have $P(\min_{i\in\{1,\ldots,s\}}|y_i|>a)=P(|y_i|>a)^s= \exp\left(s\ln{P(|y_i|>a)}\right)$ for any $i\in\{1.\ldots,s\}$. Using that $\ln\left(1+ x \right)< x$ for $x\in(-1,0)$, we have
+\begin{equation}\label{eq:grpoih}
+    P(\min_{i\in\{1,\ldots,s\}}|y_i|>a)\leq \exp\left(s(P(|y_i|>a)-1)\right).
+\end{equation}
+To get a bound on $P(\min_{i\in\{1,\ldots,s\}}|y_i|>a)$ it is then enough to bound $P(|y_i|>a)$ for any $i$. We have that:
+$$P(|y_i|>a) = P(y_i>a) + P(y_i<-a) = P(z>\frac{a-\mu}{\sigma}) + P(z<-\frac{a+\mu}{\sigma})$$
+where $z\sim N(0,1)$. If $\mu>0$, $P(z>\frac{a-\mu}{\sigma})  =  P(z>\frac{a-|\mu|}{\sigma})= P(z<\frac{|\mu|-a}{\sigma})$ by symmetry of the standard Gaussian, and $P(z<-\frac{a+\mu}{\sigma})=P(z<-\frac{a+|\mu|}{\sigma})$, then $P(|y_i|>a) =  P(z<\frac{|\mu|-a}{\sigma}) + P(z<-\frac{a+|\mu|}{\sigma})$.
+If $\mu<0$, then $P(z>\frac{a-\mu}{\sigma})=P(z>\frac{a+|\mu|}{\sigma})=P(z<-\frac{a+|\mu|}{\sigma})$, where the second equality follows by symmetry of the standard Gaussian, and similarly $P(z<-\frac{a+\mu}{\sigma})=P(z<\frac{|\mu|-a}{\sigma})$. Then for any $\mu$, $P(|y_i|>a)  = P(z<\frac{|\mu|-a}{\sigma}) + P(z<-\frac{a+|\mu|}{\sigma}) $. For any $a<|\mu|$ we further have
+\begin{align}
+    P(|y_i|>a) &= P\Big(z<\frac{|\mu|-a}{\sigma}\Big) + 1- P\Big(z<\frac{a+|\mu|}{\sigma}\Big) \nonumber \\
+    &= P(z>0)
+    +P\Big(0<z<\frac{|\mu|-a}{\sigma}\Big)+ 1 - P(z>0) - P\Big(0<z<\frac{a+|\mu|}{\sigma}\Big) \nonumber \\
+    &= 1+P\Big(0<z<\frac{|\mu|-a}{\sigma}\Big)-P\Big(0<z<\frac{a+|\mu|}{\sigma}\Big)\label{eq:random}.
+\end{align}
+From \cite{chu}, for any $\delta>0$, $\frac{1}{2}\left(1-e^{-\delta^2/2}\right)^{\frac{1}{2}}\leq P(0 <z < \delta)\leq \frac{1}{2}\left(1-e^{-2\delta^2/\pi}\right)^{\frac{1}{2}}$. Thus, for any $\gamma,\delta>0$, we have that
+$$ P(0<z \leq \gamma)-P(0<z \leq \delta)\leq
+\frac{1}{2}\left(1-e^{-2\gamma^2/\pi}\right)^{\frac{1}{2}}-\frac{1}{2}\left(1-e^{-\delta^2/2}\right)^{\frac{1}{2}}.$$
+Applying the above to \eqref{eq:random}, we get
+$$P(|y_i|>a) \leq 
+1+ \frac{1}{2}\left(\left(1-e^{-2(|\mu|-a)^2/\pi\sigma^2}\right)^{\frac{1}{2}}-\left(1-e^{-(a+|\mu|)^2/2\sigma^2}\right)^{\frac{1}{2}}\right).\\$$
+
+Using that $x^{\frac{1}{2}}-y^{\frac{1}{2}}=\frac{x-y}{x^{\frac{1}{2}}+y^{\frac{1}{2}}}$ for $x,y>0$, we get
+ \begin{equation}\label{eq:pafvih}
+    P(|y_i|>a) \leq 1- \frac{e^{-2(|\mu|-a)^2/\pi\sigma^2}-e^{-(a+|\mu|)^2/2\sigma^2}}{2\left(\left(1-e^{-2(|\mu|-a)^2/\pi\sigma^2}\right)^{\frac{1}{2}}+\left(1-e^{-(a+|\mu|)^2/2\sigma^2}\right)^{\frac{1}{2}}\right)}. 
+ \end{equation}
+Finally, inputting in the bound in \eqref{eq:pafvih} in \eqref{eq:grpoih} gives the desired inequality.
+\end{proof}
+
+\begin{lem}\label{lem:boundrhogen}
+ For any $T\subseteq S$ and $M\in\M$ such that $T\not\subseteq M$, let $Q_T=M \cup T$. The non-centrality parameter defined in \eqref{eq:muQM} satisfies: 
+\begin{equation}
+    \mu_{Q_TM}\; \geq \;n\,\rho(\bs X)\,\sum_{j=1}^b|T_j\setminus M_j|\,\min_{i\in T_j\setminus M_j}{\beta_{i}^*}^2.
+\end{equation}
+\end{lem}
+
+\begin{proof} 
+The non-centrality parameter $\mu_{Q_TM}$, as defined in \eqref{eq:muQM}, satisfies
+\begin{eqnarray*}
+    \mu_{Q_TM}&=&\|\big(I_n-P_M\big) \bs X_{Q_T\setminus M} \bs \beta^*_{Q_T\setminus M}\|^2\\
+    &=&\|\big(I_n-P_M\big) \bs X_{T\setminus M} \bs \beta^*_{T\setminus M}\|^2\\
+    &= & n {\beta^*_{T\setminus M}}^\top \left(\tfrac1n \bs X_{T\setminus M}^\top(I_n-P_M)\bs X_{T\setminus M}\right)\beta^*_{T\setminus M}\\
+    &\geq & n\lambda_{\min}\left(\tfrac1n \bs X_{T\setminus M}^\top(I_n-P_M)\bs X_{T\setminus M}\right)\|\beta^*_{T\setminus M}\|^2,
+\end{eqnarray*}
+where the second equality follows from observing that $Q_T\setminus M=T\setminus M$. Since $T$ is a subset of $S$, by reordering columns, $X_{S\setminus M}=[X_{T\setminus M},X_{S\setminus (M\cup T)}]$ and therefore $\tfrac1n \bs X_{T\setminus M}^\top(I_n-P_M)\bs X_{T\setminus M}$ is a principal submatrix of $\tfrac1n \bs X_{S\setminus M}^\top(I_n-P_M)\bs X_{S\setminus M}$. Hence, Cauchy's interlacing theorem gives that $\lambda_{\min}\left(\tfrac1n \bs X_{T\setminus M}^\top(I_n-P_M)\bs X_{T\setminus M}\right) \geq \lambda_{\min}\left(\tfrac1n \bs X_{S\setminus M}^\top(I_n-P_M)\bs X_{S\setminus M}\right)$. Finally, by definition of $\rho(\bs X)$ in \eqref{eq:rhoX} we have that
+$\lambda_{\min}\left(\tfrac1n \bs X_{S\setminus M}^\top(I_n-P_M)\bs X_{S\setminus M}\right) \geq \rho(\bs X)$, and further noting that $\|\beta^*_{T\setminus M}\|^2\geq \sum_{j=1}^b|T_j\setminus M_j|\,\min_{i\in T_j\setminus M_j}{\beta_{i}^*}^2$ gives the desired result.
+\end{proof}
+
+\begin{lem}\label{lemma:s1s3}
+Let $W\sim\chi_{\nu}^2(\mu)$ with $\mu \geq 0$, then for any $w>\mu+\nu$
+$$P(W > w) \leq e^{-\big(\frac{w+\mu}{2}  - \sqrt{2w( 2 \mu+ \nu)-2 \mu \nu - \nu^2 } \big)}. $$
+Moreover, assume $w$, $\nu$ and $\mu$ are functions of $n$ such that $w$ is increasing, $\nu=o(w)$, and $\mu=o(w)$. Then, for any $\phi\in(0,1)$ and $n$ large enough
+$$P(W > w)  \leq  e^{-\phi\frac{w}{2}}.$$
+\end{lem}
+
+\begin{proof}
+By \cite{birge}, Lemma 8.1 we have that for any $x>0$
+$$P(W> (\nu+\mu)+2 \sqrt{(\nu+2 \mu) x}+2 x) \leq e^{-x}.$$
+The function $f:x\mapsto (\nu+\mu)+2 \sqrt{(\nu+2 \mu) x}+2 x$ is  one-to-one between $\R^+$ and $( \nu+
+\mu,\infty)$. 
+Hence, we have that for any $w>\mu+\nu$,
+$$P(W > w) \leq e^{-f^{-1}(w)} \:=\; e^{-\big(\frac{w+\mu}{2}  - \sqrt{2w(2 \mu+\nu)-2 \mu \nu - \nu^2 }\big) } .$$
+Observe that
+$$\frac{w+\mu}{2}  - \sqrt{2w( 2 \mu+ \nu)-2 \mu \nu - \nu^2 }= \frac{w}{2}\bigg(1+\frac{\mu}{w} -\sqrt{\frac{8(2 \mu+\nu)}{w}\bigg(1-\frac{2\nu\mu-\nu^2}{2(2w\mu+w\nu)} \bigg)}\bigg).$$
+ Since $\nu=o(w)$ and $\mu=o(w)$ by assumption, we have $\frac{w+\mu}{2}  - \sqrt{2w( 2 \mu+ \nu)-2 \mu \nu - \nu^2 }= \frac{w}{2}(1+o(1))$. Therefore, for any $\phi\in(0,1)$ and every $n$ large enough.
+$$P(W > w) \leq  e^{-\phi\frac{w}{2}}.$$
+\end{proof}
+
+
+\begin{lem}\label{lemma:s2} Let $W \sim \chi_\nu^2(\mu)$ with $\mu>0$. For any $w<\mu$, 
+$$
+P(W<w) \leq \frac{e^{-\frac{1}{2}(\sqrt{\mu}-\sqrt{w})^2}}{(\mu / w)^{\nu / 4}}.$$
+\end{lem}
+
+\begin{proof}
+The result follows directly from \cite{rossell2022concentration}, Lemma S2.
+\end{proof}
+
+\begin{lem}\label{lemma:s18} 
+    Let $W\sim \chi_\nu^2(\mu)$ with $\mu \geq 0$. Assume that $g$, $\nu$ and $\mu$ are functions of $n$ such that $g$ positive and increasing,  $\nu=o(\ln(g))$, and $\mu=o(\ln(g))$. Let $\bar{u},\underline{u}$ in $(0,1)$ such that $1>\bar{u}>\underline{u}\geq\left(1+g^{\phi}e^{-(\nu+\mu)/2}\right)^{-1}$ where $\phi\in(0,1)$, then for every $n$ large enough, we have 
+$$
+\int_{\underline{u}}^{\bar{u}} P\left(W>2\ln \left(\frac{g}{1 / u-1}\right)\right) d u \leq  \frac{1}{g^{\phi}}\Big(\bar{u}-\underline{u}+\ln\Big(\frac{\bar{u}}{\underline{u}}\Big)\Big).
+$$
+\end{lem}
+
+\begin{proof}
+For any $u\in [\underline{u},\bar{u}]$, we have $2\ln \left(\frac{g}{1 / u-1}\right) \geq 2\ln \left(\frac{g}{1 / \underline{u}-1}\right)$. Since $\underline{u}\geq (1+g^{\phi}e^{-(\nu+\mu)/2})^{-1}$ by assumption  we also have that, for any $u\in (\underline{u},\bar{u})$,
+$$2\ln \left(\frac{g}{1 / u-1}\right) \geq 2(1-\phi)\ln(g)+\nu+\mu.$$
+It follows,
+$$\frac{\nu}{2\ln \left(\frac{g}{1 / u-1}\right)}\leq \frac{\nu}{2(1-\phi)\ln(g)+\nu+\mu}
+\quad\text{and}\quad
+\frac{\mu}{2\ln \left(\frac{g}{1 / u-1}\right)}\leq\frac{\mu}{ 2(1-\phi)\ln(g)+\nu+\mu}.$$
+By assumption $\nu=o\left(\ln (g)\right)$ and $\mu=o\left(\ln (g)\right)$, then for any $u\in (\underline{u},\bar{u})$, $\nu=o\left(2\ln \left(\frac{g}{1 / u-1}\right)\right)$ and $\mu=o\left(2\ln \left(\frac{g}{1 / u-1}\right)\right)$. By Lemma~\ref{lemma:s1s3}, for any $\phi\in(0,1)$ and every $n$ large enough,
+\begin{equation}\label{eq:randomm}
+    \int_{\underline{u}}^{\bar{u}} P\left(W>2\ln \left(\frac{g}{1 / u-1}\right)\right) d u< \frac{1}{g^{\phi}} \int_{\underline{u}}^{\bar{u}}(1 / u-1)^{\phi} d u .
+\end{equation}
+Applying the change of variables $v=1 / u-1$ to the integral on the right-hand side above gives
+$$
+\int_{\underline{u}}^{\bar{u}}(1 / u-1)^{\phi} d u=\int_{1 / \bar{u}-1}^{1 / \underline{u}-1} \frac{v^{\phi}}{(v+1)^2} d v.
+$$
+Rewrite $v^{\phi}=(v-1 + 1)^{\phi}$. We have that for any $v>1 / \bar{u}-1$, $v-1>-1$, since $\bar{u}<1$. Note that for any $x \geq-1$ and $r\in[0,1]$ $(1+x)^r \leq 1+r x$. Then, for any $v>1 / \bar{u}-1$, $v^{\phi}=(v-1 + 1)^{\phi}\leq 1 + \phi (v-1)\leq 1 + \phi(v+1)$. As a result,
+\begin{equation}\label{eq:random2}
+\int_{\underline{u}}^{\bar{u}}(1 / u-1)^{\phi} d u<\int_{1 / \bar{u}-1}^{1 / \underline{u}-1} \frac{1}{(v+1)^2} +\frac{\phi}{v+1} d v = \bar{u}-\underline{u}+\phi\ln\Big(\frac{\bar{u}}{\underline{u}}\Big).
+\end{equation}
+The result follows inputing the bound from \eqref{eq:random2} in \eqref{eq:randomm} and using that $\phi<1$ and that $\ln(\bar{u}/\underline{u}) \geq 0$, since $\underline{u} \leq \bar{u}$.
+\end{proof}
+
+\begin{lem}\label{lemma:s20}
+ Let $W\sim \chi_\nu^2(\mu)$ with $\mu \geq 0$. Assume that $g$, $\nu$ and $\mu$ are functions of $n$ such that $g$ positive and increasing,  $\nu=o(\ln(g))$, and $\mu=o(\ln(g))$. Then for any $\alpha\in(0,1)$ and $g$ large enough, we have
+$$
+\int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u\;\; \leq\;\;  g^{-\alpha}.$$
+\end{lem}
+
+\begin{proof}
+Since a probability is bounded by $1$, for any $a\in(0,1)$,
+\begin{equation}\label{eq:basebound}
+    \int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u \;\leq\; 2 a+\int_{a}^{1-a} P\left(W>2\ln\left(\frac{g}{1 / u-1}\right)\right) d u.
+\end{equation}
+
+Take $a=\left(1+g^{\phi}e^{-(\nu+\mu)/ 2}\right)^{-1}$ for some $\phi\in(\alpha,1)$. By Lemma~\ref{lemma:s18} with $\underline{u}=a$ and $\bar{u}=1-a$, we have that
+$$
+\int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u \;\leq\; \frac{2}{1+g^{\phi}e^{-(\nu+\mu)/2}}+ 
+\frac{1-2a+\ln(g^{\phi}e^{-(\nu+\mu)/2})}{g^{\phi}}. $$
+Since $1+g^{\phi}e^{-(\nu+\mu)/ 2}>g^{\phi}e^{-(\nu+\mu)/ 2}$ and $1-2a-\frac{\nu+\mu}{2}\leq \ln(g^\phi)$ for every $n$ large enough, we have
+$$
+\int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u \;\leq\; g^{-\phi}\big(2e^{(\nu+\mu)/ 2}+2\ln(g^{\phi})\big) $$
+We have that
+\begin{equation}\label{eq:random24}
+    \frac{g^{-\phi}2e^{(\nu+\mu)/ 2}}{g^{-\alpha}} 
+= e^{-(\phi-\alpha) \ln(g) + \ln(2) + (\nu + \mu)/2}
+    \;=\;e^{-(\phi-\alpha)\ln(g)\big(1-\frac{\nu+\mu}{2(\phi-\alpha)\ln(g)}- \frac{\ln(2)}{(\phi-\alpha)\ln(g)}\big)}
+\end{equation}
+and similarly that
+\begin{equation}\label{eq:random25}
+    \frac{g^{-\phi}2\ln(g^{\phi})}{g^{-\alpha}} \;=\;e^{-(\phi-\alpha)\ln(g)\big(1-\frac{\ln(\phi\ln(g))}{(\phi-\alpha)\ln(g)}- \frac{\ln(2)}{(\phi-\alpha)\ln(g)}\big)}.
+\end{equation}
+Since $\alpha<\phi$ as stated above, and by assumption $g$ is increasing, $\nu=o(\ln(g))$ and $\mu=o(\ln(g))$, both expressions in \eqref{eq:random24} and \eqref{eq:random25} vanish as $n$ grows. Hence, 
+$$\int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u \;=\; o(g^{-\alpha})$$
+and, for every $n$ large enough,
+$$
+\int_0^1 P\left(W>2 \ln \left(\frac{g}{1 / u-1}\right)\right) d u \;\leq\; g^{-\alpha}.$$
+\end{proof}
+
+\subsection{A general necessary condition on signal strength in the Gaussian sequence model}
+Lemma~\ref{lem:gennecIIblockthresh} gives a necessary condition on signal strength for support recovery with $\hat{S}^b$ that applies independently on whether the $s_j$ are fixed or diverging. It is analogous to a necessary condition for recovery with $\hat{S}$ shown in \cite{abraham2023sharp}.
+\begin{lem}\label{lem:gennecIIblockthresh} In the
+sequence model \eqref{eq:GSM}, assume \hyperlink{lab:A1}{A1} and \hyperlink{lab:A2}{A2}.
+%\begin{enumerate}[label=(\roman*)]
+%    \item 
+Suppose that $\tau_j<\beta^*_{\min,j}$ satisfies $\lim_{n\to \infty} \sqrt{n}\tau_j/\sqrt{2\ln(p_j-s_j)}\;\geq\;1$ for some $j \in \{1,\ldots,b\}$. If \begin{equation}\label{cond:necIIallblockthresh2}
+    \lim_{n\to \infty} \sqrt{n}(\beta_{\min,j}^*-\tau_j)\; <\; \infty
+\end{equation}
+then $\lim_{n \rightarrow \infty} P(\hat S^{b}\supseteq S  ) < 1$.
+% \item Suppose there exists $j\in \{1,\ldots,b\}$ such that  $\beta^*_i=\beta_{\min,j}^*$ for all $i \in S_j$, $\tau_j<\beta^*_{\min,j}$ satisfies \eqref{cond:necIallblockthresh}, and  $s_j/p_j<1$. If Assumption~\hyperlink{lab:A3}{A3} holds and, in addition, 
+% \begin{equation}\label{cond:necIIallblockthresh}
+% \lim_{n\to \infty} 	\frac{\beta_{\min,j}^*-\tau_j}{\sqrt{\frac{\pi}{2}\frac{\ln(s_j)}{n}}} \;\leq\;  1\end{equation}
+% then $\lim_{n \rightarrow \infty} P(\hat S^{b}\supseteq S ) < 1$.
+%\end{enumerate}
+\end{lem}
+
+\begin{proof}
+By independence we have that
+$$P(\hat{S}^{b}\supseteq S)=\prod_{j=1}^b P(\min_{i \in S_j}|y_i/\sqrt{n}| > \tau_j).$$ 
+where
+$$
+P(\min_{i \in S_j}|y_i/\sqrt{n}| > \tau_j)=\prod_{i \in B_j} P(|y_i/\sqrt{n}| > \tau_j). 
+$$
+Take any $j$, satisfying \eqref{cond:necIIallblockthresh2}. 
+Denote by $i_{\circ}\in B_j$ an entry such that $|\beta_{i_{\circ}}^*|=\beta^*_{\min,\,j}$. In the proof of Lemma~\ref{lemma:3tailbounds} (iii), we show that if $y\sim N(\mu, \sigma^2)$, then for any $a<|\mu|$ , $P(|y|>a)  = P(z>\frac{a-|\mu|}{\sigma}) + P(z<-\frac{a+|\mu|}{\sigma})$ where $z\sim N(0,1)$. We have then
+$$P(|y_{i_{\circ}}/\sqrt{n}|>\tau_j) 
+    = P\left(z>\sqrt{n}\left(\tau_j-\beta_{\min,\,j}^*\right)\right) + P\left(z<-\sqrt{n}\left(\tau_j+\beta_{\min,\,j}^*\right)\right)$$ where $z\sim N(0,1)$. Since $\tau_j<\beta^*_{\min,j}$ satisfies $\lim_{n\to \infty} \sqrt{n}\tau_j/\sqrt{2\ln(p_j-s_j)}\;\geq\;1$, $\sqrt{n}\left(\tau_j+\beta_{\min,\,j}^*\right)\to\infty$ and we have that $P(z<-\sqrt{n}\big(\tau_j+\beta_{\min,\,j}^*\big)) \to 0$.
+    
+    Further, by \eqref{cond:necIIallblockthresh2}  we have that $\underset{n \to \infty}{\lim}P\left(z>\sqrt{n}\left(\tau_j-\beta_{\min,\,j}^*\right)\right)<1$ and hence we get $\underset{n \to \infty}{\lim}P\left(\hat{S}^{b} \supseteq S \right)<1$, as we wished to prove.
+\end{proof}
+
+\subsection{Bounds related to model normalized scores}
+
+Let $NC(M)$ be the normalized score for model $M$ defined in \eqref{eq:normalizedscore}, $\M$ the set of models under consideration, and $\mu_{Q M}$ be the noncentrality parameter for any two nested models $Q \supseteq M$ defined in Lemma~\ref{lemma:s7}. Lemma~\ref{lem:L0toL1convergencegen} generalizes Lemma~\ref{lem:L0toL1convergence} and shows that the probability of not selecting a set of models is bounded above by the expected sum of the normalized scores of the models outside the set. Lemma~\ref{lem:boundexpnc} provides a bound on the expected normalized score of any $M \in \M$ based on the pairwise comparison $C(T)-C(M)$ (\emph{cf} \eqref{eq:CM}) for some $T\subseteq S$. It essentially shows that, if the block penalties diverge and the signals in $M\setminus T$ are small, $NC(M)$ is small.  Lemma~\ref{lem:upperboundnoncentralgen} gives, for any $T\subseteq S$ and $M\in \M$, upper and lower bounds on $\mu_{Q_TT}$ where $Q_T=M\cup T$.
+
+\begin{lem}\label{lem:L0toL1convergencegen} For $\hat S^b$ as in \eqref{eq:Mhat} and any $k$ models $M_1,\ldots,M_k$
+$$P(\hat{S}^b\not\in \{M_1,\ldots,M_k\})\;\leq\; (k+1) \sum_{M \in \M\setminus \{M_1,\ldots,M_k\}}\E\left( NC(M)\right).$$
+\end{lem}
+
+\begin{proof}
+Suppose that $NC(M_1)+\ldots+NC(M_k)>\frac{k}{k+1}$ then for any $M\not\in \{M_1,\ldots,M_k\}$, we have that
+$$NC(M)= 1-\sum_{M' \neq M} NC(M') < 1 - \sum_{M' \in \{M_1,\ldots,M_k\}} NC(M') < \frac{1}{k+1}.$$ 
+In addition, if $NC(M_1)+\ldots+NC(M_k)>\frac{k}{k+1}$ then necessarily $\max_{l=1,\ldots,k}NC(M_l)> \frac{1}{k+1} > NC(M) $ for any $M \not\in \{M_1,\ldots,M_k\}$, and therefore $\hat{S}^{b}\in \{M_1,\ldots,M_k\}$. Consequently, 
+$$
+P(\hat{S}^b\not\in \{M_1,\ldots,M_k\})\; \leq\; P\Big(NC(M_1)+\ldots+NC(M_k)\leq\frac{k}{k+1}\Big).$$
+Moreover, we have
+$$P\Big(NC(M_1)+\ldots+NC(M_k)\leq\frac{k}{k+1}\Big)\;=\;P\Big(\sum_{M \in \M\setminus \{M_1,\ldots,M_k\}} NC(M)\geq \frac{1}{k+1}\Big).$$
+The result follows from Markov's inequality applied to the right-hand side above.
+\end{proof}
+
+\begin{lem}\label{lem:boundexpnc} For any $T\subseteq S$ and $M\in \M\setminus\{T\}$, denote $Q_T= M\cup T$ and $A_T:=\gamma\Delta_{MT}+\tfrac{1-\gamma}{6}\mu_{Q_TM}$ (\emph{cf} \eqref{eq:DeltaM} and \eqref{eq:muQM}). Suppose that, for some $\gamma \in (1/2,1]$, it holds that $A_T>0$, $|M\setminus T|=o(A_T)$, and $\mu_{Q_T T}=o(A_T)$. For any $\psi\in(0,1)$ and every $n$ large enough,
+$$\E\left(NC(M)\right)  \;\;\leq\;\; e^{-\psi A_T}.$$
+\end{lem}
+
+\begin{proof}
+Since $M\in \mathcal M\setminus \{T\}$, by Lemma~\ref{lem:L0toL1convergence} (ii),  $NC(M)\leq (1+e^{C(T)-C(M)})^{-1} \in [0,1]$.  
+The first step of the proof is to use that for any random variable $Z \geq 0$ we have $\E(Z)=\int_0^\infty P(Z>u) du$, so that  %By the standard formula for expectation of a nonnegative random variable in terms of its survival function, we get that
+\begin{eqnarray*}
+  \E\left(NC(M)\right)  &\leq& \int_0^1 P\left((1+e^{C(T)-C(M)})^{-1}\geq u\right){\rm d} u\\
+  &=&\int_0^1 P\left(C(T)-C(M) \leq \ln{(\tfrac1u-1)}\right){\rm d}u\\
+  &=&\int_0^1 P\Big(-\tfrac12 L_{TM} \geq \Delta_{MT}-\ln{(\tfrac1u-1)}\Big) {\rm d}u.
+\end{eqnarray*}
+
+The second step of the proof is to use the union bound to upper bound the probability in the integrand above.
+Let $Q_T=M \cup T$ and recall that $L_{TM}=L_{Q_TM}-L_{Q_TT}$. For any $\gamma$ 
+$$
+-\tfrac12 L_{TM} -(\Delta_{MT}-\ln{(\tfrac1u-1)})\;=\;\left(\tfrac12 L_{Q_TT}-\ln{\Bigl(\frac{e^{\gamma\Delta_{MT}}}{\tfrac1u-1}\Bigl)}\right)-\Bigl(\tfrac12 L_{Q_TM}+(1-\gamma)\Delta_{MT}\Bigl).
+$$
+Observe that for any random variables $U$, $V$, and any $\epsilon,\gamma' \geq 0$, the event $
+\{U-V \geq 0\}$ implies $\{U \geq \gamma' \epsilon\}\cup
+\{V  < \gamma' \epsilon\}$. Let $U=\tfrac12 L_{Q_TT}-\ln{\Bigl(\frac{e^{\gamma\Delta_{MT}}}{1/u-1}\Bigl)}$ and $V=\tfrac12 L_{Q_TM}+(1-\gamma)\Delta_{MT}$. Take $\epsilon=\mu_{Q_TM}$ and $\gamma'=\tfrac16({1-\gamma})$, and observe that
+$A_T:=\gamma\Delta_{MT}+\tfrac{1-\gamma}{6}\mu_{Q_TM}= \gamma\Delta_{MT}+\gamma'\mu_{Q_TM}$. We then have
+\begin{align*}
+\{U\geq \gamma'\epsilon\}\;&=\;\{\tfrac12 L_{Q_TT}\geq \ln{\Bigl(\frac{e^{\gamma\Delta_{MT}}}{\tfrac1u-1}}\Bigl)+\gamma'\mu_{Q_TM}\}\;=\;\{\tfrac12 L_{Q_TT}\geq \ln{\Bigl(\frac{e^{A_T}}{\tfrac1u-1}}\Bigl)\}\\
+\{V<\gamma'\epsilon\}\;&=\;\{\tfrac12 L_{Q_TM}<-(1-\gamma)\Delta_{MT}+\gamma'\mu_{Q_TM}\}\;=\;\{\tfrac12 L_{Q_TM}<\gamma'(\mu_{Q_TM}-6\Delta_{MT})\}.
+\end{align*}
+By the union bound we have that
+\begin{equation}\label{eq:prooflemmas20nonspu}
+    \E\left(NC(M)\right)  \leq \int_0^1P\Bigl(\tfrac12 L_{Q_TT}\geq \ln{\Bigl(\frac{e^{A_T}}{\tfrac1u-1}\Bigl)}\Bigl){\rm d}u+ P\Bigl(\tfrac12 L_{Q_TM}<\gamma'(\mu_{Q_TM}-6\Delta_{MT})\Bigl).
+\end{equation}
+
+The third and final step of the proof is to upper bound each of the terms in the right-hand side of \eqref{eq:prooflemmas20nonspu}. The intuition is that both $T$ and $M$ are nested within $Q_T$, and therefore $L_{Q_T T}$ and $L_{Q_T M}$ follow chi-squared distributions.
+We first bound the first term. %in the right-hand side of \eqref{eq:prooflemmas20nonspu}. 
+If $M \subset T$ then $Q_T=T$, $L_{Q_TT}=0$, and this term is zero. Suppose now that $T \subset Q_T$. %$T$ is a strict subset of $Q_T$. 
+Then, by Lemma~\ref{lemma:s7}, %$L_{Q_TT}$ has a $\chi^2$-distribution. More precisely, 
+$L_{Q_TT} \sim \mathcal{\chi}_{|Q_T\setminus T|}^2(\mu_{Q_TT})$ with $|Q_T\setminus T|=|M\setminus T|$. By assumption, $A_T>0$, $|M\setminus T|=o(\ln(e^{A_T}))$ and $\mu_{Q_TT}=o(\ln(e^{A_T}))$, then  by Lemma~\ref{lemma:s20}, for $\alpha\in(\psi,1)$, and every $n$ large enough,
+\begin{equation}\label{eq:boundLQS}
+\int_0^1P\Bigl(L_{Q_TT}>2\ln{\Bigl(\frac{e^{A_T}}{1 / u-1}\Bigl)}\Bigl){\rm d}u \;<\; 
+e^{-\alpha A_T}.
+\end{equation}
+
+We now bound the second term in \eqref{eq:prooflemmas20nonspu}. If $T \subset M$, then $Q_T=M$, $L_{Q_TM}=0$, $\mu_{Q_TM}=0$, and this term is zero. Alternatively, if $M \subset Q_T$ %$M$ is a strict subset of $Q_T$ 
+then, by Lemma~\ref{lemma:s7}, $L_{Q_TM} \sim \chi_{|Q_T\setminus M|}^2(\mu_{Q_TM})$ with $|Q_T\setminus M|=|T\setminus M|$.
+Clearly, when $\mu_{Q_TM}\leq 6\Delta_{MT}$ this term is also zero, so suppose that $\mu_{Q_TM}> 6\Delta_{MT}$.  
+We have  
+$$P\left(L_{Q_TM}<2\gamma'(\mu_{Q_TM}-6\Delta_{MT})\right)\; \leq \; P\left(L_{Q_TM}<2\gamma'\mu_{Q_TM}\right)$$ 
+and, by Lemma~\ref{lemma:s2} and using that $\gamma'\in (0,\tfrac{1}{12})$, we obtain that 
+$$P\left(L_{Q_TM}<2\gamma'\mu_{Q_TM}\right) \;\;\leq\;\; (2\gamma')^{\frac{|T\setminus M|}{4}} e^{-\frac{1}{2}(1-\sqrt{2\gamma'})^2\mu_{Q_TM}}\;\;\leq\;\;  (\tfrac16)^{\frac{|T\setminus M|}{4}}e^{-\frac{1}{2}(1-\sqrt{2\gamma'})^2\mu_{Q_TM}}.$$
+Since $\mu_{Q_TM}>6\Delta_{MT}$, we get
+$$
+A_T\;=\;\gamma'\mu_{Q_TM}+\gamma\Delta_{MT}\;<\;\frac{1-\gamma}{6}\mu_{Q_TM}+\frac{\gamma}{6}\mu_{Q_TM}\;=\;\frac16\mu_{Q_TM}\;\leq\;\frac12(1-\sqrt{2\gamma'})^2\mu_{Q_TM},
+$$
+where the last inequality follows from the fact that $\gamma'\in(0, \tfrac{1}{12})$. We then get
+\begin{equation}\label{eq:boundLQM}
+    P\left(L_{Q_TM}<2\gamma'(\mu_{Q_TM}-8\Delta_{MT})\right) \;\leq\; \left(\frac14\right)^{\frac{|T\setminus M|}{6}}e^{-A_T} \leq e^{-A_T}\leq e^{-\alpha A_T}
+\end{equation}
+Summing the bounds in \eqref{eq:boundLQS} and \eqref{eq:boundLQM} gives that for every $n$ large enough $\E\left(NC(M)\right) < 2e^{-\alpha A_T}$. Since $\psi<\alpha$, for every $n$ large enough, we have that $\E\left(NC(M)\right) < e^{-\psi A_T}$, as we wished to prove.
+\end{proof}
+
+\begin{lem}\label{lem:upperboundnoncentralgen}
+    For any $T\subseteq S$ and $M\in \M$, let $Q_T=M\cup T$, and $\mu_{Q_T T}$ as defined in\eqref{eq:muQM}, then, 
+    \begin{equation}\label{eq:upperbounnnnnd}
+      \mu_{Q_TT} \leq n\,\bar{\lambda}\,\sum_{j=1}^b|(S_j\cap M_j )\setminus T_j|\,\max_{i\in (S_j\cap M_j )\setminus T_j}{\beta_{i}^*}^2 \quad \text{where}\quad \bar{\lambda}\,:=\,\lambda_{\max}\Big(\frac1n \bs X_{S}^\top\bs X_{S}\Big)  
+    \end{equation}
+    and
+    \begin{equation}\label{eq:lowerbounnnnnd}
+    \mu_{Q_TT} \geq n\,\lambda_{\min}\Big(\frac1n \bs X_{S}^\top\bs X_{S}\Big)\,\sum_{j=1}^b|(S_j\cap M_j )\setminus T_j|\,\min_{i\in (S_j\cap M_j )\setminus T_j}{\beta_{i}^*}^2
+    \end{equation}
+\end{lem}
+
+\begin{proof}
+Using the definition of $\mu_{Q^T T}$ in \eqref{eq:muQM}, we have that 
+\begin{eqnarray}
+    \mu_{Q_TT}&=&{\bs \beta^*_{Q_T\setminus T}}^{\top}\bs X_{Q_T\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{Q_T\setminus T} \bs \beta^*_{Q_T\setminus T}\nonumber\\
+    &=&{\bs \beta^*_{M\setminus T}}^{\top}\bs X_{M\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{M\setminus T} \bs \beta^*_{M\setminus T}\nonumber\\
+    &=&{\bs \beta^*_{(S\cap M)\setminus T}}^{\top}\bs X_{(S\cap M)\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{(S\cap M)\setminus T} \bs \beta^*_{(S\cap M)\setminus T}\label{eq:poihe}
+\end{eqnarray}
+where the second equality follows from $Q_T\setminus T =M\setminus T $ and the third equality from $\bs \beta^*_{M\setminus S}=0$.
+We start by showing the upper bound in \eqref{eq:upperbounnnnnd}. Denote for any square matrix $A$, its largest eigenvalue 
+$\lambda_{\max}(A)$. By \eqref{eq:poihe}, we have that
+$$\mu_{Q_TT}\leq n\lambda_{\max}\Big(\frac{1}{n}\bs X_{(S\cap M)\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{(S\cap M)\setminus T}\Big) \|\bs \beta^*_{(S\cap M)\setminus T}\|^2.$$
+Let $B:=\tfrac{1}{n}\bs X_{(S\cap M)\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{(S\cap M)\setminus T}$, $C:=\tfrac{1}{n}\bs X_{(S\cap M)\cup T}^{\top}\bs X_{(S\cap M)\cup T}$ and $D:=\tfrac{1}{n}\bs X_T^{\top} \bs X_T$. $D$ is a principal submatrix of $C$ and $B$ is the Schur complement of $D$ of $C$. The inverse $B^{-1}$ is then a principal submatrix of $C^{-1}$, and by Cauchy's interlacing theorem we have that   $\lambda_{\min}(B^{-1})\geq \lambda_{\min}(C^{-1})$ and then $\lambda_{\max}(B)\leq \lambda_{\max}(C)$. Since $T \subseteq S$ by assumption, we also have that $(S\cap M)\cup T \subseteq S$, then by interlacing again $\lambda_{\max}(C)\leq \lambda_{\max}\Big(\tfrac{1}{n}\bs X_S^{\top}\bs X_S\Big)=\bar{\lambda}$. The upper bound in \eqref{eq:upperbounnnnnd} follows from also observing that $\|\bs \beta^*_{(S\cap M)\setminus T}\|_2^2\leq \sum_{j=1}^b |(S_j\cap M_j)\setminus T_j|\max_{i\in (S_j\cap M_j)\setminus T_j}{\beta_i^*}^2$.
+
+We now derive the lower bound in \eqref{eq:lowerbounnnnnd}. By \eqref{eq:poihe}, we have that %a fist lower bound on $\mu_{Q_TT}$ is: 
+$$\mu_{Q_TT}\geq n\lambda_{\min}\Big(\frac{1}{n}\bs X_{(S\cap M)\setminus T}^{\top}  \big(I_n-P_T\big) \bs X_{(S\cap M)\setminus T}\Big) \|\bs \beta^*_{(S\cap M)\setminus T}\|_2^2.$$
+
+Recall that $B^{-1}$ is a principal submatrix of $C^{-1}$, hence by interlacing $\lambda_{\max}(B^{-1})\leq \lambda_{\max}(C^{-1})$ and $\lambda_{\min}(B)\geq \lambda_{\min}(C)$. Since $T \subseteq S$ by assumption, we have that $(S\cap M)\cup T \subseteq S$, and hence $\lambda_{\min}(C)\geq\lambda_{\min}(\frac{1}{n}\bs X_S^{\top} \bs X_S)$.
+The bound in \eqref{eq:lowerbounnnnnd} is obtained by noting that also $\|\bs \beta^*_{(S\cap M)\setminus T}\|_2^2\geq \sum_{j=1}^b |(S_j\cap M_j)\setminus T_j|\min_{i\in (S_j\cap M_j)\setminus T_j}{\beta_i^*}^2.$
+\end{proof}
+
+\section{Proofs of Section~\ref{sec:properties_orth}}\label{suppsec:proofsecgsm}
+ 
+ 
+
+\subsection{Proof of Proposition~\ref{prop:isthresh}}
+First note that by discarding constant term 
+ $$\arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M}\ell(\bs y; \bs \beta)-\sum_{j=1}^b\kappa_j |M_j| \right\}=\arg\min_{M\in \M} \left\{\min_{\beta\in \mathcal{L}_M}\bigg\{ \tfrac{1}{2}\|\bs y-\sqrt{n}\bs\beta\|^2\right\}+\sum_{j=1}^b\kappa_j |M_j| \bigg\}$$
+
+ We also have $\min_{\beta\in \mathcal{L}_M} \tfrac{1}{2}\|\bs y-\sqrt{n}\bs\beta\|^2=\tfrac{1}{2}\|\bs y-\sqrt{n}\tilde{\bs \beta}_M\|^2=\tfrac{1}{2}\|\bs y\|^2-\tfrac{1}{2}\|\sqrt{n}\tilde{\bs \beta}_M\|^2$. The maximization in \eqref{eq:Mhat} can be then replaced with:
+     \begin{equation}\label{eq:MhatGSM}
+  \arg\max_{M\in \M} \bigg\{\tfrac{1}{2}\| \sqrt{n}\tilde{\bs \beta}_M\|^2-\sum_{j=1}^b\kappa_j |M_j|\bigg\}, \qquad M=M_1\cup \ldots\cup M_b.	
+\end{equation}
+Under the assumptions of \eqref{eq:GSM}, we can write 
+	$$
+	\tfrac{1}{2}\|\sqrt{n}\tilde{\bs \beta}_M\|^2-\sum_{j=1}^b\kappa_j |M_j|\;=\;\sum_{j=1}^b\sum_{i\in M_j}(\tfrac{n}{2}{\tilde{ \beta}_i}^2-\kappa_j).
+	$$
+	Then \eqref{eq:MhatGSM} can be maximized with respect to each $M_j$ by including $i\in \hat S_j$ whenever $n\tilde\beta_i^2\geq 2\kappa_j$.
+
+\subsection{Proof of Proposition~\ref{prop:suffnecblockthresh}} 
+
+\subsubsection{Part (i)} 
+By the union bound and by Lemma~\ref{lemma:3tailbounds} (i),
+\begin{equation}\label{eq:type1convrate}
+P\left(\hat{S}^{b} \not\subseteq S\right)\;\leq\; \sum_{j=1}^b P\Big(\max_{i\in B_j\setminus S_j}|y_i/\sqrt{n}|>\tau_{j}\Big)\;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left(\tau_j^2-\tfrac{2\ln(p_j-s_j)}{n}\right)}}{\sqrt{\pi\ln(p_j-s_j)}} 	.
+ \end{equation}
+ By Assumption~\hyperlink{lab:A4}{A4}, the numerator on the right is bounded above by $1$ for all sufficiently large $n$. It follows that 
+	$$P\left(\hat{S}^{b} \not\subseteq S\right) \;\leq\; \sum_{j=1}^b (\pi\ln (p_j-s_j))^{-1/2} \to 0\qquad \mbox{as } n\to \infty.$$
+\subsubsection{Part (ii)}  By independence, we have 
+$$P(\hat{S}^{b} \subseteq S)\;=\;\prod_{j=1}^b P(\max_{i \in B_j\setminus S_j}|y_i/\sqrt{n}| \leq \tau_j).$$ 
+Consider $j$ such that $\lim_{n\to \infty} \frac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}} \;<\;1$. In particular, there exists $c<1$ such that, for all sufficiently large $n$, we have that $\tau_j\leq c\sqrt{2\ln(p_j-s_j)/n}$. Then, for any such $n$,
+\begin{align*}
+    P\Big(\max_{i \in B_j\setminus S_j}|y_i/\sqrt{n}| \leq \tau_j\Big)&\;\leq\; P\Big(\max_{i \in B_j\setminus S_j}|y_i| \leq c \sqrt{2\ln(p_j-s_j)}\Big)\\&\;\leq\;P\Big(\tfrac{1}{\sqrt{2\ln(p_j-s_j)}}\max_{i \in B_j\setminus S_j}y_i \leq c \Big).
+\end{align*}
+On the other hand, results from extreme value theory, \cite{galambos} Example 4.4.1, show that 
+ $$\frac{1}{\sqrt{2 \ln(p_j-s_j)}}\max_{i\in B_j\setminus S_j}y_i \;\overset{P}{\longrightarrow} 1$$
+ and so 
+ $$
+ P\Big(\frac{1}{\sqrt{2\ln(p_j-s_j)}}\max_{i \in B_j\setminus S_j}y_i \leq c \Big)\;\to\;0,
+ $$ 
+ which implies that $P(\hat{S}^{b} \subseteq S)\to 0$. 
+
+\subsubsection{Part (iii)}
+	 By the union bound, 
+	$$P\big(\hat{S}^{b} \not\supseteq S\big)\leq \sum_{j=1}^b  P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right).$$ 
+	By Lemma~\ref{lemma:3tailbounds} (ii), for each $j$,	
+	$$P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right)\;\leq\; P\left(\max_{i\in S_j}|y_i/\sqrt{n}-\beta_i| \geq\beta_{\min,j}^*-\tau_j \right).$$ By Lemma~\ref{lemma:3tailbounds} (i)  
+	\begin{equation}\label{eq:type2convrate}
+P\left(\hat{S}^{b}\not\supseteq S \right) \;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau_j)^2-\tfrac{2\ln(s_j)}{n}\right)}}{\sqrt{\pi\ln(s_j)}}.		
+	\end{equation}
+ By Assumption~\hyperlink{lab:A5}{A5}, the nominator on the right is bounded above by $1$ for all sufficiently large $n$. It follows that, byAssumption  \hyperlink{lab:A3}{A3} 
+	$$P\left(\hat{S}^{b} \not\supseteq S \right) \;\leq\;  \sum_{j=1}^b (\pi\ln (s_j))^{-1/2} \to 0\qquad \mbox{as } n\to \infty.$$ 
+
+\subsubsection{Part (iv)}	
+Take any $j=1,\ldots,b$ satisfying $\lim_{n\to \infty} \sqrt{n}(\beta_{\min,j}^*-\tau_j)/\sqrt{(\pi/2)\ln(s_j)}\leq 1$. Consider first the case $\beta^*_{\min,j}\leq\tau_j$. Then $ \lim_{n\to \infty} \sqrt{n}(\beta_{\min,j}^*-\tau_j)\; <\; \infty$, and by Lemma~\ref{lem:gennecIIblockthresh}, $\lim_{n \rightarrow \infty} P(\hat S^{b}\supseteq S  ) < 1$. We now consider the case $\beta^*_{\min,j}>\tau_j$. By Lemma~\ref{lemma:3tailbounds} (iii):
+$$P\left(\min_{i \in S_j}\Big|\frac{y_i}{\sqrt{n}}\Big| > \tau_j \right)\;\leq\;
+\exp\left\{-\frac{s_j}{2}\frac{e^{-\tfrac{2n}{\pi}(\beta^*_{\min,j}-\tau_j)^2}-e^{-\tfrac{n}{2}(\tau_j+\beta^*_{\min,j})^2}}{\left(1-e^{-2n(\beta^*_{\min,j}-\tau_j)^2/\pi}\right)^{\frac{1}{2}}+\left(1-e^{-n(\tau_j+\beta^*_{\min,j})^2/2}\right)^{\frac{1}{2}}}\right\}. $$
+Let $a_{n}=2\left(1-e^{-2n(\beta^*_{\min,j}-\tau_j)^2/\pi}\right)^{\frac{1}{2}}+2\left(1-e^{-n(\tau_j+\beta^*_{\min,j})^2/2}\right)^{\frac{1}{2}}$ and note that $a_n\in (0, 4]$.  Thus, to show that $P\left(\min_{i \in S_j}|\tfrac{y_i}{\sqrt{n}}| > \tau_j \right)$ is bounded away from $1$, it is enough to show that 
+\begin{align*}
+    %\lim_{n\to \infty} \frac{s_j}{a_n}({e^{-2n(\beta^*_{\min,j}-\tau_j)^2/\pi}-e^{-n(\tau_j+\beta^*_{\min,j})^2/2}})&\;\geq\; 
+\lim_{n\to \infty} \frac{s_j}{4}({e^{-2n(\beta^*_{\min,j}-\tau_j)^2/\pi}-e^{-n(\tau_j+\beta^*_{\min,j})^2/2}})
+&\;>\;0.
+\end{align*}
+
+Since $\lim_{n\to \infty} \sqrt{n}(\beta_{\min,j}^*-\tau_j)/\sqrt{(\pi/2)\ln(s_j)}\leq 1$, we have that $\lim_{n\to\infty} {s_j} e^{-2n(\beta^*_{\min,j}-\tau_j)^2/\pi}\geq 1$. To conclude, we show that
+$$
+\lim_{n\to\infty} {s_j} e^{-n(\tau_j+\beta^*_{\min,j})^2/2}\;\leq\;c\;<\;1
+$$ 
+for some $c\in(0,1)$. Take $c$ such that $\tfrac{s_j}{p_j}\leq c$. Such $c$ exists by our assumption $\tfrac{s_j}{p_j}<1$.
+We equivalently need
+$\sqrt{n}(\tau_j+\beta^*_{\min,j})\geq\sqrt{{2\ln (s_j/c)}}$ for all $n$ sufficiently large. To show that, note that by assumption $\tau_j< \beta^*_{\min,j}$ and $s_j/c\leq p_j$, which gives
+$$
+\frac{\tau_j+\beta^*_{\min,j}}{\sqrt{\tfrac{2\ln(s_j/c)}{n}}}\;\geq\;\frac{2\tau_j}{\sqrt{\tfrac{2\ln(p_j)}{n}}}\;=\;\frac{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}}{\sqrt{\tfrac{2\ln(p_j)}{n}}}\frac{2\tau_j}{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}}\;=\;\sqrt{\frac{\ln(p_j-s_j)}{\ln(p_j)}}\frac{2\tau_j}{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}}.
+$$
+Since by assumption $\tau_j$ satisfies $\lim_{n\to \infty} \sqrt{n}\tau_j/\sqrt{2\ln(p_j-s_j)}\;\geq\;1$, the second term on the right converges to something $\geq 2$, and it is enough to show that the first term converges to something $>1/2$. Using that $\tfrac{s_j}{p_j}<c$, we get
+$$
+\sqrt{\frac{\ln(p_j-s_j)}{\ln(p_j)}}
+= \sqrt{\frac{\ln(p_j) + \ln(1-\frac{s_j}{p_j})}{\ln(p_j)}}
+\;\geq\;\sqrt{\frac{\ln(p_j)+\ln(1-c)}{\ln(p_j)}}\;\to\;1,
+$$
+which concludes the proof.
+
+\subsection{Proof of Lemma~\ref{lem:necbetaminblockthresh}}
+    We have $$\frac{\beta_{\min,j}^*}{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}+\sqrt{\tfrac{\pi}{2}\tfrac{\ln(s_j)}{n}}}= \frac{\beta_{\min,j}^*-\tau_j+\tau_j}{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}+\sqrt{\tfrac{\pi}{2}\tfrac{\ln(s_j)}{n}}}$$ and \eqref{eq:necbetaminblockthresh} implies that we have either $\lim_{n\to \infty}\sqrt{n}\tau_j/\sqrt{2\ln(p_j-s_j)} <1$ or else $\lim_{n\to \infty}\sqrt{n}(\beta_{\min,j}^*-\tau_j)/\sqrt{(\pi/2)\ln(s_j)} <1$. If $\lim_{n\to \infty}\sqrt{n}\tau_j/\sqrt{2\ln(p_j-s_j)} <1$ by Proposition~\ref{prop:suffnecblockthresh} (ii), $\lim_{n \to \infty} P(\hat{S}^{b} = S) < 1$. 
+    
+    We next examine the consequences of $\lim_{n\to \infty}\sqrt{n}(\beta_{\min,j}^*-\tau_j)/\sqrt{(\pi/2)\ln(s_j)} <1$. To do so first, observe that if $\beta_{\min,j}^*<\tau_j$ recovery with probability going to 1 is not possible. Indeed, denote by $i_{\circ}\in B_j$ an entry such that $|\beta_{i_{\circ}}^*|=\beta^*_{\min,\,j}$. In the proof of Lemma~\ref{lemma:3tailbounds} (iii), we show that if $y\sim N(\mu, \sigma^2)$, then for any $a<|\mu|$ , $P(|y|>a)  = P(z>\frac{a-|\mu|}{\sigma}) + P(z<-\frac{a+|\mu|}{\sigma})$ where $z\sim N(0,1)$. We have then
+$$P(|y_{i_{\circ}}/\sqrt{n}|>\tau_j) 
+    = P\left(z>\sqrt{n}\left(\tau_j-\beta_{\min,\,j}^*\right)\right) + P\left(z<-\sqrt{n}\left(\tau_j+\beta_{\min,\,j}^*\right)\right)$$ where $z\sim N(0,1)$. Since $\tau_j>\beta^*_{\min,j}$, $\sqrt{n}\left(\tau_j-\beta_{\min,\,j}^*\right)\to\infty$ and we have that $P(z>\sqrt{n}\big(\tau_j+\beta_{\min,\,j}^*\big)) \to 0$. Next, since $\sqrt{n}\left(\tau_j+\beta_{\min,\,j}^*\right)\geq0$, we have that $P\left(z<-\sqrt{n}\left(\tau_j+\beta_{\min,\,j}^*\right)\right)<1$ and $P(|y_{i_{\circ}}/\sqrt{n}|>\tau_j)<1$. Hence, $\underset{n \to \infty}{\lim}P\left(\hat{S}^{b} \supseteq S \right)<1$.
+    
+    We now examine the case where $\beta_{\min,j}^*\geq\tau_j$, $\lim_{n\to \infty}\frac{\tau_j}{\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}} \geq 1$ and $\lim_{n\to \infty}\frac{\beta_{\min,j}^*-\tau_j}{\sqrt{\tfrac{\pi}{2}\tfrac{\ln(s_j)}{n}}} <1$. By Proposition~\ref{prop:suffnecblockthresh} (iv), in that case $\lim_{n \to \infty} P(\hat{S}^{b} \supseteq S ) < 1$ and recovery is not possible asymptotically.
+
+\subsection{Proof of Theorem~\ref{theo:fullrecovGS}} We start by showing the bound in \eqref{eq:rateconvgsm}. By the union bound,
+\begin{equation}\label{eq:grpihj}
+    P(S\neq \hat{S}^b) \; \leq\; P(\hat{S}^b\not\supseteq S)+P(\hat{S}^b\not\subseteq S)
+\end{equation}
+By the union bound and by Lemma~\ref{lemma:3tailbounds} (i), for $n$ large enough,
+\begin{equation}\label{eq:type1convrate2}
+P\left(\hat{S}^{b} \not\subseteq S\right)\;\leq\; \sum_{j=1}^b P\Big(\max_{i\in B_j\setminus S_j}|y_i/\sqrt{n}|>\tau_{j}\Big)\;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left(\tau_j^2-\tfrac{2\ln(p_j-s_j)}{n}\right)}}{\sqrt{\pi\ln(p_j-s_j)}} 	.
+ \end{equation}
+where the assumption of Lemma~\ref{lemma:3tailbounds} (i) is met because Assumption~\hyperlink{lab:A4}{A4} is assumed to hold. Moreover, by the union bound, 
+	$P\big(\hat{S}^{b} \not\supseteq S\big)\leq \sum_{j=1}^b  P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right)$. 
+	By Assumption~\hyperlink{lab:A5}{A5}, $\beta_{\min,j}>\tau_j$ and by Lemma~\ref{lemma:3tailbounds} (ii), for each $j$,	
+	$$P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right)\;\leq\; P\left(\max_{i\in S_j}|y_i/\sqrt{n}-\beta_i| \geq\beta_{\min,j}^*-\tau_j \right).$$ By Assumption~\hyperlink{lab:A5}{A5}, $\beta_{\min,j}-\tau_j\geq \sqrt{2\ln(s_j)/n}$ and by Lemma~\ref{lemma:3tailbounds} (i)
+	\begin{equation}\label{eq:type2convrate2}
+P\left(\hat{S}^{b}\not\supseteq S \right) \;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau_j)^2-\tfrac{2\ln(s_j)}{n}\right)}}{\sqrt{\pi\ln(s_j)}}.
+\end{equation}
+Inputting the bounds in \eqref{eq:type1convrate} and \eqref{eq:type2convrate} into \eqref{eq:grpihj} gives
+\begin{equation}\label{eq:fhfhfhf}
+P(S\neq \hat{S}^b) \; \leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left(\tau_j^2-\tfrac{2\ln(p_j-s_j)}{n}\right)}}{\sqrt{\pi\ln(p_j-s_j)}}+\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau_j)^2-\tfrac{2\ln(s_j)}{n}\right)}}{\sqrt{\pi\ln(s_j)}}.
+\end{equation}
+which shows \eqref{eq:rateconvgsm}.
+
+We continue with the second part of the theorem and show that if \eqref{eq:betamin} holds then $\tau^*_j$ satisfies Assumptions~\hyperlink{lab:A4}{A4} and A5. Under \eqref{eq:betamin}, there exists $c>1$ such that $\beta^*_{\min,j}=c(\sqrt{\tfrac{2\ln(p_j-s_j)}{n}} + \sqrt{\tfrac{2\ln(s_j)}{n}})$. Denote $a=\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}$ and $b=\sqrt{\tfrac{2\ln(s_j)}{n}}$. We have
+$$
+\tau_j^*\;=\;\frac{c}{2} (a+b)+\frac{(a^2-b^2)}{2c(a+b)}\;=\;\frac{c}{2} (a+b)+\frac{a-b}{2c}\;=\;\frac{c^2+1}{2c}a+\frac{c^2-1}{2c}b.
+$$
+Since $\tfrac{c^2+1}{2c}> 1$, $\tfrac{c^2-1}{2c}> 0$ and $b \geq 0$, $\tau^*_j>a=\sqrt{\tfrac{2\ln(p_j-s_j)}{n}}$ and so Assumption~\hyperlink{lab:A4}{A4} holds for the $\tau^*_j$. To show that the upper bound in Assumption~\hyperlink{lab:A5}{A5} also holds, observe that
+$$
+\beta_{\min,j}^* - \tau^*_j \;=\; c(a+b)- \frac{c^2+1}{2c}a-\frac{c^2-1}{2c}b \;= \; \frac{c^2-1}{2c}a+\frac{c^2+1}{2c}b\;>\;  b=\sqrt{\tfrac{2\ln(s_j)}{n}}.
+$$
+We proceed with the proof of the bound in \eqref{eq:optimrateconvgsm}. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold for the $\tau^*_j$, for all sufficiently large $n$, \eqref{eq:fhfhfhf} holds for these oracle penalties. Moreover, by assumption $p_j-s_j>1$ and $s_j>1$, then $\sqrt{\pi\ln(p_j-s_j)}>1$, and $\sqrt{\pi\ln(s_j)}>1$ and we get the bound:
+$$P(S\neq \hat{S}^b) \; \leq\;\sum_{j=1}^be^{-\tfrac{n}{2}\left({\tau^*_j}^2-\tfrac{2\ln(p_j-s_j)}{n}\right)}+\sum_{j=1}^be^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau^*_j)^2-\tfrac{2\ln(s_j)}{n}\right)}.$$
+Simple algebra shows that the $\tau_j^*$ satisfies ${\tau_j^*}^2-\tfrac{2\ln(p_j-s_j)}{n}=(\beta^*_{\min,j}-{\tau_j^*})^2-\tfrac{2\ln(s_j)}{n}$ for all $j$. It follows that
+\begin{equation}\label{eq:edpo}
+P(S\neq \hat{S}^b) \; \leq\;2\sum_{j=1}^be^{-\tfrac{n}{2}\left({\tau^*_j}^2-\tfrac{2\ln(p_j-s_j)}{n}\right)}.
+\end{equation}
+For convenience, denote $d = \frac{1}{n \beta_{\min,j}^*} \ln (p_j / s_j-1)$ such that $\tau^*_j= \beta_{\min,j}^*/2 + d$. Then
+$$e^{-\frac{n}{2}\left({\tau^*_j}^2-\frac{2\ln(p_j-s_j)}{n}\right)}
+=e^{-\left[\frac{n}{8}{\beta_{\min,j}^*}^2+\frac{n}{2}d^2 - \frac{1}{2}\left(\ln (p_j- s_j)+\ln (s_j)\right) \right]}$$
+By considering separately the two possible maxima in $\ln \max\{p_j-s_j,s_j\}$, we get that
+$$\frac{e^{-\frac{n}{2}\left({\tau^*_j}^2-\frac{2\ln(p_j-s_j)}{n}\right)}}{e^{-[\frac{n}{8}{\beta_{\min,j}^*}^2-\ln \max\{p_j-s_j,s_j\}]}}= 
+e^{-\left[\frac{n}{2}d^2 + \frac{1}{2}\left|\ln (p_j- s_j)-\ln (s_j)\right|\right]} <1.$$
+From \eqref{eq:edpo}, we then have
+$$P(\hat{S}^{b} \neq S) \; \leq \; 2 \sum_{j=1}^be^{-[\frac{n}{8}{\beta^*_{\min,j}}^2-\ln \max\{p_j-s_j,s_j\}]}.$$
+which proves \eqref{eq:optimrateconvgsm}.
+
+\subsection{Proof of Corollary~\ref{cor:selconstimpossible}}
+Since $\hat{S}$ is $\hat{S}^b$ with $b=1$, the assumptions of Lemma~\ref{lem:necbetaminblockthresh} for $\hat{S}$ are met and $\lim_{n \to \infty} P(\hat{S} = S) < 1$. Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold, by Proposition~\ref{prop:suffnecblockthresh}, $\lim_{n \to \infty} P(\hat{S}^b \subseteq S)= 1$ and $\lim_{n \to \infty} P(\hat{S}^b \supseteq S)= 1$, and then $\lim_{n \to \infty} P(\hat{S}^b = S)= 1$.\color{black}
+
+\section{Proofs of Section~\ref{sec:properties_legression}}\label{suppsec:proofseclinreg}
+\subsection{Proof of Lemma~\ref{lem:useful-reformulation}}
+	First note that by discarding constant terms 
+ $$\arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M}\ell(\bs y; \bs \beta)-\sum_{j=1}^b\kappa_j |M_j| \right\}=\arg\min_{M\in \M} \left\{\min_{\beta\in \mathcal{L}_M}\bigg\{ \tfrac{1}{2}\|\bs y-\bs X\bs\beta\|^2\right\}+\sum_{j=1}^b\kappa_j |M_j| \bigg\}$$
+ 
+ We also have that 
+ $$\min_{\beta\in \mathcal{L}_M} \tfrac{1}{2}\|\bs y-\bs X\bs\beta\|^2=\tfrac{1}{2}\|\bs y-\bs X_{\!\!M}\tilde{\bs \beta}^{(M)}\|^2=\tfrac{1}{2}\|\bs y\|^2-\tfrac{1}{2}\|\bs X_{\!\!M}\tilde{\bs\beta}^{(M)}\|^2,$$
+where in the last equality we used that $\tilde{\bs \beta}^{(M)}= (\bs X_M^T \bs X_M)^{-1} \bs X_M^T \bs y$.
+ The maximization in \eqref{eq:Mhat} can be then replaced with the maximization of $\tfrac{1}{2}
+ \|\bs X_{\!\!M}\tilde{\bs\beta}^{(M)}\|^2-\sum_{j=1}^b \kappa_j|M_j|$.
+
+\subsection{Proof of Lemma~\ref{lem:L0toL1convergence}}
+Part (i) follows directly from Lemma~\ref{lem:L0toL1convergencegen} by taking $\{M_1,\ldots,M_k\}=\{S\}$.
+Part (ii) follows from
+$$NC(M)=\Big(1+\sum_{N \neq M} e^{C(N)-C(M)}\Big)^{-1}
+< \big(1+ e^{C(M')-C(M)}\big)^{-1}.$$ 
+%Since for any $M,N\in \M$ and $M\neq N$, $C(N) / C(M)>0$, $NC(M) \leq (1+e^{C(M')-C(M)})^{-1}$.
+
+\subsection{Proof of Lemma~\ref{lemma:s7}}
+    This result follows directly from Lemma~S7 in \cite{rossell2022concentration} taking $\phi^*=1$.
+
+\subsection{Proof of Lemma~\ref{lem:boundrho}}
+This result follows directly Lemma~\ref{lem:boundrhogen} by taking $T=S$, and observing that $\min_{i\in S_j\setminus M_j}{\beta^*_i}^2\geq {\beta^*_{\min,j}}^2$.
+
+\subsection{Proof of Theorem~\ref{theo:suffcondlinearmodel}} 
+The proof strategy is to first use Lemma~\ref{lem:boundexpnc} with $T=S$ to show that for every $M\neq S$, $\E(NC(M)) \leq e^{-\psi A_S}$ for every large enough $n$ and any $\psi \in (0,1)$, where $A_S=\gamma\Delta_{MS}+\tfrac{1-\gamma}{6}\mu_{Q_SM}$ (\emph{cf} \eqref{eq:DeltaM} and \eqref{eq:muQM}), $\gamma\in(1/2,1)$ is defined in Assumption~\hyperlink{lab:A7}{A7} and $Q_S= M\cup S$. Assumption~\hyperlink{lab:A6}{A6} and the fact that $M\setminus S\subseteq S^C$ ensure the 
+assumptions of Lemma~\ref{lem:boundexpnc} are met. 
+The second step is to obtain a lower bound for $A_S$, which gives a new upper bound for $\E(NC(M))$.
+The final step is to use these bounds to get an upper-bound on $\sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)$ that asymptotically vanishes under Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7}. We then use Lemma~ \ref{lem:L0toL1convergence} to conclude vanishing of $P(\hat S^b \neq S)$. 
+
+First, to show that $\E(NC(M)) \leq e^{-\psi A_S}$
+for any $M\in\mathcal{M}\setminus \{S\}$, we show that $A_S$ satisfies the conditions of Lemma~\ref{lem:boundexpnc}, taking $T=S$. 
+That is, we wish to show that, $A_S>0$, $|M\setminus S|=o(A_S)$, and $\mu_{Q_S S}=o(A_S)$. 
+Observe that $\Delta_{MS}$, defined in \eqref{eq:DeltaM}, can be rewritten as $\Delta_{MS}=\sum_{j=1}^b(|M_j\setminus S_j|-|S_j\setminus M_j|)\kappa_j$. By  Lemma~\ref{lem:boundrho}, for every $n\in \N$ we have 
+\begin{equation}\label{eq:nonoverfittingcond}
+\begin{aligned}
+     A_S & \;=\; \gamma \Delta_{MS}+\frac{1-\gamma}{6}\mu_{Q_SM}\\
+     & \;\geq\;  \gamma\sum_{j=1}^b|M_j \setminus S_j|\kappa_j + \sum_{j=1}^b |S_j\setminus M_j |\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\kappa_j\right) 
+\end{aligned}
+\end{equation} 
+Since $M\neq S$, $|M\setminus S|\neq0$ or $|S\setminus M|\neq0$, then by Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7}, for every $n$ large enough, $A_S>0$. We immediately have $\mu_{Q_S S}=o(A_S)$ because $\beta^*_{Q_S\setminus S}=\beta^*_{M\setminus S}=0$ (any parameter outside the true support $S$ is by definition 0) and hence $\mu_{Q_S S}=0$.
+If $|M\setminus S|=0$, $|M\setminus S|=o(A_S)$ also immediately. Consider now the case $|M\setminus S|\neq 0$. By Assumption~\hyperlink{lab:A7}{A7}, the last term in \eqref{eq:nonoverfittingcond} is nonnegative, and hence
+$$\frac{|M\setminus S|}{A_S}
+= \frac{|M\setminus S|}{\gamma \Delta_{MS}+\frac{1-\gamma}{6}\mu_{Q_SM}}
+\leq \bigg[ \gamma\sum_{j=1}^b\frac{|M_j \setminus S_j|}{|M\setminus S|}\kappa_j \bigg]^{-1} \leq \Big[ \gamma\min_{j=1,\ldots,b}\kappa_j \Big]^{-1} $$
+where the last inequality follows from $\sum_{j=1}^b\frac{|M_j \setminus S_j|}{|M\setminus S|}=1$. By Assumption~\hyperlink{lab:A6}{A6} we have that $\min_j \kappa_j \to \infty$ as $n \rightarrow \infty$, and hence $|M\setminus S|=o(A_S)$. Thus, %We conclude that for every $M\in \mathcal M\setminus \{S\}$, 
+by Lemma~\ref{lem:boundexpnc}, for any $\psi\in(0,1)$ and all $n$ large enough,
+$
+\E(NC(M))\;\leq\;e^{-\psi A_S}.
+$
+
+For the second step of the proof, let $A_S^*$ be the lower bound for $A_S$ given in \eqref{eq:nonoverfittingcond}. That is 
+$$A_S^*\;:=\;\gamma\sum_{j=1}^b|M_j \setminus S_j|\kappa_j + \sum_{j=1}^b |S_j\setminus M_j |\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\kappa_j\right).$$
+By \eqref{eq:nonoverfittingcond}, we have, for all $n$ large enough,
+\begin{equation}\label{eq:boundexp}
+    \E(NC(M))\;\leq\;e^{-\psi A_S^*}.
+\end{equation}
+Assumption~\hyperlink{lab:A7}{A7} implies there exist $g'_j \to \infty$ such that
+\begin{equation}\label{eq:ogbea}
+    \frac{(1-\gamma) n\rho(\bs X)}{6}{\beta_{\min,j}^*}^2 \,- \,\kappa_j \;=\; \ln(s_j) + g'_{j}.
+\end{equation}
+Let $\delta \in (0,1)$ and denote $\bar{m}_j=\max\big\{\frac{2\ln(p_j-s_j)}{f_j},\frac{2\ln(s_j)}{g'_{j}}\big\}$, where $f_j$ is given in Assumption~\hyperlink{lab:A6}{A6}. 
+Take $\psi=\max_{j=1,\ldots,b}\frac{\xi + \delta + \bar{m}_j}{1+\bar{m}_j}$ for some $\xi \in(0, 1- \delta)$ then $\psi \in (0,1)$ and we have, for every $j=1,\ldots,b$,
+\begin{align}
+    &\psi \;>\; \frac{\delta + \frac{2\ln(p_j-s_j)}{f_j}}{1+\frac{2\ln(p_j-s_j)}{f_j}} \;=\; \frac{\delta f_j/2 + \ln(p_j-s_j)}{f_j/2 +\ln(p_j-s_j)} \label{eq:psif}\\
+    &\psi \;>\; \frac{\delta + \frac{2\ln(s_j)}{g'_j}}{1+\frac{2\ln(s_j)}{g'_j}} \;=\;  \frac{\delta g'_j/2 + \ln(s_j)}{g'_j/2 +\ln(s_j)} \;\geq\; \frac{\delta g'_j/2 + \ln(s_j)}{g'_j +\ln(s_j)}.\label{eq:psig}
+\end{align}
+By definition of $\gamma$ in Assumption~\hyperlink{lab:A7}{A7}, we have 
+$$
+\gamma\kappa_j\;\geq\;\frac12 \Big(1+\frac{\ln(p_j-s_j)}{\kappa_j}\Big)\kappa_j\;=\;\ln(p_j-s_j)+\frac12(\kappa_j-\ln(p_j-s_j)) \;=\; \ln(p_j-s_j)+ \frac12f_j.
+$$
+Hence, by \eqref{eq:psif}, we have
+\begin{equation}\label{eq:ooofjfj}
+\psi\gamma\kappa_j \;\geq\; \psi\big(\ln(p_j-s_j)+ \frac12f_j\big) \;\geq\;  \ln(p_j-s_j)+ \delta\frac12f_j.
+\end{equation}
+Further,
+%By \hyperlink{lab:A7}{A7} and by our choice of $\psi$ and $\delta$,
+\begin{equation}\label{eq:ooofjfj2}
+\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\kappa_j\right) \;\geq\; \psi\left(\ln(s_j)+g_j'\right) \;\geq\; \ln(s_j)+\delta \frac{1}{2}g'_j.
+\end{equation}
+where the first inequality follows from \eqref{eq:ogbea} and the second inequality from \eqref{eq:psig}.
+
+In \eqref{eq:boundexp}, $\psi A^*_S=\sum_{j=1}^b|M_j \setminus S_j|\psi\gamma\kappa_j + \sum_{j=1}^b |S_j\setminus M_j |\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\kappa_j\right)$. Then by \eqref{eq:ooofjfj} and \eqref{eq:ooofjfj2} , we get
+\begin{equation}\label{eq:fyv}
+\E(NC(M))\;\leq\;\exp\left\{- \sum_{j=1}^b |M_j\setminus S_j|(\ln(p_j-s_j)+\delta \tfrac{f_j}{2})-\sum_{j=1}^b |S_j\setminus M_j|(\ln(s_j)+\delta \tfrac{g'_j}{2})\right\}.    
+\end{equation}
+
+For the final step of the proof, denote $\mathcal{S}= \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)$ for convenience. By \eqref{eq:fyv} we have
+\begin{align*}
+    \mathcal{S} &\leq \sum_{M \in \M\setminus \{S\}}e^{- \sum_{j=1}^b |M_j\setminus S_j|\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b |S_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+Observe that if $|M_j\setminus S_j|=0$ and $|S_j\setminus M_j|=0$ for all $j$, then $M=S$ and the summand in the right-hand side above is 1. Then by adding and resting 1 we get
+$$\mathcal{S} \leq \sum_{M \in \M}e^{- \sum_{j=1}^b |M_j\setminus S_j|\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b |S_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}-1.$$
+We can split the sum in the right-hand side above into sums over the models that have the same number of inactive variables and missing the same number of truly active variables in every block. That is, the models $M$ such that for all $j$, $|M_j\setminus S_j|=u_j$ and $|S_j\setminus M_j|=w_j$ with $u_j \in \{0,\ldots,p_j-s_j\}$ and $w_j \in \{0,\ldots,s_j\}$. Denote
+$$S^{\bs u}_{\bs w}=\sum_{M \in \M:\forall \,j |M_j\setminus S_j|=u_j, |S_j\setminus M_j|=w_j } e^{- \sum_{j=1}^b u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.$$
+We get
+\begin{equation}\label{eq:uygfew}
+    \mathcal{S} \leq \sum_{w_1=0}^{s_1}\cdots\sum_{w_b=0}^{s_b}\sum_{u_1=0}^{p_1-s_1}\cdots\sum_{u_b=0}^{p_b-s_b}S^{\bs u}_{\bs w}-1.
+\end{equation}
+The number of models having, for all $j$, $u_j$ inactive parameters and missing $w_j$ out of the $s_j$ active parameters %with given collection of $u_j$'s and $w_j$'s 
+is $\prod_{j=1}^b {\binom{p_j-s_j}{u_j}}{\binom{s_j}{w_j}}$. We thus have
+\begin{align*}
+    S^{\bs u}_{\bs w}&= \bigg(\prod_{j=1}^b {\binom{p_j-s_j}{u_j}}{\binom{s_j}{w_j}}\bigg)e^{- \sum_{j=1}^b u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)} \\
+    &= \prod_{j=1}^b {\binom{p_j-s_j}{u_j}}e^{- u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)}{\binom{s_j}{w_j}}e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+Inputting the expression above in \eqref{eq:uygfew} gives
+\begin{align*}
+    \mathcal{S} 
+    &\leq \sum_{w_1=0}^{s_1}\cdots\sum_{w_b=0}^{s_b}\sum_{u_1=0}^{p_1-s_1}\cdots\sum_{u_b=0}^{p_b-s_b}\prod_{j=1}^b {\binom{p_j-s_j}{u_j}}e^{- u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)}{\binom{s_j}{w_j}}e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}-1\\
+    &\leq \prod_{j=1}^b\left(1+\sum_{u_j=1}^{p_j-s_j}{\binom{p_j-s_j}{u_j}}e^{- u_j(\ln(p_j-s_j)+\delta \tfrac{f_j}{2})}\right)\left(1+
+    \sum_{w_j=1}^{s_j}{\binom{s_j}{w_j}}
+    e^{-w_j(\ln(s_j)+\delta \tfrac{g'_j}{2})}\right) - 1
+\end{align*}
+where the second inequality follows from first factorizing over terms in $u_j$ and $w_j$ and then taking the term in 0 out of every sum. A standard bound on binomial coefficient for $1\leq k\leq n$ is
+\begin{equation}\label{eq:upperboudbinom}
+    \binom{n}{k} \leq \left(\frac{n\,e}{k}\right)^k \leq \left(n\,e\right)^k = e^{k(\ln(n)+1)}.
+\end{equation}
+Then
+\begin{equation}\label{eq:upperbound_sumprob}
+    \mathcal{S} \;\;\leq\;\; \prod_{j=1}^b\left(1+\sum_{u_j=1}^{p_j-s_j}e^{-u_j\left(\delta \tfrac{f_j}{2}-1\right)}\right)\left(1+
+    \sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)}\right) - 1.
+\end{equation}
+Denote
+$$
+d_j\;=\;e^{1-\delta \tfrac{f_j}{2}},\qquad h_j\;=\;e^{1-\delta \tfrac{g'_j}{2}}
+$$
+where both expressions go to zero as $n$ increases since $f_j\to\infty$ and $g'_j\to\infty$.
+For every $j$, by the properties of geometric sums, we have
+\begin{align*}
+    &1+\sum_{u_j=1}^{p_j-s_j}e^{-u_j\left(\delta \tfrac{f_j}{2}-1\right)}
+    =\frac{1-d_j^{p_j-s_j+1}}{1-d_j} \\
+    &1+\sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)} =\frac{1-h_j^{s_j+1}}{1-h_j}.
+\end{align*}
+Since both expressions converge to $1$ as $n$ grows, we get that $$\lim_{n \to \infty} S=\lim_{n \to \infty} \sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)= 0.$$ By Lemma~\ref{lem:L0toL1convergence}, $P(\hat S^b\neq S)\leq \,2\, S$ and then $\lim_{n \to \infty} P(\hat S^b= S)=1$.
+
+ \subsection{Proof of Theorem~\ref{prop:fullrecovreg}}
+
+First, we prove the upper bound on $P(\hat{S}^b \neq S)$ in \eqref{eq:rateconvreg}. We assume here \hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A7}{A7}. Under the same assumptions, in the proof of Theorem~\ref{theo:suffcondlinearmodel}, the following bound was shown \eqref{eq:upperbound_sumprob}:
+% \piotr{I wrote this earlier already. Be careful when you use parts of proofs of some results rather than the results directly - this is not a common practice. In particular,  Theorem~\ref{theo:suffcondlinearmodel} assumed in addition \hyperlink{lab:A2}{A2}, which this one does not. }
+\begin{equation}\label{eq:prodconstreg}
+ \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)
+    %\mathcal{S} 
+    \;\;\leq\;\; \prod_{j=1}^b\left(1+\sum_{u_j=1}^{p_j-s_j}e^{-u_j\left(\delta \tfrac{f_j}{2}-1\right)}\right)\left(1+
+    \sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)}\right) - 1.
+\end{equation}
+Denote $S(u_j)=\sum_{u_j=1}^{p_j-s_j}e^{-u_j\left(\delta \tfrac{f_j}{2}-1\right)}$,  $S(w_j)=\sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)}$, $d_j\;=\;e^{1-\delta \tfrac{f_j}{2}}$, and $h_j\;=\;e^{1-\delta \tfrac{g'_j}{2}}$. For every $j$, we have, by the properties of geometric sums:
+\begin{align*}
+    &S(u_j)
+    =d_j\,\frac{1-d_j^{p_j-s_j}}{1-d_j} \\
+    &S(w_j) =h_j\,\frac{1-h_j^{s_j}}{1-h_j}.
+\end{align*}
+Developing the product in the right-hand side in \eqref{eq:prodconstreg} and reordering the resulting terms gives
+$$\sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)\;\;\leq\;\;\sum_{j=1}^b\big[S(u_j)+S(w_j)\big]+1-1+\mathcal{R}$$
+where all the terms in $\mathcal{R}$ are product of two or more of the sums $S(u_1),\ldots,S(u_b)$ or $S(w_1),\ldots,S(w_b)$. Given that $\delta>0$, $f_j \to \infty$ and $g_j' \to \infty$ by assumption, and hence $d_j \to 0$ and $h_j \to 0$, the $S(u_j)$ and $S(w_j)$ are smaller than 1 for all sufficiently large $n$ for all $j$. Then each of the $2^{2b}-2b-1$ terms in $\mathcal{R}$ is bounded above by $\sum_{j=1}^b\big[S(u_j)+S(w_j)\big]$ and we get, for every $n$ large enough,
+ \begin{equation} \label{eq:fierg}
+ \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)
+ %\mathcal{S} 
+ \leq (2^{2b}-2b)\sum_{j=1}^b \bigg[d_j\,\frac{1-d_j^{p_j-s_j}}{1-d_j}+ h_j\,\frac{1-h_j^{s_j}}{1-h_j}\bigg ]. \end{equation} 
+ We have $d_j \to 0$ and $h_j \to 0$, then for every $n$ large enough $\frac{1-d_j^{p_j-s_j}}{1-d_j}\to1$ and $\frac{1-h_j^{s_j}}{1-h_j}\to1$ for all $j$. Since $r>1$, we get, for every $n$ large enough,
+\begin{equation} \label{eq:fierg2}r>\max_{j=1,\ldots,b}\bigg\{\frac{1-d_j^{p_j-s_j}}{1-d_j} \,,\,\frac{1-h_j^{s_j}}{1-h_j} \bigg\}.\end{equation} 
+ By Lemma~\ref{lem:L0toL1convergence}, \eqref{eq:fierg} and \eqref{eq:fierg2}, we then obtain:
+$$P(\hat{S}^{b} \neq S)\;\leq\;  2 \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)
+     \;\leq\; 2 (2^{2b}-2b) r\,e\,\,\sum_{j=1}^b e^{-\delta \tfrac{f_j}{2}} +e^{-\delta \tfrac{g'_j}{2}}$$
+By the definition of $f_j$ in Assumption~\hyperlink{lab:A6}{A6}, that of $g'_j$ in \eqref{eq:ogbea}, and the fact that $2e<6$,  we get, for every $n$ large enough, that
+\begin{equation}\label{eq:gpkr}
+    P(\hat{S}^{b} \neq S)\;\leq\; (2^{2b}-2b)6r\,\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa_j-\ln(p_j-s_j)\big]} + e^{-\tfrac{\delta}{2}\big[\frac{(1-\gamma) n\rho(\bs X)}{6}{\beta_{\min,j}^*}^2 - \kappa_j -\ln(s_j) \big]}.
+\end{equation}
+
+We have $\frac{(1-\gamma) n\rho(\bs X)}{6}{\beta_{\min,j}^*}^2 - \kappa_j > \Big(\sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j}\Big)^2$ and then:
+$$P(\hat{S}^{b} \neq S)\;\leq\; (2^{2b}-2b)6r\,\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa_j-\ln(p_j-s_j)\big]} + e^{-\tfrac{\delta}{2}\big[(\sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j})^2 -\ln(s_j) \big]}
+$$
+which proves \eqref{eq:rateconvreg}. 
+
+Second, we prove that, if for all $j=1,\ldots,b$, it holds that
+\begin{equation}\label{betamincond:minimalreg}
+    \lim_{n\to \infty}\frac{\sqrt{(1-\gamma) n\rho(\bs X)/3}\;\beta_{\min,j}^*}{\sqrt{2\ln(p_j-s_j)} + \sqrt{2\ln(s_j)}} >1
+\end{equation}
+then $\kappa^*_j$ defined in \eqref{eq:oraclepenreg} satisfies Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7}. The proof is essentially the same as the proof of the second part of Theorem~\ref{theo:fullrecovGS}, replacing $\tau^*_j$ by $\sqrt{\kappa^*_j}$.  Under \eqref{betamincond:minimalreg}, for every $j$, there exists a sequence $c$ such that $\lim_{n\to\infty} c>1$ and $\sqrt{\frac{(1-\gamma)n}{6}}\beta^*_{\min,j}=c\big(\sqrt{\ln(p_j-s_j)} + \sqrt{\ln(s_j)}\big)$. Denote $a=\sqrt{\ln(p_j-s_j)}$ and $b=\sqrt{\ln(s_j)}$. Proceeding as in the proof of Theorem~\ref{theo:fullrecovGS} shows that:
+\begin{equation*}
+\sqrt{\kappa^*_j} =\frac{c^2+1}{2c}a+\frac{c^2-1}{2c}b  \geq  \Big(\frac{c^2+1}{2c}+1-1\Big)a = \Big(1+\frac{(c-1)^2}{2c}\Big)\sqrt{\ln(p_j-s_j)} 
+\end{equation*}
+which implies Assumption~\hyperlink{lab:A7}{A7} since $\lim_{n\to\infty} c>1$. We also have
+\begin{equation*}
+\frac{\sqrt{(1-\gamma) n\rho(\bs X)}}{6}{\beta_{\min,j}^*}-\sqrt{\kappa^*} = \frac{c^2-1}{2c}a+\frac{c^2+1}{2c}b \geq \Big(1+\frac{(c-1)^2}{2c}\Big)\sqrt{\ln(s_j)}.
+\end{equation*}
+which implies Assumption~\hyperlink{lab:A6}{A6} since $\lim_{n\to\infty} c>1$.
+
+Finally, we prove \eqref{eq:oraclerateconvreg}. Since Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7} hold for the $\kappa^*_j$, and because we assume \hyperlink{lab:A1}{A1}, by the first part of the theorem, for any $r> 1$ and every $n$ large enough,
+\begin{equation*}
+ P(\hat{S}^{b} \neq S)\;\leq\; 6(2^{2b}-2b)r\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa_j^*-\ln(p_j-s_j)\big]} + 
+    e^{-\tfrac{\delta}{2}\big[(\sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j^*})^2 -\ln(s_j) \big]}.
+\end{equation*}
+Simple algebra shows that the $\kappa_j^*$ satisfy $\kappa^*_j-\ln(p_j-s_j)=\big(\sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j^*}\big)^2 -\ln(s_j)$ for all $j$. We then have
+\begin{equation}\label{eq:afi}
+ P(\hat{S}^{b} \neq S)\;\leq\; 12(2^{2b}-2b)r\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa_j^*-\ln(p_j-s_j)\big]}.
+\end{equation}
+ Proceeding as in the proof of Theorem~\ref{theo:fullrecovGS}, denote \\$d =\frac12\sqrt{\frac{6}{(1-\gamma) n\rho(\bs X)}}\frac{1}{\beta_{\min,j}^*}\big(\ln({p_j-s_j})-\ln({s_j})\big)$ such that $\sqrt{\kappa^*_j}=  \frac12\sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{\beta_{\min,j}^*} + d$. Then
+$$e^{-\frac{\delta}{2}\left(\kappa^*_j-\ln(p_j-s_j)\right)}
+=e^{-\frac{\delta}{2}\left[\frac{(1-\gamma) n\rho(\bs X)}{24}{\beta_{\min,j}^*}^2+d^2 - \frac{1}{2}\left(\ln (p_j- s_j)+\ln (s_j)\right)\right]}.$$
+By considering separately the two possible maxima in $\ln \max\{p_j-s_j,s_j\}$, we get that
+\begin{equation}\label{eq:oig}
+    \frac{e^{-\frac{\delta}{2}\left(\kappa^*_j-\ln(p_j-s_j)\right)}}{e^{-\frac{\delta}{2}\left[\frac{(1-\gamma) n\rho(\bs X)}{24}{\beta_{\min,j}^*}^2-\ln \max\{p_j-s_j,s_j\}\right]}}= 
+e^{-\frac{\delta}{2}\left[d^2 + \frac{1}{2}\left|\ln (p_j- s_j)-\ln (s_j)\right|\right]} <1.
+\end{equation}
+It follows that, by \eqref{eq:afi} and \eqref{eq:oig},
+$$P(\hat{S}^{b} \neq S) \; \leq \; 12(2^{2b}-2b)r\,\sum_{j=1}^b\,\, e^{-\frac{\delta}{2}\left[\frac{(1-\gamma) n\rho(\bs X)}{24}{\beta_{\min,j}^*}^2-\ln \max\{p_j-s_j,s_j\}\right]}.$$
+which proves \eqref{eq:oraclerateconvreg}.
+
+\subsection{Proof of Proposition~\ref{prop:nectypeIreg}}
+
+The event $\hat{S}^b=S$ (correct recovery of $S$) requires the event 
+%Recovery of $S$ requires that 
+$\max_{M\in O_j}\frac{NC(M)}{NC(S)}<1$ ($S$ is preferred to any model in $O_j$, i.e. over-fitting $S$ by 1 variable in block $j$). % with probability going to 1 as n grows. 
+Using the definition of the normalized criterion $NC$ in \eqref{eq:normalizedscore}, and that $C(S)-C(M)=L_{SM}/2 + \Delta_{MS}$ for $L_{SM}$ and $\Delta_{MS}$ defined in \eqref{eq:DeltaM}, we obtain
+%    NC(M)\;:=\;\frac{e^{{\rm C}(M)}}{\underset{M' \in \M}{\sum} e^{{\rm C}(M')}}.
+\begin{align}
+P(\hat{S}^b=S) 
+\leq P\Big(\max_{M\in O_j}\frac{NC(M)}{NC(S)}<1\Big)
+= P \left( \max_{M\in O_j} e^{C(M)-C(S)} <1 \right)
+\nonumber \\
+= P \left( \max_{M\in O_j} e^{\frac{1}{2} L_{SM} + \Delta_{MS}} < 1 \right)
+=
+P\big(\max_{M\in O_j}\sqrt{L_{MS}}<\sqrt{2\kappa_j}\Big).
+\nonumber
+\end{align}
+By Lemma~\ref{lemma:s7}, for every $M\in O_j$, $L_{MS}\in \chi^2_1$ and there exists $Z_M\sim N(0,1)$ such that $\sqrt{L_{MS}}=|Z_M|$. Since for every $M\in O_j$, $|Z_M|\geq Z_M$, we have
+\begin{equation}\label{eq:upperboundrecov}
+    P(\hat{S}^b=S) \leq  1-P\big(\max_{M\in O_j}Z_M\geq\sqrt{2\kappa_j}\Big).
+\end{equation}
+
+The set $O_j$ has cardinality $p_j-s_j$, then by Theorem 3.4 in \cite{hartigan} and our Assumption~\hyperlink{lab:A2}{A2}, for any $\varepsilon>0$,
+$$P\big(\max_{M\in O_j}Z_M \geq \underline{\lambda}_j \sqrt{2 \ln(p_j-s_j)}(1-\varepsilon)\big) \to 1,$$
+where $\underline{\lambda}_j$ is as defined prior to the statement of Proposition~\ref{prop:nectypeIreg}.
+If $\lim_{n\to\infty}\frac{\kappa_j}{\underline{\lambda}_j^2\ln(p_j-s_j)} <1$, then $\lim_{n \to \infty} P\big(\max_{M\in O_j}Z_M\geq\sqrt{2\kappa_j}\big) = 1$. Hence, by \eqref{eq:upperboundrecov} we have that $\lim_{n \to \infty} P(\hat{S}^b=S) = 0$, as we wished to prove.
+
+\subsection{Proof of Lemma~\ref{lem:upperboundnoncentral}}
+The result follows directly from Lemma~\ref{lem:upperboundnoncentralgen}, with $M=S$. 
+
+
+\subsection{Proof of Proposition~\ref{prop:nectypeIIreg}}
+
+Let $M=S\setminus S^{S}(\kappa)$. Since $S^{S}(\kappa)\neq \emptyset$ by assumption and $S^S(\kappa)\subseteq S$, we have that $M\neq S$. With this notation, we aim at proving that $\lim_{n\to \infty}P(NC(M)<NC(S))=\lim_{n\to \infty}P(\hat S^b=S)=0$. The event $\hat{S}^b=S$ (correct selection of $S$) implies that $NC(M)< NC(S)$ (preferring $S$ over $M$), and hence 
+\begin{align}\label{eq:nectypeIIreg_bound}
+P(\hat{S}^b=S)\;\leq\; P\left( NC(M) < NC(S) \right)
+\;=\; P(L_{SM}> 2\Delta_{SM}),
+\end{align}
+where we used the definition of $NC$ in
+\eqref{eq:normalizedscore}, and that $C(S)-C(M)=L_{SM}/2 + \Delta_{MS}$ for $L_{SM}$ and $\Delta_{MS}$ defined in \eqref{eq:DeltaM}. It suffices then to show that the right-hand side in \eqref{eq:nectypeIIreg_bound} converges to 0 as $n \to \infty$.
+To do this, we note that, by Lemma~\ref{lemma:s7}, we have $L_{SM}\sim \chi_{|S\setminus M|}^2(\mu_{SM})$. We then use the non-central chi-square bound in Lemma~\ref{lemma:s1s3}.
+%We  bound next $P(L_{SM}> 2\Delta_{SM})$ with Lemma~\ref{lemma:s1s3}. 
+
+To apply Lemma~\ref{lemma:s1s3}, we first show that the degrees of freedom satisfy $|S\setminus M|=o(2\Delta_{SM})$ and also the non-centrality parameter is such that $\mu_{SM}=o(2\Delta_{SM})$.
+We have that $\Delta_{SM}=\sum_{j=1}^b|S_j \setminus M_j|\kappa_j$ and then
+$$\frac{|S\setminus M|}{2\Delta_{SM}}\;\leq\; \bigg[\sum_{j=1}^b\frac{2|S_j \setminus M_j|}{|S\setminus M|}\kappa_j \bigg]^{-1} \;\leq\; \Big[ 2\min_{j=1,\ldots,b}\kappa_j \Big]^{-1} $$
+where the last inequality follows from $\sum_{j=1}^b\frac{|S_j \setminus M_j|}{|S\setminus M|}=1$. By Assumption~\hyperlink{lab:A6}{A6}, $\kappa_j\to \infty$ for all $j=1,\ldots,b$, then the left-hand side above goes to 0 as $n$ grows and $|S\setminus M|=o(2\Delta_{SM})$. Further, by Lemma~\ref{lem:upperboundnoncentral}, we also have
+\begin{equation}\label{eq:AGEoj}
+    \frac{\mu_{SM}}{2\Delta_{SM}}\leq \frac{ \sum_{j=1}^b |S_j\setminus M_j|n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2}{\sum_{j=1}^b |S_j\setminus M_j|2 \kappa_j}.
+\end{equation}
+Let $\tilde{r}:=\sum_{j=1}^b n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2/(2\kappa_j)$. We show next that $\tilde{r}$ is an upper bound  on $\mu_{SM}/(2\Delta_{SM})$. By restricting the sum in the former to the $j$ such that $|S_j\setminus M_j|\neq 0$ and multiplying the numerator and denominator of the summand by $|S_j\setminus M_j|$, we get
+\begin{eqnarray}\label{eq:vfej}
+    \tilde{r}
+    &\geq &\sum_{j=1,|S_j\setminus M_j|\neq 0}^b\frac{|S_j\setminus M_j|n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2}{|S_j\setminus M_j|2\kappa_j} \end{eqnarray}
+Note that for any collections $(\alpha_j,\delta_j)\in  \R\times \R\setminus\{0\}$, $j=1,\ldots,b$, we have
+\begin{equation}\label{eq:truc}
+    \sum_{j=1}^b\frac{\alpha_j}{\delta_j}=
+\sum_{j=1}^b\frac{\alpha_j \frac{1}{\delta_j} (\delta_j + \sum_{l \neq j} \delta_l)}{\sum_{j=1}^b \delta_j}=
+    \frac{\sum_{j=1}^b\alpha_j(1+\sum_{l\neq j} \frac{\delta_l}{\delta_j})}{\sum_{j=1}^b\delta_j}
+\end{equation}
+Using the above in the right-hand side of \eqref{eq:vfej} gives
+\begin{eqnarray*}
+    \tilde{r}
+    &\geq& \frac{\sum_{j=1,|S_j\setminus M_j|\neq 0 }^b|S_j\setminus M_j|n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2\Big(1+\sum_{l\neq j}\frac{|S_l\setminus M_l|2\kappa_l}{|S_j\setminus M_j|2\kappa_j}\Big)}{\sum_{j=1,|S_j\setminus M_j|\neq 0 }^b|S_j\setminus M_j|2\kappa_j} \\
+    &\geq & \frac{\sum_{j=1}^b|S_j\setminus M_j|n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2}{\sum_{j=1}^b \big|S\setminus M_j\big|2\kappa_j}
+\end{eqnarray*}
+where last inequality follows from $\Big(1+\sum_{l\neq j}\frac{|S_l\setminus M_l|2\kappa_l}{|S_j\setminus M_j|2\kappa_j}\Big)\geq 1$ for all $j$ and that $\sum_{j=1}^b \big|S\setminus M_j\big|2\kappa_j=\sum_{j=1,|S_j\setminus M_j|\neq 0 }^b|S_j\setminus M_j|2\kappa_j$. Then by \eqref{eq:AGEoj}:
+$$\frac{\mu_{SM}}{2\Delta_{SM}}\;\leq \;\tilde{r}\;=\;\sum_{j=1}^b\frac{n\bar{\lambda}\max_{i\in S_j\setminus M_j}{\beta_i^*}^2}{2\kappa_j}.$$
+For every $j=1,\ldots,b$, $S_j\setminus M_j \subset S_j^{S}(\kappa)$ , then by definition of the $S_j^{S}(\kappa)$, the right-hand 
+side above goes to 0 as $n \to \infty$ and  $\mu_{SM}=o(2\Delta_{SM})$. We can now use Lemma~\ref{lemma:s1s3}: %Lemma~\ref{lemma:s7}, 
+for any $\phi \in (0,1)$ and every $n$ large enough,
+\begin{align}
+    P(L_{SM}> 2\Delta_{SM}) \leq e^{-\phi2\Delta_{SM}} = e^{-\phi2\sum_{j=1}^b|S(\kappa)_j^S|\kappa_j}
+\nonumber
+\end{align} 
+where the right hand-side goes to 0 since for all $j=1,\ldots,b$, $\kappa_j \to \infty$. It follows by \eqref{eq:nectypeIIreg_bound} that $\lim_{n\to\infty}P\left( NC(M)/NC(S) < 1  \right)=\lim_{n\to\infty}P(\hat S^b=S)=0$ as we wished to prove.
+
+\subsection{Proof of Corollary~\ref{cor:necrecovreg}}
+By assumption we have that, for some $j\in\{1,\ldots,b\}$, 
+$$\lim_{n\to\infty}\frac{\sqrt{n\bar{\lambda}}\beta_{\min,j}^*}{\sqrt{\underline{\lambda}_j\ln(p_j-s_j)}}= \lim_{n\to\infty}\frac{\sqrt{n\bar{\lambda}}\beta_{\min,j}^*}{\sqrt{\kappa_j}}\sqrt{\frac{\kappa_j}{\underline{\lambda}_j\ln(p_j-s_j)}} = 0.$$
+If $\lim_{n\to\infty}\frac{\sqrt{n\bar{\lambda}}\beta_{\min,j}^*}{\sqrt{\kappa_j}}>0$, then $\lim_{n\to\infty}\sqrt{\frac{\kappa_j}{\underline{\lambda}_j\ln(p_j-s_j)}} = 0$ and, by Proposition~\ref{prop:nectypeIreg}, it follows that $\lim_{n \to \infty} P(\hat{S}^b=S) < 1$. 
+If $\lim_{n\to\infty}\frac{\sqrt{n\bar{\lambda}}\beta_{\min,j}^*}{\sqrt{\kappa_j}}=0$, then by Proposition~\ref{prop:nectypeIIreg} $\lim_{n \to \infty} P(\hat{S}^b=S) < 1$, as we wished to prove.
+
+\subsection{Proof of Corollary~\ref{cor:selconstimpossiblereg}}
+Since $\hat{S}$ is $\hat{S}^b$ with $b=1$, the assumptions of Corollary~\ref{cor:necrecovreg} for $\hat{S}$ are met and $\lim_{n \to \infty} P(\hat{S} = S) < 1$. Since Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7} hold, by Theorem~\ref{theo:suffcondlinearmodel} we have that $\lim_{n \to \infty} P(\hat{S}^b = S)= 1$.
+
+\subsection{Proof of Theorem~\ref{thm:convtoT}}
+The proof strategy is the same as that of Theorem~\ref{theo:suffcondlinearmodel}, with suitable adjustments. 
+The first step is to use Lemma~\ref{lem:boundexpnc} to bound $\E(NC(M))$ for every $M\not\in \T(\kappa)$. The main difference is that %we replace $S$ 
+in the proof of Theorem~\ref{theo:suffcondlinearmodel} 
+we took $T=S$ in Lemma~\ref{lem:boundexpnc}, whereas now we take  a model $T=T^M\in \T(\kappa)$
+%by a model in $T^M\in \T(\kappa)$ 
+that depends on $M$. 
+Intuitively, $T^M$ contains large truly non-zero parameters that are missed by $M$, and hence $T^M$ should be chosen over $M$ asymptotically. More precisely,
+we choose $T^M\in \T(\kappa)$ such that %for every $M\not\in \T(\kappa)$, 
+$T^M\setminus M\subseteq S^L(\kappa)$ and the elements in $M\setminus T^M$ are either inactive or in $S^S(\kappa)$. The latter condition %observation 
+and Assumption~\hyperlink{lab:A6}{A6} ensure that the assumptions of Lemma~\ref{lem:boundexpnc} are met. We then get a bound $\E(NC(M)) \leq e^{-\psi A_{T^M}}$ for every large enough $n$ and any $\psi \in (0,1)$, where $A_{T^M}=\gamma\Delta_{MT^M}+\tfrac{1-\gamma}{6}\mu_{Q_{T^M}M}$ (\emph{cf} \eqref{eq:DeltaM} and \eqref{eq:muQM}), $\gamma\in(1/2,1)$ is defined in \eqref{eq:defSes} and $Q_{T^M}= M\cup T^M$. The second step is to obtain a lower bound for $A_{T^M}$, which gives an upper bound for $\E(NC(M))$ (distinct to that obtained in the proof of Theorem~\ref{theo:suffcondlinearmodel}).
+The final step is to %use these bounds to 
+get an upper-bound $\sum_{M \in \M\setminus \T(\kappa)} \E\left(NC(M)\right)$ that vanishes (as $n$ grows) under the assumptions of Theorem~\ref{thm:convtoT}. Then Lemma~\ref{lem:L0toL1convergencegen} immediately implies that $P(\hat S^b\not \in \T(\kappa))$ also vanishes.
+
+For the first step of the proof, recall that the set $\T(\kappa)$ contains all the models that are the union of $S^L(\kappa)$ (large signals) and some subset of $S^{I}(\kappa)$ (intermediate signals). For any $M \not\in\T(\kappa)$, take the unique $T^M\in\T(\kappa)$ such that $T^M = \big[M\cap S^{I}(\kappa)\big]\cup S^L(\kappa) $, which implies $M\cap S^{I}(\kappa)=T^M\cap S^{I}(\kappa)$. 
+That is, $T^M$ contains all the large signals plus the intermediate signals in $M$.
+To show that $\E(NC(M)) \leq e^{-\psi A_{T^M}}$ we show that $A_{T^M}$ satisfies the conditions of Lemma~\ref{lem:boundexpnc}, taking $T=T^M$. That is, we wish to show that three conditions hold: $A_{T^M}>0$, $|M\setminus T^M|=o(A_{T^M})$, and $\mu_{Q_{T^M} T^M}=o(A_{T^M})$.
+
+Observe that $\Delta_{MT^M}$, defined in \eqref{eq:DeltaM}, can be rewritten as $\Delta_{MT^M}=\sum_{j=1}^b(|M_j\setminus T^M_j|-|T^M_j\setminus M_j|)\kappa_j$ and then:
+$$ A_{T^M}=\sum_{j=1}^b|M_j\setminus T^M_j|\gamma\kappa_j+\tfrac{1-\gamma}{6}\mu_{Q_{T^M}M}-\sum_{j=1}^b|T^M_j\setminus M_j|\gamma\kappa_j $$
+Since $\gamma <1$, $(1-\gamma)/6 >0$, by  Lemma~\ref{lem:boundrhogen}, for every $n\in \N$ we have 
+\begin{equation}\label{eq:nonoverfittingcond2}
+   A_{T^M}\;\geq\; \sum_{j=1}^b|M_j \setminus T^M_j|\gamma\kappa_j + \sum_{j=1}^b |T^M_j\setminus M_j |\Big(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in T^M_j\setminus M_j}{\beta^*_i}^{2} - \gamma\kappa_j\Big).
+\end{equation} 
+We have that $T^M\subseteq \big(S^I(\kappa) \cup S^L(\kappa)\big)$ since $T^M\in\T(\kappa)$ and that $T^M\cap S^{I}(\kappa) = M\cap S^{I}(\kappa)$. It follows that $T^M\setminus M \subseteq S^L(\kappa)$. By definition of $S^L(\kappa)$, the rightmost component in \eqref{eq:nonoverfittingcond2} is nonnegative and, if $|T^M\setminus M|\neq0$, it is positive, for every $n$ large enough. By Assumption~\hyperlink{lab:A6}{A6}, component $\gamma\sum_{j=1}^b|M_j \setminus T^M_j|\kappa_j$ is nonnegative, and, if $|M\setminus T^M|\neq0$, positive. Now, $M\neq T^M$ implies necessarily $|M\setminus T^M|\neq0$ or $|T^M\setminus M|\neq0$ and then, for every $n$ large enough, $A_{T^M}>0$, establishing the first condition required by Lemma~\ref{lem:boundexpnc}. Regarding its second condition, if $|M\setminus T^M|=0$, we immediately have $|M\setminus T^M|=o(A_{T^M})$. If $|M\setminus T^M|\neq 0$, since the rightmost component in \eqref{eq:nonoverfittingcond2} is nonnegative, we have
+$$\frac{|M\setminus T^M|}{A_{T^M}}\leq \bigg[ \gamma\sum_{j=1}^b\frac{|M_j \setminus T^M_j|}{|M\setminus T^M|}\kappa_j \bigg]^{-1} \leq \bigg[ \gamma\min_{j=1,\ldots,b}\kappa_j \bigg]^{-1} $$
+where the last inequality follows from $\sum_{j=1}^b\frac{|M_j \setminus T^M_j|}{|M\setminus T^M|}=1$. By Assumption~\hyperlink{lab:A6}{A6}, $\min_{j=1,\ldots,b}\kappa_j\to \infty$ as $n\to\infty$ and hence $|M\setminus T^M|=o(A_{T^M})$ when $|M\setminus T^M|\neq 0$ too.
+
+Finally, consider the third condition in Lemma~\ref{lem:boundexpnc}.
+In the proof of Theorem~\ref{theo:suffcondlinearmodel}, $\mu_{Q_SS}=o(A_S)$ is immediate because $ Q_S \setminus S= M\setminus S\subseteq S^C$, i.e. since all parameters in $M \setminus S$ are truly zero we have that $\mu_{Q_SS}=0$.
+Here $M\setminus T^M$ is not necessarily a subset of $S^C$, hence $\mu_{Q_T^M T^M} \geq 0$. Note that, since $T^M\in\T(\kappa)$, we have that $S^L(\kappa)\subseteq T^M$. Moreover we have $M\cap S^{I}(\kappa)=T^M\cap S^{I}(\kappa)$. It follows that $M\setminus T^M\subseteq (S^{I}(\kappa) \cup S^L(\kappa))^C$, that is the elements of $M\setminus T^M$ are either inactive or belong to $S^S(\kappa)$. If $M\cap S^{S}(\kappa)=\emptyset$ then $M\setminus T^M\subseteq S^C$ and we immediately get $\mu_{Q_{T^M} T^M}=o(A_{T^M})$ because $\bs\beta^*_{M \setminus T^M}=\mu_{Q_{T^M} T^M}=0$. Assume now that $M\cap S^{S}(\kappa)\neq\emptyset$. Using that the rightmost component in \eqref{eq:nonoverfittingcond2} is nonnegative and Lemma~\ref{lem:upperboundnoncentralgen}, we have
+$$\frac{\mu_{Q_{T^M} T^M}}{ A_{T^M}} \leq \frac{\mu_{Q_{T^M} T^M}}{ \gamma\sum_{j=1}^b|M_j \setminus T^M_j|\kappa_j} \leq \frac{n\,\bar{\lambda}\,\sum_{j=1}^b|(S_j\cap M_j )\setminus T^M_j|\,\max_{i\in (S_j\cap M_j )\setminus T^M_j}{\beta_{i}^*}^2}{ \gamma\sum_{j=1}^b|M_j \setminus T^M_j|\kappa_j}.$$
+Observe that for all $j=1,\ldots,b$, $M_j \setminus T^M_j \subseteq (S_j\cap M_j )\setminus T^M_j$ and then $|M_j \setminus T^M_j| \geq |(S_j\cap M_j )\setminus T^M_j|$. We then get
+$$\frac{\mu_{Q_{T^M} T^M}}{ A_{T^M}} \leq \frac{n\,\bar{\lambda}\,\sum_{j=1}^b|(S_j\cap M_j )\setminus T^M_j|\,\max_{i\in(S_j\cap M_j )\setminus T^M_j}{\beta_{i}^*}^2}{ \gamma\sum_{j=1}^b|(S_j\cap M_j ) \setminus T^M_j|\kappa_j}.$$
+Moreover, since  $M\setminus T^M\subseteq (S^{I}(\kappa) \cup S^L(\kappa))^C$ as discussed earlier, we have, for all $j=1,\ldots,b$, $(S_j\cap M_j )\setminus T^M_j \subseteq S^{S}_j(\kappa)$. It follows $\max_{i\in(S_j\cap M_j )\setminus T^M_j}{\beta_{i}^*}^2 \leq \max_{i\in S_j^S}{\beta_{i}^*}^2$ and
+\begin{equation}\label{eq:onbfsa}
+  \frac{\mu_{Q_{T^M} T^M}}{ A_{T^M}} \leq \frac{n\,\bar{\lambda}\,\sum_{j=1}^b|(S_j\cap M_j )\setminus T^M_j|\,\max_{i\in S^{S}_j(\kappa)}{\beta_{i}^*}^2}{ \gamma\sum_{j=1}^b|(S_j\cap M_j ) \setminus T^M_j|\kappa_j}.  
+\end{equation}
+Let $\bar{r}:=\sum_{j=1}^b n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2/(\gamma\kappa_j)$. We show next that $\bar{r}$ is an upper bound on $\mu_{Q_{T^M} T^M}/ A_{T^M}$. By restricting the sum in the former to the $j$ such that $|(S_j\cap M_j )\setminus T^M_j|\neq 0$ and multiplying the numerator and denominator of the summand by $|(S_j\cap M_j )\setminus T^M_j|$, we get 
+\begin{eqnarray}\label{eq:ovrwS}
+    \bar{r}
+    &\geq &\sum_{j=1,|(S_j\cap M_j )\setminus T^M_j|\neq 0}^b\frac{|(S_j\cap M_j )\setminus T^M_j|n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2}{|(S_j\cap M_j )\setminus T^M_j|\gamma\kappa_j}
+\end{eqnarray}
+Using the property of \eqref{eq:truc} in the right-hand side of \eqref{eq:ovrwS}, we get
+\begin{align*}
+     \bar{r}
+    &\geq \frac{\sum_{j=1,|(S_j\cap M_j )\setminus T^M_j|\neq 0 }^b|(S_j\cap M_j )\setminus T^M_j|n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2\Big(1+\sum_{l\neq j}\frac{|(S_l\cap M_l)\setminus T^M_l|\gamma\kappa_l}{|(S_j\cap M_j )\setminus T^M_j|\gamma\kappa_j}\Big)}{\sum_{j=1,|(S_j\cap M_j )\setminus T^M_j|\neq 0}^b|(S_j\cap M_j )\setminus T^M_j|\gamma\kappa_j} \\
+    &\geq \frac{\sum_{j=1}^b|(S_j\cap M_j )\setminus T^M_j|n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2}{\sum_{j=1}^b \big|(S\cap M_j)\setminus T^M_j\big|\gamma\kappa_j}
+\end{align*}
+where last inequality follows from $\Big(1+\sum_{l\neq j}\frac{|(S_l\cap M_l)\setminus T^M_l|\gamma\kappa_l}{|(S_j\cap M_j )\setminus T^M_j|\gamma\kappa_j}\Big)\geq 1$ for all $j$ and from the identity $\sum_{j=1,|(S_j\cap M_j )\setminus T^M_j|\neq 0}^b|(S_j\cap M_j )\setminus T^M_j|\gamma\kappa_j=\sum_{j=1}^b \big|(S\cap M_j)\setminus T^M_j\big|\gamma\kappa_j$. Then, %when $M\cap S^{S}(\kappa)\neq\emptyset$, 
+by \eqref{eq:onbfsa},
+$$\frac{\mu_{Q_{T^M} T^M}}{ A_{T^M}} \;\leq\; \bar{r} \;= \;\sum_{j=1}^b\frac{n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2}{\gamma\kappa_j}.$$
+By definition of $S_j^{S}(\kappa)$, $n\bar{\lambda}\max_{i\in S^{S}_j(\kappa)}{\beta_i^*}^2=o(\kappa_j)$ for all $j$ and $\mu_{Q_{T^M} T^M}=o(A_{T^M})$ when $M\cap S^{S}(\kappa)\neq\emptyset$ too.
+We can now apply Lemma~\ref{lem:boundexpnc} and get that for every $M\in \mathcal M\setminus \T(\kappa)$, for any $\psi\in(0,1)$ and every $n$ large enough, $\E(NC(M))\;\leq\;e^{-\psi A_{T^M}}$.
+
+The second step of the proof is to lower-bound $A_{T^M}=\gamma\Delta_{MT^M}+\tfrac{1-\gamma}{6}\mu_{Q_{T^M}M}$.%For the second step of the proof, 
+Let
+$$A_{T^M}^*\;:=\;\gamma\sum_{j=1}^b|M_j \setminus T^M_j|\kappa_j + \sum_{j=1}^b |T^M_j\setminus M_j |\left(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2} - \gamma\kappa_j\right) $$
+Recall that, for every $j$, $T^M_j\setminus M_j\subseteq S^{L}_j(\kappa)$. We have then $\min_{i\in T^M_j\setminus M_j}{\beta^*_i}^{2}\geq \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2}$, and by \eqref{eq:nonoverfittingcond2}, $A_{T^M} \geq A_{T^M}^*$. It follows that for any $\psi\in(0,1)$ and for all $n$ large enough,
+\begin{equation}\label{eq:boundexp2}
+    \E(NC(M))\;\leq\;e^{-\psi A_{T^M}^*}.
+\end{equation}
+
+To conclude the second part of the proof we lower-bound $\psi A^*_{T^M}=\sum_{j=1}^b|M_j \setminus T^M_j|\psi\gamma\kappa_j + \sum_{j=1}^b |T^M_j \setminus M_j|\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2} - \gamma\kappa_j\right)$. To do this, we obtain a lower bound for $\psi \gamma \kappa_j$ and for $\psi\bigg(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2} - \gamma\kappa_j\bigg)$.
+
+
+The definition of $S^{L}_j(\kappa)$ implies there exists some $g'_j \to \infty$ such that
+\begin{equation}\label{eq:bngrws}
+  \frac{(1-\gamma) n\rho(\bs X)}{6}\min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2}\,- \,\kappa_j \;=\; \ln(s_j) + g'_{j}.  
+\end{equation}
+Let $\delta \in (0,1)$ and denote $\bar{m}_j=\max\big\{\frac{2\ln(p_j-s_j)}{f_j},\frac{2\ln(s_j)}{g'_{j}}\big\}$, where $f_j$ is given in Assumption~\hyperlink{lab:A6}{A6}. 
+Take $\psi=\max_{j=1,\ldots,b}\frac{\xi + \delta + \bar{m}_j}{1+\bar{m}_j}$ for some $\xi \in(0, 1- \delta)$ then $\psi \in (0,1)$ and we have, for every $j=1,\ldots,b$,
+\begin{align}
+    &\psi > \frac{\delta + \frac{2\ln(p_j-s_j)}{f_j}}{1+\frac{2\ln(p_j-s_j)}{f_j}} = \frac{\delta f_j/2 + \ln(p_j-s_j)}{f_j/2 +\ln(p_j-s_j)} \label{eq:psif2}\\
+    &\psi > \frac{\delta + \frac{2\ln(s_j)}{g'_j}}{1+\frac{2\ln(s_j)}{g'_j}} = \frac{\delta g'_j/2 + \ln(s_j)}{g'_j/2 +\ln(s_j)} \geq \frac{\delta g'_j/2 + \ln(s_j)}{g'_j +\ln(s_j)}.\label{eq:psig2}
+\end{align}
+ Recall that Assumptions~\hyperlink{lab:A6}{A6}-\hyperlink{lab:A7}{A7} define $f_j= \kappa_j - \ln(p_j-s_j)$ and $\gamma= \frac{1}{2}(1 + \max_j \frac{\ln(p_j-s_j)}{\kappa_j})$ respectively. Hence,
+%By definition of $\gamma= \frac{1}{2}(1 + \max_j \frac{\ln(p_j-s_j)}{\kappa_j})$ in \eqref{eq:defSes} we have
+$$
+\gamma\kappa_j\;\geq\;\frac12 \Big(1+\frac{\ln(p_j-s_j)}{\kappa_j}\Big)\kappa_j\;=\;\ln(p_j-s_j)+\frac12(\kappa_j-\ln(p_j-s_j)) \;=\; \ln(p_j-s_j)+ \frac12f_j.
+$$
+Hence, by \eqref{eq:psif2}, we have
+\begin{equation}\label{eq:ooofjfj3}
+\psi\gamma\kappa_j \;\geq\; \psi\big(\ln(p_j-s_j)+ \frac12f_j\big) \;\geq\;  \ln(p_j-s_j)+ \delta\frac12f_j.
+\end{equation}
+Further,
+%By \hyperlink{lab:A7}{A7} and by our choice of $\psi$ and $\delta$,
+\begin{equation}\label{eq:ooofjfj4}
+\psi\bigg(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2} - \gamma\kappa_j\bigg) \;\geq\; \psi\left(\ln(s_j)+g_j'\right) \;\geq\; \ln(s_j)+\delta \frac{1}{2}g'_j.
+\end{equation}
+where the first inequality follows from \eqref{eq:bngrws} and the second inequality from \eqref{eq:psig2}. In \eqref{eq:boundexp2}, $\psi A^*_{T^M}=\sum_{j=1}^b|M_j \setminus T^M_j|\psi\gamma\kappa_j + \sum_{j=1}^b |T^M_j \setminus M_j|\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) \min_{i\in S^{L}_j(\kappa)}{\beta^*_i}^{2} - \gamma\kappa_j\right)$. Then by \eqref{eq:ooofjfj3} and \eqref{eq:ooofjfj4}, we get
+\begin{equation}\label{eq:fyv2}
+\E(NC(M))\;\leq\;\exp\left\{- \sum_{j=1}^b |M_j\setminus T^M_j|(\ln(p_j-s_j)+\delta \tfrac{f_j}{2})-\sum_{j=1}^b |T^M_j\setminus M_j|(\ln(s_j)+\delta \tfrac{g'_j}{2})\right\}.
+\end{equation}
+
+For the final step of the proof, denote $\mathcal{S}= \sum_{M \in \M\setminus \T(\kappa)} \E\left(NC(M)\right)$ for convenience. By \eqref{eq:fyv2} we have
+\begin{align*}
+    \mathcal{S} &\leq \sum_{M \in \M\setminus \T(\kappa)}e^{- \sum_{j=1}^b |M_j\setminus T^M_j|\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b |T^M_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+We split the sum in the right-hand side above into sums over models $M$ %$M\in \M\setminus \T(\kappa)$ 
+such that $T^M=T$ for some common $T\in \T(\kappa)$. Denote for any $T\in \T$,\, $\M(T):=\{M \in \M\setminus \T(\kappa) \,| T^M=T\}$, then
+\begin{align}\label{eq:gepihw}
+    \mathcal{S} &\leq \sum_{T \in \T(\kappa)}\sum_{M \in \M(T)}e^{- \sum_{j=1}^b |M_j\setminus T_j|\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b |T_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align}
+The right hand-side of \eqref{eq:gepihw} is composed of a double sum over $T \in \T(\kappa)$ and over $M \in \M(T)$. Consider the sum over $M \in \M(T)$, add $T$ to it and denote it
+\begin{equation}\label{eq:defST}
+  \mathcal{S}(T)=\sum_{M \in \M(T) \cup T}e^{- \sum_{j=1}^b |M_j\setminus T_j|\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b |T_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{equation}
+In the summand in the right-hand side of \eqref{eq:defST}, the case $M=T$ correspond to $|M_j\setminus T^M_j|=|T^M_j\setminus M_j|=0$ for all $j$ and the summand is then 1.
+By \eqref{eq:gepihw}, we then get that
+\begin{align}\label{eq:gepihw2}
+    \mathcal{S} &\leq \sum_{T \in \T(\kappa)}\big(\mathcal{S}(T)-1\big).
+\end{align}
+We further split $\mathcal{S}(T)$ into sums over subsets of models $M$ that have $u_j$ more parameters than $T^M$ in block $j$, and are missing $w_j$ parameters from $T^M$.
+Specifically, consider models $M$ such that, for all $j$, $|M_j\setminus T^M_j|=u_j$ and $|T^M_j\setminus M_j|=w_j$ with $u_j \in \{0,\ldots,p_j-s_j,\ldots,p_j-s_j+|S_j^{S}(\kappa)|\}$ and $w_j \in \{0,\ldots,|S^{L}_j(\kappa)|\}$. Denote by
+$$S^{\bs u}_{\bs w}(T)=\sum_{M \in \M(T) \cup T:\forall \,j |M_j\setminus S_j|=u_j, |S_j\setminus M_j|=w_j } e^{- \sum_{j=1}^b u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.$$
+We get
+\begin{equation}\label{eq:uygfew2}
+    \mathcal{S}(T)=\sum_{w_1=0}^{|S^L_1(\kappa)|}\cdots\sum_{w_b=0}^{|S^L_b(\kappa)|}\sum_{u_1=0}^{p_1-s_1+|S_1^S|}\cdots\sum_{u_b=0}^{p_b-s_b+|S_b^S|}S^{\bs u}_{\bs w}(T).
+\end{equation}
+The number of models missing, for all $j$, $w_j$ out of the $|S^L_j(\kappa)|$ large active parameters and having $u_j$ inactive or small active parameters from $B_j$ is $\prod_{j=1}^b {\binom{p_j-s_j+|S^S_j(\kappa)|}{u_j}}{\binom{|S^L_j(\kappa)|}{w_j}}$. We thus have
+\begin{align*}
+    S^{\bs u}_{\bs w}(T)&= \bigg(\prod_{j=1}^b {\binom{p_j-s_j+|S^S_j(\kappa)|}{u_j}}{\binom{|S^L_j(\kappa)|}{w_j}}\bigg)e^{- \sum_{j=1}^b u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)} \\
+    &= \prod_{j=1}^b {\binom{p_j-s_j+|S^S_j(\kappa)|}{u_j}}e^{- u_j\big(\ln(p_j-s_j)+\delta \tfrac{f_j}{2}\big)}{\binom{|S^L_j(\kappa)|}{w_j}}e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+Inputting the expression above in \eqref{eq:uygfew2} and factorizing over terms in $u_j$ and $w_j$ gives
+\begin{align*}
+    \mathcal{S}(T)\leq\prod_{j=1}^b & \Bigg(\sum_{u_j=0}^{p_j-s_j+|S^S_j(\kappa)|}{\binom{p_j-s_j+|S^S_j(\kappa)|}{u_j}}e^{- u_j(\ln(p_j-s_j)+\delta \tfrac{f_j}{2})}\Bigg)\\&.\Bigg(
+    \sum_{w_j=0}^{|S^L_j(\kappa)|}{\binom{|S^L_j(\kappa)|}{w_j}}
+    e^{-w_j(\ln(s_j)+\delta \tfrac{g'_j}{2})}\Bigg).
+\end{align*}
+By the bound in \eqref{eq:upperbound_sumprob} and separating the terms for $u_j=0$ and $w_j=0$ from the sums above, %taking the term in 0 out of the sum above, 
+we have
+\begin{align}\label{eq:ogr}
+    \mathcal{S}(T)\leq\prod_{j=1}^b & \left(1+\sum_{u_j=1}^{p_j-s_j+|S_j^{S}(\kappa)|}e^{-u_j\left(\delta \tfrac{f_j}{2}-\ln\big(1+\frac{|S^{S}_j(\kappa)|}{p_j-s_j}\big)-1\right)}\right)\\&.\left(1+
+    \sum_{w_j=1}^{|S_j^{L}(\kappa)|}    e^{-w_j\left(\delta \tfrac{g'_j}{2}+\ln\big(\frac{s_j}{|S_j^{L}(\kappa)|}\big)-1\right)}\right).\nonumber
+\end{align}
+Denote
+$$
+d_j\;=\;e^{1+\ln\big(1+\frac{|S^{S}_j(\kappa)|}{p_j-s_j}\big)-\delta \tfrac{f_j}{2}},\qquad h_j\;=\;e^{1-\ln\big(\frac{s_j}{|S_j^{L}(\kappa)|}\big)-\delta \tfrac{g'_j}{2}}.
+$$
+By assumption $|S^{S}_j(\kappa)|=O(p_j-s_j)$, and by definition of $|S_j^{L}(\kappa)|$ we have $s_j\geq|S_j^{L}(\kappa)|$. By Assumptions~\hyperlink{lab:A6}{A6}-\hyperlink{lab:A7}{A7}), we also have $f_j\to\infty$ and $g'_j\to\infty$, and then $\lim_{n \to \infty}= d_j= \lim_{n \to \infty} h_j=0$. Using the properties of geometric series, 
+ for every $j$ we have
+\begin{eqnarray*}
+    &1+\sum_{u_j=1}^{p_j-s_j+|S_j^{S}(\kappa)|}e^{-u_j\left(\delta \tfrac{f_j}{2}-\ln\big(1+\frac{|S^{S}_j(\kappa)|}{p_j-s_j}\big)-1\right)}
+    =\frac{1-d_j^{p_j-s_j+|S_j^{S}(\kappa)|+1}}{1-d_j} \\
+    &1+\sum_{w_j=1}^{|S_j^{L}(\kappa)|}    e^{-w_j\left(\delta \tfrac{g'_j}{2}+\ln\big(\frac{s_j}{|S_j^{L}(\kappa)|}\big)-1\right)} =\frac{1-h_j^{|S_j^{L}(\kappa)|+1}}{1-h_j},
+\end{eqnarray*}
+where both expressions converge to $1$ as $n$ grows. By \eqref{eq:gepihw2} and \eqref{eq:ogr}:
+$$\mathcal{S}\leq\sum_{T\in\T}\Bigg(\prod_{j=1}^b\Big(\frac{1-d_j^{p_j-s_j+|S_j^{S}(\kappa)|+1}}{1-d_j}\Big)\Big(\frac{1-h_j^{|S_j^{L}(\kappa)|+1}}{1-h_j}\Big)-1\Bigg).$$
+Each of the summand vanishes as $n\to\infty$. Moreover, by assumption $|S^I(\kappa)|=O(1)$ and then $|\T|=2^{|S^I(\kappa)|}=O(1)$. We thus have $\lim_{n\to\infty}\mathcal{S}=\lim_{n\to\infty}\sum_{M \in \M\setminus \T(\kappa)} \E\left(NC(M)\right)=0$.
+
+Further, by Lemma~\ref{lem:L0toL1convergencegen}, 
+$P(\hat{S}^{b} \not\in \T(\kappa) ) \,\,\leq \,\, (|\T(\kappa)|+1) \mathcal{S} = (2^{|S^{I}(\kappa)|}+1) \mathcal{S}$. Since $\mathcal{S}$ vanishes and $|S^{I}(\kappa)|=O(1)$, $\lim_{n\to\infty}P(\hat{S}^{b} \in \T(\kappa) )=1$ as we wished to prove.
+
+
+\section{Proofs of Section~\ref{sec:informed_l0}}\label{suppsec:proofsempbayes}
+
+\subsection{Proof of Proposition~\ref{prop:shatconsistence}}
+Observe that for every $j=1,\ldots,b$, we have the decomposition
+\begin{gather}\label{eq:decompshat}
+    \frac{\widehat{s}_j}{p_j}
+    =\frac{\sum_{i \in B_j} \sum_{M \in \M | i \in M} NC(M)}{p_j}
+   =A_j\,+\, C_j \\
+       \text{where} \quad A_j=\frac{1}{p_j}\sum_{i \in B_j}\sum_{M \in \T(\kappa)|i\in M}NC(M) \quad\text{and}\quad  C_j=\frac{1}{p_j}\sum_{i \in B_j}\sum_{M \in \M\setminus \T(\kappa)|i\in M}NC(M). \nonumber
+\end{gather}
+To show the lower bound, we decompose $A_j$
+\begin{eqnarray}
+  A_j
+   &=& \sum_{M \in \T(\kappa)}NC(M)\sum_{i \in B_j}\frac{I(i\in M_j)}{p_j}\nonumber\\
+   &=& \sum_{M \in \T(\kappa)}NC(M)\sum_{i \in S^{L}_j(\kappa)}\frac{I(i\in M_j)}{p_j}+\sum_{M \in \T(\kappa)}NC(M)\sum_{i \in B_j\setminus S^{L}_j(\kappa)}\frac{I(i\in M_j)}{p_j}\nonumber\\
+   &=& \frac{|S^{L}_j(\kappa)|}{p_j}\sum_{M \in \T(\kappa)}NC(M)+\sum_{M \in \T(\kappa)}NC(M)\sum_{i \in B_j\setminus S^{L}_j(\kappa)}\frac{I(i\in M_j)}{p_j}\label{eq:wigr}.
+\end{eqnarray}
+where the last equality follows from $I(i\in M_j)=1$ for all $i\in S^L(\kappa)$ when $M\in\T(\kappa)$. The righmost term above and $C_j$ are nonnegative, then by the linearity of the expectation:
+$$\E\Big(\frac{\widehat{s_j}}{p_j}\Big)\geq\frac{|S^{L}_j(\kappa)|}{p_j}\sum_{M \in \T(\kappa)}\E(NC(M)).$$
+By Theorem~\ref{thm:convtoT} (i), $\lim_{n\to\infty}\sum_{M \in \T(\kappa)}\E(NC(M))=1$. It follows that $\lim_{n\to\infty}\E\Big(\frac{\widehat{s_j}}{p_j}\Big)\geq \frac{|S^{L}_j(\kappa)|}{p_j}$ for every $j=1,\ldots,b$.
+
+We now prove the upper bound. Recall that $\T(\kappa)$ by definition includes models that have no small signals, i.e. all parameters are in $S^L(\kappa) \cup S^I(\kappa)$. That is,
+%Since 
+for all $M\in\T(\kappa)$, we have that $I(i\in M_j)=0$ for all $i\in B_j\setminus(S^{L}_j(\kappa)\cup S^{I}(\kappa)_j)$. Hence, $A_j$ in \eqref{eq:wigr} satisfies
+\begin{align*}
+    A_j
+   &= \frac{|S^{L}_j(\kappa)|}{p_j}\sum_{M \in \T(\kappa)}NC(M)+\sum_{M \in \T(\kappa)}NC(M)\sum_{i \in S^{I}_j(\kappa)}\frac{I(i\in M_j)}{p_j}\\
+   &\leq\frac{|S^{L}_j(\kappa)|}{p_j}\sum_{M \in \T(\kappa)}NC(M)+ \frac{|S^{I}(\kappa)_j|}{p_j}\sum_{M \in \T(\kappa)}NC(M)
+\end{align*}
+where the inequality follows from $\sum_{i \in S^{I}_j(\kappa)} I(i\in M_j) \leq |S^{I}(\kappa)_j|$  for all $M$. By \eqref{eq:decompshat}, we then have
+\begin{equation}\label{eq:uuuuu}
+    \frac{\widehat{s}_j}{p_j}\leq \frac{|S^{L}_j(\kappa)|+|S^{I}(\kappa)_j|}{p_j}\sum_{M \in \T(\kappa)}NC(M) + C_j.
+\end{equation}
+Moreover, for every $j=1,\ldots,b$, $C_j$ satisfies
+\begin{equation}\label{eq:uuuuu2}
+    C_j = \sum_{M \in \M\setminus \T(\kappa)}NC(M)\sum_{i \in B_j}\frac{I(i\in M_j)}{p_j}\leq \sum_{M \in \M\setminus \T(\kappa)}NC(M)
+\end{equation}
+where the inequality follows from $\sum_{i \in B_j}\frac{I(i\in M_j)}{p_j}\leq 1$ for all $M$.
+Taking expectations in \eqref{eq:uuuuu} and \eqref{eq:uuuuu2} gives
+\begin{equation*}
+    \E\bigg(\frac{\widehat{s_j}}{p_j}\bigg) 
+    \leq \frac{|S^{L}_j(\kappa)|+|S^{I}(\kappa)_j|}{p_j}\sum_{M \in \T(\kappa)}\E(NC(M)) + \sum_{M \in \M\setminus \T(\kappa)}\E(NC(M)).
+\end{equation*}
+ By Theorem~\ref{thm:convtoT} (i), we have on one hand $\lim_{n\to \infty}\sum_{M \in \T(\kappa)}\E(NC(M))= 1$ and, on the other hand, $\lim_{n\to \infty}\sum_{M \in \M\setminus\T(\kappa)}\E(NC(M))= 0$. It follows that $ \lim_{n\to \infty}\E\big(\frac{\widehat{s_j}}{p_j}\big) \leq  \frac{|S^{L}_j(\kappa)|+|S^{I}(\kappa)_j|}{p_j}= \frac{s_j-|S^{S}_j(\kappa)|}{p_j}$ for every $j=1,\ldots,b$, which proves the upper bound.
+
+
+\subsection{Proof of Theorem~\ref{theo:empbayesselconsist}} The proof strategy is to show that Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7} required by Theorem~\ref{theo:suffcondlinearmodel} all hold. Recall that Theorem~\ref{theo:empbayesselconsist} makes Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A8}{A8} and \hyperlink{lab:A9}{A9}, hence it suffices to show that \hyperlink{lab:A6}{A6}-\hyperlink{lab:A7}{A7} hold.
+We first derive a convenient decomposition of the empirical Bayes penalties $\kappa^{EB}_j$. The second step of the proof is to show that, with probability going to 1, these $\kappa^{EB}_j$ satisfy Assumption~\hyperlink{lab:A6}{A6}. The third step of the proof is to show that Assumption~\hyperlink{lab:A9}{A9} implies Assumption~\hyperlink{lab:A7}{A7} for $\kappa^{EB}_j$. The consistency of $\hat S^{EB,b}$ then follows from Theorem~\ref{theo:suffcondlinearmodel}.
+
+Denote for any $M\in\M$, $NC^{\circ}(M)$, the normalized criterion value for model $M$ under Step 1 penalty $\kappa^{\circ}$. For this choice of penalty and every $j=1,\ldots,b$, we have
+\begin{align*}
+    \frac{\widehat{s_j}}{p_j}
+    &\;=\; \frac{1}{p_j}\sum_{i\in B_j}\,\,\sum_{M\in \M}NC(M)I(i\in M)\\
+   &\;=\; \frac{1}{p_j}\sum_{M \in \M}NC^{\circ}(M)\sum_{i \in B_j}I(i\in M) \\
+   &\;=\;\frac{s_j}{p_j}NC^{\circ}(S) + \sum_{M \in \M | M \neq S}\frac{|M_j|}{p_j}NC^{\circ}(M).
+\end{align*}
+Using that $NC^{\circ}(S)=1-\sum_{M \in \M | M \neq S}NC^{\circ}(M)$, we get
+\begin{equation*}
+   \frac{\widehat{s}_j}{p_j}
+   =\frac{s_j}{p_j} + \sum_{M \in \M | M \neq S}\frac{|M_j|-s_j}{p_j}NC^{\circ}(M).
+\end{equation*}
+Splitting the sum in the right-hand side above between models $M$ that
+contain more parameters than $S$ in block $j$ and those that contain less parameters than $S$, %are overfitting in $B_j$ in the sense $|M_j|> s_j$ and those that are underfitting in $B_j$, in the sense $|M_j|<s_j$, we can write:
+\begin{equation}\label{eq:rewriteshat}
+  \frac{\widehat{s}_j}{p_j}  = \frac{s_j}{p_j}\,\,+\,\, O_j^{\circ}-\,\,U_j^{\circ}
+\end{equation}
+where
+$$
+    O_j^{\circ} = \sum_{M \in \M | |M_j| > s_j}\frac{|M_j|-s_j}{p_j}NC^{\circ}(M)\quad\text{and}\quad
+    U_j^{\circ} = \sum_{M \in \M | |M_j| < s_j}\frac{s_j-|M_j|}{p_j}NC^{\circ}(M).
+$$
+Observe that we have the following decomposition of Step 2 penalties
+$$\kappa^{EB}_j
+    = \ln(p_j-s_j) + \ln\Big(\frac{\sqrt{n}}{s_j}\Big) + \ln\Big(\frac{p_j-\widehat{s}_j}{p_j-s_j}\Big) + \ln\Big(\frac{s_j}{\widehat{s}_j}\Big). \nonumber$$
+By \eqref{eq:rewriteshat}, we then have that
+\begin{eqnarray}\label{eq:decompstep2pen}
+    \kappa^{EB}_j&=& \ln(p_j-s_j)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)+\ln\Big(1-\frac{p_j(O^{\circ}_j-U^{\circ}_j)}{p_j-s_j}\Big)+\ln\Big(\frac{s_j}{\widehat{s}_j}\Big).
+\end{eqnarray}
+completing the first step of the proof.
+
+We continue with the second step of the proof: showing that the $\kappa^{EB}_j$'s satisfy Assumption~\hyperlink{lab:A6}{A6} with probability going to 1. Recall that Assumption~\hyperlink{lab:A6}{A6} states that there exists $f_j\to \infty$ (as $n\to \infty$) such that for every sufficiently large $n$,
+\begin{equation*}
+    \kappa_j \;=\;\ln(p_j-s_j) + f_j.
+\end{equation*}
+Since $U_j^{\circ}$ is nonnegative, a lower bound on $\kappa^{EB}_j$ is %for every $j=1,\ldots,b$ is:
+\begin{equation}\label{eq:decompstep2pen2}
+    \kappa^{EB}_j
+    \geq  \ln(p_j-s_j)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)+\ln\Big(1-\frac{p_j O^{\circ}_j}{p_j-s_j}\Big)+\ln\Big(\frac{s_j}{\widehat{s}_j}\Big).
+\end{equation}
+Plugging in the definition of $O^{\circ}_j$, we have that
+$$\frac{p_j O^{\circ}_j}{p_j-s_j} =  \sum_{M \in \M | |M_j| > s_j}\frac{|M_j|-s_j}{p_j-s_j}NC^{\circ}(M)\leq \sum_{M \in \M | |M_j| > s_j}NC^{\circ}(M)$$
+where the inequality follows from $(|M_j|-s_j)/(p_j-s_j)\leq 1$ for all $M$.
+Note that if $M$ is such that $|M_j|>s_j$, then $M\not\in\T(\kappa^{\circ})$ (this follows immediately from the definition of $\T(\kappa)$ in \eqref{eq:Tkappa})  and therefore $\sum_{M \in \M | |M_j| > s_j}NC^{\circ}(M)\leq \sum_{M \in \M \setminus \T(\kappa^{\circ})}NC^{\circ}(M)$. Moreover, $\kappa^{\circ}$ satisfies Assumption~\hyperlink{lab:A6}{A6} and the assumptions of Theorem~\ref{thm:convtoT} are met for $\kappa^{\circ}$.
+Then, by Theorem~\ref{thm:convtoT}, $\lim_{n\to\infty} \sum_{M \in \M \setminus \T(\kappa^{\circ})}NC^{\circ}(M)=\lim_{n\to\infty}\sum_{M \in \M | |M_j| > s_j}NC^{\circ}(M) = 0$, $\frac{p_j O^{\circ}_j}{p_j-s_j}$ vanishes in probability and so does $\ln\Big(1-\frac{p_j O^{\circ}_j}{p_j-s_j}\Big)$. By Assumption~\hyperlink{lab:A8}{A8}, we also have that $\ln(\sqrt{n}s_j^{-1})\to\infty$. 
+Then, to show that Assumption~\hyperlink{lab:A6}{A6} holds it is enough to show that with probability going to 1, $\ln(s_j/\widehat{s}_j)$ is nonnegative. Observe that all assumptions in Proposition~\ref{prop:shatconsistence} are also met for $\kappa^{\circ}$. By \eqref{eq:uuuuu} and \eqref{eq:uuuuu2} in the proof of Proposition~\ref{prop:shatconsistence}, we have
+\begin{equation*}
+    \frac{\widehat{s}_j}{p_j}\leq \frac{|S^{L}_j(\kappa^{\circ})|+|S^{I}(\kappa^{\circ})_j|}{p_j}\sum_{M \in \T(\kappa^{\circ})}NC(M) + \frac{1}{p_j} \sum_{M \in \M\setminus \T(\kappa^{\circ})}NC(M).
+\end{equation*}
+By Theorem~\ref{thm:convtoT} (i), $\sum_{M \in \T(\kappa^{\circ})}NC(M)$ and $\sum_{M \in \M\setminus\T(\kappa^{\circ})}NC(M)$ converge in probability to 1 and 0 respectively. We then have that, with probability going to 1,
+\begin{equation*}
+    \frac{\widehat{s}_j}{p_j}\leq \frac{|S^{L}_j(\kappa^{\circ})|+|S^{I}(\kappa^{\circ})_j|}{p_j} \Longrightarrow
+    \quad\ln\Big(\frac{s_j}{\widehat{s}_j}\Big)\geq \ln\bigg(\frac{s_j}{|S^{L}_j(\kappa^{\circ})|+|S^{I}(\kappa^{\circ})_j|} \bigg) \geq 0.
+\end{equation*}
+We then obtain that, with probability going to 1,
+\begin{equation}\label{eq:eeeeeeeh}
+    \kappa^{EB}_j
+    \geq  \ln(p_j-s_j)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)
+\end{equation}
+and that the $\kappa^{EB}_j$ satisfy Assumption~\hyperlink{lab:A6}{A6}, completing the second part of the proof.\medskip
+
+For the third and final part of the proof, 
+we now show that Assumption~\hyperlink{lab:A9}{A9} implies Assumption~\hyperlink{lab:A7}{A7} for the $\kappa_j^{EB}$ with probability going to 1. Recall that Assumption~\hyperlink{lab:A7}{A7} for the $\kappa_j^{EB}$ states that for each block $j$ there exists $g_j\to \infty$ such that for large enough $n$,
+    \begin{equation*}
+        \sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{{\beta_{\min,j}^*}} \,- \,\sqrt{\kappa^{EB}_j} \;=\; \sqrt{\ln(s_j)} + g_j .
+    \end{equation*}
+where $\gamma$ takes value
+\begin{equation}\label{eq:gammakeb}
+    \gamma=\frac12\Big(1+\max_j\frac{\ln(p_j-s_j)}{\kappa^{EB}_j}\Big).
+\end{equation}
+Observe that Assumption~\hyperlink{lab:A9}{A9} and Assumption~\hyperlink{lab:A7}{A7} take the same form. To show that Assumption~\hyperlink{lab:A9}{A9} implies Assumption~\hyperlink{lab:A7}{A7} for the $\kappa_j^{EB}$ with probability going to 1, it suffices to show that the following two inequalities
+\begin{align}
+    \sqrt{\frac{ (1-\gamma)n\rho(\bs X)}{6}}{\beta_{\min,j}^*} \,&\geq \,  \sqrt{\frac{ (1-\psi)n\rho(\bs X)}{6}}{\beta_{\min,j}^*}, \label{eq:oaebr} \\
+    - \,\sqrt{\kappa^{EB}_j} \,&\geq \,-\sqrt{\ln\bigg(\frac{p}{|S^{L}(\kappa^{\circ})|}-1\bigg)+\frac12\ln(n)}\label{eq:oaebr2}
+\end{align}
+hold with probability going to 1 for $\gamma$ as in \eqref{eq:gammakeb} and $\psi=\frac12\big(1+\max_j \frac{\ln(p_j-s_j)}{\ln(p_j/s_j-1)+0.5\ln(n)}\big)$ (defined in Assumption~\hyperlink{lab:A9}{A9}). We first show \eqref{eq:oaebr} holds with probability going to 1 and then that \eqref{eq:oaebr2} does too.
+
+By \eqref{eq:eeeeeeeh}, with probability going to 1,
+$$ \frac{\ln(p_j-s_j)}{\kappa^{EB}_j}
+    \leq \frac{\ln(p_j-s_j)}{\ln(p_j-s_j)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)} =  \frac{\ln(p_j-s_j)}{\ln(p_j/s_j-1)+0.5\ln(n)} .$$
+It follows that:
+\begin{equation*}
+    \gamma=\frac12\Big(1+\max_{j=1, \ldots,b}\frac{\ln(p_j-s_j)}{\kappa^{EB}_j}\Big) \leq \frac12\Big(1+\max_j \frac{\ln(p_j-s_j)}{\ln(p_j/s_j-1)+0.5\ln(n)}\Big)=\psi
+\end{equation*}
+and \eqref{eq:oaebr} holds with probability going to 1.
+
+We now upper bound $\kappa^{EB}_j$ to show \eqref{eq:oaebr2} holds with probability going to 1. Observe that 
+$$
+\ln\Big(\frac{\widehat{s}_j}{s_j}\Big)=
+ \ln \left( 1 + \frac{\hat{s}_j - s_j}{s_j}\right) =   
+\ln\Big(1+\frac{p_j(O^{\circ}_j-U^{\circ}_j)}{s_j}\Big).
+$$
+where the second equality follows from \eqref{eq:rewriteshat}.
+Plugging this expression into \eqref{eq:decompstep2pen}, and using that $O_j^{\circ} \geq 0$, we have that  %Since $O_j^{\circ}$ is nonnegative, from \eqref{eq:decompstep2pen} we have that %, for every $j=1,\ldots,b$, an upper bound on $\kappa^{EB}_j$ is:
+\begin{equation}\label{eq:gggggggg}
+    \kappa^{EB}_j \leq \ln\big(p_j-s_j\big)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)+\ln\bigg(\frac{1+\frac{p_j}{p_j-s_j}U^{\circ}_j}{1-\frac{p_j}{s_j}U^{\circ}_j}\bigg).
+\end{equation}
+We split the sum in $U^{\circ}_j$ between models in $\T(\kappa^{\circ})$ and those not in $\T(\kappa^{\circ})$. 
+$$U_j^{\circ} = \sum_{M \in \T(\kappa^{\circ}) | |M_j| < s_j}\frac{s_j-|M_j|}{p_j}NC^{\circ}(M)+\sum_{M \in \M\setminus\T(\kappa^{\circ}) | |M_j| < s_j}\frac{s_j-|M_j|}{p_j}NC^{\circ}(M).
+$$
+If $M\in \T(\kappa^{\circ})$, then by definition $|M_j|\geq |S^{L}_j(\kappa^{\circ})|$ and thus $s_j-|M_j|\leq s_j-|S^{L}_j(\kappa^{\circ})|$. A bound on $s_j-|M_j|$ for $M\not\in \T(\kappa^{\circ})$ is simply $s_j-|M_j|\leq s_j$. It follows that
+\begin{eqnarray*}
+    U^{\circ}_j \leq \frac{s_j-|S^{L}_j(\kappa^{\circ})|}{p_j}\sum_{M \in \T(\kappa^{\circ}) | |M_j| < s_j}NC^{\circ}(M)+  \frac{s_j}{p_j}\sum_{M \in \M \setminus \T(\kappa^{\circ})| |M_j| < s_j}NC^{\circ}(M)
+\end{eqnarray*}
+By Theorem~\ref{thm:convtoT}, $\sum_{M \in  \T(\kappa^{\circ})| |M_j| < s_j}NC^{\circ}(M)$ and $\sum_{M \in \M \setminus \T(\kappa^{\circ})| |M_j| < s_j}NC^{\circ}(M)$ converge in probability to 1 and 0 respectively. We then get that, with probability going to 1,
+\begin{align}
+    \frac{p_j}{p_j-s_j}U^{\circ}_j &\leq \frac{s_j-|S^{L}_j(\kappa^{\circ})|}{p_j-s_j}\nonumber\\
+    \frac{p_j}{s_j}U^{\circ}_j &\leq  \frac{s_j-|S^{L}_j(\kappa^{\circ})|}{s_j}. \label{eq:gewou}
+\end{align}
+By the bounds above and \eqref{eq:gggggggg}, we have that with probability going to 1,
+\begin{align*}
+  \kappa^{EB}_j 
+  &\leq \ln\big(p_j-s_j\big)+\ln\Big(\frac{\sqrt{n}}{s_j}\Big)+\ln\Bigg(\frac{1+\frac{s_j-|S^{L}_j(\kappa^{\circ})|}{p_j-s_j}}{1- \frac{s_j-|S^{L}_j(\kappa^{\circ})|}{s_j}}\Bigg) \nonumber\\
+  &= \ln\big(p_j-s_j\big) + \ln\Big(\frac{\sqrt{n}}{s_j}\Big) + \ln\Bigg(\frac{\frac{p_j-|S^{L}_j(\kappa^{\circ})|}{p_j-s_j}}{ \frac{|S^{L}_j(\kappa^{\circ})|}{s_j}}\Bigg) \\
+&=\ln\big(p_j/|S^{L}_j(\kappa^{\circ})|-1\big)+\frac{1}{2}\ln(n)\label{eq:finalupperboundkappaj}
+\end{align*}
+which shows \eqref{eq:oaebr2} holds with probability going to 1 and that
+Assumption~\hyperlink{lab:A9}{A9} implies Assumption~\hyperlink{lab:A7}{A7} holds for the $\kappa^{EB}_j$ with probability going to 1. 
+
+Since Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7} hold with probability going to 1, by Theorem~\ref{theo:suffcondlinearmodel}, $\lim_{n\to\infty}P(\hat{S}^{EB,b}= S)= 1$, as we wished to prove.
+
+\subsection{Proof of Theorem~\ref{theo:informedl0consist}} The proof strategy is similar to that of Theorem~\ref{theo:empbayesselconsist} and relies on several results therein. The first step is to show that $\kappa^{A}_j$ satisfies Assumption~\hyperlink{lab:A6}{A6} with probability going to 1 as $n$ grows. The second step is to show that Assumption~\hyperlink{lab:A10}{A10} implies Assumption~\hyperlink{lab:A7}{A7} for the $\kappa^{A}_j$ with probability going to 1. The consistency of $\hat S^{A,b}$ then follows from Theorem~\ref{theo:suffcondlinearmodel}.
+
+Observe that $\kappa_j^{A}=\kappa_j^{EB}+\ln(\widehat s_j)$, hence by \eqref{eq:decompstep2pen2} we have that
+\begin{equation*}
+    \kappa_j^{A}
+    \geq  \ln(p_j-s_j)+\ln(\sqrt{n})+\ln\Big(1-\frac{p_j O^{\circ}_j}{p_j-s_j}\Big).
+\end{equation*}
+In the proof of Theorem~\ref{theo:empbayesselconsist} we showed that $\ln\Big(1-\frac{p_j O^{\circ}_j}{p_j-s_j}\Big)$ vanishes in probability as $n$ grows. With probability going to 1, we then have that
+\begin{equation}\label{eq:finallowerboundkappaj2}\kappa^{A}_j 
+    \geq  \ln(p_j-s_j)+\ln(\sqrt{n})
+\end{equation}
+and hence that the $\kappa^{A}_j$'s satisfy Assumption~\hyperlink{lab:A6}{A6}.
+
+For the second part of the proof,
+we now show that Assumption~\hyperlink{lab:A10}{A10} implies Assumption~\hyperlink{lab:A7}{A7} for the $\kappa^{A}_j$. Assumption~\hyperlink{lab:A7}{A7} for the $\kappa_j^{A}$ states that for each block $j$ there exists $g_j\to \infty$ such that for large enough $n$,
+    \begin{equation*}
+        \sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{{\beta_{\min,j}^*}} \,- \,\sqrt{\kappa^{EB}_j} \;=\; \sqrt{\ln(s_j)} + g_j .
+    \end{equation*}
+where $\gamma$ takes value
+\begin{equation}\label{eq:gammaka}
+    \gamma=\frac12\Big(1+\max_j\frac{\ln(p_j-s_j)}{\kappa^{A}_j}\Big).
+\end{equation}
+To show that Assumption~\hyperlink{lab:A10}{A10} implies Assumption~\hyperlink{lab:A7}{A7} for the $\kappa_j^{A}$ with probability going to 1, it suffices to show that the following two inequalities
+\begin{align}
+    \sqrt{\frac{ (1-\gamma)n\rho(\bs X)}{6}}{\beta_{\min,j}^*} \,&\geq \,  \sqrt{\frac{ (1-\xi)n\rho(\bs X)}{6}}{\beta_{\min,j}^*}, \label{eq:oaebr3}\;\;\text{and} \\
+    - \,\sqrt{\kappa^{A}_j} \,&\geq \,-\sqrt{\ln\bigg(p-|S^{L}(\kappa^{\circ})|\bigg)+\frac12\ln(n)}\label{eq:oaebr4}
+\end{align}
+hold with probability going to 1 for $\gamma$ as in \eqref{eq:gammaka} and $\xi=\frac12\big(1+\max_j \frac{\ln(p_j-s_j)}{\ln(p_j-s_j)+0.5\ln(n)}\big)$ (defined in Assumption~\hyperlink{lab:A10}{A10}). We first show \eqref{eq:oaebr3} holds with probability going to 1 and then that \eqref{eq:oaebr4} does too.
+
+By \eqref{eq:finallowerboundkappaj2} we have that with probability going to 1, for any $j$
+\begin{equation*}
+\frac{\ln(p_j-s_j)}{\kappa^{A}_j} 
+    \leq  \frac{\ln(p_j-s_j)}{\ln(p_j-s_j)+0.5\ln(n)}.
+\end{equation*}
+I follows that
+\begin{equation*}
+    \gamma=\frac12\Big(1+\max_{j=1, \ldots,b}\frac{\ln(p_j-s_j)}{\kappa^ A_j}\Big) \leq \frac12\big(1+\max_j \frac{\ln(p_j-s_j)}{\ln(p_j-s_j)+0.5\ln(n)}\big)=\xi
+\end{equation*}
+and \eqref{eq:oaebr3} holds with probability going to 1.
+
+We now upper bound $\kappa^{A}_j$ to show \eqref{eq:oaebr4} holds with probability going to 1. By \eqref{eq:decompstep2pen}, we can write
+    $$\kappa_j^{A}=\kappa_j^{EB}+\ln(\widehat s_j)= \ln(p_j-s_j)+\ln\big(\sqrt{n}\big)+\ln\Big(1-\frac{p_j(O^{\circ}_j-U^{\circ}_j)}{p_j-s_j}\Big).$$
+Since $O_j^{\circ} \geq 0$, we obtain that % is nonnegative, for every $j=1,\ldots,b$, an upper bound on $\kappa^{A}_j$ is:
+\begin{equation*}
+    \kappa^{A}_j \leq \ln\big(p_j-s_j\big)+\ln(\sqrt{n})+\ln\bigg(1+\frac{p_j}{p_j-s_j}U^{\circ}_j\bigg).
+\end{equation*}
+By \eqref{eq:gewou}, with probability going to 1:
+\begin{align}\label{eq:finalupperboundkappaj2}
+    \kappa_j^A &\leq  \ln\big(p_j-s_j\big)+\ln(\sqrt{n})+\ln\bigg(1+\frac{s_j-|S^{L}_j(\kappa^{\circ})|}{p_j-s_j}\bigg)\nonumber\\
+    &= \ln\big(p_j-|S^{L}_j(\kappa^{\circ})|\big)+\frac{1}{2}\ln(n).
+\end{align}
+which shows \eqref{eq:oaebr4} holds with probability going to 1 and that
+Assumption~\hyperlink{lab:A10}{A10} implies Assumption~\hyperlink{lab:A7}{A7} holds for the $\kappa^{A}_j$ with probability going to 1. 
+
+Since Assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7} hold with probability going to 1, by Theorem~\ref{theo:suffcondlinearmodel}, $\lim_{n\to\infty}P(\hat{S}^{A,b}= S)= 1$, as we wished to prove.
+
+\section{Gaussian sequence model with fixed number of active signals}\label{suppsec:appendixGSMsfinite}
+
+We derive here selection properties of the block $\ell_0$ penalties in the Gaussian sequence model dropping Assumption~\hyperlink{lab:A3}{A3} and focusing instead on regimes where:\\[5pt]
+\hypertarget{lab:A11}{(A11)} \quad For all $j$, \;$s_j \;\leq\;k_j$ for some constant $k_j$.\\[5pt]
+Changing Assumption~\hyperlink{lab:A3}{A3} for Assumption~\hyperlink{lab:A11}{A11} implies redeveloping results relative to the probability of false negatives and consequently sufficient and necessary betamin assumptions. Proposition~\ref{prop:isthresh} (on the equivalence between block penalties and thresholding in the Gaussian sequence model) as well as Proposition~\ref{prop:suffnecblockthresh} (i) and (ii) (on the probability of false positives) do not assume Assumption~\hyperlink{lab:A3}{A3}, they do not depend on results assuming \hyperlink{lab:A3}{A3}, and hold equally under Assumption~\hyperlink{lab:A11}{A11}.
+
+\subsection{Selection based on block thresholds}
+
+Consider the betamin assumption:\\[5pt]
+\hypertarget{lab:A12}{(A12)} \quad For all $j$, \; $\sqrt{n}(\beta_{\min,j}^*-\tau_j) \to \infty$.\\[5pt]
+\begin{prop}\label{prop:suffnecIIblockthreshbis}
+ In the sequence model \eqref{eq:GSM}, assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A2}{A2}, \hyperlink{lab:A11}{A11}, and \hyperlink{lab:A12}{A12}.
+ \begin{enumerate}[label=(\roman*)]
+  \item Then $\lim_{n\to\infty}P(\hat{S}^{b}\supseteq S ) \;=\; 1$.
+  \item If, in addition, Assumptions~\hyperlink{lab:A4}{A4} holds, then  $\lim_{n\to\infty}P(\hat{S}^{b}=S  ) \;=\; 1$.
+ \end{enumerate}
+\end{prop}
+Under Assumption ~\hyperlink{lab:A11}{A11}, Assumption~\hyperlink{lab:A12}{A12} is then sufficient for $\hat{S}^{b}$ to hold the screening property (i.e., including all truly active parameters asymptotically). When, in addition, Assumption~\hyperlink{lab:A4}{A4}, that requires the block thresholds grow at least as fast as $\sqrt{2\ln(p_j-s_j)/n}$, holds, $\hat{S}^{b}$ is variable selection consistent.
+
+By Lemma~\ref{lem:gennecIIblockthresh}, Assumption~\hyperlink{lab:A12}{A12} is also necessary for $\hat{S}^{b}$ to hold the screening property, independently of assumptions on the $s_j$'s. It follows that, under Assumption ~\hyperlink{lab:A11}{A11}, Assumption~\hyperlink{lab:A12}{A12} is  necessary and sufficient for $\hat{S}^{b}$ to hold the screening property. In Proposition~\ref{prop:suffnecblockthresh} (i) and (ii), we also showed that Assumption~\hyperlink{lab:A4}{A4} is necessary and sufficient for the vanishing of the FWER. We then get the next proposition on necessary assumptions for consistent recovery.
+
+\begin{lem}\label{lem:necbetaminblockthresh2}
+    In the sequence model \eqref{eq:GSM}, assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A2}{A2}, \hyperlink{lab:A11}{A11} and that there exists $j\in\{1,\ldots,b\}$ such that
+\begin{equation}\label{eq:necbetaminblockthreshbis}
+      \lim_{n\to \infty}\sqrt{n}\beta_{\min,j}^*-\sqrt{2\ln(p_j-s_j)} < \infty . 
+    \end{equation}
+Then \;  $\lim_{n \to \infty} P(\hat{S}^{b} = S) < 1$.
+\end{lem}
+By Lemma~\ref{lem:necbetaminblockthresh2}, under Assumption~\hyperlink{lab:A11}{A11}, a necessary assumption for asymptotic support recovery is
+\begin{equation}\label{eq:nectypeIIGSMfinite}
+\lim_{n \to \infty} \sqrt{n}\beta_{\min,j}^*-\sqrt{2\ln(p_j-s_j)} = \infty.
+\end{equation}
+
+The earlier Theorem~\ref{theo:fullrecovGS} on rates of convergence with $\hat S^b$ holds under Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5}, independently of Assumption~\hyperlink{lab:A3}{A3}. Observe that under Assumption~\hyperlink{lab:A11}{A11}, Assumption~\hyperlink{lab:A12}{A12} implies Assumption~\hyperlink{lab:A5}{A5} for every $n$ large enough. Then Theorem~\ref{theo:fullrecovGS} holds equally under Assumption~\hyperlink{lab:A11}{A11}, assuming  \hyperlink{lab:A4}{A4} and \hyperlink{lab:A12}{A12}.
+
+We next shortly examine the benefits of block penalties in this setting. Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A12}{A12} give ranges of thresholds that are necessary and sufficient for asymptotic support recovery. For the standard selector $\hat S$, the single threshold $\tau$ is required to satisfy, for some
+sequences $f\to \infty$,
+\begin{equation*}
+    \sqrt{2\ln(p-s)} \;\leq \;\sqrt{n}\tau\; \leq\; \sqrt{n}\beta_{\min}^* + f.
+\end{equation*}
+For a block threshold selector $\hat S^b$, the ranges for the $\tau_j$'s are, for some sequences $f_j\to \infty$,
+\begin{equation*}
+  \sqrt{2\ln(p_j-s_j)} \;\leq\; \sqrt{n}\tau_j \;\leq\; \sqrt{n}\beta_{\min,j}^* + f_j.
+\end{equation*}
+As in the diverging $s_j$'s regime given by Assumption~\hyperlink{lab:A3}{A3}, under the bounded $s_j$ regime given by Assumption~\hyperlink{lab:A11}{A11} the ranges for $\hat S^b$ are wider than that for $\hat S$. The necessary and 
+sufficient assumptions to have variable selection consistency are then milder with block thresholds. The next corollary gives precise conditions under which consistent selection is possible with $\hat S^b$ but not with $\hat S$.
+\begin{cor}\label{cor:sfin}
+ In the sequence model \eqref{eq:GSM}, assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A2}{A2}, \hyperlink{lab:A4}{A4}, \hyperlink{lab:A11}{A11} and \hyperlink{lab:A12}{A12}.  If
+\begin{eqnarray*}
+&\lim_{n\to\infty}\sqrt{n}\beta_{\min}^*-\sqrt{2\ln(p-s)} \;<\;\infty
+\end{eqnarray*}
+then 
+$\lim_{n\to\infty}P(\hat{S} = S)< 1$ and $\lim_{n\to\infty}P(\hat{S}^{b} = S)= 1$.  
+\end{cor}
+
+Let $\underline{\beta}_{\min,orth}^{*, b}$ and $\underline{\beta}_{\min , orth}^*$ be the smallest signal recoverable by $\hat{S}^b$ and $\hat{S}$ respectively. Assuming $\beta_{\min}^*$ is in block $b$, Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A12}{A12} require that $\underline{\beta}_{\min,orth}^{*, b}$ and $\underline{\beta}_{\min,orth }^*$ satisfy, for some sequences $g, h \rightarrow \infty$,
+\begin{align*}
+& \sqrt{n}\;\underline{\beta}_{\min ,orth}^{*, b} \geq \sqrt{2\ln \left(p_b-s_b\right)}+g, \quad\text{and}\\
+& \sqrt{n}\;\underline{\beta}_{\min,orth}^* \geq \sqrt{2\ln(p-s)}+h.
+\end{align*}
+These lower bounds are the same as for $\underline{\beta}_{\min ,orth}^{*, b}$ and $ \underline{\beta}_{\min, orth}^*$ in the diverging $s_j$'s case, up to logarithmic terms in the number of active signals, and up to $g$ and $h$ which can grow arbitrarily slowly with $n$. Note that in Examples 1, 2 and 4 in Section~\ref{sec:examples}, $\ln(s_j)=o(\ln(p_j-s_j))$ for all $j$. The discussion of the asymptotic behavior of the ratio $\underline{\beta}_{\min ,orth}^{*, b} / \underline{\beta}_{\min, orth}^*$ in those examples hence extend to the fixed $s_j$'s case. Finally, since Theorem~\ref{theo:fullrecovGS} holds both under Assumptions \hyperlink{lab:A3}{A3} and \hyperlink{lab:A11}{A11}, the discussion on the gains in terms of convergence rate in Sections~\ref{sec:prosconsblock} and \ref{sec:examples} remains valid here.
+
+\subsection{Proofs}
+
+\subsubsection{Proof of Proposition~\ref{prop:suffnecIIblockthreshbis}}
+ By the union bound, 
+$$P\big(\hat{S}^{b} \not\supseteq S\big)\leq \sum_{j=1}^b  P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right).$$ 
+By Lemma~\ref{lemma:3tailbounds} (ii), for each $j$,	
+$$P\left(\min_{i\in S_j}|y_i/\sqrt{n}|\leq\tau_j\right)\;\leq\; P\left(\max_{i\in S_j}|y_i/\sqrt{n}-\beta_i| \geq\beta_{\min,j}^*-\tau_j \right).$$ By Lemma~\ref{lemma:3tailbounds} (i), we have;
+\begin{equation}
+P\left(\hat{S}^{b}\not\supseteq S \right) \;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau_j)^2-\tfrac{2\ln(s_j)}{n}\right)}}{\sqrt{\pi\ln(s_j)}}.		
+\end{equation}
+Under Assumptions \hyperlink{lab:A11}{A11} and \hyperlink{lab:A12}{A12}, %under Assumption~\hyperlink{lab:A11}{A11}, 
+the right-hand side vanishes, which proves Part (i). By Proposition~\ref{prop:suffnecblockthresh} (i), since \hyperlink{lab:A4}{A4} is assumed to hold, we also have $\lim_{n\to\infty}P\big(\hat{S}^{b} \subseteq S\big)=1$. This implies that $\lim_{n\to\infty}P\big(\hat{S}^{b} = S\big)= 1$, proving Part (ii).
+
+\subsubsection{Proof of Lemma~\ref{lem:necbetaminblockthresh2}}
+ First, we re-write 
+ $$\sqrt{n}\beta_{\min,j}^*-\sqrt{2\ln(p_j-s_j)} \,=\, \sqrt{n}\beta_{\min,j}^*-\sqrt{n}\tau_j+\sqrt{2\ln(p_j-s_j)}\Big(\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}}-1\Big).$$ 
+ Condition \eqref{eq:necbetaminblockthreshbis} implies that there exists $c\in\R^+$ such that
+  \begin{equation}\label{eq:proofnecbetaminbis}
+      \lim_{n\to \infty}\sqrt{n}\beta_{\min,j}^*-\sqrt{n}\tau_j+\sqrt{2\ln(p_j-s_j)}\Big(\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}}-1\Big)\leq c
+  \end{equation}
+
+Consider the case $\lim_{n\to \infty}\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}}-1<0$. Then by Proposition~\ref{prop:suffnecblockthresh} (ii),
+$\lim_{n\to \infty}P(\hat{S}^{b} \subseteq S)< 1$ and $\lim_{n\to \infty}P(\hat{S}^{b} = S)< 1$.  Now consider the case $\lim_{n\to \infty}\tfrac{\sqrt{n}\tau_j}{\sqrt{2\ln(p_j-s_j)}}-1 \geq0$. Condition \eqref{eq:proofnecbetaminbis} then implies that $\lim_{n\to \infty}\sqrt{n}\beta_{\min,j}^*-\sqrt{n}\tau_j \leq c$. By Lemma~\ref{lem:gennecIIblockthresh}, we have that $\lim_{n\to \infty}P(\hat{S}^{b} \supseteq S)< 1$ and $\lim_{n\to \infty}P(\hat{S}^{b} = S)< 1$.
+
+\subsubsection{Proof of Corollary~\ref{cor:sfin}} Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A12}{A12} hold, by Proposition~\ref{prop:suffnecblockthresh} (i) and Proposition~\ref{prop:suffnecIIblockthreshbis}, $\lim_{n\to \infty}P(\hat{S}^b \subseteq 1)= 1$ and $\lim_{n\to \infty}P( \hat{S}^b \supseteq S)=1$, and then $\lim_{n\to \infty}P(\hat{S}^b = S)=1$.
+
+\section{Non linear block $\ell_0$ penalties in high-dimensional linear regression}\label{suppsec:appendixnonlinear}
+
+\subsection{Selection properties of nonlinear block $\ell_0$ penalties}
+
+In this section we show the variable selection consistency of the block $\ell_0$ penalties in the linear regression without assuming linearity of the penalty functions. Results holds equally for fixed or diverging $p_j-s_j$ and $s_j$. We let, for all $j=1,\ldots,b$, $\eta_j$ be any non-negative and increasing penalty functions on the natural numbers. The selector based on those block penalties is:
+\begin{equation}
+  \hat S^b\;\in\;\arg\max_{M\in \M} \left\{\max_{\beta\in \mathcal{L}_M} \ell(\bs y;\bs \beta)-\sum_{j=1}^b\eta_j (|M_j|)\right\}.
+\end{equation}
+
+Rewrite the difference in penalty between any model $M$ and $S$ as
+\begin{equation}\label{eq:DeltaMbis}
+\Delta_{MS} \; := \; \sum_{j=1}^b \eta_j(|M_j|)-\eta_j(|S_j|).
+\end{equation}
+We define the average block penalty when comparing $M$ and $S$ as
+%in block penalty between any model $M$ and $S$ as the function:
+\begin{equation}\label{eq:defkappatilde}
+    \tilde{\kappa}_{j}(M)= \begin{cases}
+     \frac{\eta_j(|M_j|)-\eta_j(|S_j|)}{|M_j|\,-\,|S_j|} \;\;\; \text{if}\;\;\; |M_j|\,\neq\,|S_j| \\
+     0 \;\;\;\text{if}\;\;\; |M_j|\,=\,|S_j|.
+ \end{cases}
+\end{equation}
+The function $\tilde{\kappa}_{j}$ plays a similar role than $\kappa_j$ in the linear penalty case. The quantity $\tilde{\kappa}_{j}(M)$ is the average penalty incurred for adding a variable from block $B_j$ to model $M$. If $\eta_j(|M_j|)$ is linear in $|M_j|$ for every $M$, then $\tilde{\kappa}_{j}= \kappa_j$.
+
+To show the consistency of $\hat S^b$, we replace Assumption~\hyperlink{lab:A6}{A6} by an assumption on the $\tilde{\kappa}_{j}$'s, and we require a new betamin assumption.\\[5pt]
+\hypertarget{lab:A13}{(A13)} \quad For each block $j$, there exists $f_j\to \infty$ (as $n\to \infty$) such that, for all $M \in \M$ with $|M_j| \neq |S_j|$ and $|M_j \setminus S_j| >0$, and for all sufficiently large $n$,
+\begin{equation*}
+    \tilde{\kappa}_{j}(M) \;=\;\ln\bigg(\frac{p_j-s_j}{|M_j \setminus S_j| }\bigg) + f_j(M).
+\end{equation*}
+\hypertarget{lab:A14}{(A14)}\quad For each block $j$, there exists $l_j\to \infty$ such that for all sufficiently large $n$,
+    \begin{equation*}
+        \sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}\beta_{\min,j}^* \,- \,\sqrt{\max_{M\in \M}\tilde{\kappa}_{j}(M)} \;=\; \sqrt{\ln(s_j)} + l_j
+    \end{equation*}
+where $\gamma:=\frac12(1+\max_j \frac{\ln(p_j-s_j)}{\ln(p_j-s_j) +\min_{M: |M_j\setminus S_j|>0}f_j(M)})\in (\tfrac12,1)$.\\[5pt] 
+We can now state the main result of this section.
+\begin{thm}\label{theo:suffcondlinearmodelnonlinpen}
+
+Under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A13}{A13} and, \hyperlink{lab:A14}{A14}, we have
+$$\sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)\to 0 \qquad \mbox{and} \qquad P(\hat{S}^b = S) \to 1.$$
+\end{thm}
+Theorem~\ref{theo:suffcondlinearmodelnonlinpen} is consistent with results in the literature. A popular nonlinear penalty in high-dimensional variable selection is the EBIC penalty \cite{EBIC}, which sets for some $\zeta\geq 0$,
+\begin{equation}\label{eq:EBICpen}
+    \eta(|M|)=\zeta\ln{\binom{p}{|M|}} + \tfrac{1}{2}\ln(n).
+\end{equation}
+The penalty can be shown to satisfy Assumption~\hyperlink{lab:A13}{A13} under a restriction on the number of active signals. A corollary of Theorem~\ref{theo:suffcondlinearmodelnonlinpen} is as follows.
+\begin{cor}\label{cor:ebic}
+    Suppose that Assumption~\hyperlink{lab:A1}{A1} holds, that $\eta$ is as in \eqref{eq:EBICpen} with $\zeta\geq1$, that $s^{\zeta+1}=o(\sqrt{n})$, and that there exists $l\to \infty$ such that, for sufficiently large $n$,
+    \begin{equation}\label{eq:betaminebic}
+        \sqrt{\frac{ \big(\ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+ k(s)\big)n\rho(\bs X)\beta_{\min}^*}{12\big(\ln(p-s)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+k(s)\big)}}\,- \,\sqrt{\zeta\ln\big(p-s+1\big)+\zeta-1+\ln(\sqrt{n})} \;=\; \sqrt{\ln(s)} + l .
+    \end{equation}
+    where $k(s)=\zeta s\ln(1-s^{-1})$. Then Assumptions~\hyperlink{lab:A13}{A13} and \hyperlink{lab:A14}{A14} hold and, $$\sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)\to 0 \qquad \mbox{and} \qquad P(\widehat{S}^b = S) \to 1.$$    
+\end{cor}
+Corollary~\ref{cor:ebic} shows the consistency of the EBIC penalty under milder betamin conditions than the literature \cite{EBIC,ebicdiverging}. It also shows that the EBIC is \emph{strongly} selection consistent.
+By strongly we mean that beyond the standard model selection consistency given by $\lim_{n \to \infty} P(\hat{S}^b = S)=1$, we also have that $\lim_{n \to \infty} \mathbb E(NC(S))=1$. The latter implies that the evidence for $S$, as measured by $NC(S)$, is infinitely larger than the evidence for any other $M \neq S$.
+
+Observe that the assumptions and proof strategy of Theorem~\ref{theo:suffcondlinearmodelnonlinpen} are similar to those of Theorem~\ref{theo:suffcondlinearmodel}. We do not develop them here but results analogous to Theorem~\ref{prop:fullrecovreg} on convergence rates and the necessary conditions in Section~\ref{ssec:neccond_linreg} can be obtained for the nonlinear penalties. We also expect the benefits of linear block penalties to extend to the nonlinear ones.
+
+\subsection{Proofs}
+\subsubsection{Proof of Theorem~\ref{theo:suffcondlinearmodelnonlinpen}}
+The proof is essentially the same as the proof of Theorem~\ref{theo:suffcondlinearmodel} replacing $\kappa_j$ by $\tilde{\kappa}_{j}$ for every $j=1,\ldots,b$. We first use Lemma~\ref{lem:boundexpnc} with $T = S$ to show that for every $M\neq S$, $\E(NC(M)) \leq e^{-\psi A_S}$ for every large enough $n$ and any $\psi \in (0,1)$, where $A_S=\gamma\Delta_{MS}+\tfrac{1-\gamma}{6}\mu_{Q_SM}$ (\emph{cf} \eqref{eq:DeltaMbis} and \eqref{eq:muQM}), $\gamma\in(1/2,1)$ is defined in Assumption~\hyperlink{lab:A14}{A14} and $Q_S= M\cup S$.
+The second step is to obtain a lower bound for $A_S$, which gives a new upper bound for $\E(NC(M))$.
+The final step is to use these bounds to get an upper-bound on $\sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)$ that vanishes under Assumptions~\hyperlink{lab:A13}{A13} and \hyperlink{lab:A14}{A14}. We then use Lemma~\ref{lem:L0toL1convergence} to conclude on the vanishing of $P(\hat S^b \neq S)$. 
+
+First, to show that $\E(NC(M)) \leq e^{-\psi A_S}$
+for any $M\in\mathcal{M}\setminus \{S\}$, we show that $A_S$ satisfies the conditions of Lemma~\ref{lem:boundexpnc}, taking $T=S$. 
+That is, we wish to show that, $A_S>0$, $|M\setminus S|=o(A_S)$, and $\mu_{Q_S S}=o(A_S)$. 
+Observe that $\Delta_{MS}$, defined in \eqref{eq:DeltaMbis}, can be rewritten as $\Delta_{MS}=\sum_{j=1}^b(|M_j\setminus S_j|-|S_j\setminus M_j|)\tilde{\kappa}_j(M)$. By  Lemma~\ref{lem:boundrho}, for every $n\in \N$ we have 
+\begin{equation}\label{eq:nonoverfittingcondbis}
+\begin{aligned}
+   A_S\;&=\; \gamma \Delta_{MS}+\frac{1-\gamma}{6}\mu_{Q_SM}\\
+   &\geq\; \gamma\sum_{j=1}^b|M_j \setminus S_j|\tilde{\kappa}_j(M) + \sum_{j=1}^b |S_j\setminus M_j |\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\tilde{\kappa}_j(M)\right) 
+\end{aligned}
+\end{equation} 
+For all $M$ and all $j$, $\tilde{\kappa}_j(M)$ is nonnegative by Assumption~\hyperlink{lab:A13}{A13}
+For all $M$ and all $j$, $\tilde{\kappa}_j(M)\leq \ln(p_j-s_j)+f_j(M)$ and then, by Assumption~\hyperlink{lab:A14}{A14}, the last term in the right hand-side of the inequality is nonnegative. Since $M\neq S$, $|M\setminus S|\neq0$ or $|S\setminus M|\neq0$, then for every $n$ large enough $A_S>0$. We immediately have $\mu_{Q_S S}=o(A_S)$ because $\beta^*_{Q_S\setminus S}=\beta^*_{M\setminus S}=0$ (any parameter outside the true support $S$ is by definition 0) and hence $\mu_{Q_S S}=0$.
+If $|M\setminus S|=0$, $|M\setminus S|=o(A_S)$ also immediately. Consider now the case $|M\setminus S|\neq 0$. Since the last term in the right hand-side of the inequality in \eqref{eq:nonoverfittingcondbis} is nonnegative, we have
+$$\frac{|M\setminus S|}{A_S}
+= \frac{|M\setminus S|}{\gamma \Delta_{MS}+\frac{1-\gamma}{6}\mu_{Q_SM}}
+\leq \bigg[ \gamma\sum_{j=1}^b\frac{|M_j \setminus S_j|}{|M\setminus S|}\tilde{\kappa}_j(M) \bigg]^{-1} \leq \Big[ \gamma\min_{j=1,\ldots,b|\tilde{\kappa}_j(M) \neq0}\tilde{\kappa}_j(M) \Big]^{-1} $$
+where the last inequality follows from $\sum_{j=1}^b\frac{|M_j \setminus S_j|}{|M\setminus S|}=1$. By Assumption~\hyperlink{lab:A13}{A13}, $\min_{j|\tilde{\kappa}_j(M) \neq0} \tilde{\kappa}_j(M) \to \infty$ as $n \rightarrow \infty$, and hence $|M\setminus S|=o(A_S)$. Hence, %We conclude that for every $M\in \mathcal M\setminus \{S\}$, 
+by Lemma~\ref{lem:boundexpnc}, for any $\psi\in(0,1)$ and all $n$ large enough,
+$
+\E(NC(M))\;\leq\;e^{-\psi A_S}.
+$
+
+For the second step of the proof, let $A_S^*$ be the lower bound for $A_S$ given in \eqref{eq:nonoverfittingcondbis}. That is 
+$$A_S^*\;:=\;\gamma\sum_{j=1}^b|M_j \setminus S_j|\tilde{\kappa}_j(M) + \sum_{j=1}^b |S_j\setminus M_j |\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\tilde{\kappa}_j(M)\right).$$
+
+By \eqref{eq:nonoverfittingcondbis}, we have for all $n$ large enough,
+\begin{equation}\label{eq:boundexpbis}
+    \E(NC(M))\;\leq\;e^{-\psi A_S^*}.
+\end{equation}
+Since $\tilde{\kappa}_j(M) \leq \ln(p_j-s_j)+f_j(M)$ for all $M$, Assumption~\hyperlink{lab:A14}{A14} implies that there exists $g'_j \to \infty$ such that
+\begin{equation}\label{eq:ogbeabis}
+    \frac{(1-\gamma) n\rho(\bs X)}{6}{\beta_{\min,j}^*}^2 \,- \,\tilde{\kappa}_j(M) \;=\; \ln(s_j) + g'_{j}.
+\end{equation}
+Let $\delta \in (0,1)$ and denote $\bar{m}_j=\max\big\{\frac{2\ln(p_j-s_j)}{f_j(M)},\frac{2\ln(s_j)}{g'_{j}}\big\}$ where $f_j$ is given in Assumption~\hyperlink{lab:A14}{A14}. 
+Take $\psi=\max_{j=1,\ldots,b}\frac{\xi + \delta + \bar{m}_j}{1+\bar{m}_j}$ for some $\xi \in(0, 1- \delta)$ then $\psi \in (0,1)$ and we have, for every $j=1,\ldots,b$,
+\begin{align}
+    &\psi > \frac{\delta + \frac{2\ln(p_j-s_j)}{f_j(M)}}{1+\frac{2\ln(p_j-s_j)}{f_j(M)}} = \frac{\delta f_j(M)/2 + \ln(p_j-s_j)}{f_j(M)/2 +\ln(p_j-s_j)} \geq \frac{\delta f_j(M)/2 + \ln[(p_j-s_j)/|M_j\setminus S_j|]}{f_j(M)/2 +\ln[(p_j-s_j)/|M_j\setminus S_j|]}\label{eq:psifbis}\\
+    &\psi > \frac{\delta + \frac{2\ln(s_j)}{g'_j}}{1+\frac{2\ln(s_j)}{g'_j}} = \frac{\delta g'_j/2 + \ln(s_j)}{g'_j/2 +\ln(s_j)} \geq \frac{\delta g'_j/2 + \ln(s_j)}{g'_j +\ln(s_j)}.\label{eq:psigbis}
+\end{align}
+By definition of $\gamma$ in Assumption~\hyperlink{lab:A14}{A14}, for all $M$ such that $|M_j\setminus S_j|>0$, $$\gamma \geq \frac12(1+ \frac{\ln[(p_j-s_j)/|M_j\setminus S_j|]}{\ln[(p_j-s_j)/|M_j\setminus S_j|] + f_j(M)}),$$ and it follows that 
+\begin{align*}
+    \gamma\tilde{\kappa}_j(M)
+    &\;\geq\;\frac12 \Big(1+\frac{\ln[(p_j-s_j)/|M_j\setminus S_j|]}{\tilde{\kappa}_j(M)}\Big)\tilde{\kappa}_j(M)\\
+    &\;=\;\ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|}\Big)+\frac12\Big(\tilde{\kappa}_j(M)-\ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|}\Big)\Big)\\
+    & \;=\; \ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|}\Big)+ \frac12f_j(M).
+\end{align*}
+Hence, by \eqref{eq:psifbis}, when $|M_j\setminus S_j|>0$ we have
+\begin{equation*}
+\psi\gamma\tilde{\kappa}_j(M) \;\geq\; \psi\Big(\ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|}\Big)+ \frac12f_j(M)\Big)\\ \;\geq\; \ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|}\Big)+ \delta\frac12f_j(M).
+\end{equation*}
+Taking the minimum of $f_j(M)$ over $M\in \M$ such that $|M_j\setminus S_j|>0$, we get
+\begin{equation*}
+\psi\gamma\tilde{\kappa}_j(M) \;\geq\;  \ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|\vee 1}\Big)+ \delta\frac12 \min_{M: |M_j\setminus S_j|>0}f_j(M),
+\end{equation*}
+and then, for any $|M_j \setminus S_j| \geq 0$,
+\begin{equation}\label{eq:ooofjfjbis}
+    |M_j\setminus S_j|\psi\gamma\tilde{\kappa}_j(M) \geq |M_j\setminus S_j|\Big(\ln\Big(\frac{p_j-s_j}{|M_j\setminus S_j|\vee 1}\Big)+ \delta\frac12\min_{M: |M_j\setminus S_j|>0}f_j(M)\Big).
+\end{equation}
+Further using that $\gamma \in(0,1)$,
+%By \hyperlink{lab:A14}{A14} and by our choice of $\psi$ and $\delta$,
+\begin{equation}\label{eq:ooofjfj2bis}
+\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\tilde{\kappa}_j(M)\right) \;\geq\; \psi\left(\ln(s_j)+g_j'\right) \;\geq\; \ln(s_j)+\delta \frac{1}{2}g'_j.
+\end{equation}
+where the first inequality follows from \eqref{eq:ogbeabis} and the second inequality from \eqref{eq:psigbis}. In \eqref{eq:boundexpbis}, $\psi A^*_S=\sum_{j=1}^b|M_j \setminus S_j|\psi\gamma\tilde{\kappa}_j(M) + \sum_{j=1}^b |S_j\setminus M_j |\psi\left(\tfrac{1-\gamma}{6} n \rho(\bs X) {\beta^*_{\min,j}}^{2} - \gamma\tilde{\kappa}_j(M)\right)$. Then by \eqref{eq:ooofjfjbis} and \eqref{eq:ooofjfj2bis} , we get
+\begin{align}\label{eq:fyvbis}
+\E(NC(M))\;\leq\;\exp  \Bigg\{ & - \sum_{j=1}^b |M_j\setminus S_j|\big(\ln\big(\tfrac{p_j-s_j}{|M_j\setminus S_j|\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big) \\ & -\sum_{j=1}^b |S_j\setminus M_j|(\ln(s_j)+\delta \tfrac{g'_j}{2})\Bigg\}.    \nonumber
+\end{align}
+
+For the final step of the proof, denote $\mathcal{S}= \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)$ for convenience. By \eqref{eq:fyvbis} we have that
+\begin{align*}
+    \mathcal{S} &\leq \sum_{M \in \M\setminus \{S\}}e^{- \sum_{j=1}^b |M_j\setminus S_j|\big(\ln\big(\tfrac{p_j-s_j}{|M_j\setminus S_j|\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)-\sum_{j=1}^b |S_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+Observe that if $|M_j\setminus S_j|=0$ and $|S_j\setminus M_j|=0$ for all $j$, then $M=S$ and the summand in the right-hand side above is 1. Then by adding and resting 1 we get that
+$$\mathcal{S} \leq \sum_{M \in \M}e^{- \sum_{j=1}^b |M_j\setminus S_j|\big(\ln\big(\tfrac{p_j-s_j}{|M_j\setminus S_j|\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)-\sum_{j=1}^b |S_j\setminus M_j|\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}-1.$$
+We can split the sum in the right-hand side above into sums over the models that have the same number of inactive variables and missing the same number of truly active variables in every block. That is, the models $M$ such that for all $j$, $|M_j\setminus S_j|=u_j$ and $|S_j\setminus M_j|=w_j$ with $u_j \in \{0,\ldots,p_j-s_j\}$ and $w_j \in \{0,\ldots,s_j\}$. Denote
+$$S^{\bs u}_{\bs w}=\sum_{\substack{M \in \M:\;\forall \,j\;\; |M_j\setminus S_j|=u_j,\\ |S_j\setminus M_j|=w_j }} e^{- \sum_{j=1}^b u_j\big(\ln\big(\tfrac{p_j-s_j}{u_j\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.$$
+We get that
+\begin{equation}\label{eq:uygfewbis}
+    \mathcal{S} \leq -1+\sum_{w_1=0}^{s_1}\cdots\sum_{w_b=0}^{s_b}\sum_{u_1=0}^{p_1-s_1}\cdots\sum_{u_b=0}^{p_b-s_b}S^{\bs u}_{\bs w}.
+\end{equation}
+The number of models having, for all $j$, $u_j$ inactive parameters and missing $w_j$ out of the $s_j$ active parameters %with given collection of $u_j$'s and $w_j$'s 
+is $\prod_{j=1}^b {\binom{p_j-s_j}{u_j}}{\binom{s_j}{w_j}}$. We thus have that
+\begin{align*}
+    S^{\bs u}_{\bs w}&= \bigg(\prod_{j=1}^b {\binom{p_j-s_j}{u_j}}{\binom{s_j}{w_j}}\bigg)e^{- \sum_{j=1}^b u_j\big(\ln\big(\tfrac{p_j-s_j}{u_j\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)-\sum_{j=1}^b w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)} \\
+    &= \prod_{j=1}^b {\binom{p_j-s_j}{u_j}}e^{- u_j\big(\ln\big(\tfrac{p_j-s_j}{u_j\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)}{\binom{s_j}{w_j}}e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}.
+\end{align*}
+Plugging the expression above into \eqref{eq:uygfewbis} gives that
+\begin{align*}
+    \mathcal{S} 
+    \;\leq\; -1+\sum_{w_1=0}^{s_1}\cdots\sum_{w_b=0}^{s_b}\sum_{u_1=0}^{p_1-s_1}\cdots\sum_{u_b=0}^{p_b-s_b}\prod_{j=1}^b & {\binom{p_j-s_j}{u_j}}e^{- u_j\big(\ln\big(\tfrac{p_j-s_j}{u_j\vee 1}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)}\\&. {\binom{s_j}{w_j}}e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}
+\end{align*}
+and by factorizing,
+\begin{align*}
+    \mathcal{S}\;\leq\; -1+ \prod_{j=1}^b&\left(1+\sum_{u_j=1}^{p_j-s_j}{\binom{p_j-s_j}{u_j}}e^{- u_j\big(\ln\big(\tfrac{p_j-s_j}{u_j}\big)+\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}\big)}\right)\\&.\left(1+
+    \sum_{w_j=1}^{s_j}{\binom{s_j}{w_j}}
+    e^{-w_j\big(\ln(s_j)+\delta \tfrac{g'_j}{2}\big)}\right).
+\end{align*}
+where the second inequality follows from first factorizing over terms in $u_j$ and $w_j$ and then taking the term in 0 out of every sum.
+By the bound on the binomial coefficient in \eqref{eq:upperboudbinom}, we have that
+\begin{equation}\label{eq:upperbound_sumprobbis}
+    \mathcal{S} \;\;\leq\;\; -1+\prod_{j=1}^b\left(1+\sum_{u_j=1}^{p_j-s_j}e^{-u_j\left(\delta \tfrac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}-1\right)}\right)\left(1+
+    \sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)}\right).
+\end{equation}
+Denote
+$$
+d_j=e^{1-\delta \frac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}}, \quad h_j=e^{1-\delta \frac{g_j^{\prime}}{2}}.
+$$
+where both expressions go to zero as $n$ increases since $\min_{M: |M_j\setminus S_j|>0}f_j(M) \rightarrow \infty$ and $g_j^{\prime} \rightarrow \infty$. For every $j$, by the properties of geometric sums, we have
+$$
+\begin{aligned}
+& 1+\sum_{u_j=1}^{p_j-s_j} e^{-u_j\left(\delta \frac{\min_{M: |M_j\setminus S_j|>0}f_j(M)}{2}-1\right)}=\frac{1-d_j^{p_j-s_j+1}}{1-d_j}, \\
+& 1+\sum_{w_j=1}^{s_j} e^{-w_j\left(\delta \frac{g_j^{\prime}}{2}-1\right)}=\frac{1-h_j^{s_j+1}}{1-h_j}.
+\end{aligned}
+$$
+Since both expressions converge to 1 as $n$ grows, we get $$\lim _{n \rightarrow \infty} S=\lim _{n \rightarrow \infty} \sum_{M \in \mathcal{M} \backslash\{S\}}\E(NC(M))=0.$$ By Lemma 4.2, $P\left(\hat{S}^b \neq S\right) \leq 2 S$ and then $\lim _{n \rightarrow \infty} P\left(\hat{S}^b=S\right)=1$.
+
+\subsubsection{Proof of Corollary~\ref{cor:ebic}}
+The proof strategy is to first show that $\eta$ satisfies Assumption~\hyperlink{lab:A13}{A13}, then that \eqref{eq:betaminebic} implies Assumption~\hyperlink{lab:A14}{A14}. The consistency results then follow from Theorem~\ref{theo:suffcondlinearmodelnonlinpen}.
+
+To show that $\eta$ satisfies Assumption~\hyperlink{lab:A13}{A13}, we show that, for all $M\neq S$ such that $|M\setminus S|>0$ and $\tilde{\kappa}(M)$ defined in \eqref{eq:defkappatilde}, the function $f(M):=\tilde{\kappa}(M)-\ln(p-s/|M\setminus S|)$ is lower bounded by a diverging sequence. Let $M\in\M$ and denote $|M\setminus S|=u$ and $|S\setminus M|=w$. We have $|M|=u+s-w$ and $|M|-|S|=u-w$. Since $M\neq S$ and $|M\setminus S|>0$, we restrict our attention to $M\in\mathcal{M}$ such that $u- w\neq0$ and $u>0$. We consider first the case of $M\in\mathcal{M}$ such that $u-w>0$, we have
+    \begin{equation*}
+        \tilde{\kappa}(M)=\frac{\zeta}{u-w}\ln\bigg[\frac{\binom{p}{|M|}}{\binom{p}{|S|}}\bigg]+ \frac{1}{2}\ln(n).
+    \end{equation*}
+    A well-known property of binomial coefficients is that for any positive integers $n$, $h$, $k$ we have
+    \begin{equation}\label{eq:idbinom}
+        \binom{n}{h}\binom{n-h}{k}=\binom{n}{h+k}\binom{h+k}{h}.
+    \end{equation}
+    Taking $n=p$, $k=u-w$ and $h=s$ in \eqref{eq:idbinom}, we get
+    \begin{equation}\label{eq:identitybinom}
+        \tilde{\kappa}(M)=\frac{\zeta}{u-w}\ln\bigg[\frac{\binom{p -s}{u-w}}{\binom{|M|}{s}}\bigg]+ \frac{1}{2}\ln(n).
+    \end{equation}
+Standard bounds on binomial coefficient for $1\leq k\leq n$ are
+\begin{equation}\label{eq:boundbinom}
+  \left(\frac{n}{k}\right)^k \leq  \binom{n}{k} \leq \frac{n^n}{k^k(n-k)^{n-k}}.
+\end{equation}
+Using the bounds in \eqref{eq:boundbinom} in \eqref{eq:identitybinom}, we get
+\begin{equation}\label{eq:gggg}
+    \frac{\zeta}{u-w}\ln\bigg[\frac{\binom{p}{|M|}}{\binom{p}{s}}\bigg] \geq \zeta\ln\bigg(\frac{p-s}{u-w}\bigg)-\zeta\bigg[\frac{s}{u-w}\ln\bigg(\frac{u-w}{s}+1\bigg) +\ln\bigg(1+\frac{s}{u-w}\bigg) \bigg].
+\end{equation}
+We have
+\begin{equation}\label{eq:gggg2}
+\zeta\ln\bigg(\frac{p-s}{u-w}\bigg) \geq \zeta\ln\bigg(\frac{p-s}{u}\bigg) \geq \ln\bigg(\frac{p-s}{u}\bigg).\end{equation}
+where the first inequality follows from $u-w\leq u$ and the second from $\zeta\geq 1$.
+Observe also that $h(x)= \frac{\ln(x+1)}{x}+\ln(1+{x}^{-1})$ is decreasing for $x>0$ and that $\frac{u-w}{s} \geq s^{-1}$. By \eqref{eq:gggg} and \eqref{eq:gggg2}, we then have 
+\begin{equation*}
+        \tilde{\kappa}(M) \geq \ln\big(\frac{p-s}{u}\big)-\zeta s\ln(s^{-1}+1)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big),
+\end{equation*}
+and for every $M\in\mathcal{M}$ such that $u-w>0$,
+\begin{equation}\label{eq:lowerboundb1ebic2}
+        f(M) \geq -\zeta s\ln(s^{-1}+1)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big).
+\end{equation}
+Since $\lim_{n\to\infty}s\ln(s^{-1}+1)=1$ and by assumption $s^{\zeta+1}=o(\sqrt{n})$, $\eta$ satisfies Assumption~\hyperlink{lab:A13}{A13} in the case of $M\in\mathcal{M}$ such that $u-w>0$.
+Consider now the case where $M$ is such that $u-w<0$. We have
+     \begin{equation*}
+        \tilde{\kappa}(M)=\frac{\zeta}{w-u}\ln\bigg[\frac{\binom{p}{s}}{\binom{p}{|M|}}\bigg]+ \frac{1}{2}\ln n.
+    \end{equation*}
+ Taking $n=p$, $k=w-u$ and $h=|M|$ in \eqref{eq:idbinom} gives
+     \begin{equation}\label{eq:identitybinom2}
+     \tilde{\kappa}(M)=\frac{\zeta}{w-u}\ln\bigg[\frac{\binom{p - |M|}{w-u}}{\binom{s}{|M|}}\bigg]+ \frac{1}{2}\ln n.
+    \end{equation}
+Using the bounds in \eqref{eq:boundbinom}, we get
+\begin{equation}\label{eq:PVnk}
+    \frac{\zeta}{w-u}\ln\bigg[\frac{\binom{p}{s}}{\binom{p}{|M|}}\bigg] \geq \zeta\ln\bigg(\frac{p-|M|}{w-u}\bigg)+\zeta\bigg[\frac{s}{w-u}\ln\bigg(1-\frac{w-u}{s}\bigg) -\ln\bigg(\frac{s}{w-u}-1\bigg) \bigg].
+\end{equation}
+We have
+$$\ln\bigg(\frac{p-|M|}{w-u}\bigg)=\ln\bigg(\frac{p-s}{u}\bigg)+\ln\bigg(\frac{p-|M|}{p-s}\bigg)+\ln\bigg(\frac{u}{w-u}\bigg).$$
+Since $u-w<0$, we have $|M|<s$ and $\ln((p-|M|)/(p-s))\geq 0$. Since $w\leq s$ and $u\geq 1$, $\ln(u/(w-u))\geq\ln(1/(s-1))$. Using also that $\zeta\geq 1$, we have
+\begin{equation}\label{eq:feIH}
+    \zeta\ln\bigg(\frac{p-|M|}{w-u}\bigg) \geq \ln\bigg(\frac{p-s}{u}\bigg) - \ln(s-1)
+\end{equation}
+where the right-hand side is well defined because since $u>0$ and $u-w<0$, we have $2\leq w\leq s$. Observe that $g:x \mapsto \frac{\ln(1-x)}{x}-\ln({x}^{-1}-1)$ for $x\in(0,1)$ is increasing and that $1>\frac{w-u}{s} \geq s^{-1}$. By \eqref{eq:PVnk} and \eqref{eq:feIH}, we then get for all $M\in \M$ such that $u-w<0$, 
+\begin{equation*}
+        \tilde{\kappa}(M) \geq \ln\big(\frac{p-s}{u}\big)+\zeta s\ln(1-s^{-1})+ \ln \big(\tfrac{\sqrt{n}}{(s-1)^{\zeta+1}}\big).
+\end{equation*}
+and for every $M\in\mathcal{M}$ such that $w-u>0$,
+\begin{equation}\label{eq:bounbkappaebicunderfit}
+        f(M) \geq \zeta s\ln(1-s^{-1})+ \ln \big(\tfrac{\sqrt{n}}{(s-1)^{\zeta+1}}\big).
+\end{equation}
+Since $\lim_{n\to\infty}s\ln(1-s^{-1})=-1$ and by assumption $s^{\zeta+1}=o(\sqrt{n})$, $\eta$ satisfies Assumption~\hyperlink{lab:A13}{A13} in the case $u-w<0$ too.
+
+We now show that if \eqref{eq:betaminebic} holds then Assumption~\hyperlink{lab:A14}{A14} holds.
+Assumption~\hyperlink{lab:A14}{A14} for $\eta$ as in \eqref{eq:EBICpen} states that there exists $l_j\to \infty$ such that for large enough $n$,
+    \begin{equation*}
+        \sqrt{\frac{(1-\gamma) n\rho(\bs X)}{6}}{{\beta_{\min}^*}} \,- \,\sqrt{\max_{M\in\M}\tilde{\kappa}(M)} \;=\; \sqrt{\ln(s)} + l_j .
+    \end{equation*}
+where $\gamma$ takes value
+\begin{equation}\label{eq:gammaebic}
+    \gamma=\frac12\Big(1+\frac{\ln(p-s)}{\ln(p-s)+\min_{M: |M\setminus S|>0}f(M)}\Big).
+\end{equation}
+To show that if \eqref{eq:betaminebic} holds then Assumption~\hyperlink{lab:A14}{A14} holds for $\eta$, it suffices to show that the following two inequalities:
+\begin{align}
+    - \,\sqrt{\max_{M\in\M}\tilde{\kappa}(M)} \,&\geq \,-\sqrt{\zeta\ln\big(p-s+1\big)+\zeta-1+\frac{1}{2}\ln(n)}\label{eq:oaebr4bis},\quad\text{and} \\
+    \sqrt{\frac{ (1-\gamma)n\rho(\bs X)}{6}}{\beta_{\min,j}^*} \,&\geq \,  \sqrt{\frac{ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+\zeta s\ln(1-s^{-1})}{\ln(p-s)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+\zeta s\ln(1-s^{-1})}\frac{ n\rho(\bs X)}{12}}{\beta_{\min,j}^*}, \label{eq:oaebr3bis}
+\end{align}
+hold. We start with \eqref{eq:oaebr4bis}. If $u-w>0$, by \eqref{eq:identitybinom}, the upper bound in \eqref{eq:upperboudbinom}, and the lower bound in \eqref{eq:boundbinom}, then
+ \begin{eqnarray*}
+     \tilde{\kappa}(M) &\leq& \zeta\ln\Big(\frac{(p-s)e}{u-w}\Big)-\zeta(1+\frac{s}{u-w})\ln\Big(1+\frac{u-w}{s}\Big)+\frac{1}{2}\ln(n).
+ \end{eqnarray*}
+ Using that, for $x\geq1$, $(1+\frac{1}{x})\ln(1+x)\geq 1$ and $\ln\big(\frac{(p-s)e}{x}\big)\leq \ln(p-s)+1$. We get that, for all $M$ such that $u-w>0$, 
+  \begin{eqnarray}\label{eq:pifr} 
+     \tilde{\kappa}(M) &\leq& \zeta\ln(p-s)+\zeta-1+\frac{1}{2}\ln(n).
+ \end{eqnarray}
+If $w-u>0$, by \eqref{eq:identitybinom2}, the upper bound in \eqref{eq:upperboudbinom}, and the lower bound in \eqref{eq:boundbinom}, then
+ \begin{eqnarray*}
+     \tilde{\kappa}(M) &\leq& 
+     \zeta\ln\Big(\frac{(p-s+(w-u))e}{w-u}\Big)+\zeta(\frac{s}{w-u}-1)\ln\Big(1
+     -\frac{w-u}{s}\Big)+\frac{1}{2}\ln(n).
+ \end{eqnarray*}
+Using that, for $x\geq 1$, $(1+\frac{1}{x})\ln(1+x)\geq 1$ and $\ln\Big(\frac{(p-s+x)e}{x}\Big)\leq \ln(p-s+1)+1$, we get that for all $M$ such that $w-u>0$,
+\begin{eqnarray}\label{eq:pifr2}
+     \tilde{\kappa}(M) &\leq& \zeta\ln\big(p-s+1\big)+\zeta-1+\frac{1}{2}\ln(n).
+ \end{eqnarray}
+By \eqref{eq:pifr} and \eqref{eq:pifr2},
+ \begin{eqnarray*}
+     \max_{M\in\M}\tilde{\kappa}(M)  &\leq& \zeta\ln\big(p-s+1\big)+\zeta-1+\frac{1}{2}\ln(n).
+ \end{eqnarray*}
+which shows \eqref{eq:oaebr4bis}. We now show \eqref{eq:oaebr3bis}. By \eqref{eq:lowerboundb1ebic2} and \eqref{eq:bounbkappaebicunderfit}, we have
+$$\min_{M: |M\setminus S|>0}f(M) \geq \zeta s\ln(1-s^{-1})+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big).$$
+If follows that
+ \begin{align*}
+ \gamma&=\frac12\Big(1+\frac{\ln(p-s)}{\ln(p-s)+\min_{M: |M\setminus S|>0}f(M)}\Big) \\&\leq \frac12\Big(1+\frac{\ln(p-s)}{\ln(p-s)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+\zeta s\ln(s^{-1}-1)}\Big).
+ \end{align*}
+ Simple algebra gives
+  \begin{equation*}
+ 1-\gamma\geq \frac12\frac{ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+\zeta s\ln(1-s^{-1})}{\ln(p-s)+ \ln \big(\tfrac{\sqrt{n}}{(1+s)^{\zeta}}\big)+\zeta s\ln(1-s^{-1})}
+ \end{equation*}
+ which shows \eqref{eq:oaebr3bis} and that \eqref{eq:betaminebic} is sufficient for  Assumption~\hyperlink{lab:A14}{A14} to hold.
+ 
+ Since Assumptions~\hyperlink{lab:A13}{A13} and \hyperlink{lab:A14}{A14} hold for $\eta$ as in \eqref{eq:EBICpen}, by Theorem~\ref{theo:suffcondlinearmodelnonlinpen}, $\lim_{n\to\infty}P(\hat{S}^{b}\neq S)= 1$, as we wished to prove.
+
+
+\section{Tightness of conditions for variable selection consistency in linear regression}\label{suppsec:tightness}
+
+We compare our sufficient conditions for variable selection consistency with standard $\ell_0$ selector $\hat{S}$ to those for an optimal selector that knows $s$ analyzed in \cite{infotheowainwright} and to our necessary conditions.
+
+Theorem~\ref{theo:suffcondlinearmodel} shows variable selection consistency with $\hat{S}^b$ under assumptions~\hyperlink{lab:A6}{A6} and \hyperlink{lab:A7}{A7}. By \eqref{eq:gpkr} in the proof of Theorem~\ref{prop:fullrecovreg}, an assumption slightly less stringent than \hyperlink{lab:A7}{A7}, and easier to analyze, is sufficient together with \hyperlink{lab:A6}{A6}. That assumption is: \\[5pt]
+\noindent\hypertarget{lab:A15}{(A15)} \quad for each block $j$, there exists $g_j\to \infty$ such that for every sufficiently large $n$,
+    \begin{equation*}
+        \frac{(1-\gamma) n\rho(\bs X)}{6}{\beta_{\min,j}^*}^2 \,- \,\kappa_j \;=\; \ln(s_j) + g_j .
+    \end{equation*}
+where $\gamma:=\tfrac12(1+\max_j\ln(p_j-s_j)/\kappa_j)\in (\tfrac12,1)$
+
+Consider assumptions~\hyperlink{lab:A7}{A7} and \hyperlink{lab:A15}{A15} for standard $\ell_0$ selector $\hat{S}$ with single penalty $\kappa$. Their combination implies a condition on the quadruplet $(n,p,s,\beta_{\min}^*)$. To simplify the analysis of that condition, we assume $\kappa=(1+\varepsilon)\ln(p-s)$ for some fixed $\varepsilon>0$. This choice guarantees that $\kappa$ meets assumption~\hyperlink{lab:A6}{A6} and that $1-\gamma$ is constant and bounded away from 0. A sufficient condition on $(n,p,s,\beta_{\min}^*)$ that follows from assumptions~\hyperlink{lab:A7}{A7} and \hyperlink{lab:A15}{A15} is then that there exists $t\to \infty$, growing at an arbitrarily slow rate, such that:
+\begin{equation}\label{eq:groh}
+    n= \frac{12(1+\varepsilon)}{\varepsilon}\frac{(1+\varepsilon)\ln(p-s)+\ln(s)}{\rho(\bs X){\beta_{\min}^*}^2} \;+\;t
+\end{equation}
+
+In \cite{infotheowainwright}, it is shown that a sufficient condition on $(n,p,s,\beta_{\min}^*)$ for an optimal selector that knows $s$ to be variable selection consistent is:
+\begin{equation}\label{eq:groh2}
+    n > (c_1+2048) \max \left\{\log \binom{p-s}{s}, \frac{\log (p-s)}{\rho(\bs X) {\beta_{\min}^*}^2}\right\}
+\end{equation}
+for some $c_1 >0$. 
+
+Corollary~\ref{cor:necrecovreg} shows condition~\eqref{eq:betaminnecreg} is necessary to get variable selection consistency with $\hat{S}^b$. When applied to $\hat{S}$, it implies the necessary condition on $(n,p,s,\beta_{\min}^*)$,
+\begin{equation}\label{eq:gpiR}
+\lim_{n\to\infty}\frac{\sqrt{n\bar{\lambda}}\beta_{\min}^*}{\underline{\lambda}\sqrt{\ln(p-s)}} > 0.
+\end{equation}
+
+We first observe that for any regime of $(n,p,s,\beta_{\min}^*)$ such that $\ln(s)=O(\rho(\bs X){\beta_{\min}^*}^2)$, \eqref{eq:groh} is less stringent than \eqref{eq:groh2}. It is also the case when $\rho(\bs X){\beta_{\min}^*}^2=\Theta(1)$ and $s<p/2$ for example. Table~\ref{tab:scalings} gives, for some regimes of interest, the scalings of \eqref{eq:groh}, \eqref{eq:groh2}, and \eqref{eq:gpiR} where we assume $\underline{\lambda}$ and $\bar{\lambda}$ are bounded for simplicity. The scalings implied by our sufficient conditions match or improve those implied by sufficient conditions of the optimal selector in \cite{infotheowainwright}. The scalings implied by our sufficient conditions also match those implied by our necessary conditions, confirming the tightness of our results. \paul{Table S1 takes the \textbf{format and regimes} of a table in "Information-Theoretic Limits on Sparse Signal Recovery: Dense versus Sparse Measurement Matrices" by Wang; Wainwright; Ramchandran. Note that the sufficient and necessary conditions in that paper are for a slightly stronger problem where $S$ is not fixed and considered random and you study the vanishing of $\max_{S \in \text{some set}}P(\hat{S}\neq S)$. They do not apply to our setting although they are similar in quite a few regimes.} 
+\begin{table*}[ht]
+\caption{Scaling of conditions for variable selection consistency}
+\label{tab:scalings}
+\begin{tabular}{@{}cccccc@{}}
+\hline \\[-1em]
+Regime & \thead{Our sufficient \\ condition} & \thead{Sufficient condition\\ as in \cite{infotheowainwright}} & \thead{Our necessary \\ condition} \\
+\hline\\[-1em]
+\thead{$s=\Theta(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta(1/s)$}    & $\Theta(p\ln(p))$ & $\Theta(p\ln(p))$ & $\Theta(p\ln(p))$ \\\hline\\[-1em]
+\thead{$s=\Theta(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta\big(\ln(s)/s\big)$}    & $\Theta(p)$ & $\Theta(p)$ & $\Theta(p)$ \\\hline\\[-1em]
+\thead{$s=\Theta(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta(1)$}   & $\Theta(\ln(p))$ & $\Theta(p)$ & $\Theta(\ln(p))$ \\\hline\\[-1em]
+\thead{$s=o(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta(1/s)$}    & $\Theta(s\ln(p))$ & $\Theta(s\ln(p))$ & $\Theta(s\ln(p))$ \\\hline\\[-1em]
+\thead{$s=o(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta(\ln(s)/s)$}    & $\Theta\big(s\ln(p)/\ln(s)\big)$ & $\Theta(s\ln(p))$ & $\Theta\big(s\ln(p)/\ln(s)\big)$ \\\hline\\[-1em]
+\thead{$s=o(p)$\\$\rho(\bs X){\beta_{\min}^*}^2=\Theta(1)$}    & $\Theta(\ln(p))$ & $\Theta(s\ln(p))$ & $\Theta(\ln(p))$ \\\hline
+\end{tabular}
+\end{table*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  imsart-???.bst  will be used to                        %%
+%%  create a .BBL file for submission.                     %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%  MR numbers will be added by VTeX.                      %%
+%%                                                         %%
+%%  Use \cite{...} to cite references in text.             %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% if your bibliography is in bibtex format, uncomment commands:
+\bibliographystyle{imsart-nameyear} % Style BST file (imsart-number.bst or imsart-nameyear.bst)
+\bibliography{bibliography.bib}       % Bibliography file (usually '*.bib')
+
+%% or include bibliography directly:
+% \begin{thebibliography}{}
+% \bibitem{b1}
+% \end{thebibliography}
+\end{document}
