@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1768236423.06246 "main.aux" "main.bbl" "main" 1768236438.42822 0
+["bibtex main"] 1768257264.98891 "main.aux" "main.bbl" "main" 1768257269.82608 0
   "./references.bib" 1768058487 56754 c13dc2730f1d65e76a6a3e1f1d14eca7 ""
   "c:/texlive/2025/texmf-dist/bibtex/bst/harvard/agsm.bst" 1760642573 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
-  "main.aux" 1768236437 44119 d709af11b92619f22d7ba5865b12ddbc "pdflatex"
+  "main.aux" 1768257268 44119 d709af11b92619f22d7ba5865b12ddbc "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1768236435.54953 "c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/main.tex" "main.pdf" "main" 1768236438.42876 0
-  "c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/main.tex" 1768236434 274032 7b65eb1bea3c732240699e89920135f4 ""
+["pdflatex"] 1768257265.71242 "c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/main.tex" "main.pdf" "main" 1768257269.82675 0
+  "c:/Users/Rognon/Documents/GitHub/varsel.extdata/WIP/paper/main.tex" 1768257252 274602 e1cd77449ce1326e93da9a1697b839fc ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1760688152 2375 baa924870cfb487815765f9094cf3728 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1760688152 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1760688152 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -197,9 +197,9 @@
   "images/p.probrecov.ex1.pdf" 1768058487 5177 ff7338e7947fc34afbbb7083d80dc144 ""
   "images/p.probrecov.ex3.pdf" 1768058487 5189 3920040c62053c810ab5331efade4194 ""
   "images/p.probrecov.ex4.pdf" 1768058487 5179 5521a3e54628aaacfc4ee215bdcc04a8 ""
-  "main.aux" 1768236437 44119 d709af11b92619f22d7ba5865b12ddbc "pdflatex"
-  "main.bbl" 1768236423 11063 17b8fcfb6ce945e9e277a41123ca1cea "bibtex main"
-  "main.tex" 1768236434 274032 7b65eb1bea3c732240699e89920135f4 ""
+  "main.aux" 1768257268 44119 d709af11b92619f22d7ba5865b12ddbc "pdflatex"
+  "main.bbl" 1768257265 11063 17b8fcfb6ce945e9e277a41123ca1cea "bibtex main"
+  "main.tex" 1768257252 274602 e1cd77449ce1326e93da9a1697b839fc ""
   (generated)
   "main.aux"
   "main.log"
