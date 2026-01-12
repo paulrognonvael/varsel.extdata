@@ -202,7 +202,7 @@
 \newcommand{\bU}{\mathbf{U}}
 \newcommand{\bV}{\mathcal{V}}
 \newcommand{\bX}{\mathbf{X}}
-\newcommand{\bz}{\boldsymbol{Z}}
+\newcommand{\bZ}{\boldsymbol{Z}}
 
 \newtheorem{thm}{\textsc{Theorem}}[section]
 \newtheorem{prop}[thm]{\textsc{Proposition}}
@@ -277,8 +277,7 @@ We illustrate our algorithms on simulated data and an example where findings fro
 
 In a data-rich world, basing statistical inference on only a single source of information increasingly seems like a missed opportunity, and %. As ever more data are generated
 many have answered statistical questions by 
-leveraging multiple datasets. Integrating multiple sources of data implies handling and possibly exploiting some form of heterogeneity. 
-In particular, there is often
+leveraging multiple datasets. When integrating multiple sources, there is often
 %There may be heterogeneity in samples where, for example, samples are not identically distributed but rather feature a group structure (need reference maybe some Annie Qu's?XXX). There may also be 
 heterogeneity (or non-exchangeability) in variables %in which case 
 in the sense that one has %there is often 
@@ -288,7 +287,7 @@ This may occur when working with \textit{multimodal} data, i.e. featuring differ
 In variable selection, transfer learning refers to recognizing that a set of variables being identified in the source data provides external information %In a transfer learning setting for the task of variable selection, the set of variables selected in the source data is external information 
 on their likelihood of being %the likelihood of variables to be 
 truly associated with the outcome in the target dataset.
-We refer to this task a structural transfer learning, in contrast to  parameter estimation and prediction tasks more commonly considered in transfer learning.
+We refer to this task as structural transfer learning, in contrast to  parameter estimation and prediction tasks more commonly considered in transfer learning.
 %Other problems, closely related to transfer learning, may involve similar external knowledge: \textit{domain adaptation} concerned with adapting a model when applying to data which distribution differ from that of the training data and \textit{meta-learning} where a model is trained using information obtained from other models with different architectures. %For convenience, we refer to the different kinds of external knowledge on the likelihood of variables to be truly associated with the outcome as external information.   
 
 In high-dimensional settings, %where the number of samples is smaller than the number of parameters, 
@@ -301,7 +300,7 @@ observed improved inference when employing external information to guide structu
 %As regards transfer learning, statistical literature has focused on the transfer from the source to the target of parameter estimates. Some proposed methods perform variable selection but do not consider the transfer of the set of selected variables as we consider here.  perform variable selection example telesca.
 Despite this empirical success, a theoretical framework explaining precisely why and how leveraging external information may deliver improved structural learning %leveraging external information on the likelihood of variables to be truly associated with the outcome as possible with data integration and transfer learning 
 is not currently available. 
-In this work, we investigate how, in linear regression, integrating external information, for example with structural transfer learning, allows pushing the mathematical conditions under which consistently recovering the true subset of variables associated with the outcome is possible, and improving the corresponding rates. Consistency is understood here as recovering the true subset with probability going to 1 as the number of samples $n$ and possibly the dimension $p$ go to infinity. 
+In this work, we investigate how, in linear regression, integrating external information and structural transfer learning, allows pushing the mathematical conditions under which consistently recovering the true subset of variables associated with the outcome is possible, and improving the corresponding rates. Consistency is understood here as recovering the true subset with probability going to 1 as the number of samples $n$ and possibly the dimension $p$ go to infinity. 
 
 To make ideas concrete, consider variable selection in the Gaussian linear regression
 \begin{equation}\label{eq:linearmodel}
@@ -311,17 +310,17 @@ where $\bX\in \R^{n\times p}$, $\by\in \R^n$, $\sigma >0$, and $\bbeta \in \math
 Penalized log-likelihood methods for variable selection are based on optimizing
 %A large class of methods operate by penalizing the size of an estimated $\hat{\bbeta}$. For instance, penalized likelihood methods optimize 
 the log-likelihood plus a penalty term driven by the $\ell_q$ "norm" of the estimated $\hat{\bbeta}$ for $q\in [0,1]$ \citep{lasso,bertsimas}. Here we focus on $\ell_0$ penalties because they possess theoretically superior  properties for model recovery than other types of penalties \citep{infotheowainwright, gao2025optimalityl0}, and our goal is to study how external information can improve upon these best known properties.
-Despite our theoretical focus, we note that $\ell_0$ penalties have also been shown to outperform other penalties in certain practical settings \citep{mazumder2020}. Computational advances have also made $\ell_0$ problems much more tractable: optimization methods can solve them exactly for $p$ in the thousands \citep{bertsimas2020sparse} and Markov Chain Monte Carlo (MCMC) have %with probability going to 1 with 
-linear cost in $p$ under sparsity conditions \citep{Yang2016,zhou2022}. There is also a direct connection between $\ell_0$ penalties and Bayesian variable selection based on posterior model probabilities \citep{BIC,EBIC,rossell2022concentration}. Under mild regularity conditions, a choice of $\ell_0$ penalty corresponds to a choice of prior probability for variable inclusion. %the inclusion of variables in the support of $\bbeta^*$. 
+%Despite our theoretical focus, we note that $\ell_0$ penalties have also been shown to outperform other penalties in certain practical settings \citep{mazumder2020}. 
+Computational advances have also made $\ell_0$ problems much more tractable: optimization methods can solve them exactly for $p$ in the thousands \citep{bertsimas2020sparse} and Markov Chain Monte Carlo (MCMC) have %with probability going to 1 with 
+linear cost in $p$ under sparsity conditions \citep{Yang2016,zhou2022}. There is also a direct connection between $\ell_0$ penalties and Bayesian variable selection based on posterior model probabilities \citep{BIC,EBIC,rossell2022concentration}. Under mild regularity conditions, a choice of $\ell_0$ penalty corresponds to a choice of prior probability for variable inclusion. This connection converts $\ell_0$ penalization into a natural and intuitive way to encode external information on the likelihood of variables to be truly associated with an outcome. %the inclusion of variables in the support of $\bbeta^*$. 
 %This connection is discussed in Section~\ref{sec:intro_blockpen}. 
 %Motivated by the superior properties and the convenient Bayesian interpretation of $\ell_0$ penalties, we study a class of $\ell_0$ penalties that depend on external information. As a particular case, 
-\paul{we could move this last motivation first actually, and argue $\ell_0$ is the right way to encode prior knowledge on inclusion.}
 
-We consider a variable selection framework where penalties may depend on vector of external information $\bz=(z_1,\ldots,z_p) \in \R^p$ %, where $z_i$ is the external information for variable $i=1,\ldots,p$, 
-that partitions the $p$ variables into $b$ blocks, denoted by $B_j \subset \{1,\ldots,p\}$, $j=1,\ldots,b$. For example, in structural transfer learning, $z$ is indicator of whether variables were found to be promising in related source datasets. 
+We consider a variable selection framework where $\ell_0$ penalties may depend on vector of external information $\bz=(z_1,\ldots,z_p) \in \R^p$ %, where $z_i$ is the external information for variable $i=1,\ldots,p$, 
+that partitions the $p$ variables into $b$ blocks, denoted by $B_j \subset \{1,\ldots,p\}$, $j=1,\ldots,b$. For example, in structural transfer learning, $z$ may be an indicator of whether variables were found to be promising in related source datasets. 
 %We study a transfer learning framework that leverages the sets of variables algorithm to leverage, in variable selection in the target dataset, the sets of variables selected in source datasets.
 %Indeed, the external information may be seen as providing prior knowledge in a Bayesian setting. The Bayesian framework has indeed been frequently observed to be naturally suited for transfer learning \cite{telesca, dunson...}. In such Bayesian setting, prior knowledge on the likelihood of variables to be associated with the outcome would be reflected in the choice of prior probability for their inclusion in the support of $\bbeta^*$. Given the connection between those probabilities and $\ell_0$ penalties, in a frequentist setting, it is natural to let $\ell_0$ penalties depend on external information. Consider, for example, the transfer learning problem for the task of variable selection. Among the candidates variables in the target dataset, one can form two blocks: a first one with the variables that were also selected the source datasets and a second one with the rest of the variables. The external information induces here a partition in two blocks where, if the transfer is informative for selection in the target, there is prior knowledge that the first block is less sparse than the second.
-The idea is that key characteristics such as the proportion of truly active variables are thought to potentially vary across blocks, hence one allows the $\ell_0$ penalty to differ across blocks. %That is, external information that induces a partition function 
+When $\bz$ is informative for variable selection, key characteristics such as the proportion of truly active variables may vary across blocks, hence one allows the $\ell_0$ penalty to differ across blocks. %That is, external information that induces a partition function 
 %\begin{equation}\label{eq:partition}
 %    \Gamma: z_i \to B_j,\,\. j\in \{1,...b\}.
 %\end{equation}
@@ -333,35 +332,35 @@ We derive the variable selection properties of such informed $\ell_0$ penalties 
 
 %\subsection{Related literature}
 Before proceeding, we review some selected literature.
-External information has been used to guide variable selection in many applications. For instance, \cite{stingo:2011} and \cite{cassese:2014} proposed Bayesian variable selection for gene expression where prior inclusion probabilities depend on biological knowledge and meta-variables. \cite{chen_tinghuei:2021} predicted disease outcomes with $\ell_1$ penalties that depend on functional annotation categories.  Different methodologies have been proposed \cite{vandeWiel2019} suggested an empirical Bayes approach to regress prior inclusion probabilities on external data. \cite{Velten2021} proposed a variational Bayes approximation for regression with external information-dependent prior inclusion probabilities. Recently \cite{busatto2023} considered a horseshoe prior that depends on external information. In the frequentist literature, %\citet{Bergersen2011} proposed an $\ell_1$ penalty %for linear regression on gene expression where the penalty varies that depends on the correlation between the gene expression and its copy number. 
-in multi-omics data \cite{Boulesteix2017} let the $\ell_1$ penalty depend on the modality that each variable belongs to. \cite{Zeng2020} and \cite{vanNee2023} proposed empirical Bayes approaches to setting externally-informed $\ell_1$ and elastic-net penalties respectively. See \cite{vandewiel2024} for a  review. XXX Say it is only methodological.
+External information has been used to guide variable selection in many applications. For instance, \cite{stingo:2011} and \cite{cassese:2014} proposed Bayesian variable selection for gene expression where prior inclusion probabilities depend on biological knowledge and meta-variables. \cite{chen_tinghuei:2021} predicted disease outcomes with $\ell_1$ penalties that depend on functional annotation categories. A series of works has discussed methodology, but not theory, for external-information dependent penalization or prior inclusion probabilities. In the Bayesian literature, \cite{vandeWiel2019} suggested an empirical Bayes approach to regress prior inclusion probabilities on external data. \cite{Velten2021} proposed a variational Bayes approximation for regression with external information-dependent prior inclusion probabilities. Recently, \cite{busatto2023} considered a horseshoe prior that depends on external information. In the frequentist literature, %\citet{Bergersen2011} proposed an $\ell_1$ penalty %for linear regression on gene expression where the penalty varies that depends on the correlation between the gene expression and its copy number. 
+in multi-omics data \cite{Boulesteix2017} let the $\ell_1$ penalty depend on the modality that each variable belongs to. \cite{Zeng2020} and \cite{vanNee2023} proposed empirical Bayes approaches to setting externally-informed $\ell_1$ and elastic-net penalties respectively. See \cite{vandewiel2024} for a review.
 %Beyond regression, node and edge variables have been incorporated in \cite{peterson} and \cite{jewson2023graphical} to drive edge inclusion in Gaussian graphical models, while \cite{schiavon2022generalized} used meta-variables to determine non-zero loadings in factor models.
 
 %Also related is the causal analysis literature were the inclusion of control variables may be driven by their degree of association with the variables of interest (referred to as treatments) \citep{belloni2014inference,antonelli2021bayesian}. 
 
-The literature on the statistical properties of transfer in linear regression has focused on the transfer of parameter estimates unlike the transfer of the set of selected variables that we consider here. \cite{Jiang2016} and \cite{Li2021} showed improvements in convergence rates in prediction and estimation with $\ell_1$-penalty based approaches to the transfer of parameter estimates. In a Bayesian setting, \cite{lai2024} showed improvements in posterior contraction rates of parameters with horseshoe priors centered at a weighted average of source-specific estimates.
+The literature on the statistical properties of transfer in linear regression has focused on the transfer of parameter estimates unlike the transfer of the set of selected variables that we consider here. \cite{Jiang2016} and \cite{Li2021} showed improvements in convergence rates in prediction and estimation with $\ell_1$ penalties on the discrepancy with source estimates. In a Bayesian setting, \cite{lai2024} showed improvements in posterior contraction rates of parameters with horseshoe priors centered at a weighted average of source-specific estimates.
 %a variations of LASSO, the prior LASSO, where theis supplemented by a penalization on the distance to the predicted values in the source datasets. They show improvements over LASSO in the efficiency in estimation and prediction. \cite{Li2021} proposed the Trans-LASSO to transfer parameter estimates in linear regression, where deviations from parameter estimates in source datasets are penalized. They show improvements over LASSO in optimal rates of convergence for prediction and estimation. In concurrent works, \cite{Li2024} and \cite{Tian2023} both extended Trans-LASSO to generalized linear models. In the Bayesian literature, \cite{abba2024} and \cite{zhang2024} showed improvements in estimation in orthogonal designs with, respectively, horseshoe and spike-and-slab priors. \cite{lai2024} showed improvements in linear regression with horseshoe priors centered at a weighted average of source-specific estimates. \cite{jamshidian2025} proposed a method for linear regression based on horseshoe priors for the contrasts between source and target estimates and a Bayesian selection of relevant sources. We refer to \cite{suder2025} for a more complete review of Bayesian literature on transfer learning.
 
 
-\david{The paper outline felt too long. Some of the details (not all, of course) can be postponed to the corresponding sections. This would also help avoid repetition.}
+%\david{The paper outline felt too long. Some of the details (not all, of course) can be postponed to the corresponding sections. This would also help avoid repetition.}
 %\subsection{Organization and contribution}
-The paper is organized as follows. In Section~\ref{sec:intro_blockpen} we  introduce externally-informed $\ell_0$ penalties, discuss their connection to Bayesian variable selection, and introduce our transfer learning algorithm.  %for the transfer of sets of selected variables 
+The paper is organized as follows. In Section~\ref{sec:intro_blockpen} we introduce externally-informed $\ell_0$ penalties, discuss their connection to Bayesian variable selection. %, and introduce our transfer learning algorithm.  %for the transfer of sets of selected variables 
 %which builds upon our $\ell_0$ penalties. 
-Our algorithm %is highly flexible, it 
-does not require full access to the source data, ensuring %higher levels of 
-privacy and communication-efficiency. %It does not require the source task to be linear regression either. 
+%Our algorithm %is highly flexible, it 
+%does not require full access to the source data, ensuring %higher levels of 
+%privacy and communication-efficiency. %It does not require the source task to be linear regression either. 
 %We also describe the general assumptions used across results.
 
 Section~\ref{sec:properties_legression} studies the properties of our informed $\ell_0$ penalties. % and how they ease consistent model recovery. 
 We first show that an oracle, knowing the true pattern of sparsity and signal strength, may take advantage of the external information so that variable selection consistency is either attained where otherwise it would not be possible, or is attained at a faster rate. These oracle results describe %give an understanding of 
 the maximum gains achievable by leveraging external information. 
 
-In Section~\ref{sec:informed_l0}, we propose a two-step data-based empirical Bayes procedure to set informed $\ell_0$ penalties. We show that the procedure improves variable selection properties without requiring an oracle. 
+In Section~\ref{sec:informed_l0}, we propose a, two-step, data-based, empirical Bayes procedure to set informed $\ell_0$ penalties. We show that the procedure improves variable selection properties without requiring an oracle. 
 
 In Section~\ref{sec:TL}, we study a transfer learning algorithm based on the empirical Bayes procedure of Section~\ref{sec:informed_l0}. We show that %harnesses the results of Section~\ref{sec:informed_l0} to derive the properties of 
 our algorithm % for the transfer of selected variables. 
 %We show it 
-has better selection properties than any algorithm \paul{"any" sounds a lot} that does not transfer information, and that it is robust to so-called \textit{negative transfer}, a situation where transfer learning worsens the performance in the target. To our knowledge, this is the first theoretical analysis of transfer learning for variable selection, as opposed to parameter estimation. %centered on the transfer of the binary information on selection vs. no selection in the source data, rather than parameter estimates. 
+has better selection properties than any algorithm \paul{"any" sounds a lot but David wrote that} that does not transfer information, and that it is robust to so-called \textit{negative transfer}, a situation where transfer learning worsens the performance in the target. To our knowledge, this is the first theoretical analysis of transfer learning for variable selection, as opposed to parameter estimation. %centered on the transfer of the binary information on selection vs. no selection in the source data, rather than parameter estimates. 
 
 Finally, Section~\ref{sec:examplesinforml0} provides numerical illustrations using simulations and a gene expression study where one wishes to transfer findings from mouse models to humans. %of the data analysis procedures introduced in Sections~\ref{sec:informed_l0} and ~\ref{sec:TL}. Examples include both simulated and empirical data. 
 
@@ -371,23 +370,23 @@ Before proceeding, we lay out notation.
 The parameters of interest in the target regression are denoted by $\bbeta\in \R^p$  
 and $\bbeta^*$ denotes their true values. The set of variable indices is $V=\{1,\ldots,p\}$. For any $A\subseteq V$ and any vector $\bx\in \R^p$, $\bx_A$ denotes the subvector of $\bx$ with entries corresponding to indices in $A$. For any matrix $\bX \in \R^{n\times p}$, $\bX_A$ denotes the submatrix of $\bX$ obtained by selecting the \emph{columns} with indices in $A$. $S=\left\{i\in V:\,\,  \beta^*_i \neq 0 \right\}$ denotes the true support of $\bbeta^*$, its size is $s=|S|$, and hence $p-s$ is the number of truly inactive parameters. The set of candidate models is denoted by $\M$ and is given by subsets $M\subseteq V$. Denote by $\beta_{\min}^*=\min_{i \in S}|\beta^*_i|$ the smallest true signal. The set $V$ is partitioned into disjoint blocks $B_j \subseteq V$ for $j=1,\ldots,b$, where $b$ is fixed. %The blocks are disjoint and noted $B_j \subseteq V$ for $j=1,\ldots,b$. 
 $S_j=\left\{i\in B_j:\,\,  \beta^*_i \neq 0\right\}$ denotes the set of active parameters in block $B_j$, $s_j=|S_j|$ its size, $p_j-s_j$ the number of inactive parameters in the block,
-and $\beta_{\min,j}^*=\min_{i \in S_j}|\beta^*_i|$. We denote $\mathfrak{B}=\{\bbeta \in \R^p: \text{for all }j \in \{1,\ldots,b\} \text{ and }i \in B_j,\, |\beta_i|\geq  \beta_{\min,j} \text{ if } i\in S_j \text{ and }  \beta_i= 0 \text{ otherwise}\}$ the set of possible data-generating $\bbeta^*$.
+and $\beta_{\min,j}^*=\min_{i \in S_j}|\beta^*_i|$. We denote $\mathfrak{B}=\{\bbeta \in \R^p: \text{for all }j \in \{1,\ldots,b\} \text{ and }i \in B_j,\, |\beta_i|\geq  \beta^*_{\min,j} \text{ if } i\in S_j \text{ and }  \beta_i= 0 \text{ otherwise}\}$ the set of possible data-generating $\bbeta^*$.
 
 %When we discuss a transfer learning setting, $\mathcal{D}=\{\by,\bX\}$ denotes the target dataset, $V$ the set of variables in $\mathcal{D}$, and $S \subseteq V$ the variables truly associated to $\by$. The source datasets are denoted $\mathcal{D}^{(k)}=\{\by^{(k)},\bX^{(k)}\}$ for $k=1,\ldots,K$ where $K$ is the number of source datasets, and $S^{(k)}$ denotes the set of variables truly associated to source outcome $\by^{(k)}$.
 
-Given sequences $f(n) > 0$ and $g(n) >0$, $f(n)=O(g(n))$ means that there exists a constant $c<\infty$ such that $f(n) \leq c g(n)$ for all $n \geq n_0$ and some fixed $n_0$, $f(n)=o(g(n))$ means that $\lim_{n\to\infty}f(n)/g(n)=0$, $f(n)=\Theta(g(n))$ means that $f(n) = O(g(n))$ and $g(n) = O(f(n))$ and $f(n)\sim g(n)$ means that $\lim_{n\to\infty}f(n)/g(n)=1$. For any set $A$, $A^C$ denotes the complement of $A$.
+Given sequences $f(n) > 0$ and $g(n) >0$, $f(n)=O(g(n))$ means that there exists a constant $c<\infty$ such that $f(n) \leq c g(n)$ for all $n \geq n_0$ and some fixed $n_0$, $f(n)=o(g(n))$ means that $\lim_{n\to\infty}f(n)/g(n)=0$, and $f(n)=\Theta(g(n))$ means that $f(n) = O(g(n))$ and $g(n) = O(f(n))$. For any set $A$, $A^C$ denotes the complement of $A$.
 
 \section{Externally-informed penalties and transfer learning}\label{sec:intro_blockpen} 
 
 We describe 
 %This section describes the main objects of study in this work: 
-externally-informed $\ell_0$ penalization and their connection to Bayesian variable selection (Section~\ref{ssec:intro_blockpen}) and a transfer learning algorithm for variables selected in related source datasets % the transfer of selected variables 
-(Section~\ref{ssec:intro_tl}). %We also review the connection between informed $\ell_0$ penalization and Bayesian variable selection. 
-Finally, we discuss general assumptions used across results (Section~\ref{ssec:genassumptions}).
+externally-informed $\ell_0$ penalization and their connection to Bayesian variable selection (Section~\ref{ssec:intro_blockpen}) %and a transfer learning algorithm for variables selected in related source datasets % the transfer of selected variables 
+%(Section~\ref{ssec:intro_tl}). %We also review the connection between informed $\ell_0$ penalization and Bayesian variable selection. 
+We discuss next general assumptions used across results (Section~\ref{ssec:genassumptions}).
 
-\subsection{Externally-informed  penalization}\label{ssec:intro_blockpen}
+\subsection{Externally-informed penalization}\label{ssec:intro_blockpen}
 
-Consider a set of candidate models $\M$ given by subsets $M\subseteq V$ such that $|M|\leq n$ and their parameter spaces %corresponding coordinate subspaces 
+Consider a set of candidate models $\M$ given by subsets $M\subseteq V$ such that $|M|\leq n$ and their parameter spaces %corresponding coordinate subspaces
 $$
 \mathcal{L}_M\;:=\;\{\beta\in \R^p: \beta_i=0\mbox{ if }i\notin M\}.
 $$
@@ -420,13 +419,13 @@ Posterior model probabilities are $p(M \mid \by, \theta) \propto p(\by \mid M) p
 \ln p(M \mid\by, \theta) \;\approx\; \ln p(\by \mid \tilde{\bbeta}^{(M)}) - \Big(\frac{1}{2}\ln(n) + \ln \big(1/\theta-1\big)\Big)|M| + c_M,
 \end{equation}
 where $\tilde{\bbeta}^{(M)}$ is the maximum likelihood estimator (MLE) under model $M$, and $c_M$ a constant that may depend on $M$.
-In particular, when $p(\bbeta \mid M)$ is Zellner's unit information prior \citep{zellner1986assessing}, then $c_M$ does not depend on $M$ and \eqref{eq:dfbapon} is exact by replacing $\tilde{\bbeta}^{(M)}= (\bX_M^\top \bX_M + n^{-1} I)^{-1} \bX_M^\top \by$.
+%In particular, when $p(\bbeta \mid M)$ is the Zellner's unit information prior \citep{zellner1986assessing}, then $c_M$ does not depend on $M$ and \eqref{eq:dfbapon} is exact by replacing $\tilde{\bbeta}^{(M)}= (\bX_M^\top \bX_M + n^{-1} I)^{-1} \bX_M^\top \by$.
 Neglecting $c_M$, simple algebra shows that the $\ell_0$ selector in \eqref{eq:stdl0} with $\kappa = \frac12 \ln(n) + \ln(1/\theta - 1)$ approximately maximizes $p(M \mid \by, \theta)$, giving a %It follows then a one-to-one 
 correspondence between a choice of prior inclusion probability $\theta$ and a choice of $\ell_0$ penalty $\kappa$. % in $\hat{S}^{sd}$.
 
-Now, assume one has external information $\bz=(z_1,\ldots,z_p)$ on the likelihood of variables to be truly associated with $\by$. In a Bayesian spike-and-slab regression, this prior information could be naturally reflected by setting prior inclusion probabilities that are a function of $\bz$, that is replacing $\theta$ in \eqref{eq:modelprior} by $\theta(z_i)$, $i=1,\ldots,p$. In particular, consider the case where $\bz$
-induces a partition of the set of variables in blocks $B_1,\ldots,B_b$, %such that the likelihood of being truly associated with $\by$ is thought to potentially vary across the $B_j$'s, 
-as may occur in transfer learning. One would then get block-dependent prior inclusion probabilities $\theta(z_i)= \theta_j$ for all $i \in B_j$,
+Now, assume one has external information $\bz=(z_1,\ldots,z_p)$ on the likelihood of variables to be truly associated with $\by$. In a Bayesian spike-and-slab regression, this prior information could be naturally reflected by setting prior inclusion probabilities that are a function of $\bz$, that is replacing $\theta$ in \eqref{eq:modelprior} by $\theta(z_i)$, $i=1,\ldots,p$. In particular, in our case where $\bz$
+induces a partition of the set of variables in blocks $B_1,\ldots,B_b$, %such that the likelihood of being truly associated with $\by$ is thought to potentially vary across the $B_j$'s, as may occur in transfer learning. 
+one would then get block-dependent prior inclusion probabilities $\theta(z_i)= \theta_j$ for all $i \in B_j$,
  \begin{eqnarray} \label{eq:block_modelprior}
  p( M \mid \btheta) \propto
          \prod_{i=1}^p \operatorname{Bern}\left(m_i ; \theta_j\right) I(i \in B_j),
@@ -449,24 +448,25 @@ where $\kappa_1>0,\ldots,\kappa_b>0$. Under the BIC approximation in \eqref{eq:b
 
 \subsection{General assumptions of theoretical results}\label{ssec:genassumptions}
 
-This work discusses the properties of $\hat{S}^{ei}$ and \hyperlink{lab:AlgoTL}{Tran-s-ell0} when the number of samples $n$ and  variables $p$ go to infinity. Although not explicitly denoted, $p$, $s$ and $\beta_{\min}^*$ are functions of $n$, and so are $s_j$, $p_j$ and $\beta_{\min,j}^*$. We study asymptotic regimes where
+We study the properties of $\hat{S}^{ei}$ when the number of samples $n$ goes to infinity, and then assume throughout
 
-     \hypertarget{lab:A1}{(A1)}\quad $n \,\to \, \infty$, and
-     
-     \hypertarget{lab:A2}{(A2)}\quad For all $j$, the number of inactive variables $p_j-s_j \,\to \, \infty$.\\[5pt]
-Assumption~\hyperlink{lab:A2}{A2} can be relaxed to allow for fixed $p_j-s_j$, but simplifies the exposition. The number of active variables $s_j\geq1$ can either be fixed or $s_j \rightarrow \infty$. No assumption is made about the asymptotic regime linking $n$ and $p$, but the main interest is in $n= o(p)$ settings. We make the following assumption on the set of candidate models $\M$,
+     \hypertarget{lab:A1}{(A1)}\quad $n \,\to \, \infty$.
 
-  \hypertarget{lab:A2bis}{(A2bis)}\quad $\hat S^{ei}$ is unique, $S\,\in\,\M$ and for any $M \in \M$, $\bX_M$ has full column rank.\\[5pt]
-\paul{Added this assumption, I will change the numbering later} Assumption~\hyperlink{lab:A2bis}{A2bis} implies that $\M$ is a well-specified set of candidate models and that one constrains attention to models with full-rank designs. As a consequence we have that, necessarily, $s\leq n$. Non-uniqueness of $\hat{S}^{ei}$ and non-full rank models can be accommodated, though, at the expense of a slightly more involved treatment. \paul{Copied this last sentence from an earlier version. Can we really accommodate $\bX_S$ non full rank?} Finally, we make the following assumption on the external information $\bz$. \\[5pt]
-    \hypertarget{lab:A3}{(A3)} \quad  $\bz$ partitions the set of variables $\{1,\ldots,p\}$ into a constant number of blocks $b$.\\[5pt]
-Assumption~\hyperlink{lab:A3}{A3} can be slightly relaxed to allow $b$ to grow slowly with $p$, but $b$ is assumed constant for simplicity. The assumption reflects real-world settings. It is immediately satisfied in our transfer learning algorithm, \hyperlink{lab:AlgoTL}{Tran-s-ell0}. Another example arises when regressing on multimodal data (e.g., multi-omics, clinical history vs. genomic markers) or when meta-information suggests varying sparsity or signal strength across the set of variables (e.g. functional annotations on genes). Assumptions~\hyperlink{lab:A1}{A1}--\hyperlink{lab:A3}{A3} describe the general framework, in each result the needed assumptions are precisely specified.
+Although not explicitly denoted, $p$, $s$ and $\beta_{\min}^*$ are functions of $n$, and so are $s_j$, $p_j$ and $\beta_{\min,j}^*$. In particular the block numbers of inactive and active variables, $p_j-s_j\geq1$ and $s_j\geq1$, can either be fixed or diverge. We make no general assumption about the asymptotic regime linking $n$ and $p$, but the main interest is in $n= o(p)$ settings. 
+
+We assume that $\M$ is a well-specified set of candidate models, that is $S\,\in\,\M$, and that one constrains attention to models with full-rank design, such that for any model $M \in \M$, $\operatorname{rank}(\bX_M^{\top}\bX_M)=|M|$. This assumption implies $s\leq n$. We also assume $\hat S^{ei}$ is uniquely defined and that error variance $\sigma^2$ is known. To simplify notation, without loss of generality, we set $\sigma^2=1$. Non-uniqueness of $\hat{S}^{ei}$, non-full rank models, and unknown error variance can be accommodated, though, at the expense of a slightly more involved treatment.
+
+\paul{I removed the assumption $p_j-s_j\to\infty$ because we don't use it anymore. I will correct assumption numbering once we agree on content/presentation.}
+%\\[5pt]
+ %   \hypertarget{lab:A3}{(A3)} \quad  $\bz$ partitions the set of variables $\{1,\ldots,p\}$ into a constant number of blocks $b$.\\[5pt]
+%Assumption~\hyperlink{lab:A3}{A3} can be slightly relaxed to allow $b$ to grow slowly with $p$, but $b$ is assumed constant for simplicity. The assumption reflects real-world settings. It is immediately satisfied in our transfer learning algorithm, \hyperlink{lab:AlgoTL}{Tran-s-ell0}. Another example arises when regressing on multimodal data (e.g., multi-omics, clinical history vs. genomic markers) or when meta-information suggests varying sparsity or signal strength across the set of variables (e.g. functional annotations on genes). Assumptions~\hyperlink{lab:A1}{A1}--\hyperlink{lab:A3}{A3} describe the general framework, in each result the needed assumptions are precisely specified.
 
 % Finally, the selector $\hat S^{ei}$ in \ref{eq:Mhat} assumes an externally-informed $\ell_0$ penalty that grows linearly in the model size. This linearity assumption not only allows connections to Bayesian variable selection but also with frequentist selection with $\ell_1$ penalties under orthogonal design. While nonlinear, standard, $\ell_0$ penalties have been shown to be optimal for estimation and prediction \citep{Wu2013, Bunea2007}, standard linear $\ell_0$ penalties were shown to be optimal for variable selection \cite{Bryon}. We also show that our results, when applied to standard $\ell_0$ penalties, improve known limits on variable selection \citep{butucea2018,infotheowainwright, bryon}.
 
 \section{Oracle externally-informed penalties}\label{sec:properties_legression}
 
-We now discuss the properties of the externally-informed model selector $\hat S^{ei}$ \eqref{eq:Mhat} in the linear model \eqref{eq:linearmodel}. Our goal is to show that $\hat S^{ei}$ equals the data-generating truth $S$ with probability 1, as $n$ grows, and that this occurs under milder conditions or at a faster rate than when using a standard $\hat{S}^{sd}$ that penalizes equally all blocks. 
-In Section~\ref{ssec:oracleprop}, we derive the properties of $\hat S^{ei}$. Those of $\hat{S}^{sd}$ follow by considering $b=1$ blocks. In Section~\ref{ssec:regression_gains}, we discuss the benefits of $\hat S^{ei}$ over $\hat{S}^{sd}$ in relation to the relevance of the external information, that is to what extent the blocks discriminate between truly active and inactive signals. In this section we assume that penalties are set by an oracle that knows the true pattern of sparsity and signal strength. In Section~\ref{ssec:nobetaminhyp}, we establish a convergence result for $\hat S^{ei}$ that does not require any condition of signal strength other than minimal technical requirements. This result plays an important role for the data-based procedures in Section~\ref{sec:informed_l0}.
+We discuss here the properties of the externally-informed model selector $\hat S^{ei}$ \eqref{eq:Mhat} in the linear model \eqref{eq:linearmodel}. Our goal is to show that $\hat S^{ei}$ equals the data-generating truth $S$ with probability 1, as $n$ grows, and that this occurs under milder conditions or at a faster rate than when using a standard $\hat{S}^{sd}$ \eqref{eq:stdl0} that penalizes equally all blocks. 
+In Section~\ref{ssec:oracleprop}, we derive the properties of $\hat S^{ei}$. Those of $\hat{S}^{sd}$ follow by considering $b=1$ blocks. In Section~\ref{ssec:regression_gains}, we discuss the benefits of $\hat S^{ei}$ over $\hat{S}^{sd}$ in relation to the relevance of the external information, that is to what extent the blocks discriminate between truly active and inactive signals. In this section we assume that penalties are set by an oracle that knows the true pattern of sparsity and signal strength. In Section~\ref{ssec:nobetaminhyp}, we establish a generalized convergence result for $\hat S^{ei}$ under weak conditions on signal strength. This result plays an important role for the data-based procedures in Section~\ref{sec:informed_l0}.
 
 % Section~\ref{ssec:regression_proof_strategy} reviews this connection and the proof strategy. The technical nature of the proof precludes a detailed exposition, we instead only present the most important ideas.
 % In Section~\ref{ssec:regression_mainresult} we state the main theorem
@@ -515,6 +515,7 @@ We now give two conditions that are sufficient to asymptotically recover $S$.
         \sqrt{\frac{(1-\gamma) n\rho(\bX)}{6}}{\beta_{\min,j}^*} \,- \,\sqrt{\kappa_j} \;=\; \sqrt{\ln(s_j)} + g_j.
     \end{equation*}
 where $\rho(\bX)=\min_{M \in \M:\, M\not \supseteq S} \lambda_{\min}\big({n}^{-1} \bX_{S \setminus M}^{\top}\left(I_n- \bX_{M}\left(\bX_{M}^{\top} \bX_{M}\right)^{-1} \bX_{M}^{\top}\right) \bX_{S \setminus M}\big)$, and \,\, $\gamma:=\tfrac12(1+\max_j\ln(p_j-s_j)/\kappa_j)\in (\tfrac12, 1)$.
+
 \paul{For simplicity. I changed A4 to a slightly stronger assumption so $\gamma$ is always bounded away from 0 and we don't have to say in the later discussions that we focus on the penalties $\kappa_j$ such that $\ln(p_j-s_j)=O(f_j)$. I could also change the definition of $\gamma$ to alleviate notation and have everywhere just $\gamma$ instead of $(1-\gamma)$.}
 
 Assumption \hyperlink{lab:A4}{A4} is a requirement on the strength of block penalties and \hyperlink{lab:A5}{A5} a betamin condition on signal strength. In \hyperlink{lab:A5}{A5}, $\rho(\bX) \geq 0$ relates to how distinguishable the other models $M\in \M$ are from $S$ \citep{infotheowainwright}. In our proof one could take a slightly milder assumptions, %that is slightly less strict than Assumption~\hyperlink{lab:A5}{A5}, 
@@ -527,15 +528,14 @@ but Assumption~\hyperlink{lab:A4}{A4} and~\hyperlink{lab:A5}{A5} are presented h
 %  Further, if one sets $f_j$ such that $\ln(p_j-s_j)= O(f_j)$ then $1-\gamma > 0$, and then Assumption~\hyperlink{lab:A5}{A5} essentially requires $n \rho(\bX) \beta_{\min,j}^*$ to be larger than $\sqrt{\kappa_j} + \sqrt{\ln(s_j)}$ (up to constants and a term growing at an arbitrarily slow rate), analogously to Assumption~\hyperlink{lab:A5}{A5}.
 
 We next state our main theorems on the strong variable selection consistency of $\hat{S}^{ei}$ and the associated rates. %The result holds for either fixed or diverging $p_j-s_j$ and $s_j$.
-In Theorem~\ref{prop:fullrecovreg}, $\delta\in(0,1)$ should be understood as being arbitrarily close to 1. 
-After discussing the theorems, we will discuss the tightness of Assumptions \hyperlink{lab:A4}{A4}-\hyperlink{lab:A5}{A5} in relation to related necessary conditions for consistent variable selection.
+In Theorem~\ref{prop:fullrecovreg}, $\delta\in(0,1)$ and $\gamma^*\in(1/2,1)$ should be understood as being arbitrarily close to 1 and $1/2$ respectively. After discussing the theorems, we will discuss the tightness of Assumptions \hyperlink{lab:A4}{A4}-\hyperlink{lab:A5}{A5} in relation to related necessary conditions for consistent variable selection.
 
 \begin{thm}\label{theo:suffcondlinearmodel}
 
-Under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A4}{A4} and, \hyperlink{lab:A5}{A5}, it holds that
+Under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A4}{A4} and, \hyperlink{lab:A5}{A5}, it holds that
 $$\lim_{n \to \infty}\, \sup_{\bbeta^*\in\mathfrak{B}}\sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)= 0 \qquad \mbox{and} \qquad \lim_{n \to \infty}\, \inf_{\bbeta^*\in\mathfrak{B}} P(\hat{S}^{ei} = S)= 1.$$
 \end{thm}
-
+\paul{I added $\sup$ / $\inf$ over all the possible data generating $\bbeta^*$ everywhere. Because our results are uniform of the set of possible $(s_1,\ldots,s_b)$-sparse $\bbeta^*$ (but not on all possible $S$ of size $s$). This is a usual way of writing results in the literature. (maybe too technical for JASA though)}
 %A bound on the convergence rate of $P(\hat{S}^{ei}\neq S)$ follows from the proof,
 %and is given in Theorem~\ref{prop:fullrecovreg}. %It also introduces oracle block penalties that approximately optimize the bound, and provides the resulting oracle rate of convergence. 
 %Therein, $\delta<1$ should be understood as being arbitrarily close to 1. 
@@ -548,7 +548,7 @@ Then, there exists a constant $c>0$ such that for all sufficiently large $n$ and
 \sup_{\bbeta^*\in\mathfrak{B}}P(\hat{S}^{ei} \neq S)\;\leq\; c\,\sum_{j=1}^b\,\, e^{-\tfrac{\delta}{2}\big[\kappa_j-\ln(p_j-s_j)\big]} + 
     e^{-\tfrac{\delta}{2}\big[(\sqrt{\frac{(1-\gamma) n\rho(\bX)}{6}}{\beta_{\min,j}^*} - \sqrt{\kappa_j})^2 -\ln(s_j) \big]}.
 \end{equation}
-Moreover, suppose that for some fixed $\gamma^*\in(1/2,1)$, arbitrarily close to $1/2$, and all $j=1,\ldots,b$, the $\kappa_j$ are set at the oracle values such that
+Moreover, suppose that for some fixed $\gamma^*\in(1/2,1)$ and all $j=1,\ldots,b$, the $\kappa_j$ are set at the oracle values such that
 	\begin{equation} \label{eq:oraclepenreg}
 \sqrt{\kappa^*_j\,} \;=\; \frac12\sqrt{\frac{(1-\gamma^*) n\rho(\bX)}{6}}{\beta_{\min,j}^*}+\frac12\sqrt{\frac{6}{(1-\gamma^*) n\rho(\bX)}}\frac{1}{\beta_{\min,j}^*}\big(\ln({p_j-s_j})-\ln({s_j})\big).
 \end{equation}
@@ -569,13 +569,12 @@ when $n\rho(\bX)6^{-1}{\beta_{\min,j}^*}^2 =o(\ln(p_j/s_j-1))$.
 
 We observe that the results of Theorem~\ref{prop:fullrecovreg}, when applied to non-informed $\ell_0$ selector $\hat{S}^{sd}$, nearly match the minimax rates for the orthonormal case, where $\bX^{\top}\bX=n\I_p$ and $\rho(\bX)=1$. \cite{butucea2018} show that, in this case, the choice $\sqrt{\tilde{\kappa}}=(1/2)\sqrt{n/2}\beta_{\min}^*+(1/2)\sqrt{2/n}\ln(p/s-1)/\beta_{\min}^*$ is exactly minimax for the Hamming loss and asymptotically minimax for the probability of incorrect recovery, when $\beta_j^* \geq 0$ for all $j$. The minimax rate for the Hamming loss is then shown to be the sum of a term decreasing exponentially in $\tilde{\kappa}-\ln(p-s)$ and a term decreasing exponentially in $(\sqrt{n/2}\beta_{\min}^*-\sqrt{\tilde{\kappa}})^2-\ln(s)$, similarly to our rate in \eqref{eq:rateconvreg}. %In Supplement XXX, we discuss sharp minimax results for $\hat S^{ei}$ in the orthonormal case. \david{Fix the XXX.} 
 
-\paul{Need to fix this section}
 Finally, we compare our sufficient Assumptions~\hyperlink{lab:A4}{A4} and~\hyperlink{lab:A5}{A5} to assumptions on $\kappa_j$ and $\beta_{\min,j}$ that are necessary for consistent variable selection with $\hat{S}^{ei}$. Tight necessary assumptions follow from guaranteeing $S$ is preferred over the models that differ from $S$ by only one entry. In particular, we consider, for each $j$, the subset of models that over-fit by only one variable from block $B_j$,
 \begin{align}
     &\OO_j \:=\,\{M\in \M\;|\; M=S\cup\{i\} \text{ where } i\in B_j\setminus S_j\}, \label{eq:defOj}.
 \end{align}
-We bound these maximums %that account for the dependence between models 
-through the next two quantities
+Our necessary conditions involve %that account for the dependence between models 
+the next two quantities
 \begin{equation}\label{eq:ovpsk}
 \underline{\lambda}_j\;:=\;\lambda^2_{min}(C^j) 
 \quad\text{ and}\quad
@@ -591,7 +590,7 @@ where, $C^j$ is the matrix in $\R^{(p_j-s_j) \times (p_j-s_j)}$ such that for an
     \item If for some $j=1,\ldots,b$,  $\lim_{n\to\infty}\kappa_j/(\underline{\lambda}_j\ln(p_j-s_j)) <1$, then 
      $\lim_{n \to \infty} \, \sup_{\bbeta^*\in\mathfrak{B}}\, P(\hat{S}^{ei}=S)= 0$.
     \item Assume \hyperlink{lab:A1}{A1}. If for some $j=1,\ldots,b$, $\kappa_j\to\infty$  and
-      $\lim_{n\to \infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\kappa_j} < \infty$ then $\lim_{n \to \infty} \, \sup_{\bbeta^*\in\mathfrak{B}} P(\hat{S}^{ei} = S) < 1$.XXXX CHECK PROOF with SUP.
+      $\lim_{n\to \infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\kappa_j} < \infty$ then $\lim_{n \to \infty} \, \sup_{\bbeta^*\in\mathfrak{B}} P(\hat{S}^{ei} = S) < 1$.
     \item Assume \hyperlink{lab:A1}{A1}. If for some $j\in\{1,\ldots,b\}$,   $\lim_{n\to+\infty}(p_j-s_j)^{\underline{\lambda}_j}=+\infty$ and $\lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{2\underline{\lambda}_j\ln(p_j-s_j)} < \infty$, then $\lim_{n \to \infty} \, \sup_{\bbeta^*\in\mathfrak{B}} P(\hat{S}^{ei}=S) < 1$.
 \end{enumerate}
 \end{prop}
@@ -603,12 +602,12 @@ Proposition~\ref{prop:nectypeItypeII} (i) shows that the block penalty $\kappa_j
 % \begin{equation}\label{cond:necIallblockpen}
 % \lim_{n\to\infty}\frac{\kappa_j}{\underline{\lambda}_j^2\ln(p_j-s_j)}\;\geq\;1\qquad\mbox{for all }j=1,\ldots,b.
 % \end{equation}
-Proposition~\ref{prop:nectypeItypeII} (ii) further shows that the signal strength $\beta_{\min,j}^*$ cannot be too small with respect to the block penalties. Proposition~\ref{prop:nectypeItypeII} (iii) follows from combining (i) and (ii). The assumption $(p_j-s_j)^{\underline{\lambda}_j}\to \infty$ requires that an \textit{effective} number of inactive variables in block $B_j$, in the sense that it accounts for their correlation through $\underline{\lambda}_j$, diverges, so that the regime in block $B_j$ is truly high-dimensional. Proposition~\ref{prop:nectypeItypeII} (iii) then shows the signal strength $\beta_{\min,j}^*$ cannot be too small with respect to the log of that \textit{effective} number of inactive variables and yields the necessary betamin assumption for consistency
+Proposition~\ref{prop:nectypeItypeII} (ii) further shows that the signal strength $\beta_{\min,j}^*$ cannot be too small with respect to the block penalties. Proposition~\ref{prop:nectypeItypeII} (iii) follows from combining (i) and (ii). The assumption $(p_j-s_j)^{\underline{\lambda}_j}\to \infty$ requires that an \textit{effective} number of inactive variables in block $B_j$, in the sense that it accounts for their correlation through $\underline{\lambda}_j$, diverges, so that the regime in block $B_j$ is truly high-dimensional and the block penalty $\kappa_j$ is must diverge as required in (ii). Proposition~\ref{prop:nectypeItypeII} (iii) then shows the signal strength $\beta_{\min,j}^*$ cannot be too small with respect to the log of that \textit{effective} number of inactive variables and yields the necessary betamin assumption for consistency
 \begin{equation}\label{eq:betaminnecreg}
 \lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min,j}^*-\sqrt{ 2\underline{\lambda}_j\ln(p_j-s_j)} = \infty\qquad\mbox{for all }j=1,\ldots,b.
 \end{equation}
-\paul{David had asked about the assumption $\lim_{n\to+\infty}(p_j-s_j)^{\underline{\lambda}_j}=+\infty$ in (iii) in a later comment. It requires that an "effective" number of inactive variables goes to infinity. A2 is not enough. If $p_j-s_j\to\infty$ but correlation increases a lot, then you can end up with an "effective" number of inactives that is fixed or decreasing.} 
-It follows from Proposition~\ref{prop:nectypeItypeII} that Assumptions \hyperlink{lab:A4}{A4}-\hyperlink{lab:A5}{A5} are fairly tight. Indeed, it holds that $\underline{\lambda}_j \in [0,1]$ and $\underline{\lambda}_j=1$ corresponds to the worst case. In that worst case, by (i), a necessary assumption is that $\kappa_j \geq \ln(p_j-s_j)$ for all $j$, closely matching \hyperlink{lab:A4}{A4}. In that worst case, the necessary condition~\eqref{eq:betaminnecreg} also ressembles \hyperlink{lab:A5}{A5} where $\rho(\bX)$ is replaced by $\bar{\lambda}$ and up to a constant factor, a factor logarithmic in $s_j$ and factor $1-\gamma$ which is bounded $(0,1/2)$. That is, Assumption~\hyperlink{lab:A5}{A5} and \eqref{eq:betaminnecreg} imply the same scalings of $(n,p_j,s_j,\beta_{\min,j}^*)$ up to a logarithmic factor in $s_j$. %In Supplement XXX, we discuss how our sufficient and necessary assumptions, when applied to non-informed $\ell_0$ selector $\hat{S}^{sd}$, improve on the known limits on variable selection in linear regression \citep{infotheowainwright,wang2010}. \david{Fix the XXX.}
+\paul{David had asked about the assumption $\lim_{n\to+\infty}(p_j-s_j)^{\underline{\lambda}_j}=+\infty$ in (iii) in a later comment. It requires that an "effective" number of inactive variables goes to infinity. A2 is not enough. If $p_j-s_j\to\infty$ but correlation increases a lot, then you can end up with an "effective" number of inactives that is fixed or decreasing. I added an explanation but that may be too technical for JASA} 
+It follows from Proposition~\ref{prop:nectypeItypeII} that Assumptions \hyperlink{lab:A4}{A4}-\hyperlink{lab:A5}{A5} are fairly tight. Indeed, it holds that $\underline{\lambda}_j \in [0,1]$ and $\underline{\lambda}_j=1$ corresponds to the worst case. In that worst case, by (i), a necessary assumption is that, for all $j$, $\kappa_j= \ln(p_j-s_j)(1+e_j)$ such that $\lim_{n\to+\infty}e_j \geq 0$, closely matching \hyperlink{lab:A4}{A4}. In that worst case, the necessary condition~\eqref{eq:betaminnecreg} also ressembles \hyperlink{lab:A5}{A5} where $\rho(\bX)$ is replaced by $\bar{\lambda}$ and up to a constant factor, a factor logarithmic in $s_j$ and factor $1-\gamma$ which is bounded in $(0,1/2)$. That is, Assumption~\hyperlink{lab:A5}{A5} and \eqref{eq:betaminnecreg} imply the same scalings of $(n,p_j,s_j,\beta_{\min,j}^*)$ up to a logarithmic factor in $s_j$. %In Supplement XXX, we discuss how our sufficient and necessary assumptions, when applied to non-informed $\ell_0$ selector $\hat{S}^{sd}$, improve on the known limits on variable selection in linear regression \citep{infotheowainwright,wang2010}. \david{Fix the XXX.}
 
 
 % Proposition~\ref{prop:nectypeItypeII} 
@@ -707,7 +706,7 @@ We discuss two types of benefits, softening the conditions for model selection c
 
 %We do so in  Corollary~\ref{cor:selconstimpossiblereg} where $\underline{\lambda}=\lambda_{min}(C)$ with for any $M_k,M_l \in \cup_{j=1}^b \OO_j$, $C_{k,l}=\operatorname{corr}\big(Z_{M_k},Z_{M_l}\big)$ and $Z_{M_k}$ as in \eqref{eq:ovpsk}. \david{I couldn't follow the last sentence, there's grammatical errors and I wasn't sure if $\underline{\lambda}$ and $C$ here are the same as in \eqref{eq:ovpsk}. If so, just say $\underline{\lambda}$ as in \eqref{eq:ovpsk}. If not, explain what's $\underline{\lambda}$. Also, Corollary~\ref{cor:selconstimpossiblereg} is hard to grasp: there's two new conditions involving $\underline{\lambda}$ that weren't discussed, we need to explain to the reader how to interpret them and the corollary. In essence, the corollary says that if the global $\beta_{\min}^*$ and $p-s$ don't satisfy certain conditions but the block-specific $\beta_{\min,j}^*$ and $p_j - s_j$ do, then $\hat{S}^{ei}$ is consistent and $\hat{S}^{sd}$ is not. Can we phrase it along these lines? btw, please remind readers where $\bar{\lambda}$ is defined.}
 
-By Theorem \ref{prop:fullrecovreg}, Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} give ranges of penalties that are sufficient for asymptotic support recovery with the informed $\hat S^{ei}$ and the standard $\hat S^{sd}$ with a single penalty (that is $b=1$). For each of the two selectors, we set penalties to the lowest end of the respective ranges to understand the minimum scaling of $n$ with respect to the $(p_j,s_j,\beta_{\min,j}^*)$ for which consistency can be guaranteed. For the informed selector $\hat{S}^{ei}$ with block penalties set to $\kappa_j=\ln(p_j-s_j)(1+e)$ for some arbitrarily small sequence $e$ such that $\lim_{n\to\infty}e >0$, a sufficient condition on $n$ to have consistency is, for some arbitrarily small sequence $g$ such that $\lim_{n\to\infty}g = \infty$ and up to constant factors and factors $(1-\gamma_j)$ bounded in $(0,1/2)$,
+By Theorem \ref{prop:fullrecovreg}, Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} give ranges of penalties that are sufficient for asymptotic support recovery with $\hat S^{ei}$ and $\hat S^{sd}$ (taking $b=1$). For each of the two selectors, we set penalties to the lowest end of the respective ranges to understand the minimum scaling of $n$ with respect to the $(p_j,s_j,\beta_{\min,j}^*)$ for which consistency can be guaranteed. For the informed selector $\hat{S}^{ei}$ with block penalties set to $\kappa_j=\ln(p_j-s_j)(1+e)$ for some arbitrarily small sequence $e$ such that $\lim_{n\to\infty}e >0$, a sufficient condition on $n$ to have consistency is, for some arbitrarily small sequence $g$ such that $\lim_{n\to\infty}g = \infty$ and up to constant factors and factors $(1-\gamma_j)$ bounded in $(0,1/2)$,
 \begin{eqnarray}\label{eq:rangeblockpenex}
     \sqrt{n} \geq \max_{j=1\ldots,b}\Bigg\{
       \frac{\sqrt{\ln(p_j-s_j)(1+e)}+\sqrt{\ln(s_j)}}{\sqrt{\rho(\bX)}\beta^*_{\min,j}}\Bigg\} + g.   
@@ -717,32 +716,34 @@ By Theorem \ref{prop:fullrecovreg}, Assumptions~\hyperlink{lab:A4}{A4}--\hyperli
     \sqrt{n} \geq 
       \frac{\sqrt{\ln(p-s)(1+e')}+\sqrt{\ln(s)}}{\sqrt{\rho(\bX)}\beta^*_{\min}}+ g'. 
 \end{eqnarray}
-Since for every $j=1,\ldots,b$, $p_j-s_j\leq p-s$, $s_j\leq s$ and $\beta^*_{\min,j}\geq \beta^*_{\min}$, the growth rate of $n$ required in \eqref{eq:rangeblockpenex} is slower than that required in \eqref{eq:rangepenex}. Variable selection consistency can be guaranteed with the informed selector $\hat S^{ei}$ under milder conditions than with the standard selector $\hat S^{sd}$. How much milder depends on how much sparser the global $\bbeta^*$ is compared to the block $\bbeta^*_{j}$'s. In Supplement XXX, we provide examples in different scenarios of informativeness of the block partition.
+Since for every $j=1,\ldots,b$, $p_j-s_j\leq p-s$, $s_j\leq s$ and $\beta^*_{\min,j}\geq \beta^*_{\min}$, the growth rate of $n$ required in \eqref{eq:rangeblockpenex} is slower than that required in \eqref{eq:rangepenex}. 
 
-Similarly, Proposition~\ref{prop:nectypeItypeII} (iii) implies that the growth rate of $n$ necessary for consistency with $\hat{S}^{ei}$ is slower than the growth rate necessary for consistency with $\hat{S}^{sd}$. It follows that in some settings $n$ may not meet the necessary growth rate required for consistency with $\hat{S}^{sd}$ but may meet the sufficient growth rate required for consistency with $\hat{S}^{ei}$. Corollary \ref{cor:selconstimpossiblereg} next describes such settings.
+Variable selection consistency can then be guaranteed with the informed selector $\hat S^{ei}$ under milder conditions than with the standard selector $\hat S^{sd}$. How much milder depends on how much sparser the global $\bbeta^*$ is compared to the block $\bbeta^*_{j}$'s. Consider a  two block example with discriminative external information that splits the global number of inactive variable $p-s=n^{\alpha}$ ($\alpha>1$) into a first block where $p_1-s_1=\ln(n)$ and second block $p_2-s_2=n^{\alpha}-\ln(n)$. Further, suppose the number of active variables is the same across block, $s_1=s_2= O(1)$, such that the block proportions of active variables are $s_1/p_1=O(1/\ln(n))$ and $s_2/p_2=O(1/n^{\alpha})$. For simplicity, asumme the design is orthonormal such that $\bX^{\top} \bX=n$ and $\rho(\bX)=1$. With $\hat S^{sd}$, recovery can be guaranteed only for signals of size at least $O(\sqrt{\ln(n)/n})$. With $\hat S^{ei}$, in the sparser block 2, signals must be of the same order of size to be recovered but in the less sparse block 1, signals as small as $O(\sqrt{\ln(\ln(n))/n})$ can be recovered. In Supplement XXX, we consider other scenarios of informativeness of the block partition and provide illustrations of the gains achievable.
+
+Proposition~\ref{prop:nectypeItypeII} (iii) implies that, similarly, the growth rate of $n$ necessary for consistency with $\hat{S}^{ei}$ is slower than the growth rate necessary for consistency with $\hat{S}^{sd}$. It follows that in some settings $n$ may not meet the necessary growth rate required for consistency with $\hat{S}^{sd}$ but may meet the sufficient growth rate required for consistency with $\hat{S}^{ei}$. Corollary \ref{cor:selconstimpossiblereg} next describes such settings.
 
 \begin{cor}\label{cor:selconstimpossiblereg}
-Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A2}{A2}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A4}{A4}, \hyperlink{lab:A5}{A5} and $\lim_{n\to\infty}(p-s)^{\underline{\lambda}}=\infty$ where $\underline{\lambda}$ as in \eqref{eq:ovpsk} for the case $b=1$. If
+Assume \hyperlink{lab:A1}{A1},  \hyperlink{lab:A4}{A4}, \hyperlink{lab:A5}{A5} and $\lim_{n\to\infty}(p-s)^{\underline{\lambda}}=\infty$ where $\underline{\lambda}$ as in \eqref{eq:ovpsk} for the case $b=1$. If
 $\lim_{n\to\infty}\sqrt{n\bar{\lambda}}\beta_{\min}^*-\sqrt{2\underline{\lambda}\ln(p-s)}< \infty$ where $\underline{\lambda}$ as in \eqref{eq:ovpsk},
 then 
 $\lim_{n \to \infty} \, \sup_{\bbeta^*\in\mathfrak{B}}\, P(\hat{S}^{sd} = S) < 1$ and $\lim_{n \to \infty} \, \inf_{\bbeta^*\in\mathfrak{B}}P(\hat{S}^{ei} = S) = 1$.
 \end{cor}
-Corollary \ref{cor:selconstimpossiblereg} assumes a truly high-dimensional setting, where the global \textit{effective} number of inactive variables $(p-s)^{\underline{\lambda}}$ diverges, in the fashion of Proposition~\ref{prop:nectypeItypeII} (iii). It shows then that $\hat S^{ei}$, by incorporating external information, may attain variable selection consistency when otherwise it would not be possible. Ex XXX in Supplement ...
+Corollary \ref{cor:selconstimpossiblereg} assumes a truly high-dimensional setting, where the global \textit{effective} number of inactive variables $(p-s)^{\underline{\lambda}}$ diverges, in the fashion of Proposition~\ref{prop:nectypeItypeII} (iii). It shows then that $\hat S^{ei}$, by incorporating external information, may attain variable selection consistency when otherwise it would not be possible. Supplement XXX provides an illustration in Example 2.
 
-We now discuss differences in the probability of correct selection, when both procedures are consistent. Assume that, for some $\gamma^* \in (1/2,1)$, block penalties are set to their oracle values $\kappa_j^*$ in \eqref{eq:oraclepenreg} and similarly that the single penalty takes its oracle value $\kappa^*$. Let ${OR}^{ei}$ be the oracle convergence rate for $\kappa_j^*$ in\eqref{eq:oraclerateconvreg} and ${OR}^{sd}$ that for $\kappa^*$.
+We now discuss differences in the probability of correct selection, when both procedures are consistent. Assume that, for some $\gamma^* \in (1/2,1)$, block penalties are set to their oracle values $\kappa_j^*$ in \eqref{eq:oraclepenreg} and similarly that the single penalty takes its oracle value $\kappa^*$. Let ${OR}^{ei}$ be the oracle convergence rate for $\kappa_j^*$ in \eqref{eq:oraclerateconvreg} and ${OR}^{sd}$ that for $\kappa^*$.
 Then, up to constant factors,
 \begin{equation}\label{eq:fewkn}
     \frac{OR^{ei}}{OR^{sd}}=\sum_{j=1}^be^{-\frac{\delta}{2}\left[\frac{ n\rho(\bX)(1-\gamma^*)}{24}\left({\beta^*_{\min,j}}^2-{\beta_{\min}^*}^2\right)+\ln \max\{p-s,s\}-\ln \max\{p_j-s_j,s_j\}\right]}.
 \end{equation}
-Since $\beta_{\min,j}^* \geq \beta_{\min}^*$ and $\max\{p-s,s\}\geq \max\{p_j-s_j,s_j\}\big)$, equation \eqref{eq:fewkn} shows that for every $n$ large enough ${OR}^{ei} \leq {OR}^{sd}$ for any partition in blocks, i.e. the oracle convergence rate in \eqref{eq:oraclerateconvreg} for $\kappa_j^*$ is never worse than for $\kappa^*$.
-\david{I didn't find this last sentence to be obvious from \eqref{eq:fewkn}. All I see is that $\leq \sum_{j=1}^b e^{-(\delta/2)}$, because we haven't argued that the term multiplying $n \rho(X)$ is strictly positive (just $\geq 0$. Also it's unclear what's $\delta$, earlier it was any constant in $(0,1)$, should it be taken as close to 1, add a brief note.} \paul{I am saying "never worse", which I understand, means the rates can be equal. In particular they are equal if for all $j$, $\beta_{\min,j}^* = \beta_{\min}^*$.}
+where $\delta$ is arbitrarily close to 1. Since $\beta_{\min,j}^* \geq \beta_{\min}^*$ and $\max\{p-s,s\}\geq \max\{p_j-s_j,s_j\}\big)$, equation \eqref{eq:fewkn} shows that for every $n$ large enough ${OR}^{ei} = O({OR}^{sd})$ for any block partition and if for some $j$, $\beta_{\min,j}^* < \beta_{\min}^*$,  ${OR}^{ei} <{OR}^{sd}$, i.e. the oracle convergence rate in \eqref{eq:oraclerateconvreg} for $\kappa_j^*$ is faster than for $\kappa^*$.
+%\david{I didn't find this last sentence to be obvious from \eqref{eq:fewkn}. All I see is that $\leq \sum_{j=1}^b e^{-(\delta/2)}$, because we haven't argued that the term multiplying $n \rho(X)$ is strictly positive (just $\geq 0$. Also it's unclear what's $\delta$, earlier it was any constant in $(0,1)$, should it be taken as close to 1, add a brief note.} \paul{I am saying "never worse", which I understand, means the rates can be equal. In particular they are equal if for all $j$, $\beta_{\min,j}^* = \beta_{\min}^*$.}
 The magnitude of the gain depends on how informative the blocks are. %the discriminative power of the blocks.
 For any sparse setting where $s_j<p_j-s_j$ for every $j$, assuming that $\beta_{\min,b}^*=\beta_{\min}^*$ without loss of generality and that $\gamma=\gamma'$ for simplicity, it holds that
 \begin{equation}\label{eq:goodoregratio}
-    \frac{OR^{ei}}{OR}\;=\; \frac{p_b-s_b}{p-s} \,+\,\sum_{j<b}\frac{p_j-s_j}{p-s}e^{-\frac{ n\rho(\bX)(1-\gamma)}{24}\left({\beta^*_{\min,j}}^2-{\beta_{\min}^*}^2\right)}
+    \frac{OR^{ei}}{OR}\;=\; \frac{p_b-s_b}{p-s} \,+\,\sum_{j<b}\frac{p_j-s_j}{p-s}e^{-\frac{ n\rho(\bX)(1-\gamma^*)}{24}\left({\beta^*_{\min,j}}^2-{\beta_{\min}^*}^2\right)}
 \end{equation}
 There are then two sources of improvement in convergence rates: in any block $j$, a smaller number of truly zero means, that is $p_j-s_j< p-s$, or a larger smallest signal, $\beta^*_{\min,j} > \beta_{\min}^*$. Depending on the sparsity of the block, one of the two effects prevails. In blocks where $\beta^*_{\min,j} \approx \beta_{\min}^*$, improvement comes mainly from having a smaller number of truly zero means. In those blocks,
-the oracle sets $\kappa^*_j < \kappa^*$, so that smaller signals are detected. If $\beta^*_{\min,j} \gg \beta_{\min}^*$, the oracle sets $\kappa^*_j > \kappa^*$ and the probability of false positives is reduced. See Supplement XXX, for illustrations in four examples contemplating different scenarios of sparsity regimes and informativeness of the blocks.
+the oracle sets $\kappa^*_j < \kappa^*$, so that smaller signals are detected. If $\beta^*_{\min,j}$ is much greater than $\beta_{\min}^*$, the oracle sets $\kappa^*_j > \kappa^*$ and the probability of false positives is reduced. See Supplement XXX, for illustrations in different scenarios of sparsity regimes and informativeness of the blocks.
 
 % Observe that \eqref{eq:rangepenex} and \eqref{eq:rangeblockpenex} are analogous to \eqref{eq:rangethreshex} and \eqref{eq:rangeblockthreshex} for the sequence model, up to rescaling by $\sqrt{2/n}$, the factor $\rho(\bX)$ and sequences $(f_j,g_j)$ growing arbitrarily slowly. The gains in terms of valid thresholds for consistency discussed in the example of Section \ref{sec:examples} Section~\ref{sec:prosconsblock} remain applicable
 % to linear regression. 
@@ -765,10 +766,10 @@ the oracle sets $\kappa^*_j < \kappa^*$, so that smaller signals are detected. I
 
 \subsection{Generalized convergence}\label{ssec:nobetaminhyp}
 
-We now derive a convergence result for $\hat S^{ei}$ that generalizes Theorem~\ref{theo:suffcondlinearmodel} by forgoing the betamin Assumption~\hyperlink{lab:A5}{A5} and is key to the proofs of Section~\ref{sec:informed_l0}.%for the normalized scores $NC(M)$ in \eqref{eq:CM}, $M\in\mathcal{M}$, 
-\david{The previous sentence reads as a contradiction. If we make minimal technical requirements then we cannot say that we make no requirements. And in fact $S_j^L$ assumes $|\beta_i^*|$ to be sufficiently large relative to $\sqrt{\kappa_j}$. Can we say that we derive a result under milder conditions that allow some $\beta_j^*$ to be smaller than required by A5, and that in this case we show that the normalized scores concentrate on models that contain sufficiently large signals (satisfying A5)?}\paul{I changed the wording} 
+We now derive a convergence result for $\hat S^{ei}$ that generalizes Theorem~\ref{theo:suffcondlinearmodel} by forgoing the betamin Assumption~\hyperlink{lab:A5}{A5} and is key to the proofs of Section~\ref{sec:informed_l0}. %for the normalized scores $NC(M)$ in \eqref{eq:CM}, $M\in\mathcal{M}$, 
+%\david{The previous sentence reads as a contradiction. If we make minimal technical requirements then we cannot say that we make no requirements. And in fact $S_j^L$ assumes $|\beta_i^*|$ to be sufficiently large relative to $\sqrt{\kappa_j}$. Can we say that we derive a result under milder conditions that allow some $\beta_j^*$ to be smaller than required by A5, and that in this case we show that the normalized scores concentrate on models that contain sufficiently large signals (satisfying A5)?}\paul{I changed the wording} 
 Rather than requiring large enough active signals, here we partition active signals into small, intermediate and large signals and show that, if one sets a sufficiently large penalty $\kappa_j$, all inactive and all small active signals are discarded. On the other hand, all large signals (relative to $\kappa_j$) are retained. We next formally define small, intermediate and large signals. For fixed $\kappa_j$, and for 
-$\gamma$ and $g_j$ as defined in Assumption~\hyperlink{lab:A5}{A5}, let \david{also remind the reader where $\bar{\lambda}$ is defined.}\paul{I need to add an intuitive interpretation of $\bar{\lambda}$. It comes from upper bounding the noncentral chi-square parameter}
+$\gamma$ and $g_j$ as defined in Assumption~\hyperlink{lab:A5}{A5}, let %\david{also remind the reader where $\bar{\lambda}$ is defined.}\paul{I need to add an intuitive interpretation of $\bar{\lambda}$. It comes from upper bounding the noncentral chi-square parameter}
 \begin{eqnarray}\label{eq:defSes}
     &S_j^{S}(\kappa_j)\;&:=\;\Bigg\{\beta_i^* \in S_j \,\Big|\,\sqrt{n\bar{\lambda}}|\beta_{i}^*|=o\big(\sqrt{\kappa_j}\big) \Bigg\}\nonumber\\
     &S_j^{L}(\kappa_j)\;&:=\;\Bigg\{\beta_i^* \in S_j \,\Big|\,\sqrt{\frac{(1-\gamma) n\rho(\bX)}{6}}|\beta_{i}^*| \,- \,\sqrt{\kappa_j} \;=\; \sqrt{\ln(s_j)} + g_j\Bigg\}\label{eq:defslsi}\\
@@ -776,8 +777,8 @@ $\gamma$ and $g_j$ as defined in Assumption~\hyperlink{lab:A5}{A5}, let \david{a
     \nonumber 
 \end{eqnarray}
 where $\bar{\lambda}=\lambda_{\max}\Big(n^{-1} \bX_{S}^\top\bX_{S}\Big)$.
-\david{In the definitions above we have $\kappa$ as an argument and then $\kappa_j$ in the expression. Can we use $\kappa_j$ throughout?}\paul{changed}
-The subset $S_j^{S}(\kappa_j)$ gathers truly non-zero parameters in $S_j$ that are small with respect to the penalty $\kappa_j$, $S_j^{L}(\kappa_j)$ those that are large in that they satisfy Assumption~\hyperlink{lab:A5}{A5}, and $S_j^{I}(\kappa_j)$ those that are neither large nor small. Moreover, let $\T(\kappa)$ be the set of models that contain all large signals in $S^{L}(\kappa)=\cup_{j=1}^b S_j^{L}(\kappa_j)$, and neither truly inactive parameters in $V\setminus S$ nor small signals in $S^S(\kappa)=\cup_{j=1}^b S_j^{S}(\kappa_j)$. That is,
+%\david{In the definitions above we have $\kappa$ as an argument and then $\kappa_j$ in the expression. Can we use $\kappa_j$ throughout?}\paul{changed}
+The subset $S_j^{S}(\kappa_j)$ gathers truly active signals in $S_j$ that are small with respect to the penalty $\kappa_j$, $S_j^{L}(\kappa_j)$ those that are large in that they satisfy Assumption~\hyperlink{lab:A5}{A5}, and $S_j^{I}(\kappa_j)$ those that are neither large nor small. Moreover, let $\T(\kappa)$ be the set of models that contain all large signals in $S^{L}(\kappa)=\cup_{j=1}^b S_j^{L}(\kappa_j)$, and neither truly inactive signals in $V\setminus S$ nor small signals in $S^S(\kappa)=\cup_{j=1}^b S_j^{S}(\kappa_j)$. That is,
 \begin{equation} \label{eq:Tkappa}
    \T(\kappa) \;:=\;\Big\{M \in \M \,\big|\, M\,=\, S^L(\kappa)\,\cup\,R,\; R\in \mathcal{P}\big(S^{I}(\kappa)\big)  \Big\},
 \end{equation}
@@ -789,18 +790,17 @@ concentrate on $\T(\kappa)$. We also require the following assumption:
 Assumption~\hyperlink{lab:A6}{A6} is mild and can be relaxed. The 
 $|S_j^{I}(\kappa_j)|$ can grow moderately with $p_j-s_j$ in our proof,
 and one expects $|S_j^{I}(\kappa_j)|$ to be small because there is a relatively small gap between the range of $\beta_i^*$'s included in $S_j^S$ and $S_j^L$. %is typically small since $S_j^{S}(\kappa_j)$ and $S_j^{L}(\kappa_j)$ are close to form a partition of $S_j$ and 
-Further, if $|S_j^{S}(\kappa_j)|/ (p_j-s_j) \to \infty$ the same result holds replacing, in \hyperlink{lab:A4}{A4}, $p_j-s_j$ by $|S_j^{S}(\kappa_j)|$ for all $j$. \david{The last sentence is confusing. If $|S_j^{S}(\kappa_j)| \ll p_j-s_j$ then we have that $|S_j^{S}(\kappa_j)| = o(p_j-s_j)= O(p_j - s_j)$. Did you mean $\gg$? (btw, we didn't define $\ll$ no (elsewhere we're using $o()$).} \paul{fixed}
+Further, if $|S_j^{S}(\kappa_j)|/ (p_j-s_j) \to \infty$ the same result holds replacing, in \hyperlink{lab:A4}{A4}, $p_j-s_j$ by $|S_j^{S}(\kappa_j)|$ for all $j$. %\david{The last sentence is confusing. If $|S_j^{S}(\kappa_j)| \ll p_j-s_j$ then we have that $|S_j^{S}(\kappa_j)| = o(p_j-s_j)= O(p_j - s_j)$. Did you mean $\gg$? (btw, we didn't define $\ll$ no (elsewhere we're using $o()$).} \paul{fixed}
 \begin{thm}\label{thm:convtoT}
-    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A4}{A4}, and \hyperlink{lab:A6}{A6}, for every $j=1,\ldots,b$,  then, \\$\lim_{n \to \infty} \sum_{M \in \M\setminus \T(\kappa)} \, \sup_{\bbeta^*\in\mathfrak{B}}\, \E\left(NC(M)\right)= 0 \mbox{  and  } 
+    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A4}{A4}, and \hyperlink{lab:A6}{A6}, for every $j=1,\ldots,b$,  then, \\$\lim_{n \to \infty} \sum_{M \in \M\setminus \T(\kappa)} \, \sup_{\bbeta^*\in\mathfrak{B}}\, \E\left(NC(M)\right)= 0 \mbox{  and  } 
     \lim_{n \to \infty} \, \inf_{\bbeta^*\in\mathfrak{B}}\, P(\hat{S}^{ei} \in \T(\kappa))= 1.$
 \end{thm}
-Theorem~\ref{thm:convtoT} shows %, assuming only sufficiently large penalties as given in Assumption~\hyperlink{lab:A4}{A4}, 
-that the normalized scores, which, recall, can be interpreted as pseudo-posterior model probabilities, concentrate on $\T(\kappa)$. That is, all inactive and small active signals are discarded, large signals are retained and intermediate signals in $S^{I}(\kappa)$ may or may not be retained. 
+Theorem~\ref{thm:convtoT} shows that, asymptotically, all inactive and small active signals are discarded, large signals are retained and intermediate signals in $S^{I}(\kappa)$ may or may not be retained. 
 
 
 \section{Data-based externally-informed penalization}\label{sec:informed_l0}
 
-We propose a data analysis method to set block penalties that does not require an oracle and discuss its properties. The proposed adapts to the relevance of the external-information which, as discussed in Section \ref{ssec:regression_gains}, is driven by varying sparsity levels and signal strengths across blocks. Exploiting the connection between informed $\ell_0$ penalties and Bayesian variable selection, we propose an estimator of the proportion of truly active variables in each block inspired by empirical Bayes. Such connection also allows the use of Bayesian computational methods. % that overcome the intractability of $\ell_0$ penalties. 
+We propose next a data analysis method to set block penalties that does not require an oracle and discuss its properties. Our goal is to have a method that adapts to the relevance of the external-information. In Section \ref{ssec:regression_gains}, we saw that the relevance is driven by the varying sparsity levels and signal strengths across blocks. We define then an estimator of the proportion of truly active variables in each block. This estimator is based on the connection between informed $\ell_0$ penalties and Bayesian variable selection \eqref{eq:block_modelprob} and by empirical Bayes techniques. Such connection also allows the use of Bayesian computational methods. % that overcome the intractability of $\ell_0$ penalties. 
 Despite its Bayesian motivation, our method is fully data-dependent and does not require any prior distribution.
 
 Recall that, by the BIC approximation in \eqref{eq:block_modelprob}, %for any model $M$, 
@@ -828,7 +828,7 @@ $$
 \end{lem}
 
 %Lemma~\ref{lem:empiricalbayesinterpret} and the interpretation, for any model $M$, of 
-Interpreting $NC(M)$ as the pseudo-posterior probability of model $M$ motivates estimating the number of active variables $s_j$ in block $j$ by $\hat{s}_j= p_j \hat{\theta}_j$. Approximating $\hat{\theta}_j$ by replacing $P(M \mid \by, \btheta)$ by $NC(M)$ gives
+Interpreting $NC(M)$ as the pseudo-posterior probability of model $M$ motivates estimating the number of active variables $s_j$ in block $j$ by $\hat{s}_j= p_j \hat{\theta}_j$ where $P(M \mid \by, \btheta)$ is replaced by $NC(M)$,
 \begin{equation}\label{eq:shat}
     \hat{s}_j \,:=\, \sum_{i\in B_j}\,\,\sum_{M\in \M : i \in M}NC(M).
 \end{equation}
@@ -836,21 +836,27 @@ Interpreting $NC(M)$ as the pseudo-posterior probability of model $M$ motivates 
 We have the following asymptotic bounds on the expectation of $\hat{s}_j/p_j$. %following from Theorem~\ref{thm:convtoT}.
 \begin{prop}
     \label{prop:shatconsistence}
-Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, 
+Assume \hyperlink{lab:A1}{A1},
 \hyperlink{lab:A4}{A4}, and \hyperlink{lab:A6}{A6}. Then
 $$ \,\, \frac{|S_j^{L}(\kappa_j)|}{p_j}\leq \lim_{n\to\infty}\E\bigg(\frac{\hat{s}_j}{p_j}\bigg)\leq \frac{s_j-|S_j^{S}(\kappa_j)|}{p_j}\quad\text{for all }j=1,\ldots,b \text{ and }\bbeta^*\in\mathfrak{B}.$$
 \end{prop}
-\david{Should it be $\kappa_j$ in the proposition (lhs and rhs)?}\paul{fixed}
+%\david{Should it be $\kappa_j$ in the proposition (lhs and rhs)?}\paul{fixed}
 As a consequence, if the betamin condition in Assumption~\hyperlink{lab:A5}{A5} also holds, then $\hat{s}_j/p_j$ is an asymptotically unbiased
-estimator of $s_j/p_j$ because $S_j=S_j^{L}(\kappa_j)$ and $S_j^{S}(\kappa_j)=\emptyset$ for all $j$. \david{This consequence is not obvious. As stated, the proposition is a result on the expectation, which is different from saying that $\hat{s}_j/p_j$ converges to a constant (it could have non-vanishing variance).} \paul{You're right, I corrected l1 convergence to asymptotically unbiased.} The proposition also shows that, when Assumption~\hyperlink{lab:A5}{A5} is not met, $\hat{s}_j/p_j$ is asymptotically downward biased by at least the proportion of small signals $|S_j^{S}(\kappa_j)|/p_j$, but it is guaranteed to be larger than the proportion of large signals $|S_j^L(\kappa)/p_j$ (i.e., those satisfying \hyperlink{lab:A5}{A5}).
+estimator of $s_j/p_j$ because $S_j=S_j^{L}(\kappa_j)$ and $S_j^{S}(\kappa_j)=\emptyset$ for all $j$. %\david{This consequence is not obvious. As stated, the proposition is a result on the expectation, which is different from saying that $\hat{s}_j/p_j$ converges to a constant (it could have non-vanishing variance).} \paul{You're right, I corrected l1 convergence to asymptotically unbiased.} 
+The proposition also shows that, when Assumption~\hyperlink{lab:A5}{A5} is not met, $\hat{s}_j/p_j$ is asymptotically downward biased by at least the proportion of small signals $|S_j^{S}(\kappa_j)|/p_j$, but it is guaranteed to be larger than the proportion of large signals $|S_j^L(\kappa)/p_j$ (i.e., those satisfying \hyperlink{lab:A5}{A5}).
 
-We propose a two-step procedure that uses $\hat{s}_j$ in \eqref{eq:shat} to set adaptive block penalties that leverage the difference in sparsity across  blocks. % induced by the external information. 
+We propose a two-step procedure that uses $\hat{s}_j$ in \eqref{eq:shat} to set adaptive block penalties that leverage the difference in sparsity across blocks. % induced by the external information. 
 In the first step, % of the procedure, 
 we use a global penalty across blocks %standard (non-block-based) penalty 
 $\kappa^{\circ}$ and obtain the corresponding $\hat{s}_j$. %estimate the number of active signals $s_j$ in each block $j$ with $\hat{s}_j$. 
 In the second step, we use $\hat{s}_j$ to set block penalties $\kappa_j^{A}= \ln(p_j-\hat{s}_j)+ \tfrac{1}{2}\ln(n)$.
-This choice of block penalties\david{Do you mean "This choice of $\kappa^\circ$"?} \paul{of $\kappa_j^{A}$, added the hat on $s_j$ next to make it clearer} amounts to setting $\theta_j\approx (p_j-\hat{s}_j+1)^{-1}$ in the BIC approximation \eqref{eq:block_modelprob}.
-Such block penalties $\kappa_j^{A}$ \david{Do you mean "Such $\kappa^\circ$"?}\paul{clarified} are sufficiently large for Theorem~\ref{theo:suffcondlinearmodel} to hold, taking $f_j=\ln(n)/2$ in Assumption~\hyperlink{lab:A4}{A4} for all $j$.
+This choice of block penalties%\david{Do you mean "This choice of $\kappa^\circ$"?} \paul{of $\kappa_j^{A}$, added the hat on $s_j$ next to make it clearer}
+ amounts to setting $\theta_j\approx (p_j-\hat{s}_j+1)^{-1}$ in the BIC approximation \eqref{eq:block_modelprob}.
+Such block penalties $\kappa_j^{A}$ %\david{Do you mean "Such $\kappa^\circ$"?}\paul{clarified} 
+are sufficiently large for Theorem~\ref{theo:suffcondlinearmodel} to hold, under assumption that $p$ grows at most polynomially in $n$,
+
+\hypertarget{lab:A6}{(A6)}\quad There exists $\alpha >0$ constant such that $p\leq n^{\alpha}$.
+\paul{This a new assumption, the price to pay for the new stricter assumption A4}.
 %The procedure has two variants. The first variant directly uses to set block penalties in the second step the correspondence between $\kappa_j$ and $\theta_j$ in \eqref{eq:block_modelprob} and the approximate empirical Bayes approach where $\theta_j= \hat{s}_j/p_j$. The second variant is motivated by Theorem~\ref{theo:suffcondlinearmodel}. 
 
 \textbf{\hypertarget{lab:AlgoAIS}{Algorithm 1} - Adaptive informed selector}
@@ -900,30 +906,30 @@ In our examples in Section~\ref{sec:examplesinforml0} we use MCMC for both steps
 %\end{eqnarray}
 %and also $\psi > \psi'$. \paul{I made a correction and added the the assumption $\ln(s_j)=o(\ln(p_j-s_j))$ and $\ln(s)=o(\ln(p-s))$, because \eqref{eq:aobv} does not actually hold obviously. Under the assumption added $\hat{S}^{EB,ei}\approx\hat{S}^{A,ei}$ so it is not very interesting but it is the best I could do.} Sufficient conditions for consistency are then milder for $\hat S^{EB,b}$ than for $\hat S^{EB}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|\ll p-|S^{L}(\kappa^{\circ})|$.  
 
-In Section~\ref{sec:properties_legression} the selection properties were driven by $p_j-s_j$ and the gains in conditions for consistency by how $p_j-s_j$ compared to $p-s$, whereas here they are driven by $p_j-|S^L_j (\kappa^{\circ})|$ and it how compares to $p-|S^L (\kappa^{\circ})|$. This occurs because recovery of small signals in Step 1 is not guaranteed. Consider the following betamin assumption:
+In Section~\ref{sec:properties_legression}, the selection properties were driven by $p_j-s_j$ and the gains in conditions for consistency by how the $p_j-s_j$ compared to $p-s$, whereas here they are driven by $p_j-|S^L_j (\kappa^{\circ})|$ and it how compares to $p-|S^L (\kappa^{\circ})|$. This occurs because recovery of small signals in Step 1 is not guaranteed. Consider the following betamin assumption:
 
 \hypertarget{lab:A9}{(A9)}\quad For each block $j$, there exists $d_j\to \infty$ such that for  all sufficiently large $n$,
 \begin{equation*}
         \sqrt{\frac{ (1-\xi)n\rho(\bX)}{2}}\beta_{\min,j}^* \,- \,\sqrt{\ln\big(p_j-|S^{L}_j(\kappa^{\circ})|\big)+\frac12\ln(n)} \;=\; \sqrt{\ln(s_j)} + d_j .
     \end{equation*}
-where $\xi=\tfrac12(1+\max_j \ln(p_j-s_j)/(\ln(p_j-s_j)+0.5\ln(n)))$.
+where $\xi=\tfrac12(1+\max_j \ln(p_j-s_j)/(\ln(p_j-s_j)+\tfrac 12 \ln(n)))$.
 
-Under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9}, we show that, with probability going to 1, $\kappa^{A}_j$ and $\beta_{\min,j}^*$ satisfy Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} and that Theorem~\ref{theo:suffcondlinearmodel} applies. The next result on the consistency of $\hat{S}^{A,ei}$ then follows.
+Under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9}, we show that, with probability going to 1, $\kappa^{A}_j$ and $\beta_{\min,j}^*$ satisfy Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} and that Theorem~\ref{theo:suffcondlinearmodel} applies. The next result on the consistency of $\hat{S}^{A,ei}$ then follows. In our proof, Assumption \hyperlink{lab:A6}{A6} can be relaxed by setting larger block penalties in Step 2.
 \begin{thm}\label{theo:informedl0consist}
-    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9}, then 
+    Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9}, then 
 $\lim_{n \to \infty} \,\inf_{\bbeta^*\in\mathfrak{B}} P(\hat{S}^{A,ei} = S) = 1$.
 \end{thm}
-
-Our data-based selector $\hat{S}^{A,ei}$ requires similar but slightly stricter betamin condition than the oracle selector using penalties $\kappa_j^*$. Assumption \hyperlink{lab:A9}{A9} ressembles the betamin assumption in \eqref{eq:suffoptim} with $\ln(p_j-s_j)$ replaced by $\ln(p_j-|S^{L}_j(\kappa^{\circ})|)+\frac12\ln(n)$.
+Theorem~\ref{theo:informedl0consist} shows the consistency of $\hat{S}^{A,ei}$ under a betamin assumption that ressembles the betamin assumption required for the consistency of the oracle selector in Theorem~\ref{prop:fullrecovreg} where $\ln(p_j-s_j)$ is replaced by $\ln(p_j-|S^{L}_j(\kappa^{\circ})|)+\frac12\ln(n)$. 
+%Our data-based selector $\hat{S}^{A,ei}$ requires similar but slightly stricter
 % \david{I would delete the rest of the paragraph. It slows down the flow and it's confusing to state that it approximates better the oracle selector when signals are small (which should be a bad scenario).} By definition, $\hat{S}^{A,ei}$ has slower convergence rates than the oracle selector. It approximates better the oracle selector when signals are small. Indeed, when $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\approx \ln(p_j/s_j-1)$, the oracle penalty $\kappa_j^*$ in \eqref{eq:oraclepenreg} satisfies $\kappa_j^*\approx \ln(p_j/s_j-1)$ and $\kappa_j^{A}$ is larger but not too far from the oracle block penalties, in particular when $\ln(\sqrt{n}s_j)=o(\ln(p_j/s_j-1))$. When $\sqrt{n\rho(\bX)/6}\beta_{\min,j}^*\gg \ln(p_j/s_j-1)$, we have $\kappa_j^*\approx \sqrt{n\rho(\bX)/24}\beta_{\min,j}^*$ and then, $\kappa_j^*\gg \kappa_j^{A}$. 
 
 We compare next $\hat{S}^{A,ei}$ to its non-informed counterpart $\hat{S}^{A,sd}$ that sets in Step 2 a single common penalty $\kappa^{A}=\ln(p-\hat{s})+ \tfrac{1}{2}\ln(n)$. By Theorem~\ref{theo:informedl0consist}, $\hat{S}^{sd,A}$ is variable selection consistent under the betamin assumption
 \begin{equation}\label{eq:betaminA}
         \sqrt{\frac{ (1-\xi')n\rho(\bX)}{2}}\beta_{\min}^* \,- \,\sqrt{\ln\big(p-|S^{L}(\kappa^{\circ})|\big)+\frac{\ln(n)}{2}} \;=\; \sqrt{\ln(s)} +  d,
     \end{equation}
-where $\xi'=\tfrac12(1+\ln(p-s)/(\ln(p-s)+0.5\ln(n)))$ and $d\to \infty$. 
+where $\xi'=\tfrac12(1+\ln(p-s)/(\ln(p-s)+\tfrac12 \ln(n)))$ and $d\to \infty$. 
 Since %We have that for any $j$, 
-$\ln(p-|S^{L}(\kappa^{\circ})|)\geq \ln(p_j-|S_j^{L}(\kappa^{\circ})|)$ and $\ln(s)\geq \ln(s_j)$, Assumption \hyperlink{lab:A9}{A9} for $\hat S^{A,ei}$ is milder than \eqref{eq:betaminA} for $\hat S^{A,sd}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|\ll p-|S^{L}(\kappa^{\circ})|$. Although not shown here, necessary betamin assumptions are also milder for $\hat S^{A,ei}$ than for $\hat S^{A,sd}$.
+$\ln(p-|S^{L}(\kappa^{\circ})|)\geq \ln(p_j-|S_j^{L}(\kappa^{\circ})|)$ and $\ln(s)\geq \ln(s_j)$, Assumption \hyperlink{lab:A9}{A9} for $\hat S^{A,ei}$ is milder than \eqref{eq:betaminA} for $\hat S^{A,sd}$, in particular in less sparse blocks where $p_j-|S_j^{L}(\kappa^{\circ})|$ is smaller $p-|S^{L}(\kappa^{\circ})|$. Although not shown here, necessary betamin assumptions are also milder for $\hat S^{A,ei}$ than for $\hat S^{A,sd}$.
 
 % \david{The rest of the section contains too many details, it felt a bit hand-wavy and frankly I couldn't follow the arguments. Is it possible to summarize it all in a proposition and explain its implications in simple terms? We should prioritize giving the intuition, rather than derivations. I also got confused by uses of $\approx$, references to "small" or "large" signals, which I didn't know what it meant. This is problematic because I then couldn't follow the final discussion distinguishing "small signal settings" and "large signal settings".}
 % Assume now that sufficient assumptions for both $\hat S^{A,ei}$ and $\hat S^{A,sd}$ to be consistent are met. Recall that under Assumptions~\hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9}, with probability going to 1, $\kappa^{A}_j$ and $\beta_{\min,j}^*$ satisfy Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} and the assumptions of Theorem~\ref{prop:fullrecovreg} are met. Consider the convergence rate in \eqref{eq:rateconvreg} in Theorem~\ref{prop:fullrecovreg} applied to $\kappa^{A}_j$ and $\kappa^{A}$ as an approximation of the convergence rates of $\hat S^{A,ei}$ and $\hat S^{A,sd}$. \paul{It is a bit abusive. Since the true convergence rate should depend on the probability that Assumptions~\hyperlink{lab:A4}{A4}--\hyperlink{lab:A5}{A5} are met. But the discussion that follows is what I observe in simulations} Denote these rates, $CR^{A,ei}$ and $CR^{A,sd}$ respectively, that is, for any $n$ sufficiently large and any $\delta\in(0,1)$, up to constant factors, 
@@ -966,11 +972,11 @@ $\ln(p-|S^{L}(\kappa^{\circ})|)\geq \ln(p_j-|S_j^{L}(\kappa^{\circ})|)$ and $\ln
 
 \david{We need to be careful not to open a can of worms. (1) The algorithm boils down to a specific choice of blocks, I'm not sure that listing/naming it as a separate algorithm is a good idea. (2) One could think about other ways how to define the blocks, for example let $B_l$ denote variables that were identified in $l$ of the previous studies. Another example, it may be that $\hat{S}^{(1)}$ is more informative than $\hat{S}^{(2)}$, so one would want to somehow weight $\hat{S}^{(1)}$ more. In other words, there's already fancier methodology to regress prior inclusion probabilities on the $\hat{S}^{(k)}$, I would clarify that our main contribution is the theory for our simplified transfer learning algorithm.}
 
-This section studies the properties of a structural transfer learning algorithm based on the adaptive informed selector $\hat S^{A,ei}$. We consider a transfer learning setting where one is given a set of selected variables $\hat{S}^{(k)}$ for each source dataset $k=1,\ldots,K$, and one wants to leverage these sets to improve selection in the target dataset. That is, the similarity between source and target data generating processes is thought to lie in the sets of variables associated with the respective outcomes, unlike the similarity in respective parameters values considered in transfer learning for estimation \cite{Li2021,Tian2023,abba2024}.
+This section studies the properties of a structural transfer learning algorithm based on the adaptive informed selector $\hat S^{A,ei}$. We consider a transfer learning setting where one is given a set of selected variables $\hat{S}^{(k)}$ for each source dataset $k=1,\ldots,K$, and one wants to leverage these sets to improve selection in the target dataset. That is, the similarity between source and target data generating processes is thought to lie in the sets of variables associated with the respective outcomes, unlike the similarity in respective parameters values considered in transfer learning for estimation \citep{Li2021,Tian2023,abba2024}.
 
 A naive approach could be to force the inclusion in the target model of variables selected in any of the source datasets. Such an approach is prone to negative transfers as sets of truly active variables in the target and source datasets may in a good case be similar but not identical, and in a bad case completely unrelated.
 %Given the connection between $\ell_0$ penalties and prior inclusion probabilities $\eqref{eq:block_modelprob}$, 
-Instead, in the Tran-s-ell0 algorithm below, we treat $\hat{S}^{(k)}$ as external information and perform variable selection in the target data with adaptive informed selector $\hat S^{A,ei}$. In particular, in a first step, for each variable $i=1,\ldots,p$, we define $z_i= I (i\in \cup_{k=1}^K\hat{S}^{(k)})$. %The external information $\bz$ then naturally induces a partition of V, the set of variables in the target dataset, into two blocks: 
+Instead, in the Tran-s-ell0 algorithm below, we treat $\hat{S}^{(k)}$ as external information and perform variable selection in the target data with the adaptive informed selector $\hat S^{A,ei}$. In particular, in a first step, for each variable $i=1,\ldots,p$, we define an external information vector $z_i= I (i\in \cup_{k=1}^K\hat{S}^{(k)})$. %The external information $\bz$ then naturally induces a partition of V, the set of variables in the target dataset, into two blocks: 
 That is, variables in the target dataset are split into a first block with variables that were selected in $\geq 1$ source datasets, and a second block gathering the rest. In a second step, we use the adaptive informed selector of Section \ref{sec:informed_l0} with that partition to select variables in the target dataset.  %Given said partition, the externally-informed $\hat{S}^{ei}$ may be used to perform selection in the target. 
 
 \textbf{\hypertarget{lab:AlgoTL}{Algorithm 2} - Tran-s-ell0}
@@ -979,7 +985,7 @@ That is, variables in the target dataset are split into a first block with varia
     \item Obtain $\hat{S}^{A,ei}$ by running  \hyperlink{lab:AlgoAIS}{Algorithm 1} on the target dataset.
 \end{enumerate}
 
-We remark that other strategies are possible in step (i) to form blocks from the source $\hat{S}^{(k)}$. For example one could define  $z_i = 1 + \sum_{k=1}^K I(i \in \hat{S}^{(k)})$, that is define $K+1$ blocks by counting in how many source datasets a variable was selected. Our theory continues to apply to such alternatives. In practice however, a more advanced strategy is to replace $z_i$ by a vector $\bz_i \in \{ 0,1 \}^K$ where $z_{ik} = I(i \in \hat{S}^{(k)})$ and to regress prior inclusion probabilities on $\bz_i$ \citep{vandeWiel2019}. Here we focus on the simpler block partitioning, because such settings require a more advanced theoretical treatment beyond our scope.
+We remark that, in Step (i), other strategies are possible to form blocks from the source $\hat{S}^{(k)}$. For example one could define  $z_i = 1 + \sum_{k=1}^K I(i \in \hat{S}^{(k)})$, that is define $K+1$ blocks by counting in how many source datasets a variable was selected. Our theory continues to apply to such alternatives. In practice however, a more advanced strategy is to replace $z_i$ by a vector $\bz_i \in \{ 0,1 \}^K$ where $z_{ik} = I(i \in \hat{S}^{(k)})$ and to regress prior inclusion probabilities on $\bz_i$ \citep{vandeWiel2019}. Here we focus on the simpler block partitioning, because such settings require a more advanced theoretical treatment beyond our scope.
 
 We derive next the variable selection properties \hyperlink{lab:AlgoTL}{Tran-s-ell0}. These follow from Theorem~\ref{theo:informedl0consist} with the block numbers of inactive and active (large to small) signals induced by the partition defined from the $\hat{S}^{(k)}$,
 \begin{equation}\label{eq:afihgr}
@@ -1001,18 +1007,18 @@ Consider the betamin assumption\\
     &\sqrt{\frac{ (1-\xi)n\rho(\bX)}{6}}\beta_{\min,2}^*- \sqrt{\ln\big(|V \setminus (\cup_{k=1}^K \hat S^{(k)}\cup S^L(\kappa^{\circ}))|\big)+\frac{\ln(n)}{2}}= \sqrt{\ln\big(|S\setminus \cup_{k=1}^K  \hat S^{(k)}|\big)} + d_2,
 \end{align*}
 where $\xi=\tfrac12(1+\max_j \ln(p_j-s_j)/(\ln(p_j-s_j)+0.5\ln(n)))$.
-Assumption~\hyperlink{lab:A10}{A10} is the betamin assumption~\hyperlink{lab:A9}{A9} where the number of active and inactive parameters in blocks are as in \eqref{eq:afihgr} and is sufficient for \hyperlink{lab:AlgoTL}{Tran-s-ell0} to be selection consistent.
+Assumption~\hyperlink{lab:A10}{A10} is the betamin Assumption~\hyperlink{lab:A9}{A9} where the block number of active and inactive parameters are as in \eqref{eq:afihgr} and is sufficient for \hyperlink{lab:AlgoTL}{Tran-s-ell0} to be selection consistent.
 
 \begin{cor}\label{cor:TLconsist}
     Assume \hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A10}{A10}. Then in Step (ii) of \hyperlink{lab:AlgoTL}{Tran-s-ell0}, $\lim_{n \to \infty} \,\inf_{\bbeta^*\in\mathfrak{B}}P(\hat{S}^{A,ei} = S) = 1$.
 \end{cor}
 
 Theorem \ref{cor:TLconsist} shows that \hyperlink{lab:AlgoTL}{Tran-s-ell0} is selection consistent under milder conditions than a standard, non-informed, $\ell_0$ selector $\hat S^{A,sd}$, which, recall, is consistent under \eqref{eq:betaminA}. The gains in sufficient conditions for consistency depend on the similarity between the true set of active variables in the target dataset and the sets of variables selected in the source datasets. 
-Observe that in block $B_1$ the more similar $S$ is to the $\hat S^{(k)}$, the smaller is $|(\cup_{k=1}^KS^{(k)}\cap V)\setminus S^L(\kappa^{\circ}))|$ and the milder is \hyperlink{lab:A11}{(A11)} compared to \eqref{eq:betaminA}. \hyperlink{lab:AlgoTL}{Tran-s-ell0} then allows the recovery smaller signals among the variables selected in the source datasets.
+Observe that in block $B_1$ the more similar $S$ is to the $\hat S^{(k)}$, the smaller is $|(\cup_{k=1}^KS^{(k)}\cap V)\setminus S^L(\kappa^{\circ}))|$ and the milder is \hyperlink{lab:A10}{A10} compared to \eqref{eq:betaminA}. \hyperlink{lab:AlgoTL}{Tran-s-ell0} allows the recovery of smaller signals among the variables selected in the source datasets.
 
 %Assume now the sufficient conditions are met for both \hyperlink{lab:AlgoTL}{Tran-s-ell0} with selector $\hat S^{A,ei}$ and non-informed selector $\hat S^{A,sd}$ to be variable selection consistent. In small signal settings as in \eqref{eq:pnDDVM} where $\beta_{\min}^*=\beta_{\min,1}^*$, by \eqref{eq:pnDDVM2}, \hyperlink{lab:AlgoTL}{Tran-s-ell0} has faster convergence rate than $\hat S^{A,ei}$ and the difference in rates grows with the ratio $(p-s)/(p_1-s_1)$. When the $\hat S^{(K)}$ are consistent, $p_1p-s_1\to |\cup_{k=1}^K(\hat S^{(k)}\setminus S)|$ and the closer $S$ is to the $S^{(k)}$, the larger is $(p-s)/(p_1-s_1)$ and the larger is the gain in convergence rate. In large signal settings as in \eqref{eq:pnDDVM3}, \hyperlink{lab:AlgoTL}{Tran-s-ell0} and $\hat S^{A,ei}$ have similar convergence rates independently of the relevance of the transferred set of variables.
 
-The adaptive nature of $\hat{S}^{A,ei}$ on which \hyperlink{lab:AlgoTL}{Tran-s-ell0} is based, renders our transfer learning algorithm robust to negative transfer. In the last step, in block $B_1$ that gathers the transferred variables, the penalty is set to $\kappa^{A}_1 = \ln(p_1 -  \hat s_1) + \ln(n)/2$ where $p_1 -  \hat s_1$ is an estimate of $|(\cup_{k=1}^K \hat S^{(k)}\cap V)\setminus S|$. That is, the less informative the transfer, the larger the dissimilarity between $S$ and $\cup_{k=1}^K \hat S^{(k)}$ and the larger the penalty incurred by the transferred variables. 
+The adaptive nature of $\hat{S}^{A,ei}$ on which \hyperlink{lab:AlgoTL}{Tran-s-ell0} is based, renders our transfer learning algorithm robust to negative transfer. Indeed, in the last step, in block $B_1$ that gathers the transferred variables, the penalty is set to $\kappa^{A}_1 = \ln(p_1 -  \hat s_1) + \ln(n)/2$ where $p_1 -  \hat s_1$ is an estimate of $|(\cup_{k=1}^K \hat S^{(k)}\cap V)\setminus S|$. That is, the larger the dissimilarity between the target set of active variables and the set of transferred variables, the larger the penalty incurred by the latter and the less likely they are to be selected. 
 
 %For any $k=1,\ldots,K$, let $FP^{(k)}$ and $FN^{(k)}$ denote the sets of, respectively, false positives and false negatives in $\hat S^{(k)}$. Then, for any $k=1,\ldots,K$, we have that $\hat{S}^{(k)}= (S^{(k)}\setminus FN^{(k)})\cup FP^{(k)}$ and $ \cup_{k=1}^K\hat{S}^{(k)}=  \cup_{k=1}^K(S^{(k)}\setminus FN^{(k)})\,\cup\,  \cup_{k=1}^K FP^{(k)}$. It follows,
 %\begin{eqnarray}
@@ -1022,23 +1028,22 @@ The adaptive nature of $\hat{S}^{A,ei}$ on which \hyperlink{lab:AlgoTL}{Tran-s-e
 %    & p_2-s_2 = |B_2 \cap S^C| = |\big(\cap_{k=1}^K(S^{(k)}\setminus FN^{(k)})^c \cap S^C\big)\,\cup\,  \big(\cup_{k=1}^K FP^{(k)}\cap S^C\big)|\\
 %\end{eqnarray}
 
-Remarkably, our structural transfer learning algorithm achieves gains under comparatively fewer requirements than transfer learning algorithms for parameter estimation and prediction. Those later class of algorithms tend to either assume the sets of variables are the same between source and target datasets \citep{abba2024} or make strong assumptions on the similarity of design matrices \citep{Li2021, Tian2023} (including an equal number of variables). This is required to avoid negative transfer because parameter estimates are highly sensitive to adjustment sets. Indeed, gains in estimation achievable through transfer learning were  shown to be inherently limited by the dissimilarity between source and target design matrices \citep{liu2025}, an issue also known as the \textit{covariate shift} problem. Our results on structural transfer learning require no such assumption: the variable sets in the source and target datasets may differ largely, even in size.
+Remarkably, our structural transfer learning algorithm achieves gains under comparatively fewer requirements than transfer learning algorithms for parameter estimation and prediction. Those latter algorithms tend to either assume the sets of variables are the same between source and target datasets \citep{abba2024} or make strong assumptions on the similarity of design matrices \citep{Li2021, Tian2023} (including an equal number of variables). This is required to avoid negative transfer because parameter estimates are highly sensitive to adjustment sets. Gains in estimation achievable through transfer learning were in fact shown to be inherently limited by the dissimilarity between source and target design matrices \citep{liu2025}, an issue also known as the \textit{covariate shift} problem. Our results on structural transfer learning require no such assumption: the variable sets in the source and target datasets may differ largely, even in size.
 
-In addition, many (but not all) transfer learning algorithms for parameter estimation and prediction, e.g \cite{Jiang2016, Li2021}, require access to the source datasets while \hyperlink{lab:AlgoTL}{Tran-s-ell0} only requires sets of selected variables. Our algorithm is then more widely applicable and enjoys stronger privacy and communication efficiency guarantees. 
+In addition, many (but not all) transfer learning algorithms for parameter estimation and prediction, e.g \cite{Jiang2016} and \cite{Li2021}, require access to the source datasets. \hyperlink{lab:AlgoTL}{Tran-s-ell0} only requires sets of selected variables. It is then more widely applicable and enjoys stronger privacy and communication efficiency guarantees. 
 
 \section{Numerical illustrations}\label{sec:examplesinforml0}
 
-We illustrate the performance of  our adaptive informed selector $\hat{S}^{A,ei}$ on simulated data (Section~\ref{sec:simulationsss}) and that of \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} %with externally-informed selector $\hat{S}^{A,ei}$ 
+We illustrate the performance of our adaptive informed selector $\hat{S}^{A,ei}$ on simulated data (Section~\ref{sec:simulationsss}) and that of \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} %with externally-informed selector $\hat{S}^{A,ei}$ 
 on simulated and empirical data (Section~\ref{sec:TLexample}).
 %Recall that $\hat{S}^{A,ei}$ is obtained by a two-step procedure in which in the first step the $\hat{s}_j$ \eqref{eq:shat} are obtained for a standard penalty $\kappa^{\circ}$, and, in the second step, selection is carried out with block penalties $\kappa_j^{A}$. 
-In both sections, we use $\kappa^{\circ}=\tfrac12\ln(n)+\ln(p)$ in Step 1 of our algorithm. 
-In Step 1, 
+In both sections, in Step 1 of Algorithm 1, we use $\kappa^{\circ}=\tfrac12\ln(n)+\ln(p)$
 %To search over models, 
-we %rely on the connection between $\ell_0$ penalties and Bayesian variable selection and %search over the model space through 
-use the MCMC algorithm in function \texttt{bestIC} in R package \texttt{mombf}. Briefly, each visited model is
+%we rely on the connection between $\ell_0$ penalties and Bayesian variable selection and %search over the model space through use 
+the MCMC algorithm in function \texttt{bestIC} in R package \texttt{mombf}. Briefly, each visited model is
 %The models explored are 
 scored with the normalized score (the pseudo-posterior probability given by the BIC approximation \eqref{eq:dfbapon}). %for the chosen penalty. 
-In Step 2, we obtain $\hat S^{A,ei}$ by scoring all the models visited by the MCMC in Step 1. We obtain similarly, for comparison purposes, its uninformed counterparts $\hat S^{A,sd}$ that in Step 2 set a single common penalty. We also compare $\hat S^{A,ei}$ and \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to the standard $\ell_0$ penalty EBIC \citep{EBIC}, the LASSO \citep{lasso} and SCAD \citep{Fan01SCAD}. For the last two methods, the penalization parameter is chosen by cross-validation. The R code to reproduce our analyses is at 
+In Step 2 of of Algorithm 1, we obtain $\hat S^{A,ei}$ by scoring all the models visited by the MCMC in Step 1. We obtain similarly, for comparison purposes, its uninformed counterparts $\hat S^{A,sd}$ that in Step 2 of of Algorithm 1 set a single common penalty. We also compare $\hat S^{A,ei}$ and our \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to the standard $\ell_0$ penalty EBIC \citep{EBIC}, the LASSO \citep{lasso} and SCAD \citep{Fan01SCAD}. For the last two methods, the penalization parameter is chosen by cross-validation. The R code to reproduce our analyses is at 
 \url{https://github.com/paulrognonvael/varsel.extdata}.
 
 %In Section~\ref{sec:simulationsss}, the simulations follow the different examples of sparsity and informativeness of the blocks considered in Chapter~\ref{sec:properties_orth}. The empirical example of Section~\ref{sec:empexample} is an example of transfer learning in biology. In molecular biology, it is common to use animal models (e.g. mice) to study genomic mechanisms such as gene expression. Findings from such studies often serve as a basis to study human diseases, for example, to assess whether genes that played key roles in the animal model are also important in humans. In Section~\ref{sec:empexample}, we use Algorithm 1 in such a transfer learning task, from animal models to humans, for a genomic study of colon cancer.
@@ -1056,7 +1061,7 @@ In Step 2, we obtain $\hat S^{A,ei}$ by scoring all the models visited by the MC
 % \label{fig:tgfb_exploratory}
 % \end{figure}
 
-\subsection{Adaptive selector}\label{sec:simulationsss}
+\subsection{Adaptive informed selector}\label{sec:simulationsss}
 
 We simulate data
 %We compare the performance of $\hat S^{A,ei}$ to that of uninformed standard selection methods on data simulated 
@@ -1079,8 +1084,8 @@ $3$    & $n$ & $3\ln(n)$ & $O(n^{-1}\ln(n))$ & $O(n^{-1}\ln(n))$  & 0.5 & 0.5\\
 \end{center}
 \end{table*}
 
-\david{Below we mention examples 1-4 but there's only examples 1-3. I always have a bit of a hard time following the description, I confess. Can we report $s_j/p_j$ and focus the discussion on that, even if not fully accurate it'd be easier to understand.}\paul{changed}
-We consider three different examples with varying assumptions on the sparsity and informativeness of the external information summarized in Table~\ref{tab:examples_bis}. In Examples 1 and 2, external information is discriminative as it singles out a block $B_2$ that is less sparse than block $B_1$. In Example 1 the blocks are moderately discriminative, in that $(s_1/p_1)/(s_2/p_2)$ is a power of $n$. In Example 2 they are highly discriminative in that $\bbeta^*$ is sparse overall, but it is non-sparse within block 2 ($s_2 > p_2 - s_2)$. Example 3 is a non-discriminative random guess where each block has half of the inactive parameters. The nonzero regression parameters $\beta_i^*$, $i\in S$, are set uniformly spaced in $(1/2, 1)$ except for one parameter in each block, which take values $\beta_{\min,1}^*$ and $\beta_{\min,2}^*$ in the last two columns of Table~\ref{tab:examples_bis}.
+% \david{Below we mention examples 1-4 but there's only examples 1-3. I always have a bit of a hard time following the description, I confess. Can we report $s_j/p_j$ and focus the discussion on that, even if not fully accurate it'd be easier to understand.}\paul{changed}
+We consider three different examples with varying assumptions on the sparsity and informativeness of the external information summarized in Table~\ref{tab:examples_bis}. In Examples 1 and 2, external information is discriminative as it singles out a block $B_2$ that is less sparse than block $B_1$. In Example 1 the blocks are moderately discriminative, in that $(s_1/p_1)/(s_2/p_2)$ is a power of $n$. In Example 2 they are highly discriminative in that $\bbeta^*$ is sparse overall, but it is non-sparse within block 2 ($s_2 > p_2 - s_2)$. Example 3 is a non-discriminative average random guess where each block has half of the inactive parameters. The nonzero regression parameters $\beta_i^*$, $i\in S$, are set uniformly spaced in $(1/2, 1)$ except for one parameter in each block, which take values $\beta_{\min,1}^*$ and $\beta_{\min,2}^*$ in the last two columns of Table~\ref{tab:examples_bis}.
 %DAVID: I commented out the discussion below because it confused me more than helped. Let's keep it short and simple.
 %Examples 1, and 2 are discriminative settings, and then we set $\beta_{\min,1}^*>\beta_{\min,2}^*=\beta_{\min}^*$.In the non-discriminative setting of Example 4, we set $\beta_{\min,1}^*=\beta_{\min,2}^*$.
 
@@ -1105,9 +1110,9 @@ We consider three different examples with varying assumptions on the sparsity an
 \label{fig:linregfdrpowmse}
 \end{figure}
 
-\david{I'm confused. At the start of the section we distinguish between block penalties and the transello algorithm. Now Fig 1 is about transello when I thought it would be about the block algorithm. Why are we distinguishing block vs. transello? The figure is very nice though. :-)}\paul{There was a mistake in the caption. Corrected now. It is $\hat S^{A,ei}$, not transello}
-For each sample size, we generate 100 datasets and report in Figure~\ref{fig:linregprobrec} the empirical probability of correct recovery for $\hat S^{A,ei}$, $\hat S^{A,sd}$, EBIC, LASSO and SCAD. In Examples 1 and 2 where blocks are discriminative, $\hat S^{A,ei}$ outperforms $\hat S^{A,sd}$ and also the EBIC, particularly for small $n$. In the non discriminative block setting of Example 4, $\hat S^{A,ei}$ perform very similarly to $\hat S^{A,sd}$. LASSO and SCAD have consistently lower probability of recovery than the $\ell_0$ methods. The average false discovery rate (FDR) and power in Example 3 reported in Figure~\ref{fig:linregfdrpowmse} shed light on those differences. Compared to the uninformed $\hat S^{A,sd}$, our informed $\hat S^{A,ei}$ has equally low FDR but higher power. LASSO and EBIC have higher power than $\hat S^{A,ei}$ but higher FDR. In terms of mean squared error, $\hat S^{A,ei}$, $\hat S^{A,sd}$ and EBIC perform similarly and better than SCAD and LASSO.
-Similar findings are observed in the other examples, and the corresponding plots can found in Supplement XXX. We also report in Supplement XXX the average computation time to obtain $\hat{S}^{A,b}$ as a function of dimension $p$. In all three examples, the average time does not exceed 20 seconds.
+%\david{I'm confused. At the start of the section we distinguish between block penalties and the transello algorithm. Now Fig 1 is about transello when I thought it would be about the block algorithm. Why are we distinguishing block vs. transello? The figure is very nice though. :-)}\paul{There was a mistake in the caption. Corrected now. It is $\hat S^{A,ei}$, not transello}
+For each sample size, we generate 100 datasets and report in Figure~\ref{fig:linregprobrec} the empirical probability of correct recovery for $\hat S^{A,ei}$, $\hat S^{A,sd}$, EBIC, LASSO and SCAD. In Examples 1 and 2 where blocks are discriminative, $\hat S^{A,ei}$ outperforms $\hat S^{A,sd}$ and performs similarly to the EBIC for small $n$. For large $n$, $\hat S^{A,ei}$ outperforms the EBIC and performs similarly to $\hat S^{A,sd}$. In the non discriminative block setting of Example 4, $\hat S^{A,ei}$ performs very similarly to $\hat S^{A,sd}$. LASSO and SCAD have consistently lower probability of recovery than the $\ell_0$ methods. The average false discovery rate (FDR) and power in Example 3 reported in Figure~\ref{fig:linregfdrpowmse} shed light on those differences. Compared to the uninformed $\hat S^{A,sd}$, our informed $\hat S^{A,ei}$ has equally low FDR but higher power. LASSO and EBIC have higher power than $\hat S^{A,ei}$ but higher FDR. In terms of mean squared error, $\hat S^{A,ei}$, $\hat S^{A,sd}$ and EBIC perform similarly and better than SCAD and LASSO.
+Similar findings are observed in the other examples, and the corresponding plots can be found in Supplement XXX. We also report in Supplement XXX the average computation time to obtain $\hat{S}^{A,b}$ as a function of dimension $p$. In all three examples, the average time does not exceed 20 seconds.
 
 
 % \begin{figure}[ht]
@@ -1183,12 +1188,10 @@ Similar findings are observed in the other examples, and the corresponding plots
          \includegraphics{images/p.TL.probrecov.ex1.pdf} &          \includegraphics{images/p.TL.probrecov.ex3.pdf} &      \includegraphics{images/p.TL.probrecov.ex5.pdf} 
 \end{tabular}
 \caption{Probability of correct selection with Tran-s-ell0 algorithm, $\hat S^{A,sd}$, EBIC, LASSO and SCAD in Example 1 (left), 2 (middle), 3 (right).}
-\label{fig:linregprobrec}
 \label{fig:TLpr}
 \end{figure}
 
-We first apply the \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to simulated data. We consider target sample sizes $n$ varying from 20 to 700. For each sample sample size, we generate 100 target datasets with variable values drawn from a multivariate Gaussian with zero means, unit variances, and pairwise correlations $\mbox{cor}(x_{ij}, x_{il})= 0.5$ for $j \neq l$. The target data-generating $\bbeta^*$ satisfies $p-s=3n/2$, $s=3\ln(n)$, and nonzero coefficients are uniformly spaced in $(1/3,1)$. For each target sample size $n$ and each one of the 100 repetitions, we generate two source datasets
-with sample size 700 each and dimension equal to that of the target data. Source variable values are drawn from the same multivariate Gaussian distribution as in the target data. The source data-generating parameter is the target $\bbeta^*$  where a proportion $h$ of the nonzero coefficients is set to 0 and an equal number of zero coefficients is set uniformly spaced in $(1/3,1)$. The Hamming distance between the vectors of indicators of active variables in the source and target data is then $2hs$. We consider three scenarios. In Scenario 1, the source and target sets of active variables are the same, $h=0$. In Scenario 2, the source and target sets of active variables are similar but different with $h=0.4$. Scenario 3 is an example of irrelevant transfer where $h=1$. In Scenario 1 and 2, \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} outperforms all the other selectors. In Scenario 3, $\hat S^{A,ei}$  performs similarly to $\hat S^{A,sd}$, better than LASSO and SCAD, slightly worse than EBIC for small $n$ but signficantly better for large $n$.  
+We apply next the \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to simulated data where the target sample sizes $n$ ranges from 20 to 700. For each sample size, we generate 100 sets of target and source datasets. In each target dataset, a data-generating $\bbeta^*$ is drawn such that $p-s=3n/2$, $s=3\ln(n)$, and nonzero coefficients are uniformly spaced in $(1/3,1)$. Variable values are drawn from a multivariate Gaussian with zero means, unit variances, and pairwise correlations $\mbox{cor}(x_{ij}, x_{il})= 0.5$ for $j \neq l$. For each target dataset, we generate two source datasets with sample size 700 and data-generating parameters that are equal to the target $\bbeta^*$ where a proportion $h$ of the nonzero target coefficients is set to 0 and an equal number of the zero target coefficients is set uniformly spaced in $(1/3,1)$. Source variable are drawn from the same multivariate Gaussian distribution as in the target data. The Hamming distance between the indicator vectors of active variables in the source and target data is then $2hs$. We select variables in the source datasets with a standard $\ell_0$ penalty $\kappa=\tfrac12\ln(n)+\ln(p)$ and feed the selected sets to \hyperlink{lab:AlgoTL}{Tran-s-ell0}. We consider three scenarios and report the average probability of recovery in Figure~\ref{fig:TLpr}. In Scenario 1, the source and target sets of active variables are the same, that is $h=0$. In Scenario 2, the source and target sets of active variables are similar but different with $h=0.4$. Scenario 3 is an example of completely irrelevant transfer where $h=1$. In Scenario 1 and 2, \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} outperforms all the other selectors. In Scenario 3, $\hat S^{A,ei}$ performs similarly to $\hat S^{A,sd}$, better than LASSO and SCAD, slightly worse than EBIC for small $n$ but signficantly better for large $n$.  \paul{This is the simulation I initially did. But now I think I should EITHER only simulate sets of variables selected on the sources OR change the source designs to stress our point on the absence of requirement on the similarity of the designs}.
 
 Next, we apply \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to a biological data set. In molecular biology, it is common to use animal models (e.g. mice) to study genomic mechanisms such as gene expression. Findings from such studies often serve as a basis to study human diseases, for example, to assess whether genes that played key roles in the animal model are also important in humans. Specifically, \cite{calon:2012} compared mice where gene TGFB was silenced to mice where it was not, showed that TGFB plays a crucial role in colon cancer progression, and found a list of 172 genes that were associated with TGFB. We use \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} to leverage this set of 172 genes in the selection of genes associated to TGFB in a colon cancer dataset of $n=262$ human samples analyzed in \cite{rossell:2017}. We regress TGFB expression on that of $p=1000$ genes. All variables are standardized to zero mean and unit variance. In this dataset, obtaining $\hat S^{A,ei}$ in Step 2 of \hyperlink{lab:AlgoTL}{Tran-s-ell0 algorithm} took 49 seconds. 
 
@@ -1199,9 +1202,10 @@ Table~\ref{tab:selgenes} reports the genes selected with \hyperlink{lab:AlgoTL}{
 \caption{Selected genes in each block}
 \label{tab:selgenes}
 \centering
-\begin{tabular}{lC{0.1\linewidth}C{0.22\linewidth}C{0.1\linewidth}C{0.22\linewidth}c}
+\begin{tabular}{lC{0.1\linewidth}C{0.22\linewidth}C{0.1\linewidth}C{0.22\linewidth}}
 \hline
- & \multicolumn{2}{c}{In mouse list} & \multicolumn{2}{c}{Outside of mouse list} & \\[3pt] \cline{2-5} Method & \multicolumn{1}{C{0.15\linewidth}}{Number of discoveries} & Genes & \multicolumn{1}{C{0.15\linewidth}}{Number of discoveries} & Genes\\ 
+ & \multicolumn{2}{c}{In mouse list} & \multicolumn{2}{c}{Outside of mouse list} \\ [3pt] \cline{2-5} 
+ Method & \multicolumn{1}{C{0.15\linewidth}}{Number of discoveries} & Genes & \multicolumn{1}{C{0.15\linewidth}}{Number of discoveries} & Genes\\ 
 \hline
 $\hat S^{A,ei}$ & \multicolumn{1}{C{0.1\linewidth}}{4} & ESM1, GAS1, HIC1, CILP & \multicolumn{1}{C{0.1\linewidth}}{0} & - \\
 \hline
@@ -1212,6 +1216,22 @@ EBIC & \multicolumn{1}{C{0.1\linewidth}}{4} &  ESM1, GAS1, HIC1, CILP & \multico
 LASSO& \multicolumn{1}{C{0.1\linewidth}}{22} & GAS1, HIC1, IGFBP3, CILP, DNAJB5, \ldots & \multicolumn{1}{C{0.1\linewidth}}{55} &  KCNJ5-AS1, ZBTB46, OXER1, LGALS1, \ldots \\
 \hline
 SCAD & \multicolumn{1}{C{0.1\linewidth}}{11} & GAS1, HIC1, IGFBP3, CILP, DNAJB5, \ldots & \multicolumn{1}{C{0.1\linewidth}}{5} &  POLQ, CRIP2, ZBTB46, VSIG4, LGALS1 \\
+\hline
+\end{tabular}
+\end{table*}
+
+\begin{table*}[ht]
+\caption{$\hat S^{A,sd}$ vs EBIC: cross-valitated MSE and pseudo-posterior probabilities}
+\label{tab:cvmse.pseudoprob}
+\centering
+\begin{tabular}{lccccc}
+\hline
+ & & \multicolumn{4}{c}{pseudo-posterior probabilities}  \\[3pt] \cline{3-6} 
+ Method & CV-MSE & ESM1 & GAS1 & HIC1 & CILP\\ 
+\hline
+EBIC & 0.54& 0.55 & 0.88 & 0.81 & 0.95\\
+\hline
+$\hat S^{A,sd}$ & 0.49 & 0.74 & 0.90 & 0.95 & 0.99\\
 \hline
 \end{tabular}
 \end{table*}
@@ -1893,11 +1913,11 @@ For every $j$, by the properties of geometric sums, we have
     =\frac{1-d_j^{p_j-s_j+1}}{1-d_j} \\
     &1+\sum_{w_j=1}^{s_j}    e^{-w_j\left(\delta \tfrac{g'_j}{2}-1\right)} =\frac{1-h_j^{s_j+1}}{1-h_j}.
 \end{align*}
-Since both expressions converge to $1$ as $n$ grows, and the $b$ is fixed by Assumption~\hyperlink{lab:A3}{A3} we get that $$\lim_{n \to \infty} \mathcal{S}=\lim_{n \to \infty} \sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)= 0.$$ By Lemma~\ref{lem:L0toL1convergence}, $P(\hat{S}^{ei}\neq S)\leq \,2\, \mathcal{S}$ and then $\lim_{n \to \infty} P(\hat{S}^{ei}= S)=1$.
+Since both expressions converge to $1$ as $n$ grows, and $b$ is fixed we get that $$\lim_{n \to \infty} \mathcal{S}=\lim_{n \to \infty} \sum_{M \in \M\setminus \{S\}}\E\left(NC(M)\right)= 0.$$ By Lemma~\ref{lem:L0toL1convergence}, $P(\hat{S}^{ei}\neq S)\leq \,2\, \mathcal{S}$ and then $\lim_{n \to \infty} P(\hat{S}^{ei}= S)=1$.
 
  \subsubsection{Proof of Theorem~\ref{prop:fullrecovreg}}
 
-First, we prove the upper bound on $P(\hat{S}^{ei} \neq S)$ in \eqref{eq:rateconvreg}. We assume here \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A4}{A4}, and \hyperlink{lab:A5}{A5}. Under the same assumptions, in the proof of Theorem~\ref{theo:suffcondlinearmodel}, the following bound was shown in \eqref{eq:upperbound_sumprob}:
+First, we prove the upper bound on $P(\hat{S}^{ei} \neq S)$ in \eqref{eq:rateconvreg}. We assume here \hyperlink{lab:A1}{A1}, \hyperlink{lab:A4}{A4}, and \hyperlink{lab:A5}{A5}. Under the same assumptions, in the proof of Theorem~\ref{theo:suffcondlinearmodel}, the following bound was shown in \eqref{eq:upperbound_sumprob}:
 % \piotr{I wrote this earlier already. Be careful when you use parts of proofs of some results rather than the results directly - this is not a common practice. In particular,  Theorem~\ref{theo:suffcondlinearmodel} assumed in addition \hyperlink{lab:A2}{A2}, which this one does not. }
 \begin{equation}\label{eq:prodconstreg}
  \sum_{M \in \M\setminus \{S\}} \E\left(NC(M)\right)
@@ -2446,7 +2466,7 @@ Since Assumptions~\hyperlink{lab:A4}{A4} and \hyperlink{lab:A5}{A5} hold with pr
 
 \subsubsection{Proof of Theorem~\ref{theo:TLconsist}}
 
-The proof strategy is to show that Assumptions \hyperlink{lab:A1}{A1}, \hyperlink{lab:A3}{A3}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9} hold to apply Theorem~\ref{theo:informedl0consist} where the block number of active and inactive parameters are given in \eqref{eq:afihgr}. Recall that Theorem~\ref{theo:TLconsist} assumes \hyperlink{lab:A1}{A1} and \hyperlink{lab:A6}{A6} and observe that Assumption~\hyperlink{lab:A3}{A3} holds since the transfer in \hyperlink{lab:AlgoTL}{Tran-s-ell0} induces only two blocks. Hence, it suffices to show that Assumption~\hyperlink{lab:A9}{A9} holds.
+The proof strategy is to show that Assumptions \hyperlink{lab:A1}{A1}, \hyperlink{lab:A6}{A6}, and \hyperlink{lab:A9}{A9} hold to apply Theorem~\ref{theo:informedl0consist} where the block number of active and inactive parameters are given in \eqref{eq:afihgr}. Recall that Theorem~\ref{theo:TLconsist} assumes \hyperlink{lab:A1}{A1} and \hyperlink{lab:A6}{A6}. Hence, it suffices to show that Assumption~\hyperlink{lab:A9}{A9} holds.
 
 By Assumption~\hyperlink{lab:A10}{A10}, with probability going to 1, 
 \begin{align*}
@@ -2546,7 +2566,7 @@ Finally, inputting in the bound in \eqref{eq:pafvih} in \eqref{eq:grpoih} gives 
 	\begin{equation}\label{eq:type2convrate}
 P\left(\hat{S}^{ei}\not\supseteq S \right) \;\leq\;\sum_{j=1}^b\frac{e^{-\tfrac{n}{2}\left((\beta^*_{\min,j}-\tau_j)^2-\tfrac{2\ln(s_j)}{n}\right)}}{\sqrt{\pi\ln(s_j)}}.		
 	\end{equation}
- By Assumption~\hyperlink{lab:A5}{A5}, the nominator on the right is bounded above by $1$ for all sufficiently large $n$. It follows that, by Assumption \hyperlink{lab:A3}{A3} 
+ By Assumption~\hyperlink{lab:A5}{A5}, the nominator on the right is bounded above by $1$ for all sufficiently large $n$. It follows that
 	$$P\left(\hat{S}^{ei} \not\supseteq S \right) \;\leq\;  \sum_{j=1}^b (\pi\ln (s_j))^{-1/2} \to 0\qquad \mbox{as } n\to \infty.$$ 
 
 \textbf{Part (ii)}\\	

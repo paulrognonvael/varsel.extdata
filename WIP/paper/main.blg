@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: agsm.bst
+Database file #1: references.bib
+Warning--empty author in birge
+You've used 37 entries,
+            2909 wiz_defined-function locations,
+            875 strings with 11355 characters,
+and the built_in function-call counts, 173602 in all, are:
+= -- 28290
+> -- 2474
+< -- 0
++ -- 13636
+- -- 756
+* -- 15328
+:= -- 34470
+add.period$ -- 39
+call.type$ -- 37
+change.case$ -- 512
+chr.to.int$ -- 37
+cite$ -- 38
+duplicate$ -- 563
+empty$ -- 1274
+format.name$ -- 884
+if$ -- 31210
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 32
+newline$ -- 117
+num.names$ -- 380
+pop$ -- 143
+preamble$ -- 1
+purify$ -- 550
+quote$ -- 0
+skip$ -- 483
+stack$ -- 0
+substring$ -- 40303
+swap$ -- 94
+text.length$ -- 508
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 146
+warning$ -- 1
+while$ -- 807
+width$ -- 0
+write$ -- 484
+(There was 1 warning)

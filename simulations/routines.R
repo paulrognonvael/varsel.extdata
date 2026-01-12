@@ -209,7 +209,7 @@ selectionl0.comp <-function(y, X.design, block0, block1, beta_star=NULL){
   
   gc()
   
-  return(df)
+  return(list(sel=df,scores= l0score.df))
 }
 
 ## Returns MSE in coef estimates for models selected by l0 penalties
@@ -239,7 +239,7 @@ cvmse.l0.comp <- function(y, X.design, block0, block1, K, mc.cores=1){
     sel <- subset==k
     
     sel.l0 <- selectionl0.comp(y=y[!sel],X.design[!sel,,drop=FALSE], 
-                               block0, block1)[,c("EBIC",
+                               block0, block1)$sel[,c("EBIC",
                                                    "S.EB",
                                                    "S.A",
                                                    "S.EB.b",

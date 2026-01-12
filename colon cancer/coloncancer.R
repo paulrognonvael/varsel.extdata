@@ -35,7 +35,7 @@ set.seed(951)
 
 res.sel.l0 <- selectionl0.comp(y,X.design=X.design, block0=mouselist, block1=notmouselist)
 res.lasso.scad <- sel.lasso.scad.cv(y,X.design=X.design)
-res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel)
+res.sel <- data.frame(res.sel.l0$sel,res.lasso.scad$sel)
 
 res.cvmse.l0 <- cvmse.l0.comp(y, X.design, block0=mouselist, block1=notmouselist, K=10, mc.cores=4)
 res.cvmse <- data.frame(res.cvmse.l0$cvmse,res.lasso.scad$cvmse)
@@ -44,7 +44,6 @@ result.cvmse.df <- pivot_longer(res.cvmse,cols=method.vec[-1],names_to = 'method
 result.sel.df <- pivot_longer(res.sel[,-1],cols=method.vec[-1],names_to = 'method',values_to = 'sel.model')
 result.df <- merge(result.sel.df, result.cvmse.df, by = c('method'))
 write.csv(result.df, 'selected.cvmse.csv', row.names = FALSE)
-
 
 get_annotation_by_block <- function(index.sel.ids,all.ids,mouselist){
   # In mouse list
@@ -94,4 +93,27 @@ cat('Selected by SCAD')
 write.csv(get_annotation_by_block(model.char2vec(res.sel$scad.cv),colnames(X.design),mouselist), 'selected.genes.SCAD.annot.csv', row.names = FALSE)
 
 
+########
 
+l0.norm.scores = data.frame(apply(res.sel.l0$scores[,-1], MARGIN = 2 , FUN =function(x) exp(-x)/sum(exp(-x))))
+l0.norm.scores$model = res.sel.l0$scores[,1]
+
+max.model.size <- max(sapply(str_split(l0.norm.scores$model, ","),length))
+models.cols.fmted <- str_split_fixed(l0.norm.scores$model, ",",max.model.size)
+models.cols.fmted[models.cols.fmted == ""] <- NA
+l0.norm.scores$is.ESM1.in = unlist(apply(models.cols.fmted, MARGIN =1, 
+                                         FUN = function(x) '11' %in% x))
+l0.norm.scores$is.GAS1.in = unlist(apply(models.cols.fmted, MARGIN =1, 
+                                         FUN = function(x) '55' %in% x))
+l0.norm.scores$is.HIC1.in = unlist(apply(models.cols.fmted, MARGIN =1, 
+                                         FUN = function(x) '68' %in% x))
+l0.norm.scores$is.CILP.in = unlist(apply(models.cols.fmted, MARGIN =1, 
+                                         FUN = function(x) '155' %in% x))
+
+incl.prob = data.frame(method = c('EBIC', 'S.A.b'), ESM1 = c(NA, NA), HIC1 = c(NA, NA), GAS1 = c(NA, NA), 
+                       CILP = c(NA, NA))
+incl.prob$ESM1 = l0.norm.scores %>% filter(is.ESM1.in) %>% dplyr::select('EBIC', 'S.A.b') %>% colSums() %>% round(digits = 3)
+incl.prob$GAS1 = l0.norm.scores %>% filter(is.GAS1.in) %>% dplyr::select('EBIC', 'S.A.b') %>% colSums() %>% round(digits = 3)
+incl.prob$HIC1 = l0.norm.scores %>% filter(is.HIC1.in) %>% dplyr::select('EBIC', 'S.A.b') %>% colSums() %>% round(digits = 3)
+incl.prob$CILP = l0.norm.scores %>% filter(is.CILP.in) %>% dplyr::select('EBIC', 'S.A.b') %>% colSums() %>% round(digits = 3)
+write.csv(incl.prob, 'inclusion.prob.EBIC.S.A.b.csv', row.names = FALSE)

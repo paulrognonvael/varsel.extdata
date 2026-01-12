@@ -109,12 +109,12 @@ TL.sim <- function(h,scenario, n.val=NULL){
       
       res.sel.l0 <- trans.s.ell0(target_y = y.df[,i], target_X = X.target, source_y=source_y, 
                                  source_X = source_X, beta_star=beta_star)
-      res.est.mse.l0 <- sapply(res.sel.l0[,l0method.vec], mse.est, y=y.df[,i],X.design=X.target, beta_star= beta_star)
+      res.est.mse.l0 <- sapply(res.sel.l0$sel[,l0method.vec], mse.est, y=y.df[,i],X.design=X.target, beta_star= beta_star)
       res.est.mse.l0 <- data.frame(t(res.est.mse.l0))
       colnames(res.est.mse.l0) <- l0method.vec
       res.lasso.scad <- sel.lasso.scad.cv(y.df[,i],X.design=X.target, beta_star= beta_star)
       
-      res.sel <- data.frame(res.sel.l0,res.lasso.scad$sel,sim=i,n=n,betamin=0.33)
+      res.sel <- data.frame(res.sel.l0$sel,res.lasso.scad$sel,sim=i,n=n,betamin=0.33)
       sim.result.sel <- bind_rows(sim.result.sel,res.sel)
       
       res.est.mse <- data.frame(res.est.mse.l0,res.lasso.scad$est.mse,sim=i,n=n,betamin=0.33)
