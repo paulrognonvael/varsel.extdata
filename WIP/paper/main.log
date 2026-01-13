@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.17)  12 JAN 2026 23:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.17)  13 JAN 2026 11:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -553,7 +553,18 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 240.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 259.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 262.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 262.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 262.
+
+
+[1
+
+{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 271.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -562,27 +573,21 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 259.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 259.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 259.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 263.
+(Font)              <10.95> on input line 271.
 
 
-[1
+Package natbib Warning: Citation `liang2023multimodal' on page 2 undefined on input line 285.
 
-{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 
-[2]
+
+[2{c:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
 [3]
 
 [4]
 
 [5]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 373.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 372.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-euf.cfg
@@ -598,7 +603,7 @@ File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 [9]
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 487.
+(Font)              using `T1/lmr/bx/n' instead on input line 486.
 
 
 
@@ -626,27 +631,27 @@ LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.832 \begin{equation}
+l.829 \begin{equation}
                       \label{eq:shat}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.832 \begin{equation}
+l.829 \begin{equation}
                       \label{eq:shat}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.832 \begin{equation}
+l.829 \begin{equation}
                       \label{eq:shat}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.832 \begin{equation}
+l.829 \begin{equation}
                       \label{eq:shat}
 pdfTeX warning (ext4): destination with the same identifier (name{lab:A6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.858 \hypertarget{lab:A6}{(A6)}
+l.855 \hypertarget{lab:A6}{(A6)}
                                 \quad There exists $\alpha >0$ constant such...
 
 [21]
@@ -656,19 +661,19 @@ l.858 \hypertarget{lab:A6}{(A6)}
 [23]
 
 [24]
-Overfull \hbox (39.54337pt too wide) detected at line 1008
+Overfull \hbox (39.54337pt too wide) detected at line 1005
 []
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 1013--1014
-[][]\T1/lmr/bx/sc/12 (+20) Corollary 5.1. []\T1/lmr/m/it/12 (+20) As-sume [][]A1[][], [][]A6[][], and [][]A10[][]. Then in Step (ii) of [][]Tran-s-ell0[][],
+Underfull \hbox (badness 1590) in paragraph at lines 1010--1011
+[][]\T1/lmr/bx/sc/12 (+20) Corollary 5.1. []\T1/lmr/m/it/12 (+20) As-sume [][]A1[][], [][]A6[][], and [][]A10[][]. Then in Step (ii) of Tran-s-ell0,
  []
 
 
 
 [25]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1043.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1038.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -676,56 +681,56 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [26]
 
 [27]
-<images/p.probrecov.ex1.pdf, id=500, 147.55125pt x 170.6375pt>
+<images/p.probrecov.ex1.pdf, id=492, 147.55125pt x 170.6375pt>
 File: images/p.probrecov.ex1.pdf Graphic file (type pdf)
 <use images/p.probrecov.ex1.pdf>
-Package pdftex.def Info: images/p.probrecov.ex1.pdf  used on input line 1096.
+Package pdftex.def Info: images/p.probrecov.ex1.pdf  used on input line 1090.
 (pdftex.def)             Requested size: 139.42088pt x 161.23505pt.
-<images/p.probrecov.ex3.pdf, id=501, 147.55125pt x 170.6375pt>
+<images/p.probrecov.ex3.pdf, id=493, 147.55125pt x 170.6375pt>
 File: images/p.probrecov.ex3.pdf Graphic file (type pdf)
 <use images/p.probrecov.ex3.pdf>
-Package pdftex.def Info: images/p.probrecov.ex3.pdf  used on input line 1096.
+Package pdftex.def Info: images/p.probrecov.ex3.pdf  used on input line 1090.
 (pdftex.def)             Requested size: 139.42088pt x 161.23505pt.
-<images/p.probrecov.ex4.pdf, id=502, 141.52875pt x 170.6375pt>
+<images/p.probrecov.ex4.pdf, id=494, 141.52875pt x 170.6375pt>
 File: images/p.probrecov.ex4.pdf Graphic file (type pdf)
 <use images/p.probrecov.ex4.pdf>
-Package pdftex.def Info: images/p.probrecov.ex4.pdf  used on input line 1096.
+Package pdftex.def Info: images/p.probrecov.ex4.pdf  used on input line 1090.
 (pdftex.def)             Requested size: 139.4293pt x 168.10625pt.
-<images/p.FDR.ex3.pdf, id=503, 147.55125pt x 170.6375pt>
+<images/p.FDR.ex3.pdf, id=495, 147.55125pt x 170.6375pt>
 File: images/p.FDR.ex3.pdf Graphic file (type pdf)
 <use images/p.FDR.ex3.pdf>
-Package pdftex.def Info: images/p.FDR.ex3.pdf  used on input line 1105.
+Package pdftex.def Info: images/p.FDR.ex3.pdf  used on input line 1099.
 (pdftex.def)             Requested size: 139.42088pt x 161.23505pt.
-<images/p.power.ex3.pdf, id=504, 147.55125pt x 170.6375pt>
+<images/p.power.ex3.pdf, id=496, 147.55125pt x 170.6375pt>
 File: images/p.power.ex3.pdf Graphic file (type pdf)
 <use images/p.power.ex3.pdf>
-Package pdftex.def Info: images/p.power.ex3.pdf  used on input line 1106.
+Package pdftex.def Info: images/p.power.ex3.pdf  used on input line 1100.
 (pdftex.def)             Requested size: 139.42088pt x 161.23505pt.
-<images/p.est.mse.ex3.pdf, id=505, 147.55125pt x 170.6375pt>
+<images/p.est.mse.ex3.pdf, id=497, 147.55125pt x 170.6375pt>
 File: images/p.est.mse.ex3.pdf Graphic file (type pdf)
 <use images/p.est.mse.ex3.pdf>
-Package pdftex.def Info: images/p.est.mse.ex3.pdf  used on input line 1107.
+Package pdftex.def Info: images/p.est.mse.ex3.pdf  used on input line 1101.
 (pdftex.def)             Requested size: 139.42088pt x 161.23505pt.
 
 
 [28 <./images/p.probrecov.ex1.pdf> <./images/p.probrecov.ex3.pdf> <./images/p.probrecov.ex4.pdf>]
-<images/p.TL.probrecov.ex1.pdf, id=528, 147.55125pt x 170.6375pt>
+<images/p.TL.probrecov.ex1.pdf, id=521, 147.55125pt x 170.6375pt>
 File: images/p.TL.probrecov.ex1.pdf Graphic file (type pdf)
 <use images/p.TL.probrecov.ex1.pdf>
-Package pdftex.def Info: images/p.TL.probrecov.ex1.pdf  used on input line 1188.
+Package pdftex.def Info: images/p.TL.probrecov.ex1.pdf  used on input line 1181.
 (pdftex.def)             Requested size: 147.55312pt x 170.63966pt.
-<images/p.TL.probrecov.ex3.pdf, id=529, 147.55125pt x 170.6375pt>
+<images/p.TL.probrecov.ex3.pdf, id=522, 147.55125pt x 170.6375pt>
 File: images/p.TL.probrecov.ex3.pdf Graphic file (type pdf)
 <use images/p.TL.probrecov.ex3.pdf>
-Package pdftex.def Info: images/p.TL.probrecov.ex3.pdf  used on input line 1188.
+Package pdftex.def Info: images/p.TL.probrecov.ex3.pdf  used on input line 1181.
 (pdftex.def)             Requested size: 147.55312pt x 170.63966pt.
-<images/p.TL.probrecov.ex5.pdf, id=530, 147.55125pt x 170.6375pt>
+<images/p.TL.probrecov.ex5.pdf, id=523, 147.55125pt x 170.6375pt>
 File: images/p.TL.probrecov.ex5.pdf Graphic file (type pdf)
 <use images/p.TL.probrecov.ex5.pdf>
-Package pdftex.def Info: images/p.TL.probrecov.ex5.pdf  used on input line 1188.
+Package pdftex.def Info: images/p.TL.probrecov.ex5.pdf  used on input line 1181.
 (pdftex.def)             Requested size: 147.55312pt x 170.63966pt.
 
-Overfull \hbox (17.593pt too wide) in paragraph at lines 1186--1190
+Overfull \hbox (17.593pt too wide) in paragraph at lines 1179--1183
 [][] 
  []
 
@@ -746,72 +751,73 @@ Overfull \hbox (17.593pt too wide) in paragraph at lines 1186--1190
 [35]
 
 [36])
-Underfull \hbox (badness 10000) in paragraph at lines 1261--1262
+Underfull \hbox (badness 10000) in paragraph at lines 1253--1254
 []
- []
-
-
-Underfull \hbox (badness 2277) in paragraph at lines 1265--1266
-[]\T1/lmr/m/n/12 (+20) Reports of false dis-cov-ery
  []
 
 
 
 [37]
+Underfull \hbox (badness 2277) in paragraph at lines 1257--1258
+[]\T1/lmr/m/n/12 (+20) Reports of false dis-cov-ery
+ []
+
+
 
 [38]
 
-LaTeX Warning: Reference `tab:scalingsuff' on page 39 undefined on input line 1292.
+LaTeX Warning: Reference `tab:scalingsuff' on page 39 undefined on input line 1284.
 
 
 
 [39]
 
-LaTeX Warning: Reference `tab:scalingnec' on page 40 undefined on input line 1324.
+LaTeX Warning: Reference `tab:scalingnec' on page 40 undefined on input line 1316.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 1344.
+(Font)              <17.28> on input line 1336.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1344.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1344.
+(hyperref)                removing `math shift' on input line 1336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1344.
+(hyperref)                removing `superscript' on input line 1336.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1336.
 
 
 
 [40]
 
-LaTeX Warning: Reference `fig:boundthresh' on page 41 undefined on input line 1367.
+LaTeX Warning: Reference `fig:boundthresh' on page 41 undefined on input line 1359.
 
 
-LaTeX Warning: Reference `fig:boundthresh2' on page 41 undefined on input line 1367.
+LaTeX Warning: Reference `fig:boundthresh2' on page 41 undefined on input line 1359.
 
 
-LaTeX Warning: Reference `eq:rangethreshex' on page 41 undefined on input line 1367.
+LaTeX Warning: Reference `eq:rangethreshex' on page 41 undefined on input line 1359.
 
 
-LaTeX Warning: Reference `eq:rangeblockthreshex' on page 41 undefined on input line 1367.
-
-
-LaTeX Warning: Reference `fig:ratios' on page 41 undefined on input line 1412.
-
-
-LaTeX Warning: Reference `fig:ratios' on page 41 undefined on input line 1412.
+LaTeX Warning: Reference `eq:rangeblockthreshex' on page 41 undefined on input line 1359.
 
 
 
 [41]
 
+LaTeX Warning: Reference `fig:ratios' on page 42 undefined on input line 1404.
+
+
+LaTeX Warning: Reference `fig:ratios' on page 42 undefined on input line 1404.
+
+
+
 [42]
 
 [43]
-Underfull \hbox (badness 1286) in paragraph at lines 1499--1500
+Underfull \hbox (badness 1286) in paragraph at lines 1491--1492
 []\T1/lmr/m/n/12 (+20) For any $\OML/lmm/m/it/12 u \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (+20) [[]\OML/lmm/m/it/12 ; []\OT1/lmr/m/n/12 (+20) ]$\T1/lmr/m/n/12 (+20) , we have $\OML/lmm/m/it/12 c [] [] \OMS/lmsy/m/n/12 ^^U \OML/lmm/m/it/12 c [] []$\T1/lmr/m/n/12 (+20) . Since $[] \OMS/lmsy/m/n/12 ^^U
  []
 
@@ -842,7 +848,7 @@ Underfull \hbox (badness 1286) in paragraph at lines 1499--1500
 [55]
 
 [56]
-Overfull \hbox (23.72401pt too wide) in paragraph at lines 1935--1937
+Overfull \hbox (23.72401pt too wide) in paragraph at lines 1927--1929
 \T1/lmr/m/n/12 (-20) where all the terms in $\OMS/lmsy/m/n/12 R$ \T1/lmr/m/n/12 (-20) are prod-uct of two or more of the sums $\OML/lmm/m/it/12 S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; [] ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 w[]\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 ; [] ; S\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 w[]\OT1/lmr/m/n/12 (-20) )$\T1/lmr/m/n/12 (-20) .
  []
 
@@ -853,7 +859,7 @@ Overfull \hbox (23.72401pt too wide) in paragraph at lines 1935--1937
 [58]
 
 [59]
-Overfull \hbox (19.28835pt too wide) in paragraph at lines 2001--2003
+Overfull \hbox (19.28835pt too wide) in paragraph at lines 1993--1995
 \T1/lmr/m/n/12 (-20) Consistent re-cov-ery of $\OML/lmm/m/it/12 S$ \T1/lmr/m/n/12 (-20) im-plies that for for any sub-set of mod-els $\OMS/lmsy/m/n/12 N$\T1/lmr/m/n/12 (-20) , $[][] \OML/lmm/m/it/12 NC\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 M\OT1/lmr/m/n/12 (-20) )\OML/lmm/m/it/12 =NC\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 S\OT1/lmr/m/n/12 (-20) ) \OML/lmm/m/it/12 <
  []
 
@@ -891,178 +897,183 @@ Overfull \hbox (19.28835pt too wide) in paragraph at lines 2001--2003
 
 [75]
 
-LaTeX Warning: Reference `theo:TLconsist' on page 76 undefined on input line 2467.
+LaTeX Warning: Reference `theo:TLconsist' on page 76 undefined on input line 2459.
 
 
-LaTeX Warning: Reference `theo:TLconsist' on page 76 undefined on input line 2469.
+LaTeX Warning: Reference `theo:TLconsist' on page 76 undefined on input line 2461.
 
 
-LaTeX Warning: Reference `sec:properties_orth' on page 76 undefined on input line 2480.
+LaTeX Warning: Reference `sec:properties_orth' on page 76 undefined on input line 2472.
 
 
-LaTeX Warning: Reference `prop:isthresh' on page 76 undefined on input line 2482.
+LaTeX Warning: Reference `prop:isthresh' on page 76 undefined on input line 2474.
 
 
 
 [76]
 
-LaTeX Warning: Reference `eq:GSM' on page 77 undefined on input line 2490.
+LaTeX Warning: Reference `eq:GSM' on page 77 undefined on input line 2482.
 
 
-LaTeX Warning: Reference `lem:l1isthreshold' on page 77 undefined on input line 2496.
+LaTeX Warning: Reference `lem:l1isthreshold' on page 77 undefined on input line 2488.
 
 
-LaTeX Warning: Reference `eq:genl1' on page 77 undefined on input line 2497.
+LaTeX Warning: Reference `eq:genl1' on page 77 undefined on input line 2489.
 
 
-LaTeX Warning: Reference `eq:genl1' on page 77 undefined on input line 2497.
+LaTeX Warning: Reference `eq:genl1' on page 77 undefined on input line 2489.
 
 
-LaTeX Warning: Reference `eq:genl1ada' on page 77 undefined on input line 2501.
+LaTeX Warning: Reference `eq:genl1ada' on page 77 undefined on input line 2493.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 77 undefined on input line 2505.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 77 undefined on input line 2497.
 
 
 
 [77]
 
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 78 undefined on input line 2528.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 78 undefined on input line 2520.
 
 
 
 [78]
 
-LaTeX Warning: Reference `lem:upconcentminnormal' on page 79 undefined on input line 2534.
-
-
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 79 undefined on input line 2559.
+LaTeX Warning: Reference `lem:upconcentminnormal' on page 79 undefined on input line 2526.
 
 
 
 [79]
 
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 80 undefined on input line 2564.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 80 undefined on input line 2551.
 
 
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 80 undefined on input line 2573.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 80 undefined on input line 2556.
 
 
-LaTeX Warning: Reference `lem:upconcentminnormal' on page 80 undefined on input line 2573.
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 80 undefined on input line 2565.
+
+
+LaTeX Warning: Reference `lem:upconcentminnormal' on page 80 undefined on input line 2565.
 
 
 
 [80]
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 81 undefined on input line 2601.
+LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 81 undefined on input line 2593.
 
 
-LaTeX Warning: Reference `eq:necbetaminblockthresh' on page 81 undefined on input line 2602.
+LaTeX Warning: Reference `eq:necbetaminblockthresh' on page 81 undefined on input line 2594.
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 2602--2603
+Underfull \hbox (badness 1783) in paragraph at lines 2594--2595
 \T1/lmr/m/n/12 (+20) and [] im-plies that we have ei-ther $[][] []\OML/lmm/m/it/12 ^^\[]=[] < \OT1/lmr/m/n/12 (+20) 1$ \T1/lmr/m/n/12 (+20) or else
  []
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 81 undefined on input line 2604.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 81 undefined on input line 2596.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 81 undefined on input line 2609.
-
-
-LaTeX Warning: Reference `theo:fullrecovGS' on page 81 undefined on input line 2611.
-
-
-LaTeX Warning: Reference `eq:rateconvgsm' on page 81 undefined on input line 2611.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 81 undefined on input line 2601.
 
 
 
 [81]
 
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 82 undefined on input line 2621.
+LaTeX Warning: Reference `theo:fullrecovGS' on page 82 undefined on input line 2603.
 
 
-LaTeX Warning: Reference `eq:rateconvgsm' on page 82 undefined on input line 2630.
+LaTeX Warning: Reference `eq:rateconvgsm' on page 82 undefined on input line 2603.
 
 
-LaTeX Warning: Reference `eq:betamin' on page 82 undefined on input line 2632.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 82 undefined on input line 2613.
 
 
-LaTeX Warning: Reference `eq:betamin' on page 82 undefined on input line 2632.
+LaTeX Warning: Reference `eq:rateconvgsm' on page 82 undefined on input line 2622.
 
 
-LaTeX Warning: Reference `eq:optimrateconvgsm' on page 82 undefined on input line 2640.
+LaTeX Warning: Reference `eq:betamin' on page 82 undefined on input line 2624.
+
+
+LaTeX Warning: Reference `eq:betamin' on page 82 undefined on input line 2624.
 
 
 
 [82]
 
-LaTeX Warning: Reference `eq:optimrateconvgsm' on page 83 undefined on input line 2654.
+LaTeX Warning: Reference `eq:optimrateconvgsm' on page 83 undefined on input line 2632.
 
 
-LaTeX Warning: Reference `cor:selconstimpossible' on page 83 undefined on input line 2656.
+LaTeX Warning: Reference `eq:optimrateconvgsm' on page 83 undefined on input line 2646.
 
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 83 undefined on input line 2657.
+LaTeX Warning: Reference `cor:selconstimpossible' on page 83 undefined on input line 2648.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 83 undefined on input line 2657.
+LaTeX Warning: Reference `lem:necbetaminblockthresh' on page 83 undefined on input line 2649.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 83 undefined on input line 2657.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 83 undefined on input line 2649.
 
 
-LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 83 undefined on input line 2660.
+LaTeX Warning: Reference `prop:suffnecblockthreshII' on page 83 undefined on input line 2649.
 
 
 
 [83]
 
-LaTeX Warning: Reference `lem:lowconcentminnormal' on page 84 undefined on input line 2663.
+LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 84 undefined on input line 2652.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 84 undefined on input line 2671.
+LaTeX Warning: Reference `lem:lowconcentminnormal' on page 84 undefined on input line 2655.
 
 
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 84 undefined on input line 2673.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 84 undefined on input line 2663.
 
 
-LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 84 undefined on input line 2674.
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 84 undefined on input line 2665.
+
+
+LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 84 undefined on input line 2666.
 
 
 
 [84]
 
-LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 85 undefined on input line 2689.
+LaTeX Warning: Reference `cond:necIIallblockthresh2' on page 85 undefined on input line 2681.
 
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 85 undefined on input line 2691.
+LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 85 undefined on input line 2683.
 
 
-LaTeX Warning: Reference `eq:necbetaminblockthreshbis' on page 85 undefined on input line 2694.
+LaTeX Warning: Reference `eq:necbetaminblockthreshbis' on page 85 undefined on input line 2686.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 85 undefined on input line 2699.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 85 undefined on input line 2691.
 
 
-LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 85 undefined on input line 2700.
+LaTeX Warning: Reference `lem:gennecIIblockthresh' on page 85 undefined on input line 2692.
 
 
-LaTeX Warning: Reference `cor:sfin' on page 85 undefined on input line 2703.
+LaTeX Warning: Reference `cor:sfin' on page 85 undefined on input line 2695.
 
 
-LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 85 undefined on input line 2703.
+LaTeX Warning: Reference `lem:necbetaminblockthresh2' on page 85 undefined on input line 2695.
 
 
-LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 85 undefined on input line 2703.
+LaTeX Warning: Reference `prop:suffnecblockthreshI' on page 85 undefined on input line 2695.
 
 
-LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 85 undefined on input line 2703.
+LaTeX Warning: Reference `prop:suffnecIIblockthreshbis' on page 85 undefined on input line 2695.
+
+
+Package natbib Warning: There were undefined citations.
 
 
 
-[85] (./main.aux)
+[85]
+
+[86] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -1076,13 +1087,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 17561 strings out of 467748
- 277875 string characters out of 5431137
- 758455 words of memory out of 5000000
+ 17560 strings out of 467748
+ 277864 string characters out of 5431137
+ 758457 words of memory out of 5000000
  45223 multiletter control sequences out of 15000+600000
- 772424 words of font info for 338 fonts, out of 8000000 for 9000
+ 772328 words of font info for 337 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,15n,93p,2222b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,15n,93p,1769b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{lab:A5bis} has been referenced but does not exist, replaced by a fixed one
 
@@ -1099,10 +1110,10 @@ pdfTeX warning (dest): name{lab:A7} has been referenced but does not exist, repl
 pdfTeX warning (dest): name{lab:A2} has been referenced but does not exist, replaced by a fixed one
 
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmib10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (85 pages, 796104 bytes).
+Output written on main.pdf (86 pages, 794725 bytes).
 PDF statistics:
- 1680 PDF objects out of 1728 (max. 8388607)
- 1505 compressed objects within 16 object streams
- 342 named destinations out of 1000 (max. 500000)
+ 1670 PDF objects out of 1728 (max. 8388607)
+ 1495 compressed objects within 15 object streams
+ 343 named destinations out of 1000 (max. 500000)
  76198 words of extra memory for PDF output out of 89155 (max. 10000000)
 
