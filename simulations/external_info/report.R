@@ -64,7 +64,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_linetype_manual(values=c(#1,
       1,
@@ -74,7 +74,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'), 
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_shape_manual(values=c(#NA,
       NA,
@@ -84,7 +84,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     ylab('Prob. recovery') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
@@ -177,7 +177,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_linetype_manual(values=c(#1,
       1,
@@ -187,7 +187,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'), 
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_shape_manual(values=c(#NA,
       NA,
@@ -197,7 +197,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     ylab('FDR') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
@@ -234,7 +234,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_linetype_manual(values=c(#1,
       1,
@@ -244,7 +244,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'), 
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_shape_manual(values=c(#NA,
       NA,
@@ -254,7 +254,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     ylab('Power') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
@@ -291,7 +291,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),                
         bquote(hat(S)^'A,ei'),                
         #bquote(hat(S)^'EB'),                
-        bquote(hat(S)^'A'),                
+        bquote(hat(S)^'A,sd'),                
         'EBIC','LASSO', 'SCAD'))+
     scale_linetype_manual(values=c(#1,
       1,
@@ -301,7 +301,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'), 
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     scale_shape_manual(values=c(#NA,
       NA,
@@ -311,7 +311,7 @@ summarize.sim <- function(scenario,path){
       labels=c(#bquote(hat(S)^'EB,b'),
         bquote(hat(S)^'A,ei'),
         #bquote(hat(S)^'EB'),
-        bquote(hat(S)^'A'),
+        bquote(hat(S)^'A,sd'),
         'EBIC','LASSO', 'SCAD'))+
     ylab('MSE') +
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
