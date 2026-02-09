@@ -10,7 +10,7 @@ library(tidyverse)
 
 path = '~/GitHub/varsel.extdata/WIP/paper/code.figures/'
 
-####### Plot ratio of betamin lower bounds #######
+####### Plot smallest betamin allowed #######
 
 
 log.nb.active <- function(n){
@@ -166,67 +166,3 @@ p.sc4<-ggplot(data.frame(n = seq(300,1.4*10^5,1000)),aes(x=n)) +
   )
 p.sc4
 ggsave(paste0(path,'p.betamin.sc4.ex.pdf'),width = 70, height = 60, units='mm')
-
-
-p1bis<-ggplot(data.frame(n = seq(100,10^6,1000)),aes(x=n)) +
-  geom_function(fun = ratio.scen1, aes(linetype = "1_")) +
-  geom_function(fun = ratio.scen2, aes(linetype = "2_")) +
-  geom_function(fun = ratio.scen3, aes(linetype = "3_")) +
-  geom_function(fun = ratio.scen4, aes(linetype = "4_")) +
-  scale_x_log10(labels = scales::comma) +
-  scale_linetype_manual('Example',values=c("1_"=1, "2_"=2,"3_"=3,"4_"=4),labels=c(1,2,3,4))+
-  ylab('Ratio of smallest signals recoverable') +
-  coord_cartesian(xlim = c(10^3,10^6),ylim=c(0,1))+
-  theme_light(base_size = 8)+
-  #ggtitle('Ratio of smallest signal recoverable')+
-  theme(panel.grid.minor.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        legend.margin=margin(0,0,0,0), 
-        legend.box.margin=margin(-10,-10,-10,-10),
-        legend.position="bottom")
-p1bis
-ggsave(paste0('p.ratio.smallestbeta.pdf'), width = 60, height = 72, units='mm')
-
-
-
-p1bis<-ggplot(data.frame(n = seq(100,10^6,1000)),aes(x=n)) +
-  geom_function(fun = ratio.scen1, aes(linetype = "1_")) +
-  geom_function(fun = ratio.scen2, aes(linetype = "2_")) +
-  #geom_function(fun = ratio.scen3, aes(linetype = "3_")) +
-  geom_function(fun = ratio.scen4, aes(linetype = "3_")) +
-  scale_x_log10(labels = scales::comma) +
-  scale_linetype_manual('Example',values=c("1_"=1, "2_"=2,"3_"=3),labels=c(1,2,3))+
-  ylab('Ratio of smallest signals recoverable') +
-  coord_cartesian(xlim = c(10^3,10^5),ylim=c(0,1))+
-  theme_light(base_size = 12)+
-  #ggtitle('Ratio of smallest signal recoverable')+
-  theme(panel.grid.minor.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        legend.margin=margin(0,0,0,0), 
-        legend.box.margin=margin(-10,-10,-10,-10),
-        legend.position="bottom")
-p1bis
-ggsave(paste0('p.ratio.smallestbeta.posterA1.pdf'), width = 110, height = 100, units='mm')
-
-
-p1bis<-ggplot(data.frame(n = seq(100,10^6,1000)),aes(x=n)) +
-  geom_function(fun = ratio.scen1, aes(linetype = "1_")) +
-  geom_function(fun = ratio.scen2, aes(linetype = "2_")) +
-  #geom_function(fun = ratio.scen3, aes(linetype = "3_")) +
-  geom_function(fun = ratio.scen4, aes(linetype = "3_")) +
-  scale_x_log10(labels = scales::comma) +
-  scale_linetype_manual('Example',values=c("1_"=1, "2_"=2,"3_"=3),labels=c(1,2,3))+
-  ylab('Ratio of smallest signals recoverable') +
-  coord_cartesian(xlim = c(10^3,10^5),ylim=c(0,1))+
-  theme_light(base_size = 12)+
-  #ggtitle('Ratio of smallest signal recoverable')+
-  theme(panel.grid.minor.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
-        legend.margin=margin(0,0,0,0), 
-        legend.box.margin=margin(-10,-10,-10,-10),
-        legend.position="bottom")
-p1bis
-ggsave(paste0('p.ratio.smallestbeta.posterA0.pdf'), width = 150, height = 120, units='mm')
-
-
-

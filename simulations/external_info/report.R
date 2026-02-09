@@ -342,7 +342,7 @@ summarize.sim <- function(scenario,path){
     # coord_cartesian(ylim=c(0,1)) +
     theme_light(base_size = 8)+
     scale_x_continuous(labels = ~paste0('(',.,',',round(nb.inactive(.,scenario)+nb.active(.)), ")"), name = "(n,p)") +
-    ylab(expression(paste('Computation time for informed \u2113'[0], ' in secs') )) +
+    ylab(expression(paste('Computation time in seconds') )) +
     theme(panel.grid.minor.x = element_blank(),
           panel.grid.minor.y = element_blank())
   
@@ -351,7 +351,7 @@ summarize.sim <- function(scenario,path){
 
 library(tidyverse)
 
-path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/external_info"
+path = "C:/Users/Usuario/Documents/GitHub/varsel.extdata/simulations/external_info"
 summarize.sim(1,path)
 summarize.sim(3,path)
 summarize.sim(4,path)
