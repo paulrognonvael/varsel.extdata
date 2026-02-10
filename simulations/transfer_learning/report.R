@@ -269,7 +269,7 @@ summarize.sim <- function(scenario,path){
     ) +
     guides(color=guide_legend(nrow=2,byrow=TRUE))
   
-  ggsave(paste0('p.TL.power.ex',scenario,'.pdf'),width = 5, height = 60, units='mm')
+  ggsave(paste0('p.TL.power.ex',scenario,'.pdf'),width = 52, height = 60, units='mm')
   
   #### Estimation mse ####
   
@@ -326,7 +326,7 @@ summarize.sim <- function(scenario,path){
     ) +
     guides(color=guide_legend(nrow=2,byrow=TRUE))
   
-  ggsave(paste0('p.TL.est.mse.ex',scenario,'.pdf'),width = 52, height = 55, units='mm')
+  ggsave(paste0('p.TL.est.mse.ex',scenario,'.pdf'),width = 52, height = 60, units='mm')
   
   
   #### L0 sol computation time ####
@@ -350,9 +350,9 @@ library(tidyverse)
 
 path = "C:/Users/Rognon/Documents/GitHub/varsel.extdata/simulations/transfer_learning/"
 summarize.sim(1,path)
-# summarize.sim(2,path)
+summarize.sim(2,path)
 summarize.sim(3,path)
-# summarize.sim(4,path)
+summarize.sim(4,path)
 summarize.sim(5,path)
 
 

@@ -16,12 +16,20 @@ mu <- rep(0,p)
 X <- rmvnorm(n,mu,Sigma)
 X.design <- X %*% diag(1/sqrt(diag(t(X) %*% X)/n))
 write.csv(X.design,"X.designp2000n700.corr.csv",row.names = FALSE)
+
+Sigma_source = matrix(NA, nrow=p, ncol=p)
+for(i in 1:2000){
+  for(j in 1:2000){
+    Sigma_source[i,j] = 0.5^(abs(i-j))
+  }
+}
+
 # Source data 1
-X <- rmvnorm(n,mu,Sigma)
+X <- rmvt(n, sigma = Sigma_source, df= 8)
 X.design <- X %*% diag(1/sqrt(diag(t(X) %*% X)/n))
 write.csv(X.design,"X.source1.csv",row.names = FALSE)
 # Source data 2
-X <- rmvnorm(n,mu,Sigma)
+X <- rmvt(n, sigma = Sigma_source, df= 8)
 X.design <- X %*% diag(1/sqrt(diag(t(X) %*% X)/n))
 write.csv(X.design,"X.source2.csv",row.names = FALSE)
 
