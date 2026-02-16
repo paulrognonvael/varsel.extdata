@@ -1,4 +1,4 @@
-This is the code and simulation output
+This repository gathers the code and simulation output for the paper "Improving variable selection properties with data integration and transfer learning". Available on arxiv [here](https://arxiv.org/abs/2502.15584).
 
 simulations/routines.R gathers functions used across simulations and the colon cancer example 
 simulations/sim_data.R is code used to simulate datasets
